@@ -1,0 +1,7 @@
+{
+  "name": "LIF SKIN CLINIC 訪問点滴 | 中央区・港区限定のプレミアム訪問点滴",
+  "description": "LIF SKIN CLINIC 院長・宇佐美潤（麻酔科専門医）が提供する、完全予約制のプレミアム訪問点滴。ご自宅やオフィスで、最高峰の美容点滴・リカバリーケアを。",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
