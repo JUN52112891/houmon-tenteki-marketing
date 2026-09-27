@@ -1,0 +1,669 @@
+/* ==========================================================================
+   訪問点滴サービス LP スタイル
+   方針: 白基調・十分な余白 / グラデーション不使用 / カードUIの乱用回避
+        / 角丸は最小限 / 絵文字不使用 / スマホファースト
+   ========================================================================== */
+
+:root {
+  --color-bg: #ffffff;
+  --color-bg-soft: #f7f6f3;
+  --color-text: #2a2a26;
+  --color-text-muted: #6b6a63;
+  --color-line: #e4e2da;
+  --color-primary: #2c3e4a;       /* 落ち着いたネイビー系 */
+  --color-primary-dark: #1c2930;
+  --color-accent: #9c7c43;        /* 上品なゴールド系アクセント */
+  --color-accent-soft: #f1ead9;
+  --color-notice-bg: #faf7ef;
+  --color-notice-border: #cbb98a;
+  --radius-s: 4px;
+  --radius-m: 8px;
+  --max-width: 960px;
+  --font-base: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic",
+    "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.85;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 64px; /* モバイル固定CTAバーの分の余白 */
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 56px 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.section:first-of-type {
+  border-top: none;
+}
+
+.section--soft {
+  background: var(--color-bg-soft);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.section-title {
+  font-size: 22px;
+  line-height: 1.5;
+  margin: 0 0 20px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.section-lead {
+  font-size: 15.5px;
+  color: var(--color-text-muted);
+  margin: 0 0 28px;
+}
+
+.body-text {
+  font-size: 15.5px;
+  margin: 0 0 16px;
+}
+
+.body-text:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- ヘッダー / ブランド表記 ---------- */
+
+.site-header {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.brand {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.brand small {
+  display: block;
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+/* ---------- ヒーロー ---------- */
+
+.hero {
+  padding: 48px 0 40px;
+}
+
+.hero-area {
+  font-size: 13px;
+  color: var(--color-accent);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+
+.hero-title {
+  font-size: 28px;
+  line-height: 1.5;
+  font-weight: 700;
+  margin: 0 0 16px;
+  letter-spacing: 0.02em;
+}
+
+.hero-sub {
+  font-size: 15.5px;
+  color: var(--color-text-muted);
+  margin: 0 0 24px;
+}
+
+.hero-meta {
+  font-size: 13.5px;
+  color: var(--color-text-muted);
+  margin: 0 0 28px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-line);
+}
+
+/* ---------- CTAボタン ---------- */
+
+.cta-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cta-button {
+  display: block;
+  text-align: center;
+  padding: 15px 20px;
+  border-radius: var(--radius-s);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid var(--color-primary);
+}
+
+.cta-button--primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.cta-button--outline {
+  background: transparent;
+  color: var(--color-primary);
+}
+
+.cta-note {
+  font-size: 12.5px;
+  color: var(--color-text-muted);
+  margin-top: 10px;
+}
+
+/* ---------- 画像プレースホルダー ---------- */
+
+.placeholder-image {
+  background: var(--color-bg-soft);
+  border: 1px dashed #c7c4b8;
+  border-radius: var(--radius-s);
+  padding: 28px 18px;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 12.5px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.placeholder-image__label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #a39b7f;
+  margin-bottom: 8px;
+}
+
+.placeholder-image--tall {
+  padding: 60px 18px;
+}
+
+.placeholder-image--square {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 18px;
+}
+
+/* ---------- お悩みリスト ---------- */
+
+.concern-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.concern-item {
+  padding: 18px;
+  background: var(--color-bg-soft);
+  border-radius: var(--radius-s);
+}
+
+.concern-item p {
+  margin: 0;
+  font-size: 14.5px;
+}
+
+.concern-conclusion {
+  font-size: 15.5px;
+  font-weight: 700;
+  border-left: 3px solid var(--color-accent);
+  padding-left: 14px;
+}
+
+/* ---------- 比較（点滴 / サプリメント） ---------- */
+
+.compare-list {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.compare-list li {
+  padding: 16px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-s);
+  font-size: 14.5px;
+}
+
+.compare-list strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13.5px;
+  color: var(--color-accent);
+}
+
+/* ---------- 汎用番号付きリスト ---------- */
+
+.numbered-list {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  counter-reset: item;
+}
+
+.numbered-list li {
+  counter-increment: item;
+  position: relative;
+  padding: 14px 0 14px 40px;
+  border-bottom: 1px solid var(--color-line);
+  font-size: 14.5px;
+}
+
+.numbered-list li:last-child {
+  border-bottom: none;
+}
+
+.numbered-list li::before {
+  content: counter(item);
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.numbered-list--flow li::before {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* ---------- 点滴メニュー ---------- */
+
+.menu-block {
+  padding: 32px 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.menu-block:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.menu-index {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.menu-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.menu-tagline {
+  font-size: 14.5px;
+  color: var(--color-text-muted);
+  margin: 0 0 18px;
+}
+
+.ingredient-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 20px;
+  font-size: 13.5px;
+}
+
+.ingredient-table th,
+.ingredient-table td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--color-line);
+  vertical-align: top;
+}
+
+.ingredient-table th {
+  font-weight: 700;
+  color: var(--color-text-muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.target-list {
+  margin: 0 0 18px;
+  padding-left: 20px;
+  font-size: 14.5px;
+}
+
+.target-list li {
+  margin-bottom: 6px;
+}
+
+/* ---------- 免責・注意書き ---------- */
+
+.disclaimer {
+  font-size: 12.5px;
+  color: var(--color-text-muted);
+  padding: 12px 14px;
+  background: var(--color-bg-soft);
+  border-radius: var(--radius-s);
+  margin: 0 0 18px;
+}
+
+.notice-box {
+  background: var(--color-notice-bg);
+  border: 1px solid var(--color-notice-border);
+  border-radius: var(--radius-s);
+  padding: 16px 16px;
+  margin: 0 0 20px;
+}
+
+.notice-box__title {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: var(--color-primary-dark);
+}
+
+.notice-box p {
+  font-size: 12.5px;
+  color: var(--color-text-muted);
+  margin: 0 0 6px;
+}
+
+.notice-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- 料金プラン ---------- */
+
+.plan-box {
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-m);
+  padding: 28px 20px;
+  margin-bottom: 20px;
+}
+
+.plan-price {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 12px 0 4px;
+}
+
+.plan-price small {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  margin-left: 6px;
+}
+
+.plan-price-note {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin: 0 0 20px;
+}
+
+/* ---------- 医師紹介 ---------- */
+
+.doctor-block {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.doctor-name {
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.doctor-role {
+  font-size: 13.5px;
+  color: var(--color-text-muted);
+  margin: 0 0 14px;
+}
+
+.doctor-quals {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.doctor-quals li {
+  padding: 4px 0 4px 16px;
+  position: relative;
+}
+
+.doctor-quals li::before {
+  content: "-";
+  position: absolute;
+  left: 0;
+}
+
+/* ---------- 安心・安全 ---------- */
+
+.safety-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.safety-item {
+  padding: 18px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-s);
+}
+
+.safety-item h3 {
+  font-size: 14.5px;
+  margin: 0 0 8px;
+}
+
+.safety-item p {
+  font-size: 13.5px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ---------- FAQ ---------- */
+
+.faq-item {
+  border-bottom: 1px solid var(--color-line);
+  padding: 16px 0;
+}
+
+.faq-item:first-child {
+  border-top: 1px solid var(--color-line);
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14.5px;
+  list-style: none;
+  position: relative;
+  padding-right: 24px;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: -2px;
+  font-size: 18px;
+  color: var(--color-accent);
+}
+
+.faq-item[open] summary::after {
+  content: "\2212";
+}
+
+.faq-answer {
+  margin: 12px 0 0;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+/* ---------- 対応エリア ---------- */
+
+.area-name {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+/* ---------- 最終CTA ---------- */
+
+.final-cta {
+  text-align: center;
+}
+
+.final-cta .section-title {
+  font-size: 21px;
+}
+
+/* ---------- フッター ---------- */
+
+.site-footer {
+  padding: 32px 0 40px;
+  font-size: 12.5px;
+  color: var(--color-text-muted);
+}
+
+.site-footer p {
+  margin: 0 0 6px;
+}
+
+.footer-disclaimer {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-line);
+}
+
+/* ---------- モバイル固定CTAバー ---------- */
+
+.mobile-cta-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  border-top: 1px solid var(--color-line);
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  z-index: 50;
+}
+
+.mobile-cta-bar .cta-button {
+  padding: 13px 16px;
+  font-size: 14.5px;
+}
+
+/* ---------- タブレット以上 ---------- */
+
+@media (min-width: 768px) {
+  body {
+    font-size: 16.5px;
+  }
+
+  .section {
+    padding: 80px 0;
+  }
+
+  .hero {
+    padding: 72px 0 60px;
+  }
+
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .section-title {
+    font-size: 26px;
+  }
+
+  .cta-group {
+    flex-direction: row;
+  }
+
+  .cta-button {
+    flex: 1;
+  }
+
+  .concern-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .compare-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .safety-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .doctor-block {
+    grid-template-columns: 240px 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 40px;
+  }
+}

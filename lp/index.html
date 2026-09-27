@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>訪問点滴サービス(仮称) | ご自宅・オフィスへ伺う訪問点滴</title>
+<meta name="description" content="医師がご自宅やオフィスへ伺う完全予約制の訪問点滴サービスです。事前の診察のうえで、目的に合わせた点滴を行います。対応エリア・料金等は準備中です。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!--
+  実装メモ(このコメントは公開ページには表示されません)
+  ・本LPは院長作成のGamma版叩き台をベースに、構成・文言をできる限り踏襲して実装しています。
+  ・CLAUDE.md の遵守事項に基づき、以下の点はGamma版から意図的に変更しています。
+    1) クリニック名「LIF SKIN CLINIC」のブランド表記は使用せず、サービス名は仮称のプレースホルダーにしています。
+    2) 患者の体験談・口コミ(「ご利用いただいた方の声」)セクションは医療広告ガイドラインに基づき掲載していません。
+    3) 誇大・比較優良表現に該当しうる語(「最高峰」「究極」等)は穏当な表現に調整しています。
+    4) NMN・幹細胞上清液については未承認医薬品等に関する注意書きを追加しています(詳細は要確認、CLAUDE.md参照)。
+  ・LINE等の予約導線URLは未確定のため、CTAリンクは仮の "#" にしています。確定次第差し替えが必要です。
+  ・画像はすべてプレースホルダーです。キャプションに必要な写真の内容を明記しています。
+-->
+
+<header class="site-header">
+  <div class="container">
+    <div class="brand">
+      訪問点滴(サービス名 仮称)
+      <small>医師によるご自宅・オフィスへの訪問点滴サービス / 完全予約制</small>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ヒーロー -->
+  <section class="hero container">
+    <p class="hero-area">対応エリア: 東京都中央区・港区(予定)</p>
+    <h1 class="hero-title">いつもの自宅が、落ち着いて過ごせるケアの時間に</h1>
+    <p class="hero-sub">医師がご自宅やオフィスへ伺い、事前の診察のうえで点滴を行う、完全予約制の訪問点滴サービスです。</p>
+
+    <div class="placeholder-image placeholder-image--tall">
+      <span class="placeholder-image__label">PHOTO PLACEHOLDER</span>
+      [ヒーロー用写真:清潔感のあるリビングや寝室で、医師が患者の腕元に点滴の準備をしている様子。柔らかい自然光、生活感を抑えた落ち着いたインテリアが伝わる構図]
+    </div>
+
+    <p class="hero-meta">担当医師: 宇佐美 潤(麻酔科医として約15年の臨床経験) ｜ 完全予約制</p>
+
+    <div class="cta-group">
+      <a class="cta-button cta-button--primary" href="#">初回体験をLINEで予約する</a>
+      <a class="cta-button cta-button--outline" href="#">LINEで気軽に質問する</a>
+    </div>
+    <p class="cta-note">申し込み前のご質問のみでも歓迎です。</p>
+  </section>
+
+  <!-- お悩みセクション -->
+  <section class="section container">
+    <p class="eyebrow">CONCERN</p>
+    <h2 class="section-title">こんなお悩みはありませんか</h2>
+
+    <div class="concern-grid">
+      <div class="concern-item">
+        <div class="placeholder-image placeholder-image--square">
+          <span class="placeholder-image__label">PHOTO</span>
+          [しっかり寝ても疲れが抜けないと感じている人のイメージ写真(朝、ベッドサイドで目をこすっている等)]
+        </div>
+        <p>しっかり休んだはずなのに、疲れが抜けにくいと感じる</p>
+      </div>
+      <div class="concern-item">
+        <div class="placeholder-image placeholder-image--square">
+          <span class="placeholder-image__label">PHOTO</span>
+          [肌のくすみが気になり鏡を見ている人のイメージ写真]
+        </div>
+        <p>肌のくすみや、以前ほどのハリを感じにくい</p>
+      </div>
+      <div class="concern-item">
+        <div class="placeholder-image placeholder-image--square">
+          <span class="placeholder-image__label">PHOTO</span>
+          [多忙なビジネスパーソンが移動中や職場でスケジュールを確認しているイメージ写真]
+        </div>
+        <p>仕事や家事に追われ、通院のための時間を確保しづらい</p>
+      </div>
+      <div class="concern-item">
+        <div class="placeholder-image placeholder-image--square">
+          <span class="placeholder-image__label">PHOTO</span>
+          [待合室で順番を待つ人々のイメージ写真(移動・待ち時間の負担を象徴するカット)]
+        </div>
+        <p>通院にともなう移動や待ち時間、人目が気になる</p>
+      </div>
+    </div>
+
+    <p class="concern-conclusion">加齢やストレスによる「栄養素の不足」が、その一因かもしれません。</p>
+  </section>
+
+  <!-- 点滴ケアとは -->
+  <section class="section section--soft container">
+    <p class="eyebrow">ABOUT IV DRIP</p>
+    <h2 class="section-title">なぜ、今「点滴ケア」なのか</h2>
+    <p class="body-text">点滴は、必要な成分を静脈から直接体内へ届ける方法です。疲れが抜けにくいと感じるときや、美容・健康を意識したコンディションケアの選択肢のひとつとして取り入れられています。</p>
+
+    <ul class="compare-list">
+      <li>
+        <strong>サプリメントの場合</strong>
+        口から摂取した成分は、胃や腸で消化・吸収され、肝臓で代謝される過程を経て全身に届きます。
+      </li>
+      <li>
+        <strong>点滴の場合</strong>
+        消化管を介さず、成分を静脈から直接投与するため、複数の成分を一度にまとめて補うことができ、目的に応じた内容のカスタマイズも可能です。
+      </li>
+    </ul>
+
+    <p class="disclaimer">点滴による感じ方や経過には個人差があります。すべての症状の改善や効果を保証するものではありません。</p>
+  </section>
+
+  <!-- 通院の課題 -->
+  <section class="section container">
+    <p class="eyebrow">CHALLENGE</p>
+    <h2 class="section-title">点滴は受けたい。でも、通院は負担。</h2>
+    <ol class="numbered-list">
+      <li>移動時間・待ち時間のタイムロス</li>
+      <li>身支度の煩わしさ</li>
+      <li>プライバシーの確保</li>
+    </ol>
+  </section>
+
+  <!-- 訪問点滴の提案 -->
+  <section class="section section--soft container">
+    <p class="eyebrow">SOLUTION</p>
+    <h2 class="section-title">そんな方に、訪問点滴という選択肢</h2>
+    <p class="body-text">医師・医療スタッフがご自宅やオフィスへ直接伺い、その場で点滴を行うサービスです。事前の問診・診察を踏まえ、内容をご相談のうえで実施します。</p>
+
+    <div class="placeholder-image">
+      <span class="placeholder-image__label">PHOTO PLACEHOLDER</span>
+      [医師が往診バッグ・点滴セットを持ってマンションのエントランス等を訪れているシーン、または室内で問診票を確認しているシーン]
+    </div>
+
+    <ol class="numbered-list">
+      <li>移動・待ち時間の負担を軽減できます</li>
+      <li>点滴後はそのままご自宅で休めます</li>
+      <li>周囲の目を気にしないプライベートな環境で受けられます</li>
+      <li>点滴だけでなく、美容や健康について医師に相談できます</li>
+    </ol>
+  </section>
+
+  <!-- 点滴メニュー -->
+  <section class="section container" id="menu">
+    <p class="eyebrow">MENU</p>
+    <h2 class="section-title">点滴メニュー</h2>
+    <p class="section-lead">目的に応じて選べる3つのメニューをご用意しています。内容は診察のうえ、医師がご提案します。</p>
+
+    <!-- メニュー1 -->
+    <div class="menu-block">
+      <p class="menu-index">MENU 01</p>
+      <h3 class="menu-name">プレミアム・リカバリー点滴(疲労回復ケア)</h3>
+      <p class="menu-tagline">蓄積した疲労感のケアを目的とした、当院オリジナルの組み合わせメニューです。</p>
+
+      <div class="placeholder-image placeholder-image--square">
+        <span class="placeholder-image__label">PHOTO</span>
+        [点滴バッグと薬液アンプルが並ぶ、清潔感のある施術用トレーの写真]
+      </div>
+
+      <p class="body-text">「しっかり休んだはずなのに疲れが抜けない」「頭がすっきりしない」といった、日々感じやすい疲労感に向けて開発したメニューです。6つの成分を組み合わせて配合しています。</p>
+
+      <table class="ingredient-table">
+        <thead>
+          <tr><th>成分</th><th>成分の特徴</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>グルタチオン</td><td>抗酸化に関わる成分として知られています</td></tr>
+          <tr><td>高濃度ビタミンC</td><td>抗酸化に関わるビタミンです</td></tr>
+          <tr><td>ビタミンB群</td><td>エネルギー代謝に関わるビタミン群です</td></tr>
+          <tr><td>チオクト酸(αリポ酸)</td><td>抗酸化物質のひとつです</td></tr>
+          <tr><td>グリチルリチン酸(グリファーゲン)</td><td>甘草由来の成分です</td></tr>
+          <tr><td>マグネシウム</td><td>体内の様々な代謝に関わるミネラルです</td></tr>
+        </tbody>
+      </table>
+
+      <p class="body-text">このような方に選ばれています。</p>
+      <ul class="target-list">
+        <li>心身のコンディションを整えたい方</li>
+        <li>肌のくすみが気になる方</li>
+        <li>睡眠をとっても翌朝に疲れが残っていると感じる方</li>
+        <li>飲酒の機会が多く、翌日のコンディションが気になる方</li>
+      </ul>
+
+      <p class="disclaimer">点滴による感じ方や経過には個人差があります。効果を保証するものではありません。</p>
+    </div>
+
+    <!-- メニュー2 -->
+    <div class="menu-block">
+      <p class="menu-index">MENU 02</p>
+      <h3 class="menu-name">NMN点滴</h3>
+      <p class="menu-tagline">エイジングケアに関心のある方向けのメニューです。</p>
+
+      <div class="placeholder-image placeholder-image--square">
+        <span class="placeholder-image__label">PHOTO</span>
+        [NMN点滴のアンプルまたは点滴バッグのクローズアップ写真]
+      </div>
+
+      <p class="body-text">NMN(ニコチンアミド・モノヌクレオチド)は、ビタミンB3に含まれる成分で、加齢とともに体内での量が減少していくといわれています。この成分を点滴によって補うメニューです。</p>
+
+      <p class="body-text">このような方に選ばれています。</p>
+      <ul class="target-list">
+        <li>集中力や睡眠の質など、日々のコンディションに関心のある方</li>
+        <li>体力の低下を感じている方</li>
+        <li>ハードワークが続き、慢性的な疲労感がある方</li>
+        <li>代謝を意識したケアをしたい方</li>
+      </ul>
+
+      <p class="disclaimer">NMNに関する研究は現在も進められている段階であり、期待される働きや感じ方には個人差があります。効果を保証するものではありません。</p>
+
+      <div class="notice-box">
+        <p class="notice-box__title">未承認医薬品等に関する注意事項</p>
+        <p>NMNは、現時点で国内において医薬品として承認されたものではありません。</p>
+        <p>入手経路、国内における承認品の有無、海外における安全性情報の詳細につきましては、現在確認・整理を行っております。確定次第、本ページに明記いたします。</p>
+        <p>ご不安な点は、施術前の診察の際に担当医師へお尋ねください。</p>
+      </div>
+    </div>
+
+    <!-- メニュー3 -->
+    <div class="menu-block">
+      <p class="menu-index">MENU 03</p>
+      <h3 class="menu-name">幹細胞上清液点滴</h3>
+      <p class="menu-tagline">エイジングケアを目的としたメニューです。</p>
+
+      <div class="placeholder-image placeholder-image--square">
+        <span class="placeholder-image__label">PHOTO</span>
+        [幹細胞上清液点滴のバイアル・点滴バッグのクローズアップ写真]
+      </div>
+
+      <p class="body-text">「幹細胞上清液」とは、幹細胞を培養する過程で得られる液から細胞成分を取り除いた、上澄み部分を指します。成長因子(サイトカイン)などが含まれるとされています。</p>
+
+      <p class="body-text">このような方に選ばれています。</p>
+      <ul class="target-list">
+        <li>美容と健康を総合的に意識したい方</li>
+        <li>肌のハリに関するケアに関心のある方</li>
+        <li>年齢による体力・肌の変化が気になる方</li>
+        <li>これまでのケアに満足していなかった方</li>
+      </ul>
+
+      <p class="disclaimer">本メニューは幹細胞そのものを投与する治療ではありません。期待される働きについては研究段階の内容も含まれ、感じ方や経過には個人差があります。効果を保証するものではありません。</p>
+
+      <div class="notice-box">
+        <p class="notice-box__title">未承認医薬品等に関する注意事項</p>
+        <p>幹細胞上清液(培養上清液)は、現時点で国内において医薬品として承認されたものではありません。</p>
+        <p>入手経路、国内における承認品の有無、海外における安全性情報の詳細につきましては、現在確認・整理を行っております。確定次第、本ページに明記いたします。</p>
+        <p>ご不安な点は、施術前の診察の際に担当医師へお尋ねください。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 初回体験プラン -->
+  <section class="section section--soft container">
+    <p class="eyebrow">FIRST TRIAL</p>
+    <h2 class="section-title">まずは、訪問点滴をご体験ください</h2>
+    <p class="body-text">はじめての方には、疲労感のケアを目的とした「プレミアム・リカバリー点滴」からのご案内を基本としています。</p>
+
+    <div class="plan-box">
+      <p class="menu-tagline" style="margin-bottom:0;">初回体験プラン</p>
+      <ol class="numbered-list">
+        <li>カウンセリング(体調やご要望のヒアリング)</li>
+        <li>医師による訪問・診察、「プレミアム・リカバリー点滴」の施術(目安約60〜90分)</li>
+        <li>LINEによるアフターケア</li>
+      </ol>
+      <p class="plan-price">22,000円<small>(税込)</small></p>
+      <p class="plan-price-note">上記施術内容に含まれる範囲では、追加費用は発生しません。</p>
+      <a class="cta-button cta-button--primary" href="#">初回体験をLINEで予約する</a>
+    </div>
+  </section>
+
+  <!-- 継続プラン -->
+  <section class="section container">
+    <p class="eyebrow">CONTINUED CARE</p>
+    <h2 class="section-title">継続的に美容と健康を整えたい方へ</h2>
+    <ol class="numbered-list">
+      <li>定期訪問点滴 - プランに応じて定期的にご自宅へ伺い、診察のうえで点滴を行います</li>
+      <li>美容・健康に関するご相談 - 日頃感じている体調の変化や、美容・健康のお悩みをご相談いただけます</li>
+      <li>定期血液検査 - 必要に応じて定期的な血液検査を実施し、結果により適切な医療機関の受診をご案内します</li>
+    </ol>
+    <p class="disclaimer">継続プランの料金・提供内容は準備中です。詳細はLINEにてお問い合わせください。</p>
+  </section>
+
+  <!-- 医師紹介 -->
+  <section class="section section--soft container">
+    <p class="eyebrow">DOCTOR</p>
+    <h2 class="section-title">点滴を熟知した医師がご自宅へ伺います</h2>
+
+    <div class="doctor-block">
+      <div class="placeholder-image placeholder-image--square" style="margin-bottom:0;">
+        <span class="placeholder-image__label">PHOTO</span>
+        [宇佐美潤医師のプロフィール写真。白衣または清潔感のあるジャケット姿、自然な表情のバストアップ]
+      </div>
+      <div>
+        <p class="doctor-name">宇佐美 潤(うさみ じゅん)</p>
+        <p class="doctor-role">医師 / 本サービス担当</p>
+        <ul class="doctor-quals">
+          <li>日本抗加齢医学会所属</li>
+          <li>日本麻酔科学会所属</li>
+          <li>麻酔科標榜医</li>
+          <li>心臓血管麻酔専門医</li>
+        </ul>
+        <p class="body-text">大学病院などで麻酔科医として勤務し、日々の診療の中で数多くの静脈路確保や点滴管理を行い、患者様の全身状態の変化にも対応してきました。</p>
+        <p class="body-text">その経験を活かし、訪問点滴でも体調や既往歴、内服薬、アレルギー歴などを丁寧に確認したうえで、医師が点滴の適応と内容を判断します。万が一、アレルギー反応や気分不良などが生じた場合にも、状態を確認して必要な初期対応を行います。</p>
+        <p class="body-text">「仕事が忙しく通院の時間が取れない」「移動せず、自宅で安心して医療を受けたい」――そうした声に応えるため、ご自宅を落ち着いて過ごせる医療空間にする訪問点滴サービスを始めました。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 安心・安全 -->
+  <section class="section container">
+    <p class="eyebrow">SAFETY</p>
+    <h2 class="section-title">安心して点滴を受けていただくために</h2>
+    <div class="safety-grid">
+      <div class="safety-item">
+        <h3>医師が診察したうえで実施します</h3>
+        <p>体調、既往歴、内服薬、アレルギー歴などを確認し、医師が施術の可否を判断します。</p>
+      </div>
+      <div class="safety-item">
+        <h3>点滴中も状態を確認します</h3>
+        <p>点滴中は体調の変化がないかを確認しながら、安全に配慮して施術を進めます。</p>
+      </div>
+      <div class="safety-item">
+        <h3>体調変化への対応体制</h3>
+        <p>アレルギー反応や気分不良などが生じた場合、医師が状態を確認して必要な初期対応を行います。症状に応じて救急医療機関との連携や受診のご案内も行います。</p>
+      </div>
+      <div class="safety-item">
+        <h3>衛生管理を徹底します</h3>
+        <p>点滴に使用する針や医療材料は適切に管理し、衛生面に配慮して施術を行います。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ご利用の流れ -->
+  <section class="section section--soft container">
+    <p class="eyebrow">FLOW</p>
+    <h2 class="section-title">ご利用の流れ</h2>
+    <ol class="numbered-list numbered-list--flow">
+      <li>LINEからお問い合わせ - 下記ボタンよりご連絡ください。お申し込み前のご質問のみでも構いません。</li>
+      <li>事前確認・日程調整 - ご希望日時、訪問先、現在の体調、既往歴、内服薬などを確認します。</li>
+      <li>ご自宅へ訪問し診察・点滴 - 点滴を行うための小さなスペースをご用意いただければ、特別な準備は不要です。</li>
+      <li>アフターケア - 施術後の注意事項をご説明します。気になることがあればLINEからお問い合わせください。</li>
+    </ol>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section container">
+    <p class="eyebrow">FAQ</p>
+    <h2 class="section-title">よくあるご質問</h2>
+
+    <details class="faq-item">
+      <summary>自宅に特別な準備は必要ですか。</summary>
+      <p class="faq-answer">特別な設備は必要ありません。点滴を受けられる椅子やソファと、医療器具を置くための小さなスペースがあれば問題ございません。</p>
+    </details>
+    <details class="faq-item">
+      <summary>初回の所要時間はどのくらいですか。</summary>
+      <p class="faq-answer">診察を含め、約60〜90分が目安です。点滴内容や当日の体調によって前後する場合があります。</p>
+    </details>
+    <details class="faq-item">
+      <summary>家族が一緒にいても大丈夫ですか。</summary>
+      <p class="faq-answer">問題ございません。ご家族が同じお部屋にいる状態でも受けていただけます。ご友人と一緒に受けていただくことも可能です。</p>
+    </details>
+    <details class="faq-item">
+      <summary>どの点滴を選べばよいか分かりません。</summary>
+      <p class="faq-answer">初回体験では疲労回復ケアのメニューをご用意しています。ほかの点滴をご希望の場合も、診察の中で目的に合った内容をご提案します。</p>
+    </details>
+    <details class="faq-item">
+      <summary>持病や内服薬があっても受けられますか。</summary>
+      <p class="faq-answer">持病や内服薬の内容によって判断が異なります。事前確認と診察を行ったうえで、安全面を考慮し医師が施術の可否を判断します。</p>
+    </details>
+    <details class="faq-item">
+      <summary>初回体験後に契約しなければいけませんか。</summary>
+      <p class="faq-answer">いいえ。継続プランへの加入は任意です。初回体験のみのご利用も可能です。</p>
+    </details>
+    <details class="faq-item">
+      <summary>支払い方法を教えてください。</summary>
+      <p class="faq-answer">現金、クレジットカード、各種電子決済への対応を予定しています。ご利用可能な決済方法は事前にLINEでご案内します。</p>
+    </details>
+  </section>
+
+  <!-- 対応エリア -->
+  <section class="section section--soft container area-section">
+    <p class="eyebrow">AREA</p>
+    <h2 class="section-title">対応エリア</h2>
+    <p class="area-name">東京都中央区・港区(予定)</p>
+    <p class="body-text">完全予約制でご自宅・オフィスへ伺います。</p>
+    <p class="disclaimer">対応エリア内でも、場所や予約状況によって訪問日時を調整させていただく場合があります。その他の地域については、LINEからお問い合わせください。</p>
+  </section>
+
+  <!-- 最終CTA -->
+  <section class="section container final-cta">
+    <p class="eyebrow">CONTACT</p>
+    <h2 class="section-title">まずは気軽にご質問ください</h2>
+    <p class="body-text">「自分でも受けられますか」「どんな点滴が合いそうですか」「希望日に訪問できますか」――このような短いご質問だけでも構いません。初回体験を申し込むか決めていない段階でも、無理にお勧めすることはありません。気になる点を確認してから、ご自身のペースでご検討ください。</p>
+    <div class="cta-group">
+      <a class="cta-button cta-button--primary" href="#">LINEで気軽に質問する</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer container">
+  <p>訪問点滴(サービス名 仮称)</p>
+  <p>運営: 宇佐美 潤(医師) ※クリニック運営とは別の個人事業として運営しています</p>
+  <p>所在地・連絡先: 準備中(特定商取引法に基づく表記を別途掲載予定)</p>
+
+  <div class="footer-disclaimer">
+    <p>本ページに記載の内容は、医療法に基づく医療広告ガイドラインを踏まえた表現に努めています。</p>
+    <p>点滴による効果の感じ方や経過には個人差があり、すべての方に効果を保証するものではありません。</p>
+    <p>NMN・幹細胞上清液を含むメニューについては、各メニューの説明欄に記載の注意事項をご確認ください。</p>
+  </div>
+</footer>
+
+<div class="mobile-cta-bar">
+  <a class="cta-button cta-button--primary" href="#">初回体験をLINEで予約する</a>
+</div>
+
+</body>
+</html>
