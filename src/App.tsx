@@ -5,8 +5,7 @@ import {
   AlertCircle, 
   Check, 
   ChevronDown, 
-  User, 
-  Shield, 
+  Shield,
   Activity, 
   X, 
   Send,
@@ -25,6 +24,9 @@ import golfImg from './assets/images/ゴルフを楽しみたい.png'
 import skinImg from './assets/images/肌のくすみが気になる.png'
 import doctorPhoto from './assets/images/宣材写真5.jpg'
 import scenePhoto from './assets/images/3人の点滴風景.png'
+import supplementImg from './assets/images/ChatGPT Image 2026年8月30日 21_06_26 (2).png'
+import dripBagImg from './assets/images/ChatGPT Image 2026年8月30日 21_06_26 (3).png'
+import waitingManImg from './assets/images/時間待ちの男性.png'
 
 interface FAQItem {
   question: string
@@ -38,6 +40,9 @@ export default function App() {
   const toggleFaq = (index: number) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index)
   }
+
+  // Section 04 interactive comparison mode
+  const [compareMode, setCompareMode] = useState<'visit' | 'clinic'>('visit')
 
   // Estimator calculator states
   const [estimateRegion, setEstimateRegion] = useState<number>(0)
@@ -190,13 +195,7 @@ export default function App() {
         )}
       </header>
 
-      {/* Warning Regulatory Strip */}
-      <div className="bg-[#F3ECE4] text-[#53483E] py-2.5 px-4 text-center text-xs tracking-wider border-b border-[#E2D7CA] leading-relaxed">
-        <span className="inline-block"><span className="text-[#9E7D52] font-bold mr-1.5">【自由診療に関するご案内】</span>当院の訪問点滴治療は、</span>
-        <span className="inline-block">公的医療保険が適用されない自由診療です。</span>
-        <span className="inline-block">医師（麻酔科専門医）が直接訪問・対面診察の上、</span>
-        <span className="inline-block">安全に施術を行います。</span>
-      </div>
+
 
       {/* ===================================================
           01 | HERO SECTION (First View)
@@ -236,11 +235,7 @@ export default function App() {
             </p>
 
             <p className="text-[#3D332B] text-base leading-relaxed max-w-xl font-medium drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
-              <span className="inline-block">時間的な制約や</span>
-              <span className="inline-block">クリニックへの通院に煩わされることなく、</span>
-              <span className="inline-block">ご自宅やプライベートオフィスで</span>
-              <span className="inline-block">医療グレードの全身コンディショニングと</span>
-              <span className="inline-block">最先端エイジングケアをお受けいただけます。</span>
+              時間的な制約やクリニックへの通院に煩わされることなく、ご自宅やプライベートオフィスで医療グレードの全身コンディショニングと最先端エイジングケアをお受けいただけます。
             </p>
 
             {/* Price Pill (Oligio-Kiss Style - スマホ版で補足テキストを下段に配置) */}
@@ -301,9 +296,7 @@ export default function App() {
             </div>
 
             <p className="text-xs text-[#827467] leading-relaxed">
-              <span className="inline-block">ご希望の訪問地域と点滴メニューを選ぶと、</span>
-              <span className="inline-block">往診料を含むお支払総額が</span>
-              <span className="inline-block">即座に算出されます。</span>
+              ご希望の訪問地域と点滴メニューを選ぶと、往診料を含むお支払総額が即座に算出されます。
             </p>
 
             <div className="space-y-3.5 pt-1">
@@ -372,21 +365,22 @@ export default function App() {
       {/* ===================================================
           02 | CONCERN SECTION (こんなお悩みはありませんか？)
           =================================================== */}
-      <section id="about" className="pt-12 pb-16 sm:py-20 bg-[#F3ECE4] border-b border-[#E2D7CA]">
+      <section id="about" className="pt-12 pb-16 sm:py-20 bg-[#F3ECE4]/70 border-b border-[#E2D7CA]/60">
         <div className="max-w-[1160px] mx-auto px-6">
           
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-3 font-serif">
-              01 CONCERNS
-            </span>
-            <h2 className="font-serif text-2xl sm:text-4xl text-[#16120F] font-bold leading-snug">
-              <span className="inline-block">こんなお悩みは</span>
-              <span className="inline-block">ありませんか？</span>
-            </h2>
+          <div className="max-w-2xl sm:mx-auto mb-8 text-left sm:text-center flex sm:justify-center">
+            <div className="border-l-2 border-[#16120F]/60 pl-4 py-0.5 text-left">
+              <span className="text-xs font-bold tracking-[0.2em] text-[#16120F] uppercase block mb-1.5 font-serif">
+                01 CONCERNS
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
+                こんなお悩みはありませんか？
+              </h2>
+            </div>
           </div>
 
           {/* Large Concern Cards: 2 Columns for Maximum Visual Impact & Readability */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-[1040px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 max-w-[1040px] mx-auto">
             
             {/* Concern Card 1 */}
             <div className="bg-white border border-[#E2D7CA] rounded-[16px] shadow-[0_6px_20px_rgba(22,18,15,0.05)] hover:shadow-[0_16px_36px_rgba(22,18,15,0.1)] hover:border-[#143836]/40 transition-all overflow-hidden group">
@@ -447,16 +441,10 @@ export default function App() {
           </div>
 
           {/* Editorial Transition Bridge */}
-          <div className="mt-14 sm:mt-16 text-center max-w-3xl mx-auto px-4">
+          <div className="mt-8 sm:mt-10 text-center max-w-3xl mx-auto px-4">
             {/* Core statement */}
             <h3 className="font-serif text-xl sm:text-3xl text-[#16120F] font-bold leading-[1.65] sm:leading-[1.75] tracking-[0.02em]">
-              <span className="inline-block">そのお悩み、</span>
-              <span className="inline-block">加齢や過密スケジュールによる</span>
-              <br className="hidden sm:inline" />
-              <span className="inline-block text-[#143836]">「栄養素の吸収効率低下」</span>
-              <span className="inline-block px-1">や</span>
-              <span className="inline-block text-[#143836]">「酸化ストレス」</span>
-              <span className="inline-block">が原因かもしれません。</span>
+              そのお悩み、加齢や過密スケジュールによる<br className="hidden sm:inline" /><span className="text-[#16120F]">「栄養素の吸収効率低下」</span>や<span className="text-[#16120F]">「酸化ストレス」</span>が原因かもしれません。
             </h3>
           </div>
 
@@ -469,94 +457,89 @@ export default function App() {
       <section className="pt-12 pb-16 sm:py-20 bg-white border-b border-[#E2D7CA]">
         <div className="max-w-[1160px] mx-auto px-6">
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="max-w-3xl mx-auto">
             
             <div className="space-y-6">
-              <div>
-                <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-3 font-serif">
+              <div className="border-l-2 border-[#16120F]/60 pl-4 py-0.5">
+                <span className="text-xs font-bold tracking-[0.2em] text-[#16120F] uppercase block mb-1.5 font-serif">
                   02 WHY IV DRIP?
                 </span>
-                <h2 className="font-serif text-2xl sm:text-4xl font-bold text-[#16120F] leading-snug">
-                  <span className="inline-block">そのお悩みに、</span>
-                  <span className="inline-block text-[#143836]">点滴という選択肢を。</span>
+                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#16120F] leading-tight">
+                  そのお悩みに、<span className="text-[#16120F]">点滴という選択肢を。</span>
                 </h2>
               </div>
 
               <div className="space-y-3 pt-1">
-                <h3 className="font-serif text-lg sm:text-xl font-bold text-[#16120F] flex items-center gap-2">
-                  <span className="w-1.5 h-4 bg-[#143836] rounded-full inline-block shrink-0" />
+                <h3 className="font-serif text-lg sm:text-xl font-bold text-[#16120F] flex items-center gap-2.5">
+                  <span className="w-2 h-2 bg-[#8E6D42] rotate-45 inline-block shrink-0 rounded-[1px]" />
                   <span>なぜ、今「点滴ケア」なのか？</span>
                 </h3>
-                <p className="text-[#53483E] text-base leading-relaxed">
-                  <span className="inline-block">点滴は、身体に必要な美容・健康成分を</span>
-                  <span className="inline-block">静脈から直接体内（血管）へと届ける方法です。</span>
-                  <br className="hidden sm:inline" />
-                  <span className="inline-block">サプリメントを経口摂取するのに比べ、</span>
-                  <span className="inline-block">消化管を経由しないため、</span>
-                  <span className="inline-block">胃腸のコンディションに左右されることなく、</span>
-                  <span className="inline-block">その有効成分を瞬時に</span>
-                  <span className="inline-block">全身の細胞へと送り届けることができます。</span>
-                </p>
-              </div>
-
-              <div className="p-5 bg-[#FAF8F5] border-l-4 border-[#143836] rounded-r-[6px] text-xs sm:text-sm text-[#53483E] leading-relaxed">
-                <span className="inline-block font-bold text-[#143836]">「疲れた身体に、必要なエネルギーがじわじわ染みわたる感覚。」</span>
-                <br className="hidden sm:inline" />
-                <span className="inline-block">忙しい現代社会を生き抜くエグゼクティブや</span>
-                <span className="inline-block">美意識の高い方々の間で、</span>
-                <span className="inline-block">定番のコンディショニングツールとして選ばれています。</span>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="aspect-[4/3] bg-[#FAF8F5] rounded-[12px] overflow-hidden border border-[#E2D7CA] shadow-[0_12px_36px_rgba(22,18,15,0.08)]">
-                <img 
-                  src="/src/assets/images/iv_drip_bottle_1790513064457.jpg" 
-                  alt="Medical drip bottle preparation"
-                  className="w-full h-full object-cover"
-                />
+                <div className="text-sm sm:text-base text-[#53483E] leading-relaxed space-y-2">
+                  <p>
+                    点滴は、必要な成分を静脈から直接体内へ届ける方法です。
+                  </p>
+                  <p>
+                    忙しい現代社会を生き抜くエグゼクティブや美意識の高い方々の間で、定番のコンディショニングツールとして選ばれています。
+                  </p>
+                </div>
               </div>
             </div>
 
           </div>
 
-          {/* Comparison Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 pt-16 border-t border-[#E2D7CA]">
-            <div className="bg-[#FAF8F5] p-7 rounded-[12px] border border-[#E2D7CA] space-y-3">
-              <h3 className="font-serif text-lg font-bold text-[#16120F] flex items-center gap-2">
-                <span className="w-2 h-6 bg-[#143836] rounded-full shrink-0"></span>
-                <span className="inline-block">サプリメントとの決定的な違い</span>
-              </h3>
-              <p className="text-xs sm:text-sm text-[#53483E] leading-relaxed">
-                <span className="inline-block">口から摂取したサプリメントや食事の成分は、</span>
-                <span className="inline-block">胃や腸で消化・分解、吸収されたのち、</span>
-                <span className="inline-block">肝臓での代謝プロセスを経て全身に運ばれます。</span>
-                <span className="inline-block">そのため、実質的に血管内に届く割合は</span>
-                <span className="inline-block">ごく一部にとどまります。</span>
-                <span className="inline-block">一方、点滴は消化管を100％バイパスして</span>
-                <span className="inline-block">直接静脈から投与するため、</span>
-                <span className="inline-block">投与された成分のすべてを</span>
-                <span className="inline-block">ロスなく身体中で吸収・利用できます。</span>
-              </p>
+          {/* Comparison Content (Flat Editorial Layout instead of nested boxes/cards) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mt-10 pt-0">
+            
+            {/* Column 1 */}
+            <div className="space-y-5">
+              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[12px]">
+                <img 
+                  src={supplementImg} 
+                  alt="サプリメントとコップの水" 
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="space-y-2.5">
+                <h3 className="font-serif text-lg sm:text-xl font-bold text-[#16120F] flex items-center gap-2.5">
+                  <span className="w-2.5 h-2.5 bg-[#8E6D42] rotate-45 inline-block shrink-0 rounded-[1px]" />
+                  <span>サプリメントとの違い</span>
+                </h3>
+                <div className="text-sm sm:text-base text-[#53483E] leading-relaxed space-y-2">
+                  <p>
+                    口から摂取した成分は、胃や腸で消化・吸収され、肝臓で代謝される過程を経て体内に取り込まれます。
+                  </p>
+                  <p>
+                    一方、点滴は消化管を介さず、成分を静脈から直接体内へ投与できることが特徴です。
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <div className="bg-[#FAF8F5] p-7 rounded-[12px] border border-[#E2D7CA] space-y-3">
-              <h3 className="font-serif text-lg font-bold text-[#16120F] flex items-center gap-2">
-                <span className="w-2 h-6 bg-[#143836] rounded-full shrink-0"></span>
-                <span className="inline-block">点滴だからこそ叶えられる高濃度チャージ</span>
-              </h3>
-              <p className="text-xs sm:text-sm text-[#53483E] leading-relaxed">
-                <span className="inline-block">ビタミンC、グルタチオン、NMNといった</span>
-                <span className="inline-block">最高水準の有効成分を、</span>
-                <span className="inline-block">経口摂取では到底不可能な</span>
-                <span className="inline-block">「極めて高い血中濃度」まで</span>
-                <span className="inline-block">一気に引き上げることが可能です。</span>
-                <span className="inline-block">これこそが、点滴直後から肌のハリ、</span>
-                <span className="inline-block">全身のエネルギー代謝、</span>
-                <span className="inline-block">慢性的なだるさの劇的な軽減を</span>
-                <span className="inline-block">体感いただける最大の理由です。</span>
-              </p>
+            {/* Column 2 */}
+            <div className="space-y-5">
+              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[12px]">
+                <img 
+                  src={dripBagImg} 
+                  alt="精密に調剤された点滴バッグ" 
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="space-y-2.5">
+                <h3 className="font-serif text-lg sm:text-xl font-bold text-[#16120F] flex items-center gap-2.5">
+                  <span className="w-2.5 h-2.5 bg-[#8E6D42] rotate-45 inline-block shrink-0 rounded-[1px]" />
+                  <span>点滴だからできること</span>
+                </h3>
+                <div className="text-sm sm:text-base text-[#53483E] leading-relaxed space-y-2">
+                  <p>
+                    ビタミンやミネラルなど、目的に合わせた複数の成分を一度に補うことができます。
+                  </p>
+                  <p>
+                    忙しい日々のコンディションを整えたい方、疲れが抜けにくいと感じる方、肌の調子や透明感が気になる方など、それぞれの目的に応じたケアとしてご利用いただけます。
+                  </p>
+                </div>
+              </div>
             </div>
+
           </div>
 
         </div>
@@ -565,78 +548,37 @@ export default function App() {
       {/* ===================================================
           04 | THE CLINIC VISITING DILEMMA (通院の負担)
           =================================================== */}
-      <section className="pt-12 pb-14 sm:py-16 lg:py-24 bg-[#FAF8F5] border-b border-[#E2D7CA] relative">
+      <section className="pt-14 pb-14 sm:py-20 bg-[#FAF8F5] border-b border-[#E2D7CA] relative">
         <div className="max-w-[1160px] mx-auto px-6">
           
-          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-            <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-3 font-serif">
-              03 BURDEN OF CLINIC VISITS
-            </span>
-            <h2 className="font-serif text-2xl sm:text-4xl text-[#16120F] font-bold leading-snug">
-              <span className="inline-block">点滴は受けたい。</span>
-              <br className="sm:hidden" />
-              <span className="inline-block text-[#827467] font-medium sm:ml-2">でも、通院は負担。</span>
-            </h2>
-            <p className="text-[#53483E] text-xs sm:text-base mt-4 leading-relaxed max-w-2xl mx-auto">
-              <span className="inline-block">点滴のメリットは分かっていても、次のような「時間」と「手間」が疑問になっていませんか？</span>
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Dilemma Card 1 */}
-            <div className="bg-white border border-[#E2D7CA] rounded-[12px] p-6 sm:p-8 space-y-3.5 shadow-sm text-center">
-              <div className="w-12 h-12 rounded-full bg-[#FAF8F5] border border-[#E2D7CA] flex items-center justify-center text-[#16120F] mx-auto">
-                <Clock className="w-5 h-5 text-[#8E6D42]" />
-              </div>
-              <h3 className="font-serif text-lg font-bold text-[#16120F]">
-                <span className="inline-block">移動時間・待ち時間の</span>
-                <span className="inline-block">タイムロス</span>
-              </h3>
-              <p className="text-xs text-[#53483E] leading-relaxed text-left sm:text-center">
-                <span className="inline-block">「しっかり休みたいはずなのに、</span>
-                <span className="inline-block">往復の移動や、クリニックの</span>
-                <span className="inline-block">待ち時間で半日潰れてしまった」</span>
-                <span className="inline-block">という経験はありませんか？</span>
+          <div className="max-w-2xl sm:mx-auto text-left sm:text-center flex flex-col sm:items-center">
+            <div className="border-l-2 border-[#16120F]/60 pl-4 py-0.5 text-left w-full sm:w-auto mb-8 sm:mb-12">
+              <span className="text-xs font-bold tracking-[0.2em] text-[#16120F] uppercase block mb-1.5 font-serif">
+                03 BURDEN OF CLINIC VISITS
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
+                点滴は受けたい。<span className="text-[#16120F] font-semibold sm:ml-2">でも、通院は負担。</span>
+              </h2>
+            </div>
+ 
+            {/* Image of Waiting Man */}
+            <div className="max-w-2xl mx-auto mb-8 sm:mb-10 rounded-[16px] overflow-hidden border border-[#E2D7CA]/60 shadow-md">
+              <img 
+                src={waitingManImg} 
+                alt="移動時間・待ち時間のストレスを感じる男性" 
+                className="w-full aspect-[16/9] object-cover"
+              />
+            </div>
+            
+            <div className="max-w-2xl mx-auto space-y-4 sm:space-y-6 text-[#16120F] text-left sm:text-center">
+              <p className="font-serif text-base sm:text-xl lg:text-2xl text-[#8E6D42] font-semibold tracking-wide leading-relaxed">
+                移動時間・待ち時間のタイムロス、<br className="block sm:hidden" />身支度の煩わしさ、プライバシーの確保・・・。
+              </p>
+              <p className="font-serif text-base sm:text-xl lg:text-2xl text-[#8E6D42] font-semibold tracking-wide leading-relaxed">
+                多忙を極める方にとって、定期的にクリニックへ足を運ぶこと自体が、<br className="hidden sm:inline" />
+                ひとつの高いハードル（ストレス）になっているのが現状です。
               </p>
             </div>
-
-            {/* Dilemma Card 2 */}
-            <div className="bg-white border border-[#E2D7CA] rounded-[12px] p-6 sm:p-8 space-y-3.5 shadow-sm text-center">
-              <div className="w-12 h-12 rounded-full bg-[#FAF8F5] border border-[#E2D7CA] flex items-center justify-center text-[#16120F] mx-auto">
-                <User className="w-5 h-5 text-[#8E6D42]" />
-              </div>
-              <h3 className="font-serif text-lg font-bold text-[#16120F]">
-                <span className="inline-block">身支度の煩わしさ</span>
-              </h3>
-              <p className="text-xs text-[#53483E] leading-relaxed text-left sm:text-center">
-                <span className="inline-block">休日はわざわざメイクや外出の準備をせず、</span>
-                <span className="inline-block">リラックスした部屋着で過ごしたい</span>
-              </p>
-            </div>
-
-            {/* Dilemma Card 3 */}
-            <div className="bg-white border border-[#E2D7CA] rounded-[12px] p-6 sm:p-8 space-y-3.5 shadow-sm text-center">
-              <div className="w-12 h-12 rounded-full bg-[#FAF8F5] border border-[#E2D7CA] flex items-center justify-center text-[#16120F] mx-auto">
-                <Shield className="w-5 h-5 text-[#8E6D42]" />
-              </div>
-              <h3 className="font-serif text-lg font-bold text-[#16120F]">
-                <span className="inline-block">プライバシーの確保</span>
-              </h3>
-              <p className="text-xs text-[#53483E] leading-relaxed text-left sm:text-center">
-                <span className="inline-block">美容クリニックの待合室に通っている姿を、</span>
-                <span className="inline-block">知り合いや他の患者に見られたくない</span>
-              </p>
-            </div>
-          </div>
-
-          {/* Dilemma Conclusion Callout */}
-          <div className="mt-10 sm:mt-12 text-center max-w-2xl mx-auto p-6 sm:p-8 bg-white/95 rounded-[12px] border border-[#E2D7CA] shadow-sm">
-            <p className="font-serif text-sm sm:text-base text-[#16120F] leading-relaxed">
-              <span className="inline-block">多忙を極める方にとって、</span>
-              <span className="inline-block">定期的にクリニックへ足を運ぶこと自体が、</span>
-              <br className="hidden sm:inline" />
-              <span className="inline-block text-[#8E6D42] font-bold">ひとつの高いハードル（ストレス）になっているのが現状です。</span>
-            </p>
           </div>
 
         </div>
@@ -645,125 +587,135 @@ export default function App() {
       {/* ===================================================
           05 | THE NEW LUXURY FORM (訪問点滴という新しい形)
           =================================================== */}
-      <section id="service" className="pt-12 pb-16 sm:py-20 lg:py-28 bg-[#F3ECE4] border-b border-[#E2D7CA] relative">
-        <div className="max-w-[1160px] mx-auto px-6">
+      <section id="service" className="pt-16 pb-20 sm:py-24 bg-white border-b border-[#E2D7CA] relative overflow-hidden">
+        <div className="relative z-10 max-w-[1160px] mx-auto px-6">
           
-          <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
-            <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-3 font-serif">
-              04 A NEW STANDARD
-            </span>
-            <h2 className="font-serif text-2xl sm:text-4xl text-[#16120F] font-bold leading-snug">
-              <span className="inline-block">そんなあなたに、</span>
-              <br className="sm:hidden" />
-              <span className="inline-block text-[#143836]">訪問点滴という新しい形。</span>
-            </h2>
-            <p className="text-[#53483E] text-xs sm:text-sm mt-4 leading-relaxed">
-              <span className="inline-block">クリニックに通って治療を待つのではなく、医療があなたの空間へ出向く。</span>
+          <div className="max-w-2xl sm:mx-auto mb-12 sm:mb-16 text-left sm:text-center flex flex-col sm:items-center">
+            <div className="border-l-2 border-[#16120F]/60 pl-4 py-0.5 text-left w-full sm:w-auto">
+              <span className="text-xs font-bold tracking-[0.2em] text-[#16120F] uppercase block mb-1.5 font-serif">
+                04 A NEW STANDARD
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
+                そんなあなたに、<br className="hidden sm:inline" />
+                <span className="text-[#16120F]">訪問点滴という新しい形。</span>
+              </h2>
+            </div>
+            <p className="text-[#53483E] text-sm sm:text-base mt-5 leading-relaxed text-left sm:text-center max-w-xl pl-4 sm:pl-0 font-medium">
+              クリニックに通って治療を待つのではなく、医療があなたの空間へ出向く。
               <br className="hidden sm:inline" />
-              <span className="inline-block">医師・医療スタッフがお客様のご指定場所に直接お伺いして施術する</span>
-              <span className="inline-block">「完全予約・プライベート型訪問医療サービス」です。</span>
+              医師・医療スタッフがお客様のご指定場所に直接お伺いして施術する「完全予約・プライベート型訪問医療サービス」です。
             </p>
           </div>
 
-          {/* 対比マトリックス（従来の通院 vs LIF SKIN CLINIC の訪問点滴） */}
-          <div className="bg-white rounded-[12px] border border-[#E2D7CA] overflow-hidden shadow-sm mb-14">
-            <div className="grid grid-cols-12 bg-[#FAF8F5] border-b border-[#E2D7CA] text-xs font-serif font-bold text-[#16120F] py-3.5 px-4 sm:px-6">
-              <div className="col-span-3 sm:col-span-3 text-[#827467]">比較項目</div>
-              <div className="col-span-4 sm:col-span-4 text-[#827467]">従来のクリニック通院</div>
-              <div className="col-span-5 sm:col-span-5 text-[#143836] flex items-center gap-1.5 font-bold">
-                <Sparkles className="w-3.5 h-3.5 text-[#8E6D42]" />
-                <span>当院の訪問点滴</span>
-              </div>
-            </div>
-
-            <div className="divide-y divide-[#E2D7CA] text-xs sm:text-[13px]">
-              <div className="grid grid-cols-12 p-4 sm:p-5 items-center">
-                <div className="col-span-3 sm:col-span-3 font-bold text-[#16120F]">移動・待ち時間</div>
-                <div className="col-span-4 sm:col-span-4 text-[#827467] pr-2">往復1〜2時間＋待合室待機</div>
-                <div className="col-span-5 sm:col-span-5 text-[#143836] font-bold">移動・待ち時間「完全ゼロ」</div>
-              </div>
-
-              <div className="grid grid-cols-12 p-4 sm:p-5 items-center bg-[#FAF8F5]/40">
-                <div className="col-span-3 sm:col-span-3 font-bold text-[#16120F]">プライバシー</div>
-                <div className="col-span-4 sm:col-span-4 text-[#827467] pr-2">他の患者と共有・顔合わせ</div>
-                <div className="col-span-5 sm:col-span-5 text-[#143836] font-bold">100%完全個室・厳格な守秘</div>
-              </div>
-
-              <div className="grid grid-cols-12 p-4 sm:p-5 items-center">
-                <div className="col-span-3 sm:col-span-3 font-bold text-[#16120F]">施術中の姿勢</div>
-                <div className="col-span-4 sm:col-span-4 text-[#827467] pr-2">院内の点滴チェアで拘束</div>
-                <div className="col-span-5 sm:col-span-5 text-[#143836] font-bold">自宅ベッド・ソファで自由</div>
-              </div>
-
-              <div className="grid grid-cols-12 p-4 sm:p-5 items-center bg-[#FAF8F5]/40">
-                <div className="col-span-3 sm:col-span-3 font-bold text-[#16120F]">医師の対応</div>
-                <div className="col-span-4 sm:col-span-4 text-[#827467] pr-2">短時間・慌ただしい診察</div>
-                <div className="col-span-5 sm:col-span-5 text-[#143836] font-bold">麻酔科医がマンツーマン訪問</div>
-              </div>
-            </div>
-          </div>
-
-          {/* 3 Great Benefits Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* =========================================================
+              CONCISE & STYLISH INTERACTIVE EXPERIENCE DIAGRAM
+              (コンパクトでおしゃれな体験比較スイッチ)
+              ========================================================= */}
+          <div className="bg-[#FAF8F5] rounded-[24px] border border-[#E2D7CA] p-6 sm:p-9 shadow-sm mb-10 relative overflow-hidden">
             
-            {/* Benefit Card 1 */}
-            <div className="bg-white border border-[#E2D7CA] rounded-[12px] p-7 space-y-3 shadow-sm hover:shadow-[0_12px_36px_rgba(22,18,15,0.06)] hover:border-[#143836]/30 transition-all">
-              <div className="w-11 h-11 rounded-full bg-[#143836]/10 border border-[#143836]/25 flex items-center justify-center text-[#143836]">
-                <Clock className="w-5 h-5" />
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-5 mb-0 pb-0">
+              <div>
+                <span className="text-[10px] font-bold tracking-[0.2em] text-[#16120F] uppercase font-serif block mb-1.5">
+                  EXPERIENCE COMPARISON
+                </span>
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#16120F]">
+                  体験の違いを比較する
+                </h3>
               </div>
-              <h3 className="font-serif text-lg font-bold text-[#16120F]">
-                <span className="inline-block">移動・待ち時間の</span>
-                <span className="inline-block">完全ゼロ化</span>
-              </h3>
-              <p className="text-xs text-[#53483E] leading-relaxed">
-                <span className="inline-block">移動にかかるストレス、</span>
-                <span className="inline-block">クリニックでの診察待ち時間は完全に「ゼロ」。</span>
-                <span className="inline-block">お客様は指定の日時にご自宅やオフィスに滞在しているだけで、</span>
-                <span className="inline-block">治療の準備が整います。</span>
-              </p>
+              
+              {/* Interactive Mode Toggle with explicit guides */}
+              <div className="flex flex-col items-start md:items-end gap-1.5">
+                <span className="text-[11px] font-semibold text-[#16120F] tracking-wider block">
+                  ※ タップで切り替え
+                </span>
+                <div className="inline-flex p-1.5 bg-white rounded-full border border-[#E2D7CA] self-start md:self-auto shadow-inner">
+                  <button
+                    type="button"
+                    onClick={() => setCompareMode('clinic')}
+                    className={`px-5 py-2 rounded-full text-xs font-serif font-extrabold transition-all cursor-pointer ${
+                      compareMode === 'clinic'
+                        ? 'bg-[#827467] text-white shadow-md'
+                        : 'text-[#16120F]/60 hover:text-[#16120F]'
+                    }`}
+                  >
+                    従来の通院
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setCompareMode('visit')}
+                    className={`px-5 py-2 rounded-full text-xs font-serif font-extrabold flex items-center gap-1.5 transition-all cursor-pointer ${
+                      compareMode === 'visit'
+                        ? 'bg-[#B8976C] text-white shadow-md'
+                        : 'text-[#16120F]/60 hover:text-[#16120F]'
+                    }`}
+                  >
+                    <Sparkles className={`w-3.5 h-3.5 ${compareMode === 'visit' ? 'text-white' : 'text-[#B8976C]'}`} />
+                    <span>当院の訪問点滴</span>
+                  </button>
+                </div>
+              </div>
             </div>
 
-            {/* Benefit Card 2 */}
-            <div className="bg-white border border-[#E2D7CA] rounded-[12px] p-7 space-y-3 shadow-sm hover:shadow-[0_12px_36px_rgba(22,18,15,0.06)] hover:border-[#143836]/30 transition-all">
-              <div className="w-11 h-11 rounded-full bg-[#143836]/10 border border-[#143836]/25 flex items-center justify-center text-[#143836]">
-                <User className="w-5 h-5" />
-              </div>
-              <h3 className="font-serif text-lg font-bold text-[#16120F]">
-                <span className="inline-block">ベッドやソファで</span>
-                <span className="inline-block">休んだまま施術</span>
-              </h3>
-              <p className="text-xs text-[#53483E] leading-relaxed">
-                <span className="inline-block">外出のための身支度やメイクは一切不要。</span>
-                <span className="inline-block">ご自宅のお気に入りのソファやベッドで横になったまま、</span>
-                <span className="inline-block">読書や仕事をしながらリラックスしてお過ごしいただけます。</span>
-              </p>
+            {/* Interactive Visual Cards Display with ZERO margin */}
+            <div className="mt-0 pt-0">
+              {compareMode === 'visit' ? (
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-4">
+                  {/* Card 1 */}
+                  <div className="bg-white border border-[#B8976C]/50 rounded-[16px] p-5 sm:p-6 text-center sm:text-left shadow-sm">
+                    <span className="text-[10px] font-bold text-[#16120F] uppercase font-serif tracking-wider block mb-2">01 / 移動時間・待ち時間</span>
+                    <div className="font-serif font-bold text-[#16120F] text-[15px] xs:text-base sm:text-[14px] md:text-base lg:text-lg whitespace-nowrap overflow-hidden text-ellipsis mb-2">移動・待ち時間「完全ゼロ」</div>
+                    <p className="text-xs text-[#53483E] leading-relaxed font-medium">医師がご指定の場所へ直接訪問。移動の負担も、待合室でのタイムロスも一切ありません。</p>
+                  </div>
+                  {/* Card 2 */}
+                  <div className="bg-white border border-[#B8976C]/50 rounded-[16px] p-5 sm:p-6 text-center sm:text-left shadow-sm">
+                    <span className="text-[10px] font-bold text-[#16120F] uppercase font-serif tracking-wider block mb-2">02 / 身支度</span>
+                    <div className="font-serif font-bold text-[#16120F] text-[15px] xs:text-base sm:text-[14px] md:text-base lg:text-lg whitespace-nowrap overflow-hidden text-ellipsis mb-2">ノーメイク・部屋着で受診</div>
+                    <p className="text-xs text-[#53483E] leading-relaxed font-medium">メイクや外出着に着替える必要なし。リラックスできる慣れ親しんだお部屋でお待ちいただけます。</p>
+                  </div>
+                  {/* Card 3 */}
+                  <div className="bg-white border border-[#B8976C]/50 rounded-[16px] p-5 sm:p-6 text-center sm:text-left shadow-sm">
+                    <span className="text-[10px] font-bold text-[#16120F] uppercase font-serif tracking-wider block mb-2">03 / プライバシー</span>
+                    <div className="font-serif font-bold text-[#16120F] text-[15px] xs:text-base sm:text-[14px] md:text-base lg:text-lg whitespace-nowrap overflow-hidden text-ellipsis mb-2">100%完全プライベート</div>
+                    <p className="text-xs text-[#53483E] leading-relaxed font-medium">誰にも会わないプライベートな空間。厳格な守秘義務のもと、安心して治療を受けられます。</p>
+                  </div>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-4">
+                  {/* Card 1 */}
+                  <div className="bg-white border border-[#E2D7CA] rounded-[16px] p-5 sm:p-6 text-center sm:text-left shadow-2xs">
+                    <span className="text-[10px] font-bold text-[#827467] uppercase font-serif tracking-wider block mb-2">01 / 移動時間・待ち時間</span>
+                    <div className="font-serif font-bold text-[#16120F] text-[15px] xs:text-base sm:text-[14px] md:text-base lg:text-lg whitespace-nowrap overflow-hidden text-ellipsis mb-2">移動の手間と待合室待機</div>
+                    <p className="text-xs text-[#6B5E52] leading-relaxed font-medium">クリニックまでの往復移動が必要となり、到着後も受付や待合室で順番を待つ時間が発生します。</p>
+                  </div>
+                  {/* Card 2 */}
+                  <div className="bg-white border border-[#E2D7CA] rounded-[16px] p-5 sm:p-6 text-center sm:text-left shadow-2xs">
+                    <span className="text-[10px] font-bold text-[#827467] uppercase font-serif tracking-wider block mb-2">02 / 身支度</span>
+                    <div className="font-serif font-bold text-[#16120F] text-[15px] xs:text-base sm:text-[14px] md:text-base lg:text-lg whitespace-nowrap overflow-hidden text-ellipsis mb-2">外出の準備・メイクが必要</div>
+                    <p className="text-xs text-[#6B5E52] leading-relaxed font-medium">体調が優れない時や休日でも、メイクや外出用の服に着替えて外出しなければなりません。</p>
+                  </div>
+                  {/* Card 3 */}
+                  <div className="bg-white border border-[#E2D7CA] rounded-[16px] p-5 sm:p-6 text-center sm:text-left shadow-2xs">
+                    <span className="text-[10px] font-bold text-[#827467] uppercase font-serif tracking-wider block mb-2">03 / プライバシー</span>
+                    <div className="font-serif font-bold text-[#16120F] text-[15px] xs:text-base sm:text-[14px] md:text-base lg:text-lg whitespace-nowrap overflow-hidden text-ellipsis mb-2">待合室等で他の患者と顔合わせ</div>
+                    <p className="text-xs text-[#6B5E52] leading-relaxed font-medium">他の患者様と同じ待合スペースで待機するため、知人への遭遇や周囲の視線に配慮が必要です。</p>
+                  </div>
+                </div>
+              )}
             </div>
-
-            {/* Benefit Card 3 */}
-            <div className="bg-white border border-[#E2D7CA] rounded-[12px] p-7 space-y-3 shadow-sm hover:shadow-[0_12px_36px_rgba(22,18,15,0.06)] hover:border-[#143836]/30 transition-all">
-              <div className="w-11 h-11 rounded-full bg-[#143836]/10 border border-[#143836]/25 flex items-center justify-center text-[#143836]">
-                <Shield className="w-5 h-5" />
-              </div>
-              <h3 className="font-serif text-lg font-bold text-[#16120F]">
-                <span className="inline-block">100%の</span>
-                <span className="inline-block">プライバシー保護</span>
-              </h3>
-              <p className="text-xs text-[#53483E] leading-relaxed">
-                <span className="inline-block">他人の目、他の患者との接触は一切ありません。</span>
-                <span className="inline-block">医療従事者はお客様のためだけに訪問し、</span>
-                <span className="inline-block">疑問への相談や細やかなケアを究極のプライベートスペースで行います。</span>
-              </p>
-            </div>
-
           </div>
+
+
+
+
 
           <div className="mt-12 text-center">
             <a 
               href="https://line.me" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="btn btn--gold btn--shimmer text-base"
+              className="btn btn--line btn--shimmer text-base"
             >
+              <MessageCircle className="w-5 h-5 text-[#06C755] shrink-0" />
               <span className="inline-block">訪問可能エリア・空き状況をLINEで確認</span>
               <ArrowRight className="w-4 h-4 ml-1 shrink-0" />
             </a>
@@ -778,83 +730,141 @@ export default function App() {
       <section id="menu-detail" className="pt-12 pb-16 sm:py-20 lg:py-28 bg-[#FAF8F5] border-b border-[#E2D7CA]">
         <div className="max-w-[1160px] mx-auto px-6">
           
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-3 font-serif">
-              05 DRIP SELECTIONS
-            </span>
-            <h2 className="font-serif text-2xl sm:text-4xl text-[#16120F] font-bold leading-snug">
-              <span className="inline-block">美容と健康を支える</span>
-              <span className="inline-block">3つの厳選点滴</span>
-            </h2>
-            <p className="text-[#53483E] text-xs sm:text-sm mt-3 leading-relaxed">
-              <span className="inline-block">エイジング、慢性疲労、美容へのアプローチ。</span>
-              <span className="inline-block">お悩みやお身体の状態に合わせ、</span>
-              <span className="inline-block">医師の判断のもとで最適に無菌調剤する</span>
-              <span className="inline-block">当院おすすめの3大メニューです。</span>
+          <div className="max-w-2xl sm:mx-auto mb-8 sm:mb-10 text-left sm:text-center flex flex-col sm:items-center">
+            <div className="border-l-2 border-[#16120F]/60 pl-4 py-0.5 text-left w-full sm:w-auto">
+              <span className="text-xs font-bold tracking-[0.2em] text-[#16120F] uppercase block mb-1.5 font-serif">
+                05 DRIP SELECTIONS
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
+                美容と健康を支える3つの厳選点滴
+              </h2>
+            </div>
+            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left sm:text-center max-w-xl pl-4 sm:pl-0">
+              エイジング、慢性疲労、美容へのアプローチ。
+              お悩みやお身体の状態に合わせ、医師の判断のもとで最適に無菌調剤する当院おすすめの3大メニューです。
             </p>
           </div>
 
           {/* Drip 1: Premium Recovery */}
-          <div className="bg-white border-2 border-[#143836]/40 rounded-[16px] overflow-hidden shadow-[0_12px_36px_rgba(22,18,15,0.06)] mb-12">
-            <div className="bg-[#FAF8F5] border-b border-[#E2D7CA] p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="bg-white border border-[#E2D7CA] rounded-[16px] overflow-hidden shadow-[0_12px_36px_rgba(22,18,15,0.06)] mb-12">
+            <div className="bg-white border-b border-[#E2D7CA] p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4" style={{ backgroundColor: '#FFFFFF' }}>
               <div className="text-center sm:text-left">
                 <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-2">
-                  <span className="inline-block bg-[#143836] text-white text-[11px] font-bold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-sm">
-                    初回体験おすすめ・人気No.1
+                  <span className="inline-block bg-[#16120F] text-white text-[11px] font-bold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-sm">
+                    人気No.1・疲労回復＆強抗酸化
                   </span>
-                  <span className="text-xs font-bold tracking-widest text-[#143836] uppercase">
-                    疲労回復・強抗酸化・美白
+                  <span className="text-xs font-bold tracking-widest text-[#16120F] uppercase">
+                    美白・全身デトックス
                   </span>
                 </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#16120F] text-center">
-                  <span className="inline-block text-center">プレミアムリカバリー点滴</span> <span className="inline-block text-lg sm:text-xl font-normal text-[#827467]">(Premium Recovery)</span>
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#16120F] text-center sm:text-left">
+                  <span className="inline-block">プレミアムリカバリー点滴</span> <span className="inline-block text-lg sm:text-xl font-normal text-[#827467]">(Premium Recovery)</span>
                 </h3>
                 <p className="text-xs text-[#53483E] mt-1.5 leading-relaxed text-center sm:text-left">
-                  <span className="inline-block">蓄積された疲労を根こそぎリセットし、</span>
-                  <span className="inline-block">本来のベストパフォーマンスを引き出す</span>
+                  <span className="inline-block">蓄積した疲労をリセットし、</span>
+                  <span className="inline-block">本来のパフォーマンスを取り戻す</span>
                 </p>
               </div>
               <div className="text-center sm:text-right shrink-0">
-                <span className="text-[11px] font-bold text-[#143836] block uppercase tracking-wider">初回体験特別価格</span>
-                <span className="font-serif text-3xl sm:text-4xl font-bold text-[#16120F]">¥22,000</span>
+                <span className="text-[10px] text-[#827467] block uppercase font-medium">通常料金</span>
+                <span className="font-serif text-3xl font-bold text-[#16120F]">¥43,200</span>
                 <span className="text-xs text-[#827467] block">（税込・往診料込）</span>
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 space-y-6">
-              <p className="text-[#53483E] text-sm leading-relaxed">
-                <span className="inline-block">「十分に寝たはずなのに朝からだるい」</span>
-                <span className="inline-block">「頭や身体がすっきり重いまま」といった</span>
-                <span className="inline-block">現代人特有の慢性的な疲労に</span>
-                <span className="inline-block">アプローチするために設計された、</span>
-                <span className="inline-block">当院独自処方のカクテル点滴です。</span>
-                <span className="inline-block">高濃度の有効成分が</span>
-                <span className="inline-block">ダイレクトに細胞に行きわたり、</span>
-                <span className="inline-block">エネルギー産生を急加速させます。</span>
-              </p>
+            <div className="bg-[#FAF7F2] p-6 sm:p-8 space-y-6" style={{ backgroundColor: '#FAF7F2' }}>
+              <div className="space-y-3">
+                <p className="text-[#53483E] text-sm leading-relaxed">
+                  「しっかり休んだはずなのに疲れが抜けない」「頭がすっきりしない」……<br />
+                  そんな現代特有の慢性的な疲労にアプローチするために開発された、当院オリジナルの特別メニューです。
+                </p>
+                <p className="text-[#53483E] text-sm leading-relaxed">
+                  厳選された6つの医療用有効成分をバランスよく配合し、<br />
+                  <strong className="font-bold text-[#16120F]">サプリメントでは到達できない濃度で、ダイレクトに細胞へエネルギーを急速充電</strong>します。
+                </p>
+              </div>
 
               <div>
-                <h4 className="text-xs font-bold text-[#143836] uppercase tracking-wider mb-3">
-                  【このメニューが選ばれる理由と成分ポイント】
+                <h4 className="text-xs sm:text-sm font-bold text-[#16120F] tracking-wider mb-3">
+                  ■ 贅沢に配合された「6つの贅沢成分」とその効果
                 </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-[#53483E]">
-                  <div className="p-3 bg-[#FAF8F5] rounded border border-[#E2D7CA]/60">
-                    <p className="font-bold text-[#16120F] mb-1">1. グルタチオン (1,200mg配合)</p>
-                    <p className="text-[#827467]">肝機能の強力な解毒をサポート。メラニンの発生を強力に抑え美白をもたらします。</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-[#53483E]">
+                  <div className="p-3.5 bg-white rounded-[10px] border border-[#E2D7CA]/70 shadow-2xs">
+                    <p className="font-bold text-[#16120F] mb-1.5 flex flex-wrap items-baseline gap-x-1.5">
+                      <span className="text-[#8E6D42]">1. グルタチオン</span>
+                      <span className="text-[11px] sm:text-xs text-[#16120F]">【強力デトックス・肝機能サポート】</span>
+                    </p>
+                    <p className="text-[#6B5E52] leading-relaxed">
+                      疲労やストレスで生じる「活性酸素」を強力に除去。<br />
+                      肝臓の働きを助け、身体に溜まった毒素や老廃物の排出（デトックス）を促します。
+                    </p>
                   </div>
-                  <div className="p-3 bg-[#FAF8F5] rounded border border-[#E2D7CA]/60">
-                    <p className="font-bold text-[#16120F] mb-1">2. 高濃度ビタミンC / B群カクテル</p>
-                    <p className="text-[#827467]">細胞のエネルギー代謝を最大化。強力な抗酸化力で全身の細胞の老化を阻みます。</p>
+                  <div className="p-3.5 bg-white rounded-[10px] border border-[#E2D7CA]/70 shadow-2xs">
+                    <p className="font-bold text-[#16120F] mb-1.5 flex flex-wrap items-baseline gap-x-1.5">
+                      <span className="text-[#8E6D42]">2. 高濃度ビタミンC</span>
+                      <span className="text-[11px] sm:text-xs text-[#16120F]">【細胞の抗酸化・免疫力UP】</span>
+                    </p>
+                    <p className="text-[#6B5E52] leading-relaxed">
+                      免疫力を高め、酸化（サビつき）から身体を守ります。<br />
+                      疲労で低下した気力と体力を底上げします。
+                    </p>
                   </div>
-                  <div className="p-3 bg-[#FAF8F5] rounded border border-[#E2D7CA]/60">
-                    <p className="font-bold text-[#16120F] mb-1">3. チオクト酸（α-リポ酸）</p>
-                    <p className="text-[#827467]">糖代謝を急激に促す、最強の抗酸化物質。ダイエット・肌質改善効果をもたらします。</p>
+                  <div className="p-3.5 bg-white rounded-[10px] border border-[#E2D7CA]/70 shadow-2xs">
+                    <p className="font-bold text-[#16120F] mb-1.5 flex flex-wrap items-baseline gap-x-1.5">
+                      <span className="text-[#8E6D42]">3. ビタミンB群</span>
+                      <span className="text-[11px] sm:text-xs text-[#16120F]">【エネルギー産生・代謝促進】</span>
+                    </p>
+                    <p className="text-[#6B5E52] leading-relaxed">
+                      食事をエネルギーに変えるために不可欠なビタミン。<br />
+                      代謝を劇的にスムーズにし、身体の内側から「元気」を作り出します。
+                    </p>
                   </div>
-                  <div className="p-3 bg-[#FAF8F5] rounded border border-[#E2D7CA]/60">
-                    <p className="font-bold text-[#16120F] mb-1">4. 強力ネオミノファーゲンシー / マグネシウム</p>
-                    <p className="text-[#827467]">肝細胞保護、血管拡張作用により冷え性や筋肉のハリ、だるさを強力に解消します。</p>
+                  <div className="p-3.5 bg-white rounded-[10px] border border-[#E2D7CA]/70 shadow-2xs">
+                    <p className="font-bold text-[#16120F] mb-1.5 flex flex-wrap items-baseline gap-x-1.5">
+                      <span className="text-[#8E6D42]">4. チオクト酸（αリポ酸）</span>
+                      <span className="text-[11px] sm:text-xs text-[#16120F]">【究極の抗酸化・ダイエット効果】</span>
+                    </p>
+                    <p className="text-[#6B5E52] leading-relaxed">
+                      ビタミンCやEの数百倍の抗酸化力を持ち、疲労回復を加速させます。<br />
+                      新陳代謝を促進するため、太りにくい身体づくりにも寄与します。
+                    </p>
+                  </div>
+                  <div className="p-3.5 bg-white rounded-[10px] border border-[#E2D7CA]/70 shadow-2xs">
+                    <p className="font-bold text-[#16120F] mb-1.5 flex flex-wrap items-baseline gap-x-1.5">
+                      <span className="text-[#8E6D42]">5. グリファーゲン（強ミノ同等成分）</span>
+                      <span className="text-[11px] sm:text-xs text-[#16120F]">【抗炎症・アレルギー抑制】</span>
+                    </p>
+                    <p className="text-[#6B5E52] leading-relaxed">
+                      生薬の甘草（カンゾウ）由来の成分で、肝機能を強力に保護・改善。<br />
+                      ハードワークによる身体の炎症や、疲れた身体の調子を整えます。
+                    </p>
+                  </div>
+                  <div className="p-3.5 bg-white rounded-[10px] border border-[#E2D7CA]/70 shadow-2xs">
+                    <p className="font-bold text-[#16120F] mb-1.5 flex flex-wrap items-baseline gap-x-1.5">
+                      <span className="text-[#8E6D42]">6. マグネシウム</span>
+                      <span className="text-[11px] sm:text-xs text-[#16120F]">【筋肉のコリ・神経の緊張緩和】</span>
+                    </p>
+                    <p className="text-[#6B5E52] leading-relaxed">
+                      「天然の精神安定剤」とも呼ばれ、<br className="hidden sm:inline" />
+                      肩こりや慢性的な筋肉の疲労、緊張を和らげて心身を深いリラックス状態へと導きます。
+                    </p>
                   </div>
                 </div>
+              </div>
+
+              {/* このような方に */}
+              <div className="bg-white/95 backdrop-blur-sm border border-[#E2D7CA] border-l-4 border-l-[#16120F] rounded-[6px] p-4 sm:p-5 shadow-[0_4px_16px_rgba(13,38,37,0.06)]">
+                <div className="mb-2">
+                  <span className="text-xs sm:text-sm font-bold text-[#16120F] tracking-wider font-serif inline-block">
+                    このような方に
+                  </span>
+                </div>
+                <ul className="list-disc pl-4 space-y-1 text-xs sm:text-[13px] text-[#53483E] leading-relaxed">
+                  <li>心身ともに即効性のあるエネルギーチャージを求めている方</li>
+                  <li>肌のくすみや透明感が気になる方</li>
+                  <li>睡眠をとっても翌朝に疲れが残っている方</li>
+                  <li>お酒を飲む機会が多く、翌日スッキリ起きられない方</li>
+                </ul>
               </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#E2D7CA]">
@@ -871,13 +881,13 @@ export default function App() {
 
           {/* Drip 2: NMN */}
           <div className="bg-white border border-[#E2D7CA] rounded-[16px] overflow-hidden shadow-[0_12px_36px_rgba(22,18,15,0.06)] mb-12">
-            <div className="bg-[#FAF8F5] border-b border-[#E2D7CA] p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="bg-white border-b border-[#E2D7CA] p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4" style={{ backgroundColor: '#FFFFFF' }}>
               <div className="text-center sm:text-left">
-                <span className="text-xs font-bold tracking-widest text-[#143836] block uppercase mb-1">
+                <span className="text-xs font-bold tracking-widest text-[#16120F] block uppercase mb-1">
                   最先端長寿医療・サーチュイン活性
                 </span>
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#16120F] text-center">
-                  <span className="inline-block text-center">NMNリバース点滴</span> <span className="inline-block text-lg sm:text-xl font-normal text-[#827467]">(NMN Reverse Drip)</span>
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#16120F] text-center sm:text-left">
+                  <span className="inline-block">NMNリバース点滴</span> <span className="inline-block text-lg sm:text-xl font-normal text-[#827467]">(NMN Reverse Drip)</span>
                 </h3>
                 <p className="text-xs text-[#53483E] mt-1 leading-relaxed text-center sm:text-left">
                   <span className="inline-block">細胞レベルで若々しさを呼び覚ます、</span>
@@ -885,24 +895,32 @@ export default function App() {
                 </p>
               </div>
               <div className="text-center sm:text-right shrink-0">
-                <span className="text-[10px] text-[#827467] block uppercase">通常料金</span>
+                <span className="text-[10px] text-[#827467] block uppercase font-medium">通常料金</span>
                 <span className="font-serif text-3xl font-bold text-[#16120F]">¥45,000</span>
                 <span className="text-xs text-[#827467] block">（税込・往診料込）</span>
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 space-y-6">
+            <div className="bg-[#FAF7F2] p-6 sm:p-8 space-y-6" style={{ backgroundColor: '#FAF7F2' }}>
               <p className="text-[#53483E] text-sm leading-relaxed">
-                <span className="inline-block">NMN（ニコチンアミド・モノヌクレオチド）は、</span>
-                <span className="inline-block">長寿・若々しさを司る</span>
-                <span className="inline-block">「サーチュイン遺伝子（長寿遺伝子）」を活性化させ、</span>
-                <span className="inline-block">エネルギーの源であるNAD+を</span>
-                <span className="inline-block">細胞内に急速に補う成分です。</span>
-                <span className="inline-block">年齢とともに減少していくNMNを</span>
-                <span className="inline-block">静脈からダイレクトに投与することで、</span>
-                <span className="inline-block">肌の細胞再生を促し、</span>
-                <span className="inline-block">全身の若返りをサポートします。</span>
+                NMN（ニコチンアミド・モノヌクレオチド）は、長寿・若々しさを司る「サーチュイン遺伝子（長寿遺伝子）」を活性化させ、エネルギーの源であるNAD+を細胞内に急速に補う成分です。<br />
+                年齢とともに減少していくNMNを静脈からダイレクトに投与することで、肌の細胞再生を促し、全身の若返りをサポートします。
               </p>
+
+              {/* このような方に */}
+              <div className="bg-white/95 backdrop-blur-sm border border-[#E2D7CA] border-l-4 border-l-[#16120F] rounded-[6px] p-4 sm:p-5 shadow-[0_4px_16px_rgba(13,38,37,0.06)]">
+                <div className="mb-2">
+                  <span className="text-xs sm:text-sm font-bold text-[#16120F] tracking-wider font-serif inline-block">
+                    このような方に
+                  </span>
+                </div>
+                <ul className="list-disc pl-4 space-y-1 text-xs sm:text-[13px] text-[#53483E] leading-relaxed">
+                  <li>心身ともに即効性のあるエネルギーチャージを求めている方</li>
+                  <li>肌のくすみや透明感が気になる方</li>
+                  <li>睡眠をとっても翌朝に疲れが残っている方</li>
+                  <li>お酒を飲む機会が多く、翌日スッキリ起きられない方</li>
+                </ul>
+              </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#E2D7CA]">
                 <span className="text-xs text-[#827467]">所要時間：約45分 / 静脈点滴投与</span>
@@ -918,13 +936,13 @@ export default function App() {
 
           {/* Drip 3: Stem Cell */}
           <div className="bg-white border border-[#E2D7CA] rounded-[16px] overflow-hidden shadow-[0_12px_36px_rgba(22,18,15,0.06)]">
-            <div className="bg-[#FAF8F5] border-b border-[#E2D7CA] p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="bg-white border-b border-[#E2D7CA] p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4" style={{ backgroundColor: '#FFFFFF' }}>
               <div className="text-center sm:text-left">
-                <span className="text-xs font-bold tracking-widest text-[#143836] block uppercase mb-1">
+                <span className="text-xs font-bold tracking-widest text-[#16120F] block uppercase mb-1">
                   最先端再生医療由来・最高峰エイジングケア
                 </span>
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#16120F] text-center">
-                  <span className="inline-block text-center">幹細胞上清液点滴</span> <span className="inline-block text-lg sm:text-xl font-normal text-[#827467]">(Stem Cell Drip)</span>
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#16120F] text-center sm:text-left">
+                  <span className="inline-block">幹細胞上清液点滴</span> <span className="inline-block text-lg sm:text-xl font-normal text-[#827467]">(Stem Cell Drip)</span>
                 </h3>
                 <p className="text-xs text-[#53483E] mt-1 leading-relaxed text-center sm:text-left">
                   <span className="inline-block">傷ついた細胞を修復し活性化する、</span>
@@ -932,23 +950,32 @@ export default function App() {
                 </p>
               </div>
               <div className="text-center sm:text-right shrink-0">
-                <span className="text-[10px] text-[#827467] block uppercase">通常料金</span>
+                <span className="text-[10px] text-[#827467] block uppercase font-medium">通常料金</span>
                 <span className="font-serif text-3xl font-bold text-[#16120F]">¥55,000</span>
                 <span className="text-xs text-[#827467] block">（税込・往診料込）</span>
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 space-y-6">
+            <div className="bg-[#FAF7F2] p-6 sm:p-8 space-y-6" style={{ backgroundColor: '#FAF7F2' }}>
               <p className="text-[#53483E] text-sm leading-relaxed">
-                <span className="inline-block">ヒト脂肪由来の幹細胞を培養する過程で、</span>
-                <span className="inline-block">細胞を除去したあとに残る高濃度の上澄み液（上清液）を使用した</span>
-                <span className="inline-block">究極のエイジングケア点滴です。</span>
-                <span className="inline-block">この上清液には、細胞の再生や修復を促す</span>
-                <span className="inline-block">数百種類もの「成長因子（サイトカイン）」や、</span>
-                <span className="inline-block">情報伝達物質である「エクソソーム」が豊富に含まれており、</span>
-                <span className="inline-block">体内の老化した組織そのものを</span>
-                <span className="inline-block">内側から活性化へと導きます。</span>
+                ヒト脂肪由来の幹細胞を培養する過程で、細胞を除去したあとに残る高濃度の上澄み液（上清液）を使用した究極のエイジングケア点滴です。<br />
+                この上清液には、細胞の再生や修復を促す数百種類もの「成長因子（サイトカイン）」や、情報伝達物質である「エクソソーム」が豊富に含まれており、体内の老化した組織そのものを内側から活性化へと導きます。
               </p>
+
+              {/* このような方に */}
+              <div className="bg-white/95 backdrop-blur-sm border border-[#E2D7CA] border-l-4 border-l-[#16120F] rounded-[6px] p-4 sm:p-5 shadow-[0_4px_16px_rgba(13,38,37,0.06)]">
+                <div className="mb-2">
+                  <span className="text-xs sm:text-sm font-bold text-[#16120F] tracking-wider font-serif inline-block">
+                    このような方に
+                  </span>
+                </div>
+                <ul className="list-disc pl-4 space-y-1 text-xs sm:text-[13px] text-[#53483E] leading-relaxed">
+                  <li>美容と健康を総合的に整えたい方</li>
+                  <li>シワ・たるみの改善、内側からハリのある肌を目指したい方</li>
+                  <li>肌の衰えだけでなく、体力や免疫力の低下など「全身の老化」が気になる方</li>
+                  <li>これまでの美容ケアやサプリメントでは満足できなかった方</li>
+                </ul>
+              </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#E2D7CA]">
                 <span className="text-xs text-[#827467]">所要時間：約30〜45分 / 静脈点滴投与</span>
@@ -971,61 +998,92 @@ export default function App() {
       <section id="trial" className="pt-12 pb-16 sm:py-20 bg-[#F3ECE4] border-b border-[#E2D7CA]">
         <div className="max-w-[860px] mx-auto px-6 text-center">
           
-          <div className="max-w-2xl mx-auto mb-10 sm:mb-12">
-            <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-3 font-serif">
-              TRIAL OFFER
-            </span>
-            <h2 className="font-serif text-2xl sm:text-4xl text-[#16120F] font-bold leading-snug mb-4">
-              <span className="inline-block">まずは、</span>
-              <span className="inline-block text-[#143836]">訪問点滴をご体験ください。</span>
-            </h2>
-            <p className="text-[#53483E] text-xs sm:text-sm leading-relaxed max-w-xl mx-auto">
-              <span className="inline-block">当院の訪問医療サービスを初めてご利用いただく方へ。</span>
-              <span className="inline-block">医師自らがお伺いし、</span>
-              <span className="inline-block">丁寧なカウンセリングと確かな技術をお届けする</span>
-              <span className="inline-block">初回限定の特別体験プランをご用意しました。</span>
+          <div className="max-w-2xl mx-auto mb-10 sm:mb-12 text-left sm:text-center flex flex-col sm:items-center">
+            <div className="border-l-2 border-[#16120F]/60 pl-4 py-0.5 text-left w-full sm:w-auto">
+              <span className="text-xs font-bold tracking-[0.2em] text-[#16120F] uppercase block mb-1.5 font-serif">
+                06 TRIAL OFFER
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
+                まずは、<span className="text-[#16120F]">訪問点滴をご体験ください。</span>
+              </h2>
+            </div>
+            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left sm:text-center max-w-xl pl-4 sm:pl-0">
+              当院の訪問医療サービスを初めてご利用いただく方へ。医師自らがお伺いし、丁寧なカウンセリングと確かな技術をお届けする初回限定の特別体験プランをご用意しました。
             </p>
           </div>
-
+ 
           {/* Ticket Card */}
-          <div className="bg-white border-2 border-[#143836]/40 rounded-[16px] p-8 sm:p-12 shadow-[0_12px_36px_rgba(22,18,15,0.08)] relative overflow-hidden text-left">
-            <div className="absolute top-0 right-0 bg-[#143836] text-white text-[10px] font-bold tracking-widest px-4 py-1.5 rounded-bl-[8px] uppercase">
+          <div className="bg-white border-2 border-[#E2D7CA] rounded-[20px] shadow-[0_12px_36px_rgba(22,18,15,0.08)] relative overflow-hidden text-left">
+            <div className="absolute top-0 right-0 bg-[#16120F] text-white text-[10px] font-bold tracking-widest px-4 py-1.5 rounded-bl-[8px] uppercase z-10">
               中央区・港区限定
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              <div>
-                <h3 className="font-serif text-2xl font-bold text-[#16120F] mb-3">
-                  <span className="inline-block">初回体験プラン内容</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 items-stretch">
+              {/* Left Column: Details (White background) */}
+              <div className="bg-white p-8 sm:p-12 flex flex-col justify-center" style={{ backgroundColor: '#FFFFFF' }}>
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#16120F] mb-4">
+                  <span className="block text-xs font-bold text-[#8E6D42] tracking-wider mb-1">FIRST VISIT TRIAL</span>
+                  <span className="inline-block">プレミアムリカバリー点滴（初回体験）</span>
                 </h3>
-                <ul className="space-y-2.5 text-xs sm:text-sm text-[#53483E]">
+                <ul className="space-y-2.5 text-sm sm:text-base text-[#53483E]">
                   <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-[#143836] shrink-0" />
+                    <Check className="w-4 h-4 text-[#8E6D42] shrink-0" />
                     <span className="inline-block">医師による対面問診・カウンセリング</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-[#143836] shrink-0" />
+                    <Check className="w-4 h-4 text-[#8E6D42] shrink-0" />
                     <span className="inline-block">プレミアムリカバリー点滴（約40分）</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-[#143836] shrink-0" />
+                    <Check className="w-4 h-4 text-[#8E6D42] shrink-0" />
                     <span className="inline-block">往診料・材料費・診察代すべて込み</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-[#143836] shrink-0" />
+                    <Check className="w-4 h-4 text-[#8E6D42] shrink-0" />
                     <span className="inline-block">LINEによるアフターケア・美容健康相談</span>
                   </li>
                 </ul>
               </div>
 
-              <div className="text-center md:text-right border-t md:border-t-0 md:border-l border-[#E2D7CA] pt-6 md:pt-0 md:pl-8">
-                <span className="text-xs text-[#827467] block mb-1">初回特別体験価格（税込）</span>
-                <span className="font-serif text-4xl sm:text-5xl font-bold text-[#143836]">
-                  ¥22,000
-                </span>
-                <span className="text-[11px] text-[#827467] block mt-1">※これ以上の追加費用は一切かかりません。</span>
+              {/* Right Column: Price & CTA (Subtle warm beige background) */}
+              <div className="bg-[#FAF7F2] p-8 sm:p-12 border-t md:border-t-0 md:border-l border-[#E2D7CA] flex flex-col items-center md:items-end justify-center text-center md:text-right">
+                
+                {/* 通常 ￥43,200 (斜めに線を入れる) */}
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-xs sm:text-sm text-[#827467] font-medium">通常</span>
+                  <span className="relative inline-block font-serif text-lg sm:text-xl font-bold text-[#827467] px-1 select-none">
+                    ¥43,200
+                    <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
+                      <line x1="2" y1="88" x2="98" y2="12" stroke="#D9534F" strokeWidth="2.5" strokeLinecap="round" />
+                    </svg>
+                  </span>
+                </div>
 
-                <div className="mt-6">
+                {/* 初回特別体験 & → ￥22,000（税込） */}
+                <div className="flex flex-col items-center md:items-end mb-1">
+                  <span className="inline-block text-xs font-bold text-white bg-[#16120F] px-3 py-1 rounded shadow-sm mb-1.5 tracking-wider">
+                    初回特別体験
+                  </span>
+                  
+                  <div className="flex flex-wrap items-baseline justify-center md:justify-end gap-1.5 sm:gap-2">
+                    <span className="text-2xl sm:text-3xl font-bold text-[#8E6D42] select-none leading-none">
+                      →
+                    </span>
+                    <span className="font-serif text-4xl sm:text-5xl font-extrabold text-[#16120F] tracking-tight">
+                      ¥22,000
+                    </span>
+                    <span className="text-xs sm:text-sm font-medium text-[#827467] whitespace-nowrap">
+                      （税込・往診料込）
+                    </span>
+                  </div>
+                </div>
+
+                {/* ※これ以上の追加費用は一切かかりません。 */}
+                <span className="text-[11px] text-[#827467] block mt-2 font-medium">
+                  ※これ以上の追加費用は一切かかりません。
+                </span>
+
+                <div className="mt-6 w-full sm:w-auto">
                   <a 
                     href="https://line.me" 
                     target="_blank" 
@@ -1049,76 +1107,67 @@ export default function App() {
       <section className="pt-12 pb-16 sm:py-20 bg-[#FAF8F5] border-b border-[#E2D7CA]">
         <div className="max-w-[1040px] mx-auto px-6">
           
-          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-            <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-3 font-serif">
-              CONTINUOUS CARE
-            </span>
-            <h2 className="font-serif text-2xl sm:text-4xl text-[#16120F] font-bold leading-snug">
-              <span className="inline-block">継続的に美と健康を</span>
-              <span className="inline-block text-[#143836]">整えたい方へ</span>
-            </h2>
-            <p className="text-[#53483E] text-xs sm:text-sm mt-4 leading-relaxed max-w-xl mx-auto">
-              <span className="inline-block">初回体験後、ご希望の方には定期的な継続プランをご用意しています。</span>
-              <span className="inline-block">単に点滴を打つだけではなく、</span>
-              <span className="inline-block">医師が健康と美容を継続的に見守るサービスです。</span>
+          <div className="max-w-2xl sm:mx-auto mb-12 sm:mb-16 text-left sm:text-center flex flex-col sm:items-center">
+            <div className="border-l-2 border-[#16120F]/60 pl-4 py-0.5 text-left w-full sm:w-auto">
+              <span className="text-xs font-bold tracking-[0.2em] text-[#16120F] uppercase block mb-1.5 font-serif">
+                07 CONTINUOUS CARE
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
+                継続的に美と健康を<br />
+                <span className="text-[#16120F]">整えたい方へ</span>
+              </h2>
+            </div>
+            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left sm:text-center max-w-xl pl-4 sm:pl-0">
+              初回体験後、ご希望の方には定期的な継続プランをご用意しています。単に点滴を打つだけではなく、医師が健康と美容を継続的に見守る service です。
             </p>
           </div>
 
           {/* Connected Step Bar Layout without repetitive box cards */}
-          <div className="bg-white border border-[#E2D7CA] rounded-[16px] p-6 sm:p-10 shadow-sm">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-[#E2D7CA]">
+          <div className="bg-white border border-[#E2D7CA] rounded-[16px] p-4 sm:p-7 shadow-sm">
+            <div className="flex flex-col md:grid md:grid-cols-3 md:divide-x divide-[#E2D7CA]">
               
               {/* Pillar 1 */}
-              <div className="pt-6 md:pt-0 md:px-8 first:pt-0 first:pl-0 space-y-3.5">
+              <div className="pb-4 md:pb-0 md:px-5 first:pt-0 first:pl-0 space-y-2">
                 <div className="flex items-center gap-3">
-                  <span className="font-serif text-2xl font-bold text-[#8E6D42]">01</span>
-                  <span className="text-[11px] font-bold tracking-wider text-[#143836] uppercase bg-[#143836]/10 px-2.5 py-0.5 rounded-full">
-                    Regular Visits
+                  <span className="w-8 h-8 rounded-full bg-[#8E6D42]/10 text-[#8E6D42] flex items-center justify-center font-serif text-sm font-extrabold shrink-0">
+                    01
                   </span>
+                  <h3 className="font-serif text-base sm:text-lg font-bold text-[#16120F]">
+                    定期訪問点滴
+                  </h3>
                 </div>
-                <h3 className="font-serif text-base sm:text-lg font-bold text-[#16120F]">
-                  定期訪問点滴
-                </h3>
                 <p className="text-xs sm:text-[13px] text-[#53483E] leading-relaxed">
-                  <span className="inline-block">プランに応じて定期的にご自宅へ伺い、</span>
-                  <span className="inline-block">診察のうえで点滴を行います。</span>
-                  <span className="inline-block">生活リズムを崩さず、確実にコンディションを保ちます。</span>
+                  プランに応じて定期的にご自宅へ伺い、医師の診察のうえで点滴投与を行います。生活リズムを崩さず、確実にベストコンディションを維持していただけます。
                 </p>
               </div>
 
               {/* Pillar 2 */}
-              <div className="pt-6 md:pt-0 md:px-8 space-y-3.5">
+              <div className="py-4 md:py-0 md:px-5 border-t border-b border-[#E2D7CA]/60 md:border-t-0 md:border-b-0 space-y-2">
                 <div className="flex items-center gap-3">
-                  <span className="font-serif text-2xl font-bold text-[#8E6D42]">02</span>
-                  <span className="text-[11px] font-bold tracking-wider text-[#143836] uppercase bg-[#143836]/10 px-2.5 py-0.5 rounded-full">
-                    Doctor Consultation
+                  <span className="w-8 h-8 rounded-full bg-[#143836]/10 text-[#143836] flex items-center justify-center font-serif text-sm font-extrabold shrink-0">
+                    02
                   </span>
+                  <h3 className="font-serif text-base sm:text-lg font-bold text-[#16120F]">
+                    美容・健康に関するご相談
+                  </h3>
                 </div>
-                <h3 className="font-serif text-base sm:text-lg font-bold text-[#16120F]">
-                  美容・健康に関するご相談
-                </h3>
                 <p className="text-xs sm:text-[13px] text-[#53483E] leading-relaxed">
-                  <span className="inline-block">日頃感じている体調の変化や、</span>
-                  <span className="inline-block">美容・健康の疑問についてご相談いただけます。</span>
-                  <span className="inline-block">専任医だからこその伴走体制です。</span>
+                  日頃感じている細かな体調の変化や、美容・エイジングケア、普段の栄養摂取に関する疑問まで、LINEや訪問時にいつでも医師へ気軽にご相談いただけます。
                 </p>
               </div>
 
               {/* Pillar 3 */}
-              <div className="pt-6 md:pt-0 md:pl-8 space-y-3.5">
+              <div className="pt-4 md:pt-0 md:pl-5 space-y-2">
                 <div className="flex items-center gap-3">
-                  <span className="font-serif text-2xl font-bold text-[#8E6D42]">03</span>
-                  <span className="text-[11px] font-bold tracking-wider text-[#143836] uppercase bg-[#143836]/10 px-2.5 py-0.5 rounded-full">
-                    Blood Screening
+                  <span className="w-8 h-8 rounded-full bg-[#7D6B58]/10 text-[#7D6B58] flex items-center justify-center font-serif text-sm font-extrabold shrink-0">
+                    03
                   </span>
+                  <h3 className="font-serif text-base sm:text-lg font-bold text-[#16120F]">
+                    定期血液検査
+                  </h3>
                 </div>
-                <h3 className="font-serif text-base sm:text-lg font-bold text-[#16120F]">
-                  定期血液検査
-                </h3>
                 <p className="text-xs sm:text-[13px] text-[#53483E] leading-relaxed">
-                  <span className="inline-block">必要に応じて定期的な血液検査を行い、</span>
-                  <span className="inline-block">体調の変化を確認します。</span>
-                  <span className="inline-block">検査結果に対する適切な医療機関の受診をご案内します。</span>
+                  必要に応じて定期的な血液検査を行い、客観的な数値をもとに身体の内側のコンディションを評価。適切な栄養アドバイスや最適な医療案内を行います。
                 </p>
               </div>
 
@@ -1140,6 +1189,16 @@ export default function App() {
       <section id="doctor" className="pt-12 pb-16 sm:py-20 bg-white border-b border-[#E2D7CA]">
         <div className="max-w-[1160px] mx-auto px-6">
           
+          {/* Header ONLY visible on mobile, positioned above the doctor's photo */}
+          <div className="lg:hidden mb-8 border-l-2 border-[#16120F]/60 pl-4 py-0.5 text-left">
+            <span className="text-xs font-bold tracking-[0.2em] text-[#16120F] uppercase block mb-1.5 font-serif">
+              08 DOCTOR PROFILE
+            </span>
+            <h2 className="font-serif text-2xl text-[#16120F] font-bold leading-tight">
+              点滴を熟知した麻酔科専門医が、<span className="text-[#16120F]">ご自宅までお伺いする理由。</span>
+            </h2>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <div className="lg:col-span-4">
@@ -1150,8 +1209,8 @@ export default function App() {
                   className="w-full h-full object-cover object-top"
                 />
               </div>
-              <div className="mt-4 border-l-4 border-[#143836] pl-3">
-                <span className="text-xs text-[#143836] font-semibold block">LIF SKIN CLINIC 院長</span>
+              <div className="mt-4 border-l-4 border-[#16120F] pl-3">
+                <span className="text-xs text-[#16120F] font-semibold block">LIF SKIN CLINIC 院長</span>
                 <h3 className="font-serif text-2xl font-bold text-[#16120F]">宇佐美 潤</h3>
                 <span className="text-xs text-[#827467] leading-relaxed block mt-0.5">
                   <span className="inline-block">日本麻酔科学会認定専門医</span> <span className="inline-block">/ 心臓血管麻酔専門医</span>
@@ -1160,36 +1219,26 @@ export default function App() {
             </div>
 
             <div className="lg:col-span-8 space-y-6">
-              <div>
-                <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-3 font-serif">
-                  DOCTOR PROFILE
+              {/* Header ONLY visible on desktop */}
+              <div className="hidden lg:block border-l-2 border-[#16120F]/60 pl-4 py-0.5">
+                <span className="text-xs font-bold tracking-[0.2em] text-[#16120F] uppercase block mb-1.5 font-serif">
+                  08 DOCTOR PROFILE
                 </span>
-                <h2 className="font-serif text-2xl sm:text-3xl text-[#16120F] font-bold leading-snug">
-                  <span className="inline-block">点滴を熟知した麻酔科専門医が、</span>
-                  <br className="hidden sm:inline" />
-                  <span className="inline-block text-[#143836]">ご自宅までお伺いする理由。</span>
+                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#16120F] leading-tight">
+                  点滴を熟知した麻酔科専門医が、<span className="text-[#16120F]">ご自宅までお伺いする理由。</span>
                 </h2>
               </div>
               
               <p className="text-[#53483E] text-sm leading-relaxed">
-                <span className="inline-block">こんにちは。</span>
-                <span className="inline-block">LIF SKIN CLINIC 院長の宇佐美潤です。</span>
-                <span className="inline-block">私は大学病院などで約10年間、</span>
-                <span className="inline-block">麻酔科医として勤務したのち、</span>
-                <span className="inline-block">美容医療の世界へ進みました。</span>
+                こんにちは。LIF SKIN CLINIC 院長の宇佐美潤です。私は大学病院などで約10年間、麻酔科医として勤務したのち、美容医療の世界へ進みました。
               </p>
               
               <p className="text-[#53483E] text-sm leading-relaxed">
-                <span className="inline-block">麻酔科では、日々の手術の中で</span>
-                <span className="inline-block">無数の静脈確保や全身の循環管理を行い、</span>
-                <span className="inline-block">最善の安全性管理を徹底してまいりました。</span>
-                <span className="inline-block">その技術を活かし、現在行っている美容医療でも、</span>
-                <span className="inline-block">お客様が不安なく施術を受けられるよう</span>
-                <span className="inline-block">細やかな配慮を大切にしています。</span>
+                麻酔科では、日々の手術の中で無数の静脈確保や全身の循環管理を行い、最善の安全性管理を徹底してまいりました。その技術を活かし、現在行っている美容医療でも、お客様が不安なく施術を受けられるよう細やかな配慮を大切にしています。
               </p>
 
-              <div className="p-5 bg-[#FAF8F5] border-l-4 border-[#143836] rounded-r-[8px] space-y-2 border border-[#E2D7CA]/60">
-                <h4 className="font-serif text-sm font-bold text-[#143836] leading-snug">
+              <div className="p-5 bg-[#FAF8F5] border-l-4 border-[#16120F] rounded-r-[8px] space-y-2 border border-[#E2D7CA]/60">
+                <h4 className="font-serif text-sm font-bold text-[#16120F] leading-snug">
                   <span className="inline-block">「仕事が忙しくてクリニックへ行く時間がない」</span>
                   <br className="hidden sm:inline" />
                   <span className="inline-block">「移動せず、リラックスしたプライベートな空間で最高峰のケアを受けたい」</span>
@@ -1208,8 +1257,9 @@ export default function App() {
                   href="https://line.me" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="btn btn--gold btn--shimmer text-xs py-3 px-6"
+                  className="btn btn--line btn--shimmer text-xs py-3 px-6 inline-flex items-center gap-2"
                 >
+                  <MessageCircle className="w-4 h-4 text-[#06C755] shrink-0" />
                   <span className="inline-block">LINEで医師に質問・相談する</span>
                   <ArrowRight className="w-4 h-4 ml-1 shrink-0" />
                 </a>
@@ -1227,15 +1277,16 @@ export default function App() {
       <section id="safety" className="pt-12 pb-16 sm:py-20 bg-[#FAF8F5] border-b border-[#E2D7CA]">
         <div className="max-w-[1040px] mx-auto px-6">
           
-          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-            <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-3 font-serif">
-              SAFETY & QUALITY
-            </span>
-            <h2 className="font-serif text-2xl sm:text-3xl text-[#16120F] font-bold leading-snug">
-              <span className="inline-block">安心して点滴を</span>
-              <span className="inline-block">受けていただくために</span>
-            </h2>
-            <p className="text-[#53483E] text-xs sm:text-sm mt-3 leading-relaxed">
+          <div className="max-w-2xl sm:mx-auto mb-12 sm:mb-16 text-left sm:text-center flex flex-col sm:items-center">
+            <div className="border-l-2 border-[#16120F]/60 pl-4 py-0.5 text-left w-full sm:w-auto">
+              <span className="text-xs font-bold tracking-[0.2em] text-[#16120F] uppercase block mb-1.5 font-serif">
+                09 SAFETY & QUALITY
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
+                安心して点滴を受けていただくために
+              </h2>
+            </div>
+            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left sm:text-center max-w-xl pl-4 sm:pl-0">
               麻酔科専門医が責任をもって、院内と同等以上の安全基準を徹底します。
             </p>
           </div>
@@ -1326,14 +1377,16 @@ export default function App() {
       <section id="flow" className="pt-12 pb-16 sm:py-20 bg-white border-b border-[#E2D7CA]">
         <div className="max-w-[960px] mx-auto px-6">
           
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-3 font-serif">
-              HOW TO USE
-            </span>
-            <h2 className="font-serif text-2xl sm:text-4xl text-[#16120F] font-bold leading-snug">
-              ご利用の流れ
-            </h2>
-            <p className="text-[#53483E] text-xs sm:text-sm mt-3 leading-relaxed">
+          <div className="max-w-2xl sm:mx-auto mb-14 text-left sm:text-center flex flex-col sm:items-center">
+            <div className="border-l-2 border-[#16120F]/60 pl-4 py-0.5 text-left w-full sm:w-auto">
+              <span className="text-xs font-bold tracking-[0.2em] text-[#16120F] uppercase block mb-1.5 font-serif">
+                10 HOW TO USE
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
+                ご利用の流れ
+              </h2>
+            </div>
+            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left sm:text-center max-w-xl pl-4 sm:pl-0">
               ご予約から点滴後のアフターケアまで、スムーズかつ快適に完結します。
             </p>
           </div>
@@ -1343,63 +1396,74 @@ export default function App() {
             {/* Desktop connecting horizontal line */}
             <div className="hidden lg:block absolute top-[28px] left-[10%] right-[10%] h-[1.5px] bg-[#E2D7CA] z-0" />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+            {/* Vertical connecting line ONLY visible below lg */}
+            <div className="absolute left-[28px] top-4 bottom-4 w-[1.5px] bg-[#E2D7CA] lg:hidden z-0" />
+
+            <div className="relative pl-0 lg:pl-0 space-y-8 lg:space-y-0 lg:grid lg:grid-cols-4 lg:gap-8 z-10">
               
               {/* Step 1 */}
-              <div className="flex flex-col items-center text-center space-y-3">
-                <div className="w-14 h-14 rounded-full bg-[#FAF8F5] border-2 border-[#143836] text-[#143836] flex items-center justify-center font-serif font-bold text-base shadow-sm relative">
-                  <span className="text-[#143836]">01</span>
+              <div className="flex gap-4 sm:gap-6 lg:flex-col lg:items-center lg:text-center lg:gap-3 relative">
+                <div className="shrink-0">
+                  <div className="w-14 h-14 rounded-full bg-[#FAF8F5] border-2 border-[#16120F] text-[#16120F] flex items-center justify-center font-serif font-bold text-base shadow-sm relative z-10">
+                    <span className="text-[#16120F]">01</span>
+                  </div>
                 </div>
-                <div className="space-y-1.5">
-                  <h3 className="font-serif text-sm sm:text-base font-bold text-[#16120F]">
+                <div className="space-y-1.5 pt-1 lg:pt-0">
+                  <h3 className="font-serif text-sm sm:text-base font-bold text-[#16120F] text-left lg:text-center">
                     LINEからお問い合わせ
                   </h3>
-                  <p className="text-xs text-[#53483E] leading-relaxed">
+                  <p className="text-xs text-[#53483E] leading-relaxed text-left lg:text-center">
                     下記のボタンをタップして、ご希望の日時や気になっていることをお問い合わせいただけます。
                   </p>
                 </div>
               </div>
 
               {/* Step 2 */}
-              <div className="flex flex-col items-center text-center space-y-3">
-                <div className="w-14 h-14 rounded-full bg-[#FAF8F5] border-2 border-[#143836] text-[#143836] flex items-center justify-center font-serif font-bold text-base shadow-sm relative">
-                  <span className="text-[#143836]">02</span>
+              <div className="flex gap-4 sm:gap-6 lg:flex-col lg:items-center lg:text-center lg:gap-3 relative">
+                <div className="shrink-0">
+                  <div className="w-14 h-14 rounded-full bg-[#FAF8F5] border-2 border-[#16120F] text-[#16120F] flex items-center justify-center font-serif font-bold text-base shadow-sm relative z-10">
+                    <span className="text-[#16120F]">02</span>
+                  </div>
                 </div>
-                <div className="space-y-1.5">
-                  <h3 className="font-serif text-sm sm:text-base font-bold text-[#16120F]">
+                <div className="space-y-1.5 pt-1 lg:pt-0">
+                  <h3 className="font-serif text-sm sm:text-base font-bold text-[#16120F] text-left lg:text-center">
                     事前確認・日程調整
                   </h3>
-                  <p className="text-xs text-[#53483E] leading-relaxed">
+                  <p className="text-xs text-[#53483E] leading-relaxed text-left lg:text-center">
                     ご希望日時、訪問先、体調や既往歴、内服薬などを確認します。
                   </p>
                 </div>
               </div>
 
               {/* Step 3 */}
-              <div className="flex flex-col items-center text-center space-y-3">
-                <div className="w-14 h-14 rounded-full bg-[#FAF8F5] border-2 border-[#143836] text-[#143836] flex items-center justify-center font-serif font-bold text-base shadow-sm relative">
-                  <span className="text-[#143836]">03</span>
+              <div className="flex gap-4 sm:gap-6 lg:flex-col lg:items-center lg:text-center lg:gap-3 relative">
+                <div className="shrink-0">
+                  <div className="w-14 h-14 rounded-full bg-[#FAF8F5] border-2 border-[#16120F] text-[#16120F] flex items-center justify-center font-serif font-bold text-base shadow-sm relative z-10">
+                    <span className="text-[#16120F]">03</span>
+                  </div>
                 </div>
-                <div className="space-y-1.5">
-                  <h3 className="font-serif text-sm sm:text-base font-bold text-[#16120F]">
+                <div className="space-y-1.5 pt-1 lg:pt-0">
+                  <h3 className="font-serif text-sm sm:text-base font-bold text-[#16120F] text-left lg:text-center">
                     ご自宅へ訪問し診察・点滴
                   </h3>
-                  <p className="text-xs text-[#53483E] leading-relaxed">
+                  <p className="text-xs text-[#53483E] leading-relaxed text-left lg:text-center">
                     点滴を行うための小さなスペースをご用意いただくだけ。特別な準備は必要ありません。
                   </p>
                 </div>
               </div>
 
               {/* Step 4 */}
-              <div className="flex flex-col items-center text-center space-y-3">
-                <div className="w-14 h-14 rounded-full bg-[#143836] text-white flex items-center justify-center font-serif font-bold text-base shadow-md relative">
-                  <span>04</span>
+              <div className="flex gap-4 sm:gap-6 lg:flex-col lg:items-center lg:text-center lg:gap-3 relative">
+                <div className="shrink-0">
+                  <div className="w-14 h-14 rounded-full bg-[#FAF8F5] border-2 border-[#16120F] text-[#16120F] flex items-center justify-center font-serif font-bold text-base shadow-sm relative z-10">
+                    <span className="text-[#16120F]">04</span>
+                  </div>
                 </div>
-                <div className="space-y-1.5">
-                  <h3 className="font-serif text-sm sm:text-base font-bold text-[#16120F]">
+                <div className="space-y-1.5 pt-1 lg:pt-0">
+                  <h3 className="font-serif text-sm sm:text-base font-bold text-[#16120F] text-left lg:text-center">
                     アフターケア
                   </h3>
-                  <p className="text-xs text-[#53483E] leading-relaxed">
+                  <p className="text-xs text-[#53483E] leading-relaxed text-left lg:text-center">
                     施術後の注意事項をご説明します。点滴後に気になることがあればいつでもお問い合わせいただけます。
                   </p>
                 </div>
@@ -1413,9 +1477,9 @@ export default function App() {
               href="https://line.me" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="btn btn--line btn--shimmer inline-flex items-center gap-2 !py-3.5 !px-8 text-sm"
+              className="btn btn--gold btn--shimmer inline-flex items-center gap-2 !py-3.5 !px-8 text-sm"
             >
-              <MessageCircle className="w-4 h-4 text-[#06C755]" />
+              <Calendar className="w-4 h-4 text-[#7A5723]" />
               <span>訪問可能日時を確認する</span>
             </a>
           </div>
@@ -1429,15 +1493,16 @@ export default function App() {
       <section className="pt-12 pb-16 sm:py-20 bg-[#FAF8F5] border-b border-[#E2D7CA]">
         <div className="max-w-[960px] mx-auto px-6">
           
-          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-            <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-3 font-serif">
-              CONCEPT MOVIE
-            </span>
-            <h2 className="font-serif text-2xl sm:text-4xl text-[#16120F] font-bold leading-snug">
-              <span className="inline-block">訪問点滴の様子を</span>
-              <span className="inline-block text-[#143836]">動画で見る</span>
-            </h2>
-            <p className="text-[#53483E] text-xs sm:text-sm mt-3 leading-relaxed">
+          <div className="max-w-2xl sm:mx-auto mb-10 sm:mb-12 text-left sm:text-center flex flex-col sm:items-center">
+            <div className="border-l-2 border-[#16120F]/60 pl-4 py-0.5 text-left w-full sm:w-auto">
+              <span className="text-xs font-bold tracking-[0.2em] text-[#16120F] uppercase block mb-1.5 font-serif">
+                11 CONCEPT MOVIE
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
+                訪問点滴の様子を<span className="text-[#16120F]">動画で見る</span>
+              </h2>
+            </div>
+            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left sm:text-center max-w-xl pl-4 sm:pl-0">
               ご自宅でのリラックスした施術風景や、医師による丁寧な対応を映像でご確認いただけます。
             </p>
           </div>
@@ -1458,7 +1523,7 @@ export default function App() {
                 <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#143836]/90 border-2 border-[#DFCBA9] flex items-center justify-center text-white mx-auto shadow-2xl group-hover:scale-110 transition-transform duration-300">
                   <Play className="w-7 h-7 sm:w-8 sm:h-8 fill-white ml-1 text-white" />
                 </div>
-                <p className="text-white text-xs sm:text-sm font-serif tracking-wider font-semibold">
+                <p className="text-white text-sm sm:text-base font-serif tracking-wider font-semibold">
                   動画を再生する (Video Placeholder)
                 </p>
                 <span className="inline-block text-[11px] text-white/70 bg-black/40 px-3 py-1 rounded-full">
@@ -1477,13 +1542,15 @@ export default function App() {
       <section id="faq" className="pt-12 pb-16 sm:py-20 bg-white border-b border-[#E2D7CA]">
         <div className="max-w-[860px] mx-auto px-6">
           
-          <div className="text-center mb-16">
-            <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-3 font-serif">
-              FAQ
-            </span>
-            <h2 className="font-serif text-2xl sm:text-3xl text-[#16120F] font-bold leading-snug">
-              <span className="inline-block">よくあるご質問</span>
-            </h2>
+          <div className="mb-16 text-left sm:text-center flex sm:justify-center">
+            <div className="border-l-2 border-[#16120F]/60 pl-4 py-0.5 text-left">
+              <span className="text-xs font-bold tracking-[0.2em] text-[#16120F] uppercase block mb-1.5 font-serif">
+                12 FAQ
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
+                よくあるご質問
+              </h2>
+            </div>
           </div>
 
           <div className="space-y-4">
@@ -1508,7 +1575,7 @@ export default function App() {
                   </button>
 
                   {isOpen && (
-                    <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-[#53483E] leading-relaxed border-t border-[#E2D7CA]/40 bg-white">
+                    <div className="px-5 pb-5 pt-1 text-sm sm:text-base text-[#53483E] leading-relaxed border-t border-[#E2D7CA]/40 bg-white">
                       <div className="flex items-start gap-3">
                         <span className="w-6 h-6 rounded-full bg-[#FAF8F5] text-[#9E7D52] text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
                           A
@@ -1531,14 +1598,16 @@ export default function App() {
       <section className="pt-12 pb-16 sm:py-20 bg-white border-b border-[#E2D7CA]">
         <div className="max-w-[1040px] mx-auto px-6">
           
-          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-            <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-3 font-serif">
-              VOICES
-            </span>
-            <h2 className="font-serif text-2xl sm:text-4xl text-[#16120F] font-bold leading-snug">
-              <span className="inline-block">ご利用いただいた方の声</span>
-            </h2>
-            <p className="text-[#53483E] text-xs sm:text-sm mt-3 leading-relaxed">
+          <div className="max-w-2xl sm:mx-auto mb-12 sm:mb-16 text-left sm:text-center flex flex-col sm:items-center">
+            <div className="border-l-2 border-[#16120F]/60 pl-4 py-0.5 text-left w-full sm:w-auto">
+              <span className="text-xs font-bold tracking-[0.2em] text-[#16120F] uppercase block mb-1.5 font-serif">
+                13 VOICES
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
+                ご利用いただいた方の声
+              </h2>
+            </div>
+            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left sm:text-center max-w-xl pl-4 sm:pl-0">
               ご自宅で受ける点滴医療の快適さを実感していただいています。
             </p>
           </div>
@@ -1560,7 +1629,7 @@ export default function App() {
                 </p>
               </div>
               <div className="pt-3 border-t border-[#E2D7CA]/70 flex items-center gap-2 text-[11px] text-[#827467]">
-                <Check className="w-3.5 h-3.5 text-[#143836]" />
+                <Check className="w-3.5 h-3.5 text-[#16120F]" />
                 <span>プレミアムリカバリー点滴利用</span>
               </div>
             </div>
@@ -1580,7 +1649,7 @@ export default function App() {
                 </p>
               </div>
               <div className="pt-3 border-t border-[#E2D7CA]/70 flex items-center gap-2 text-[11px] text-[#827467]">
-                <Check className="w-3.5 h-3.5 text-[#143836]" />
+                <Check className="w-3.5 h-3.5 text-[#16120F]" />
                 <span>高濃度ビタミンC＋NMN点滴利用</span>
               </div>
             </div>
@@ -1600,7 +1669,7 @@ export default function App() {
                 </p>
               </div>
               <div className="pt-3 border-t border-[#E2D7CA]/70 flex items-center gap-2 text-[11px] text-[#827467]">
-                <Check className="w-3.5 h-3.5 text-[#143836]" />
+                <Check className="w-3.5 h-3.5 text-[#16120F]" />
                 <span>幹細胞上清液点滴利用</span>
               </div>
             </div>
@@ -1619,13 +1688,13 @@ export default function App() {
           =================================================== */}
       <section className="py-12 sm:py-16 bg-[#F3ECE4] border-b border-[#E2D7CA]">
         <div className="max-w-[860px] mx-auto px-6 text-center space-y-4">
-          <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block font-serif">
-            SERVICE AREA
+          <span className="text-xs font-bold tracking-[0.2em] text-[#16120F] uppercase block font-serif">
+            14 SERVICE AREA
           </span>
           <h2 className="font-serif text-2xl sm:text-3xl text-[#16120F] font-bold">
             対応エリア
           </h2>
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-[#E2D7CA] rounded-full shadow-sm text-sm sm:text-base font-serif font-bold text-[#143836]">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-[#E2D7CA] rounded-full shadow-sm text-sm sm:text-base font-serif font-bold text-[#16120F]">
             <MapPin className="w-4 h-4 text-[#8E6D42]" />
             <span>東京都中央区・港区（完全予約制）</span>
           </div>
@@ -1641,17 +1710,17 @@ export default function App() {
       <section id="contact-form" className="pt-12 pb-16 sm:py-20 bg-[#FAF8F5] border-b border-[#E2D7CA]">
         <div className="max-w-[780px] mx-auto px-6">
           
-          <div className="text-center mb-12">
-            <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-3 font-serif">
-              CONTACT & INQUIRY
-            </span>
-            <h2 className="font-serif text-2xl sm:text-3xl text-[#16120F] font-bold leading-snug">
-              <span className="inline-block">まずは気軽に</span>
-              <span className="inline-block">ご質問ください</span>
-            </h2>
-            <p className="text-xs text-[#827467] mt-3 leading-relaxed">
-              <span className="inline-block">タップすると質問内容が</span>
-              <span className="inline-block">自動で入力されます</span>
+          <div className="mb-12 text-left sm:text-center flex flex-col sm:items-center">
+            <div className="border-l-2 border-[#16120F]/60 pl-4 py-0.5 text-left w-full sm:w-auto">
+              <span className="text-xs font-bold tracking-[0.2em] text-[#16120F] uppercase block mb-1.5 font-serif">
+                15 CONTACT & INQUIRY
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
+                まずは気軽にご質問ください
+              </h2>
+            </div>
+            <p className="text-xs text-[#827467] mt-4 leading-relaxed text-left sm:text-center max-w-xl pl-4 sm:pl-0">
+              タップすると質問内容が自動で入力されます
             </p>
           </div>
 
@@ -1751,9 +1820,9 @@ export default function App() {
               <div className="pt-2">
                 <button 
                   type="submit"
-                  className="btn btn--gold btn--shimmer w-full text-sm py-3.5"
+                  className="btn btn--gold btn--shimmer w-full text-sm py-3.5 whitespace-nowrap"
                 >
-                  <Send className="w-4 h-4 text-[#7A5723]" />
+                  <Send className="w-4 h-4 text-[#7A5723] shrink-0" />
                   <span>質問・予約希望を送信する</span>
                 </button>
               </div>
@@ -1783,7 +1852,7 @@ export default function App() {
                 <span className="inline-block">院長 宇佐美 潤</span> <span className="inline-block">（麻酔科専門医）</span>
               </p>
               <p className="text-xs text-white/70 leading-relaxed max-w-md">
-                <span className="inline-block">東京都中央区日本橋久松町9-6</span><br />
+                <span className="inline-block">東京都中央区勝どき6-3-2</span><br />
                 <span className="inline-block">※本訪問点滴サービスは、医師による完全予約制の往診診療です。</span>
                 <span className="inline-block">事前のご予約・ご相談は公式LINEまたは当サイトより承っております。</span>
               </p>
