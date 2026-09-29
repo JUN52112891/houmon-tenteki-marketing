@@ -84,12 +84,16 @@ main {
   max-width: 100%;
 }
 
-h1, h2, h3, h4, .font-serif {
+:where(h1, h2, h3, h4) {
   font-family: 'Zen Old Mincho', serif;
   color: var(--ink-deep);
   line-height: 1.5;
   font-weight: 600;
   line-break: strict;
+}
+
+.font-serif {
+  font-family: 'Zen Old Mincho', serif;
 }
 
 /* ===================================================
