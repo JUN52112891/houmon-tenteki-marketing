@@ -122,57 +122,71 @@ export default function App() {
     <div className="min-h-screen bg-[#FAF8F5] text-[#221D18] font-sans antialiased selection:bg-[#143836] selection:text-white pb-20 md:pb-0">
       
       {/* ===================================================
-          Header & Navigation (Oligio-Kiss Style)
+          Header & Navigation (2-Tier PC Layout)
           =================================================== */}
       <header className="site-header">
-        <div className="max-w-[1160px] mx-auto px-6 h-[76px] flex items-center justify-between">
+        {/* 上段: クリニック名 / ロゴ ＆ 問い合わせ・予約ボタン */}
+        <div className="max-w-[1160px] mx-auto px-6 h-[68px] lg:h-[72px] flex items-center justify-between">
           
           {/* Logo */}
-          <div className="logo-wrap">
-            <span className="logo-title">LIF SKIN CLINIC</span>
-            <span className="logo-sub">VISIT DRIP / 訪問点滴</span>
-          </div>
+          <a href="#" className="logo-wrap">
+            <span className="logo-title text-xl sm:text-[22px] tracking-[0.08em] font-serif text-[#16120F]">LIF SKIN CLINIC</span>
+            <span className="logo-sub text-[10px] sm:text-[11px] tracking-[0.14em] text-[#8E6D42]">VISIT DRIP / 訪問点滴</span>
+          </a>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-6">
-            <a href="#about" className="header-link">点滴の意義</a>
-            <a href="#service" className="header-link">訪問という形</a>
-            <a href="#menu-detail" className="header-link">厳選メニュー</a>
-            <a href="#trial" className="header-link">初回体験プラン</a>
-            <a href="#doctor" className="header-link">医師紹介</a>
-            <a href="#safety" className="header-link">安全性</a>
-            <a href="#flow" className="header-link">ご利用の流れ</a>
-            <a href="#faq" className="header-link">Q&A</a>
-          </nav>
+          {/* Header CTAs & Hamburger */}
+          <div className="flex items-center gap-3">
+            <div className="hidden sm:flex items-center gap-3">
+              <a 
+                href="https://line.me" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn-header-line"
+              >
+                <MessageCircle className="w-4 h-4 text-[#06C755]" />
+                <span>LINE相談</span>
+              </a>
+              <a 
+                href="#contact-form" 
+                className="btn-header-reserve"
+              >
+                <Calendar className="w-4 h-4 text-[#7A5723]" />
+                <span>WEB予約</span>
+              </a>
+            </div>
 
-          {/* Header CTAs */}
-          <div className="hidden sm:flex items-center gap-3">
-            <a 
-              href="https://line.me" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="btn-header-line"
+            {/* Mobile hamburger */}
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden p-2 text-[#53483E] hover:text-[#16120F] focus:outline-none"
+              aria-label="Toggle Navigation"
             >
-              <MessageCircle className="w-4 h-4 text-[#06C755]" />
-              <span>LINE相談</span>
-            </a>
-            <a 
-              href="#contact-form" 
-              className="btn-header-reserve"
-            >
-              <Calendar className="w-4 h-4 text-[#7A5723]" />
-              <span>WEB予約</span>
-            </a>
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
+        </div>
 
-          {/* Mobile hamburger */}
-          <button 
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-[#53483E] hover:text-[#16120F] focus:outline-none"
-            aria-label="Toggle Navigation"
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+        {/* 下段 (PC版): ナビゲーションメニュー */}
+        <div className="hidden lg:block border-t border-[#E2D7CA]/80 bg-[#FAF8F5]/95">
+          <div className="max-w-[1160px] mx-auto px-6 h-[44px] flex items-center justify-center">
+            <nav className="flex items-center justify-center gap-7 xl:gap-9">
+              <a href="#about" className="header-link text-[13.5px] tracking-wide hover:text-[#143836]">点滴の意義</a>
+              <span className="text-[#D3C7B8] text-xs select-none">/</span>
+              <a href="#service" className="header-link text-[13.5px] tracking-wide hover:text-[#143836]">訪問という形</a>
+              <span className="text-[#D3C7B8] text-xs select-none">/</span>
+              <a href="#menu-detail" className="header-link text-[13.5px] tracking-wide hover:text-[#143836]">厳選メニュー</a>
+              <span className="text-[#D3C7B8] text-xs select-none">/</span>
+              <a href="#trial" className="header-link text-[13.5px] tracking-wide hover:text-[#143836]">初回体験プラン</a>
+              <span className="text-[#D3C7B8] text-xs select-none">/</span>
+              <a href="#doctor" className="header-link text-[13.5px] tracking-wide hover:text-[#143836]">医師紹介</a>
+              <span className="text-[#D3C7B8] text-xs select-none">/</span>
+              <a href="#safety" className="header-link text-[13.5px] tracking-wide hover:text-[#143836]">安全性</a>
+              <span className="text-[#D3C7B8] text-xs select-none">/</span>
+              <a href="#flow" className="header-link text-[13.5px] tracking-wide hover:text-[#143836]">ご利用の流れ</a>
+              <span className="text-[#D3C7B8] text-xs select-none">/</span>
+              <a href="#faq" className="header-link text-[13.5px] tracking-wide hover:text-[#143836]">Q&A</a>
+            </nav>
+          </div>
         </div>
 
         {/* Mobile menu dropdown */}
@@ -839,7 +853,7 @@ export default function App() {
                   </div>
                   <div className="p-4 bg-white rounded-[10px] border border-[#E2D7CA]/70 shadow-2xs">
                     <p className="font-bold text-[#16120F] mb-1.5 flex flex-wrap items-baseline gap-x-1.5 text-sm sm:text-[15px]">
-                      <span className="text-[#143836]">6. マグネシウム</span>
+                      <span className="text-[#143836] w-full sm:w-auto">6. マグネシウム</span>
                       <span className="text-xs sm:text-[13px] text-[#8E6D42]">【筋肉・神経のサポート】</span>
                     </p>
                     <p className="text-[#6B5E52] text-xs sm:text-[13px] leading-relaxed">
