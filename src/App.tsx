@@ -235,7 +235,6 @@ export default function App() {
               <MapPin className="w-3.5 h-3.5 text-[#DFCBA9] shrink-0" />
               <span className="text-xs sm:text-[13px] font-medium tracking-[0.08em] text-[#FAF8F5]">
                 <span className="inline-block">東京都中央区・港区限定</span>
-                <span className="inline-block sm:ml-1">/ 医師直接訪問</span>
               </span>
             </div>
 
@@ -249,10 +248,6 @@ export default function App() {
 
             <p className="text-[#8E6D42] font-semibold text-sm sm:text-base tracking-[0.06em] font-serif">
               <span className="inline-block">移動・待ち時間ゼロ</span> <span className="inline-block">/ 麻酔科専門医が直接ご自宅へ往診</span>
-            </p>
-
-            <p className="text-[#3D332B] text-sm sm:text-base leading-relaxed max-w-xl font-normal">
-              クリニックに通院する煩わしさや待ち時間をなくし、ご自宅やプライベートオフィスで医療グレードの全身コンディショニングをお受けいただけます。
             </p>
 
             {/* Price Pill */}
