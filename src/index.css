@@ -63,9 +63,7 @@ body {
   line-height: 1.95;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
   max-width: 100%;
-  position: relative;
   width: 100%;
   word-break: normal;
   line-break: strict;
@@ -100,13 +98,18 @@ main {
    Header & Navigation
    =================================================== */
 .site-header {
-  position: sticky;
-  top: 0;
+  position: static;
   z-index: 80;
   background: rgba(250, 248, 245, 0.96);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
   transition: all .25s ease;
+}
+@media (min-width: 1024px) {
+  .site-header {
+    position: sticky;
+    top: 0;
+  }
 }
 .header-inner {
   display: flex;

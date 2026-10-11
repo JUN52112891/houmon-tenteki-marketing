@@ -151,10 +151,10 @@ export default function App() {
       {/* ===================================================
           Header & Navigation (2-Tier PC Layout)
           =================================================== */}
-      <header className="site-header">
+      <header className="site-header hidden lg:block">
         {/* 上段: クリニック名 / ロゴ ＆ 問い合わせ・予約ボタン */}
         <div className="max-w-[1160px] mx-auto px-6 h-[68px] lg:h-[72px] flex items-center justify-between">
-          
+
           {/* Logo */}
           <a href="#" className="flex items-center shrink-0">
             <img
@@ -164,35 +164,24 @@ export default function App() {
             />
           </a>
 
-          {/* Header CTAs & Hamburger */}
+          {/* Header CTAs */}
           <div className="flex items-center gap-3">
-            <div className="hidden sm:flex items-center gap-3">
-              <a 
-                href="https://lin.ee/ybpyfYR" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://lin.ee/ybpyfYR"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-header-line"
               >
                 <MessageCircle className="w-4 h-4 text-[#06C755]" />
                 <span>LINE相談</span>
               </a>
-              <a 
-                href="#contact-form" 
+              <a
+                href="#contact-form"
                 className="btn-header-reserve"
               >
                 <Calendar className="w-4 h-4 text-[#7A5723]" />
                 <span>初回予約</span>
               </a>
-            </div>
-
-            {/* Mobile hamburger */}
-            <button 
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-[#53483E] hover:text-[#16120F] focus:outline-none"
-              aria-label="Toggle Navigation"
-            >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
           </div>
         </div>
 
@@ -219,9 +208,20 @@ export default function App() {
           </div>
         </div>
 
-        {/* Mobile menu dropdown */}
+      </header>
+
+      {/* モバイル: ヘッダーバーは非表示、ハンバーガーボタンのみ右上に浮かせて残す */}
+      <div className="lg:hidden">
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="fixed top-4 right-4 z-[95] p-2.5 rounded-full bg-[#FAF8F5]/90 backdrop-blur-sm border border-[#E2D7CA] text-[#53483E] shadow-[0_4px_14px_rgba(22,18,15,0.1)]"
+          aria-label="Toggle Navigation"
+        >
+          {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
+
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-[#FAF8F5] border-b border-[#E2D7CA] p-6 space-y-4 shadow-xl">
+          <div className="fixed top-16 right-4 left-4 z-[94] bg-[#FAF8F5] border border-[#E2D7CA] rounded-[16px] p-6 space-y-4 shadow-xl">
             <a href="#about-intro" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">点滴という選択</a>
             <a href="#service-time" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">使う時間の違い</a>
             <a href="#menu-detail" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">目的別メニュー・料金</a>
@@ -240,7 +240,7 @@ export default function App() {
             </div>
           </div>
         )}
-      </header>
+      </div>
 
       {/* ===================================================
           01 | ファーストビュー (Hero Section)
