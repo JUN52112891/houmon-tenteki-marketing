@@ -18,7 +18,7 @@ import {
   Stethoscope,
   HeartPulse
 } from 'lucide-react'
-import doctorPhoto from './assets/images/宣材写真5.jpg'
+import doctorPhoto from './assets/images/白衣のプロフェッショナルポートレート (1).png'
 import scenePhoto from './assets/images/3人の点滴風景.png'
 import waitingManPhoto from './assets/images/時間待ちの男性.png'
 import suppliPhoto from './assets/images/サプリ.png'
