@@ -20,7 +20,7 @@ import {
 } from 'lucide-react'
 import doctorPhoto from './assets/images/白衣のプロフェッショナルポートレート (1).png'
 import scenePhoto from './assets/images/hero_scene_v3.webp'
-import heroMobileFull from './assets/images/hero_mobile_full_v2.webp'
+import heroMobileFull from './assets/images/hero_mobile_full_v3.webp'
 import waitingManPhoto from './assets/images/時間待ちの男性.png'
 import suppliPhoto from './assets/images/サプリ.png'
 import tentekiPhoto from './assets/images/点滴.png'
@@ -265,7 +265,7 @@ export default function App() {
             <img
               src={heroMobileFull}
               alt="Dr. concierge by LIF SKIN CLINIC 訪問点滴 通院の手間なく、いつもの自宅で。最上級のプライベート点滴。初回体験22,000円（税込）"
-              className="lg:hidden -mx-6 w-[calc(100%+3rem)] max-w-none h-auto"
+              className="lg:hidden -mt-4 sm:-mt-7 -mx-6 w-[calc(100%+3rem)] max-w-none h-auto block"
             />
 
             {/* Exclusive Area Capsule Badge */}
