@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
 import { 
-  ShieldCheck, 
-  Clock, 
-  AlertCircle, 
   Check, 
   ChevronDown, 
   Shield,
@@ -289,7 +286,12 @@ export default function App() {
               <br />
               <span className="inline-block">いつもの自宅で。</span>
               <br />
-              <span className="inline-block text-[#143836]">最上級のプライベート点滴医療。</span>
+              <span className="inline-block text-[#143836] sm:hidden">
+                最上級の
+                <br />
+                プライベート点滴
+              </span>
+              <span className="hidden sm:inline-block text-[#143836]">最上級のプライベート点滴医療。</span>
             </h1>
 
             <p className="hidden lg:block text-[#8E6D42] font-semibold text-sm sm:text-base tracking-[0.06em] font-serif">
@@ -577,7 +579,7 @@ export default function App() {
                 TIME VALUE COMPARISON
               </span>
               <h3 className="font-serif text-lg sm:text-2xl font-bold text-[#16120F]">
-                同じ点滴でも、“使う時間”は大きく変わります。
+                同じ点滴でも、“使う時間”は<br />大きく変わります。
               </h3>
             </div>
 
