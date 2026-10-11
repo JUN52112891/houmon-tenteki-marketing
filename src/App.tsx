@@ -18,6 +18,7 @@ import {
 import doctorPhoto from './assets/images/白衣のプロフェッショナルポートレート (1).png'
 import scenePhoto from './assets/images/hero_scene_v3.webp'
 import heroMobileFull from './assets/images/hero_mobile_full_v3.webp'
+import logoImage from './assets/images/logo-dr-concierge.png'
 import waitingManPhoto from './assets/images/時間待ちの男性.png'
 import suppliPhoto from './assets/images/suppli-banner.webp'
 import tentekiPhoto from './assets/images/iv-drip-banner.webp'
@@ -155,13 +156,12 @@ export default function App() {
         <div className="max-w-[1160px] mx-auto px-6 h-[68px] lg:h-[72px] flex items-center justify-between">
           
           {/* Logo */}
-          <a href="#" className="logo-wrap">
-            <span className="flex items-baseline gap-2 sm:block">
-              <span className="logo-title text-xl sm:text-[22px] tracking-[0.08em] font-serif text-[#16120F]">Dr. concierge</span>
-              <span className="logo-sub sm:hidden text-[10px] tracking-[0.08em] text-[#8E6D42]">by LIF SKIN CLINIC</span>
-            </span>
-            <span className="hidden sm:block logo-sub text-[11px] tracking-[0.14em] text-[#8E6D42]">by LIF SKIN CLINIC / 訪問点滴</span>
-            <span className="block sm:hidden text-[10px] tracking-[0.2em] text-[#8E6D42] mt-0.5">―ドクターコンシェルジュ―</span>
+          <a href="#" className="flex items-center shrink-0">
+            <img
+              src={logoImage}
+              alt="Dr. concierge ドクターコンシェルジュ by LIF SKIN CLINIC"
+              className="h-[60px] lg:h-[64px] w-auto"
+            />
           </a>
 
           {/* Header CTAs & Hamburger */}
