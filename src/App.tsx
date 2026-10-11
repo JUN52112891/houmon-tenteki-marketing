@@ -22,8 +22,8 @@ import doctorPhoto from './assets/images/白衣のプロフェッショナルポ
 import scenePhoto from './assets/images/hero_scene_v3.webp'
 import heroMobileFull from './assets/images/hero_mobile_full_v3.webp'
 import waitingManPhoto from './assets/images/時間待ちの男性.png'
-import suppliPhoto from './assets/images/サプリ.png'
-import tentekiPhoto from './assets/images/点滴.png'
+import suppliPhoto from './assets/images/suppli-banner.webp'
+import tentekiPhoto from './assets/images/iv-drip-banner.webp'
 import laptopDripPhoto from './assets/images/scene_laptop_drip_v2.png'
 import homeDripPhoto from './assets/images/scene_sofa_relax_drip.png'
 import concernStaminaPhoto from './assets/images/concern-stamina-golf.webp'
@@ -159,8 +159,12 @@ export default function App() {
           
           {/* Logo */}
           <a href="#" className="logo-wrap">
-            <span className="logo-title text-xl sm:text-[22px] tracking-[0.08em] font-serif text-[#16120F]">Dr. concierge</span>
-            <span className="logo-sub text-[10px] sm:text-[11px] tracking-[0.14em] text-[#8E6D42]">by LIF SKIN CLINIC / 訪問点滴</span>
+            <span className="flex items-baseline gap-2 sm:block">
+              <span className="logo-title text-xl sm:text-[22px] tracking-[0.08em] font-serif text-[#16120F]">Dr. concierge</span>
+              <span className="logo-sub sm:hidden text-[10px] tracking-[0.08em] text-[#8E6D42]">by LIF SKIN CLINIC</span>
+            </span>
+            <span className="hidden sm:block logo-sub text-[11px] tracking-[0.14em] text-[#8E6D42]">by LIF SKIN CLINIC / 訪問点滴</span>
+            <span className="block sm:hidden text-[10px] tracking-[0.2em] text-[#8E6D42] mt-0.5">―ドクターコンシェルジュ―</span>
           </a>
 
           {/* Header CTAs & Hamburger */}
@@ -244,7 +248,7 @@ export default function App() {
       {/* ===================================================
           01 | ファーストビュー (Hero Section)
           =================================================== */}
-      <section className="relative overflow-hidden pt-4 pb-7 sm:py-7 lg:py-12 bg-[#FAF8F5] border-b border-[#E2D7CA]">
+      <section className="relative overflow-hidden pt-4 pb-3.5 sm:py-7 lg:py-12 bg-[#FAF8F5] border-b border-[#E2D7CA]">
         {/* Ambient background image: 施術風景 (PC only — mobile uses the all-in-one hero graphic instead) */}
         <div className="hidden lg:block absolute top-0 left-0 right-0 h-full pointer-events-none z-0 overflow-hidden">
           <img
@@ -262,11 +266,15 @@ export default function App() {
           
           <div className="lg:col-span-7 space-y-5 sm:space-y-6">
             {/* Mobile: single all-in-one hero graphic (logo/badge/headline/features/photo/price) */}
-            <img
-              src={heroMobileFull}
-              alt="Dr. concierge by LIF SKIN CLINIC 訪問点滴 通院の手間なく、いつもの自宅で。最上級のプライベート点滴。初回体験22,000円（税込）"
-              className="lg:hidden -mt-4 sm:-mt-7 -mx-6 w-[calc(100%+3rem)] max-w-none h-auto block"
-            />
+            <div className="lg:hidden relative -mt-4 sm:-mt-7 -mx-6">
+              <img
+                src={heroMobileFull}
+                alt="Dr. concierge by LIF SKIN CLINIC 訪問点滴 通院の手間なく、いつもの自宅で。最上級のプライベート点滴。初回体験22,000円（税込）"
+                className="w-full h-auto block"
+              />
+              {/* 価格カード周りの金装飾のギラつきを抑える白ベール（カード本体は避ける） */}
+              <div className="absolute inset-x-0 top-[56%] bottom-[27%] bg-gradient-to-b from-white/0 via-white/45 to-white/45 pointer-events-none" />
+            </div>
 
             {/* Exclusive Area Capsule Badge */}
             <div className="hidden lg:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#143836] text-[#FAF8F5] shadow-sm border border-[#143836]/30">
@@ -303,24 +311,51 @@ export default function App() {
             </div>
 
             {/* Buttons Group */}
-            <div className="flex flex-col gap-2.5 w-[78%] max-w-[300px] sm:w-auto sm:max-w-none sm:flex-row sm:gap-3.5 pt-1">
-              <a 
-                href="https://lin.ee/ybpyfYR" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="btn btn--line btn--shimmer text-[14px] sm:text-base px-4 py-3.5 sm:px-7 sm:py-4 whitespace-nowrap gap-2 sm:gap-2.5"
-              >
-                <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 text-[#06C755] shrink-0" />
-                <span className="inline-block">初回体験をLINEで予約する</span>
-                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-0.5 shrink-0" />
-              </a>
-              <a 
-                href="#contact-form" 
-                className="btn btn--gold btn--shimmer text-[14px] sm:text-base px-4 py-3.5 sm:px-7 sm:py-4 whitespace-nowrap gap-2 sm:gap-2.5"
-              >
-                <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-[#7A5723] shrink-0" />
-                <span className="inline-block">WEBで初回体験を予約する</span>
-              </a>
+            <div className="-mt-2.5 sm:mt-0">
+              {/* Mobile: exact match to the fixed bottom bar buttons */}
+              <div className="flex sm:hidden gap-2.5">
+                <a
+                  href="https://lin.ee/ybpyfYR"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="frost-btn frost-btn--line"
+                >
+                  <div className="frost-btn-icon-wrap--line">
+                    <MessageCircle className="w-3.5 h-3.5" />
+                  </div>
+                  <span className="frost-btn-text">LINEで予約相談</span>
+                </a>
+                <a
+                  href="#contact-form"
+                  className="frost-btn frost-btn--web"
+                >
+                  <div className="frost-btn-icon-wrap--web">
+                    <Calendar className="w-3.5 h-3.5" />
+                  </div>
+                  <span className="frost-btn-text">初回簡単WEB予約</span>
+                </a>
+              </div>
+
+              {/* Desktop: original full-size buttons */}
+              <div className="hidden sm:flex flex-row gap-3.5">
+                <a
+                  href="https://lin.ee/ybpyfYR"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn--line btn--shimmer text-base px-7 py-4 whitespace-nowrap gap-2.5"
+                >
+                  <MessageCircle className="w-5 h-5 text-[#06C755] shrink-0" />
+                  <span className="inline-block">初回体験をLINEで予約する</span>
+                  <ArrowRight className="w-4 h-4 ml-0.5 shrink-0" />
+                </a>
+                <a
+                  href="#contact-form"
+                  className="btn btn--gold btn--shimmer text-base px-7 py-4 whitespace-nowrap gap-2.5"
+                >
+                  <Calendar className="w-5 h-5 text-[#7A5723] shrink-0" />
+                  <span className="inline-block">WEBで初回体験を予約する</span>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -340,7 +375,7 @@ export default function App() {
               <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1 font-serif">
                 01 CONCERNS
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl text-[#16120F] font-bold leading-tight">
+              <h2 className="font-serif text-xl sm:text-3xl text-[#16120F] font-bold leading-tight whitespace-nowrap">
                 こんなお悩みはありませんか？
               </h2>
             </div>
@@ -434,7 +469,7 @@ export default function App() {
                   サプリメントが消化管から成分を吸収するのに対し、点滴は消化管を介さず、静脈から直接投与します。
                 </p>
               </div>
-              <div className="mt-4 max-w-[180px] mx-auto overflow-hidden rounded-[14px]">
+              <div className="mt-4 overflow-hidden rounded-[14px]">
                 <img
                   src={suppliPhoto}
                   alt="サプリメントとの違い"
@@ -461,7 +496,7 @@ export default function App() {
                   ビタミンやミネラルなど、目的に合わせた複数の成分を点滴で補うことができます。疲れや肌の調子などのお悩みに合わせ、医師が適応を判断し、ケアをご提案します。
                 </p>
               </div>
-              <div className="mt-4 max-w-[180px] mx-auto overflow-hidden rounded-[14px]">
+              <div className="mt-4 overflow-hidden rounded-[14px]">
                 <img
                   src={tentekiPhoto}
                   alt="点滴だからできること"
@@ -602,9 +637,9 @@ export default function App() {
             <div className="max-w-2xl mx-auto">
               {compareMode === 'clinic' ? (
                 /* 従来の通院 */
-                <div className="bg-[#F8EDE3] border-2 border-[#A05A3C]/40 rounded-[18px] sm:rounded-[20px] p-4 sm:p-7 shadow-sm">
+                <div className="bg-[#F8EDE3] border-2 border-[#A05A3C]/40 rounded-[18px] sm:rounded-[20px] p-3 sm:p-7 shadow-sm">
                   {/* 8 Numbered Steps */}
-                  <div className="py-3 sm:py-6 space-y-2 sm:space-y-4">
+                  <div className="py-2 sm:py-6 space-y-1 sm:space-y-4">
                     <div className="flex items-start gap-2.5 sm:gap-4">
                       <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#A05A3C] text-white font-serif font-bold text-[11px] sm:text-sm flex items-center justify-center shrink-0 mt-0.5">
                         1
@@ -613,7 +648,7 @@ export default function App() {
                         <span className="text-[13px] sm:text-base font-medium text-[#221D18] block">
                           自宅を出る（身支度）
                         </span>
-                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] mt-0.5 block">
+                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] block">
                           着替えや身支度を済ませ、家を出発します。
                         </span>
                       </div>
@@ -627,7 +662,7 @@ export default function App() {
                         <span className="text-[13px] sm:text-base font-medium text-[#221D18] block">
                           クリニックへの移動
                         </span>
-                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] mt-0.5 block">
+                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] block">
                           電車やタクシーで移動します。
                         </span>
                       </div>
@@ -641,7 +676,7 @@ export default function App() {
                         <span className="text-[13px] sm:text-base font-medium text-[#221D18] block">
                           受付・問診票の記入
                         </span>
-                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] mt-0.5 block">
+                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] block">
                           受付と問診票の記入を行います。
                         </span>
                       </div>
@@ -655,7 +690,7 @@ export default function App() {
                         <span className="text-[13px] sm:text-base font-medium text-[#221D18] block">
                           待合室での待ち時間
                         </span>
-                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] mt-0.5 block">
+                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] block">
                           順番が来るまで待合室で待機。
                         </span>
                       </div>
@@ -669,7 +704,7 @@ export default function App() {
                         <span className="text-[13px] sm:text-base font-medium text-[#221D18] block">
                           医師の診察
                         </span>
-                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] mt-0.5 block">
+                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] block">
                           診察を受け、内容を確認します。
                         </span>
                       </div>
@@ -683,7 +718,7 @@ export default function App() {
                         <span className="text-[13px] sm:text-base font-medium text-[#221D18] block">
                           点滴の施術（約30〜60分）
                         </span>
-                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] mt-0.5 block">
+                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] block">
                           点滴台で点滴を受けます。
                         </span>
                       </div>
@@ -697,7 +732,7 @@ export default function App() {
                         <span className="text-[13px] sm:text-base font-medium text-[#221D18] block">
                           会計・次回の予約待ち
                         </span>
-                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] mt-0.5 block">
+                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] block">
                           会計と次回予約を行います。
                         </span>
                       </div>
@@ -711,7 +746,7 @@ export default function App() {
                         <span className="text-[13px] sm:text-base font-medium text-[#221D18] block">
                           自宅への帰宅
                         </span>
-                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] mt-0.5 block">
+                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] block">
                           再び移動し、自宅へ戻ります。
                         </span>
                       </div>
@@ -719,15 +754,15 @@ export default function App() {
                   </div>
 
                   {/* Takeaway Message */}
-                  <p className="font-serif font-bold text-2xl sm:text-3xl text-[#A05A3C] tracking-wide text-center mt-4">
+                  <p className="font-serif font-bold text-2xl sm:text-3xl text-[#A05A3C] tracking-wide text-center mt-2 sm:mt-4">
                     ⇒時間と労力のロス
                   </p>
                 </div>
               ) : (
                 /* 訪問点滴 */
-                <div className="bg-[#FAF8F5] border-2 border-[#143836] rounded-[18px] sm:rounded-[20px] p-4 sm:p-7 shadow-sm">
+                <div className="bg-[#FAF8F5] border-2 border-[#143836] rounded-[18px] sm:rounded-[20px] p-3 sm:p-7 shadow-sm">
                   {/* 4 Numbered Steps */}
-                  <div className="py-3 sm:py-5 space-y-2.5 sm:space-y-5">
+                  <div className="py-2 sm:py-5 space-y-1 sm:space-y-5">
                     {/* Step 1 */}
                     <div className="flex items-start gap-2.5 sm:gap-4">
                       <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#143836] text-white font-serif font-bold text-[11px] sm:text-sm flex items-center justify-center shrink-0 mt-0.5">
@@ -737,7 +772,7 @@ export default function App() {
                         <h5 className="font-serif font-bold text-[14px] sm:text-lg text-[#16120F]">
                           医師がご自宅へ到着
                         </h5>
-                        <p className="text-[11.5px] sm:text-[13px] text-[#6B5E52] mt-0.5 leading-relaxed">
+                        <p className="text-[11.5px] sm:text-[13px] text-[#6B5E52] leading-relaxed">
                           外出の準備も、往復の移動も一切不要です。
                         </p>
                       </div>
@@ -752,7 +787,7 @@ export default function App() {
                         <h5 className="font-serif font-bold text-[14px] sm:text-lg text-[#16120F]">
                           医師による対面診察
                         </h5>
-                        <p className="text-[11.5px] sm:text-[13px] text-[#6B5E52] mt-0.5 leading-relaxed">
+                        <p className="text-[11.5px] sm:text-[13px] text-[#6B5E52] leading-relaxed">
                           体調やご要望を確認し、最適な点滴をご提案します。
                         </p>
                       </div>
@@ -767,7 +802,7 @@ export default function App() {
                         <h5 className="font-serif font-bold text-[14px] sm:text-lg text-[#16120F]">
                           いつもの空間で点滴
                         </h5>
-                        <p className="text-[11.5px] sm:text-[13px] text-[#6B5E52] mt-0.5 leading-relaxed">
+                        <p className="text-[11.5px] sm:text-[13px] text-[#6B5E52] leading-relaxed">
                           PC作業、読書、歓談など自由にお過ごしいただけます。
                         </p>
                       </div>
@@ -782,7 +817,7 @@ export default function App() {
                         <h5 className="font-serif font-bold text-[14px] sm:text-lg text-[#16120F]">
                           終了・そのまま休息
                         </h5>
-                        <p className="text-[11.5px] sm:text-[13px] text-[#6B5E52] mt-0.5 leading-relaxed">
+                        <p className="text-[11.5px] sm:text-[13px] text-[#6B5E52] leading-relaxed">
                           点滴終了後は、そのまま自宅でリラックスできます。
                         </p>
                       </div>
@@ -790,16 +825,16 @@ export default function App() {
                   </div>
 
                   {/* Lifestyle Photo */}
-                  <div className="mt-3 sm:mt-4 overflow-hidden rounded-[12px] sm:rounded-[14px] shadow-sm">
+                  <div className="mt-2 sm:mt-4 overflow-hidden rounded-[12px] sm:rounded-[14px] shadow-sm">
                     <img
                       src={laptopDripPhoto}
                       alt="自宅のリビングでPC作業をしながら点滴を受ける様子"
-                      className="w-full h-auto object-cover max-h-[260px]"
+                      className="w-full h-auto object-cover max-h-[195px] sm:max-h-[260px]"
                     />
                   </div>
 
                   {/* Note box */}
-                  <p className="text-[11px] sm:text-sm text-[#221D18] font-medium text-center mt-3">
+                  <p className="text-[11px] sm:text-sm text-[#221D18] font-medium text-center mt-2 sm:mt-3">
                     ✓ ノーメイクや部屋着のまま、リラックスした空間でお過ごしいただけます。
                   </p>
                 </div>
@@ -1087,14 +1122,13 @@ export default function App() {
 
           </div>
 
-          {/* Pricing Calculator Bar */}
-          <div className="bg-white border border-[#E2D7CA] p-5 sm:p-6 rounded-[14px] shadow-sm max-w-3xl mx-auto">
+          {/* Pricing Calculator Bar (非表示: 機能は残したまま表示のみ無効化) */}
+          <div className="hidden bg-white border border-[#E2D7CA] p-5 sm:p-6 rounded-[14px] shadow-sm max-w-3xl mx-auto">
             <div className="flex items-center justify-between border-b border-[#E2D7CA] pb-3 mb-4">
               <h3 className="font-serif text-base font-bold text-[#16120F] flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#9E7D52]"></span>
                 <span>料金シミュレーター</span>
               </h3>
-              <span className="text-[11px] text-[#827467]">往診料を含めた総額が確認できます</span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
@@ -1140,12 +1174,13 @@ export default function App() {
 
             <div className="pt-4 mt-4 border-t border-[#E2D7CA] flex items-center justify-between">
               <div>
-                <span className="block text-[11px] text-[#827467]">お支払総額（診察代・往診料・税込）</span>
+                <span className="block text-[11px] text-[#827467]">お支払総額</span>
+                <span className="block text-[11px] text-[#827467]">（税込・往診料込）</span>
                 <span className="font-serif text-2xl font-bold text-[#143836]">¥{calculatedTotal.toLocaleString()}</span>
               </div>
-              <a 
-                href="#contact-form" 
-                className="btn btn--gold btn--shimmer text-xs !py-2.5 !px-5"
+              <a
+                href="#contact-form"
+                className="btn btn--gold btn--shimmer text-xs !py-2.5 !px-5 whitespace-nowrap shrink-0"
               >
                 この内容で予約
               </a>
@@ -1843,7 +1878,8 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             <div>
               <span className="font-serif text-2xl font-bold tracking-wider block text-white mb-2">
-                Dr. concierge by LIF SKIN CLINIC
+                <span className="block sm:inline">Dr. concierge</span>
+                <span className="block sm:inline text-[22px] sm:text-2xl"> by LIF SKIN CLINIC</span>
               </span>
               <p className="text-xs text-[#DFCBA9] tracking-widest font-semibold mb-3">
                 院長 宇佐美 潤（麻酔科専門医 / 心臓血管麻酔専門医）
