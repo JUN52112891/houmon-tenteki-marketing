@@ -20,8 +20,7 @@ import {
 } from 'lucide-react'
 import doctorPhoto from './assets/images/白衣のプロフェッショナルポートレート (1).png'
 import scenePhoto from './assets/images/hero_scene_v3.webp'
-import heroPriceCardMobile from './assets/images/hero_price_card_mobile.webp'
-import heroScenePhotoMobile from './assets/images/hero_scene_mobile.jpg'
+import heroMobileFull from './assets/images/hero_mobile_full_v2.webp'
 import waitingManPhoto from './assets/images/時間待ちの男性.png'
 import suppliPhoto from './assets/images/サプリ.png'
 import tentekiPhoto from './assets/images/点滴.png'
@@ -246,36 +245,38 @@ export default function App() {
           01 | ファーストビュー (Hero Section)
           =================================================== */}
       <section className="relative overflow-hidden pt-4 pb-7 sm:py-7 lg:py-12 bg-[#FAF8F5] border-b border-[#E2D7CA]">
-        {/* Ambient background image: 施術風景 */}
-        <div className="absolute top-0 left-0 right-0 h-[560px] sm:h-[640px] lg:h-full pointer-events-none z-0 overflow-hidden">
-          <img
-            src={heroScenePhotoMobile}
-            alt="明るいリビングで医師の往診を受けながらくつろぐ女性"
-            className="lg:hidden w-full h-full object-cover object-[center_15%]"
-          />
+        {/* Ambient background image: 施術風景 (PC only — mobile uses the all-in-one hero graphic instead) */}
+        <div className="hidden lg:block absolute top-0 left-0 right-0 h-full pointer-events-none z-0 overflow-hidden">
           <img
             src={scenePhoto}
             alt="明るいリビングで医師の往診を受けながらくつろぐ女性"
-            className="hidden lg:block w-full h-full object-cover object-right"
+            className="w-full h-full object-cover object-right"
           />
           {/* Responsive overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/85 via-[#FAF8F5]/60 to-[#FAF8F5] opacity-0" />
           {/* PC: localized fade behind the price card / CTA buttons only (bottom-left quarter) */}
-          <div className="hidden lg:block absolute left-0 bottom-0 w-[60%] h-[65%] bg-[radial-gradient(ellipse_at_bottom_left,_rgba(250,248,245,0.98)_0%,_rgba(250,248,245,0.8)_50%,_rgba(250,248,245,0)_85%)]" />
+          <div className="absolute left-0 bottom-0 w-[60%] h-[65%] bg-[radial-gradient(ellipse_at_bottom_left,_rgba(250,248,245,0.98)_0%,_rgba(250,248,245,0.8)_50%,_rgba(250,248,245,0)_85%)]" />
         </div>
 
         <div className="relative z-10 max-w-[1160px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
           <div className="lg:col-span-7 space-y-5 sm:space-y-6">
+            {/* Mobile: single all-in-one hero graphic (logo/badge/headline/features/photo/price) */}
+            <img
+              src={heroMobileFull}
+              alt="Dr. concierge by LIF SKIN CLINIC 訪問点滴 通院の手間なく、いつもの自宅で。最上級のプライベート点滴。初回体験22,000円（税込）"
+              className="lg:hidden -mx-6 w-[calc(100%+3rem)] max-w-none h-auto"
+            />
+
             {/* Exclusive Area Capsule Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#143836] text-[#FAF8F5] shadow-sm border border-[#143836]/30">
+            <div className="hidden lg:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#143836] text-[#FAF8F5] shadow-sm border border-[#143836]/30">
               <MapPin className="w-3.5 h-3.5 text-[#DFCBA9] shrink-0" />
               <span className="text-xs sm:text-[13px] font-medium tracking-[0.08em] text-[#FAF8F5]">
                 <span className="inline-block">東京都中央区・港区限定</span>
               </span>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-5xl lg:text-[44px] text-[#16120F] leading-[1.35] tracking-[0.02em]">
+            <h1 className="hidden lg:block font-serif text-3xl sm:text-5xl lg:text-[44px] text-[#16120F] leading-[1.35] tracking-[0.02em]">
               <span className="inline-block">通院の手間なく、</span>
               <br />
               <span className="inline-block">いつもの自宅で。</span>
@@ -283,16 +284,10 @@ export default function App() {
               <span className="inline-block text-[#143836]">最上級のプライベート点滴医療。</span>
             </h1>
 
-            <p className="text-[#8E6D42] font-semibold text-sm sm:text-base tracking-[0.06em] font-serif">
+            <p className="hidden lg:block text-[#8E6D42] font-semibold text-sm sm:text-base tracking-[0.06em] font-serif">
               <span className="inline-block">移動・待ち時間ゼロ</span> <span className="inline-block">/ 麻酔科専門医が直接ご自宅へ往診</span>
             </p>
 
-            {/* Price Pill: mobile = uploaded card image, desktop = HTML pill */}
-            <img
-              src={heroPriceCardMobile}
-              alt="訪問点滴 初回体験 22,000円（税込）"
-              className="lg:hidden w-[78%] max-w-[300px] h-auto"
-            />
             <div className="hidden lg:inline-flex lg:flex-row lg:items-center gap-5 bg-white/95 backdrop-blur-sm border border-[#E2D7CA] rounded-[14px] py-3.5 px-6 shadow-[0_8px_24px_rgba(22,18,15,0.07)]">
               <span className="text-xs font-bold text-[#8E6D42] tracking-[0.15em] uppercase font-serif">初回体験プラン</span>
               <div className="flex items-baseline gap-2.5">
