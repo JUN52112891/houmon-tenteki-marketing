@@ -1701,31 +1701,6 @@ export default function App() {
                 初回体験の予約・ご相談
               </h2>
             </div>
-            <p className="text-[13px] text-[#827467] mt-3 leading-relaxed text-left sm:text-center max-w-xl pl-4 sm:pl-0">
-              タップすると質問内容が自動でフォームにセットされます
-            </p>
-          </div>
-
-          {/* Quick preset buttons */}
-          <div className="flex flex-wrap gap-2 justify-center mb-8">
-            <button 
-              onClick={() => applyPresetQuestion('自分でも受けられますか？')}
-              className="px-3.5 py-1.5 bg-white hover:bg-[#F3ECE4] border border-[#E2D7CA] text-xs text-[#53483E] rounded-full transition-colors shadow-2xs"
-            >
-              「自分でも受けられますか？」
-            </button>
-            <button 
-              onClick={() => applyPresetQuestion('どの点滴が合っているか相談したい')}
-              className="px-3.5 py-1.5 bg-white hover:bg-[#F3ECE4] border border-[#E2D7CA] text-xs text-[#53483E] rounded-full transition-colors shadow-2xs"
-            >
-              「どんな点滴が合いそう？」
-            </button>
-            <button 
-              onClick={() => applyPresetQuestion('希望日時に訪問可能か知りたい')}
-              className="px-3.5 py-1.5 bg-white hover:bg-[#F3ECE4] border border-[#E2D7CA] text-xs text-[#53483E] rounded-full transition-colors shadow-2xs"
-            >
-              「希望日に訪問できますか？」
-            </button>
           </div>
 
           {contactSubmitted ? (
