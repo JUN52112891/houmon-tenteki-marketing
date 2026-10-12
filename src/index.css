@@ -140,11 +140,12 @@ main {
   gap: 20px;
 }
 .header-link {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--ink-soft);
   font-weight: 500;
   transition: color .2s;
   text-decoration: none;
+  white-space: nowrap;
 }
 .header-link:hover {
   color: var(--gold-deep);

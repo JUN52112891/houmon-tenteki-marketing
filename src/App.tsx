@@ -149,65 +149,61 @@ export default function App() {
     <div className="min-h-screen bg-[#FAF8F5] text-[#221D18] font-sans antialiased selection:bg-[#143836] selection:text-white pb-20 md:pb-0">
       
       {/* ===================================================
-          Header & Navigation (2-Tier PC Layout)
+          Header & Navigation (2-Tier PC Layout: Top = Logo + Buttons, Bottom = Single-Line Menu)
           =================================================== */}
       <header className="site-header hidden lg:block">
-        {/* 上段: クリニック名 / ロゴ ＆ 問い合わせ・予約ボタン */}
-        <div className="max-w-[1160px] mx-auto px-6 h-[68px] lg:h-[72px] flex items-center justify-between">
-
+        {/* 上段: ロゴ ＋ CTAボタン (1行) */}
+        <div className="max-w-[1140px] mx-auto px-6 h-[68px] flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center shrink-0">
             <img
               src={logoImage}
               alt="Dr. concierge ドクターコンシェルジュ by LIF SKIN CLINIC"
-              className="h-[60px] lg:h-[64px] w-auto"
+              className="h-[58px] w-auto"
             />
           </a>
 
           {/* Header CTAs */}
-          <div className="flex items-center gap-3">
-              <a
-                href="https://lin.ee/ybpyfYR"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-header-line"
-              >
-                <MessageCircle className="w-4 h-4 text-[#06C755]" />
-                <span>LINE相談</span>
-              </a>
-              <a
-                href="#contact-form"
-                className="btn-header-reserve"
-              >
-                <Calendar className="w-4 h-4 text-[#7A5723]" />
-                <span>初回予約</span>
-              </a>
+          <div className="flex items-center gap-3 shrink-0 whitespace-nowrap">
+            <a
+              href="https://lin.ee/ybpyfYR"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-header-line whitespace-nowrap"
+            >
+              <MessageCircle className="w-4 h-4 text-[#06C755] shrink-0" />
+              <span>LINEで相談・確認</span>
+            </a>
+            <a
+              href="#contact-form"
+              className="btn-header-reserve whitespace-nowrap"
+            >
+              <Calendar className="w-4 h-4 text-[#7A5723] shrink-0" />
+              <span>初回予約フォーム</span>
+            </a>
           </div>
         </div>
 
-        {/* 下段 (PC版): ナビゲーションメニュー */}
-        <div className="hidden lg:block border-t border-[#E2D7CA]/80 bg-[#FAF8F5]/95">
-          <div className="max-w-[1160px] mx-auto px-6 h-[44px] flex items-center justify-center">
-            <nav className="flex items-center justify-center gap-7 xl:gap-8">
-              <a href="#about-intro" className="header-link text-[13px] tracking-wide hover:text-[#143836]">点滴という選択</a>
-              <span className="text-[#D3C7B8] text-xs select-none">/</span>
-              <a href="#service-time" className="header-link text-[13px] tracking-wide hover:text-[#143836]">使う時間の違い</a>
-              <span className="text-[#D3C7B8] text-xs select-none">/</span>
-              <a href="#menu-detail" className="header-link text-[13px] tracking-wide hover:text-[#143836]">メニュー・料金</a>
-              <span className="text-[#D3C7B8] text-xs select-none">/</span>
-              <a href="#doctor" className="header-link text-[13px] tracking-wide hover:text-[#143836]">担当医師</a>
-              <span className="text-[#D3C7B8] text-xs select-none">/</span>
-              <a href="#trial" className="header-link text-[13px] tracking-wide hover:text-[#143836]">初回体験</a>
-              <span className="text-[#D3C7B8] text-xs select-none">/</span>
-              <a href="#safety" className="header-link text-[13px] tracking-wide hover:text-[#143836]">安全管理体制</a>
-              <span className="text-[#D3C7B8] text-xs select-none">/</span>
-              <a href="#flow" className="header-link text-[13px] tracking-wide hover:text-[#143836]">ご利用の流れ</a>
-              <span className="text-[#D3C7B8] text-xs select-none">/</span>
-              <a href="#faq" className="header-link text-[13px] tracking-wide hover:text-[#143836]">よくある質問</a>
-            </nav>
-          </div>
+        {/* 下段: ナビゲーションメニューバー (1行・改行なし) */}
+        <div className="border-t border-[#EAE2D6] bg-[#F6F2EB]/60">
+          <nav className="max-w-[1140px] mx-auto px-6 h-[40px] flex items-center justify-center gap-4 xl:gap-6 flex-nowrap whitespace-nowrap">
+            <a href="#about-intro" className="header-link text-[12.5px] xl:text-[13px] tracking-wide hover:text-[#143836] whitespace-nowrap">点滴という選択</a>
+            <span className="text-[#D3C7B8] text-[10px] select-none">/</span>
+            <a href="#service-time" className="header-link text-[12.5px] xl:text-[13px] tracking-wide hover:text-[#143836] whitespace-nowrap">使う時間の違い</a>
+            <span className="text-[#D3C7B8] text-[10px] select-none">/</span>
+            <a href="#menu-detail" className="header-link text-[12.5px] xl:text-[13px] tracking-wide hover:text-[#143836] whitespace-nowrap">目的別メニュー・料金</a>
+            <span className="text-[#D3C7B8] text-[10px] select-none">/</span>
+            <a href="#doctor" className="header-link text-[12.5px] xl:text-[13px] tracking-wide hover:text-[#143836] whitespace-nowrap">担当医師紹介</a>
+            <span className="text-[#D3C7B8] text-[10px] select-none">/</span>
+            <a href="#trial" className="header-link text-[12.5px] xl:text-[13px] tracking-wide hover:text-[#143836] whitespace-nowrap">初回体験案内</a>
+            <span className="text-[#D3C7B8] text-[10px] select-none">/</span>
+            <a href="#safety" className="header-link text-[12.5px] xl:text-[13px] tracking-wide hover:text-[#143836] whitespace-nowrap">安全管理体制</a>
+            <span className="text-[#D3C7B8] text-[10px] select-none">/</span>
+            <a href="#flow" className="header-link text-[12.5px] xl:text-[13px] tracking-wide hover:text-[#143836] whitespace-nowrap">ご利用の流れ</a>
+            <span className="text-[#D3C7B8] text-[10px] select-none">/</span>
+            <a href="#faq" className="header-link text-[12.5px] xl:text-[13px] tracking-wide hover:text-[#143836] whitespace-nowrap">よくある質問</a>
+          </nav>
         </div>
-
       </header>
 
       {/* モバイル: ヘッダーバーは非表示、ハンバーガーボタンのみ右上に浮かせて残す */}
