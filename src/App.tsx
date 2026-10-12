@@ -1676,9 +1676,11 @@ export default function App() {
           <h2 className="font-serif text-2xl sm:text-3xl text-[#16120F] font-bold">
             往診対応エリア
           </h2>
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-[#E2D7CA] rounded-full shadow-sm text-sm sm:text-base font-serif font-bold text-[#16120F]">
-            <MapPin className="w-4 h-4 text-[#8E6D42]" />
-            <span>東京都中央区・港区（往診料無料・完全予約制）</span>
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-[#E2D7CA] rounded-2xl sm:rounded-full shadow-sm text-sm sm:text-base font-serif font-bold text-[#16120F]">
+            <MapPin className="w-4 h-4 text-[#8E6D42] shrink-0" />
+            <span className="leading-snug text-center">
+              東京都中央区・港区<br className="sm:hidden" />（往診料無料・完全予約制）
+            </span>
           </div>
           <p className="text-xs text-[#53483E] max-w-lg mx-auto leading-relaxed pt-1">
             その他東京23区内（往診料 +¥11,000）もお伺い可能です。23区外への往診もスケジュール次第で対応いたしますので、お気軽にお問い合わせください。
@@ -1790,7 +1792,7 @@ export default function App() {
                   rows={4}
                   value={contactMessage}
                   onChange={(e) => setContactMessage(e.target.value)}
-                  placeholder="例：初回体験を希望します。来週水曜の午前中は空いていますか？（訪問先：中央区勝どき）"
+                  placeholder="例：初回体験を希望します。来週月曜日の午前中は空いていますか？（訪問先：中央区勝どき）"
                   className="w-full text-xs p-3 bg-[#FAF8F5] border border-[#E2D7CA] rounded-[6px] focus:outline-none focus:border-[#9E7D52]"
                 />
               </div>
@@ -1884,7 +1886,7 @@ export default function App() {
             <div>
               <span className="font-serif text-2xl font-bold tracking-wider block text-white mb-2">
                 <span className="block sm:inline">Dr. concierge</span>
-                <span className="block sm:inline text-[22px] sm:text-2xl"> by LIF SKIN CLINIC</span>
+                <span className="block sm:inline text-base sm:text-lg"> by LIF SKIN CLINIC</span>
               </span>
               <p className="text-xs text-[#DFCBA9] tracking-widest font-semibold mb-3">
                 院長 宇佐美 潤（麻酔科専門医 / 心臓血管麻酔専門医）
