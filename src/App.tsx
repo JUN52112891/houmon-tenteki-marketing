@@ -17,7 +17,7 @@ import {
 } from 'lucide-react'
 import doctorPhoto from './assets/images/白衣のプロフェッショナルポートレート (1).png'
 import scenePhoto from './assets/images/hero_scene_v3.webp'
-import heroMobileFull from './assets/images/hero_mobile_full_v3.webp'
+import heroMobileFull from './assets/images/hero_mobile_full_v4.webp'
 import logoImage from './assets/images/logo-dr-concierge.png'
 import waitingManPhoto from './assets/images/時間待ちの男性.png'
 import suppliPhoto from './assets/images/suppli-banner.webp'
@@ -270,7 +270,7 @@ export default function App() {
                 className="w-full h-auto block"
               />
               {/* 価格カード周りの金装飾のギラつきを抑える白ベール（カード本体は避ける） */}
-              <div className="absolute inset-x-0 top-[56%] bottom-[27%] bg-gradient-to-b from-white/0 via-white/45 to-white/45 pointer-events-none" />
+              {/* <div className="absolute inset-x-0 top-[56%] bottom-[27%] bg-gradient-to-b from-white/0 via-white/45 to-white/45 pointer-events-none" /> */}
             </div>
 
             {/* Exclusive Area Capsule Badge */}
@@ -564,7 +564,11 @@ export default function App() {
             </div>
             <p className="text-[#53483E] text-xs sm:text-base mt-2.5 sm:mt-4 leading-relaxed text-left sm:text-center max-w-xl pl-3.5 sm:pl-0">
               クリニックに通って順番を待つのではなく、医療があなたの空間へ出向く。
-              移動の手間や待ち時間をなくし、点滴の時間を自分らしい贅沢なひとときに変えます。
+              移動の手間や待ち時間をなくし、点滴の時間を自分らしい贅沢なひとときに変える。
+            </p>
+            <p className="font-serif text-sm sm:text-xl font-bold text-[#143836] mt-3 sm:mt-5 text-left sm:text-center pl-3.5 sm:pl-0">
+              それが本サービス、<br />
+              Dr. concierge（ドクターコンシェルジュ）です。
             </p>
           </div>
 
@@ -623,7 +627,7 @@ export default function App() {
                   compareMode === 'visit' ? 'text-[#143836]' : 'text-[#6B5E52]'
                 }`}>
                   <Sparkles className={`w-3.5 h-3.5 ${compareMode === 'visit' ? 'text-[#8E6D42]' : 'text-[#8E6D42]/60'}`} />
-                  <span>当院の訪問点滴</span>
+                  <span>Dr. concierge</span>
                 </span>
                 <span className={`text-[10px] sm:text-xs font-bold px-2.5 sm:px-3.5 py-0.5 sm:py-1 rounded-full whitespace-nowrap ${
                   compareMode === 'visit'
@@ -1231,11 +1235,12 @@ export default function App() {
                   私は大学病院などで約10年間、麻酔科医として勤務したのち、美容医療の世界へ進みました。
                 </p>
                 <p>
-                  麻酔科では、日々の手術の中で無数の静脈確保や全身の循環管理、救急対応を行い、徹底した安全管理の技術を磨いてまいりました。
+                  麻酔科では、無数の静脈確保や全身の循環管理、救急対応の中で、徹底した安全管理の技術を磨いてまいりました。
                   点滴医療は身体に針を通して直接薬剤を届ける医療行為だからこそ、技術と安全への配慮が不可欠です。
                 </p>
                 <p>
-                  「通院の時間が取れない」「人目を気にせずリラックスして受けたい」という方へ、病院と同等水準の安全性とプライベートな寛ぎをご自宅にお届けします。
+                  「Dr. concierge」という名前には、ただご自宅へ点滴に伺うだけでなく、専属の医師としてその日の体調やご希望をうかがいながら、最適な一本を一緒に考えていきたいという思いを込めました。
+                  「通院の時間が取れない」「人目を気にせずリラックスして受けたい」という方へ、病院と同等水準の安全性と、気負わないプライベートな時間をご自宅にお届けします。
                 </p>
               </div>
 
