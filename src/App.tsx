@@ -463,7 +463,7 @@ export default function App() {
                 <h3 className="font-serif text-base sm:text-xl font-bold text-[#16120F] mb-1.5 sm:mb-3 leading-snug">
                   サプリメントとの違い
                 </h3>
-                <p className="text-xs sm:text-sm text-[#53483E] leading-relaxed">
+                <p className="text-[13px] sm:text-sm text-[#53483E] leading-relaxed">
                   サプリメントが消化管から成分を吸収するのに対し、点滴は消化管を介さず、静脈から直接投与します。
                 </p>
               </div>
@@ -490,7 +490,7 @@ export default function App() {
                 <h3 className="font-serif text-base sm:text-xl font-bold text-[#16120F] mb-1.5 sm:mb-3 leading-snug">
                   点滴だからできること
                 </h3>
-                <p className="text-xs sm:text-sm text-[#53483E] leading-relaxed">
+                <p className="text-[13px] sm:text-sm text-[#53483E] leading-relaxed">
                   ビタミンやミネラルなど、目的に合わせた複数の成分を点滴で補うことができます。疲れや肌の調子などのお悩みに合わせ、医師が適応を判断し、ケアをご提案します。
                 </p>
               </div>
@@ -558,11 +558,11 @@ export default function App() {
                 訪問点滴という形。
               </h2>
             </div>
-            <p className="text-[#53483E] text-xs sm:text-base mt-2.5 sm:mt-4 leading-relaxed text-left sm:text-center max-w-xl pl-3.5 sm:pl-0">
+            <p className="text-[#53483E] text-[13px] sm:text-base mt-2.5 sm:mt-4 leading-relaxed text-left sm:text-center max-w-xl pl-3.5 sm:pl-0">
               クリニックに通って順番を待つのではなく、医療があなたの空間へ出向く。
               移動の手間や待ち時間をなくし、点滴の時間を自分らしい贅沢なひとときに変える。
             </p>
-            <p className="font-serif text-sm sm:text-xl font-bold text-[#143836] mt-3 sm:mt-5 text-left sm:text-center pl-3.5 sm:pl-0">
+            <p className="font-serif text-base font-bold text-[#143836] mt-3 sm:mt-5 text-left sm:text-center pl-3.5 sm:pl-0">
               それが本サービス、<br />
               Dr. concierge（ドクターコンシェルジュ）です。
             </p>
@@ -650,7 +650,7 @@ export default function App() {
                         <span className="text-[13px] sm:text-base font-medium text-[#221D18] block">
                           自宅を出る（身支度）
                         </span>
-                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] block">
+                        <span className="text-[11.5px] text-[#8A7B6C] block">
                           着替えや身支度を済ませ、家を出発します。
                         </span>
                       </div>
@@ -904,7 +904,7 @@ export default function App() {
                   <span className="text-xs font-bold text-[#8E6D42] tracking-wider uppercase block font-serif mb-1">
                     疲労回復・強抗酸化・美肌
                   </span>
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#16120F]">
+                  <h3 className="font-serif text-[21px] font-bold text-[#16120F]">
                     プレミアムリカバリー点滴
                   </h3>
                   <p className="text-xs text-[#827467] mt-0.5">蓄積した疲労を急速リセットし、本来の活力を取り戻す</p>
@@ -925,11 +925,100 @@ export default function App() {
                 </div>
 
                 <div className="space-y-2 text-xs text-[#53483E]">
-                  <p className="font-bold text-[#16120F]">【主な配合成分】</p>
-                  <p className="leading-relaxed text-[#6B5E52]">
-                    グルタチオン（抗酸化・肝サポート）、高濃度ビタミンC、ビタミンB群（代謝・エネルギー産生）、チオクト酸（αリポ酸）、グリチルリチン酸、マグネシウム
+                  <p className="font-bold text-[#16120F]">【特徴と目的】</p>
+                  <p className="text-[13px] leading-relaxed text-[#6B5E52]">
+                    様々なビタミン・ミネラルと抗酸化成分を独自に組み合わせ、美容と健康の両面から日々のコンディションをサポート。疲れが抜けにくい方、仕事のパフォーマンスを維持したい方、健やかで美しい肌を目指す方に。
                   </p>
                   <p className="pt-1 text-[#827467]">所要時間：約60分（静脈点滴投与）</p>
+
+                  {/* Collapsible Ingredients & Medical Explanation */}
+                  <div className="pt-2">
+                    <div className="bg-[#FAF8F5] border border-[#E2D7CA] rounded-[12px] overflow-hidden shadow-2xs">
+                      <button
+                        type="button"
+                        onClick={() => setIsIngredientsOpen(!isIngredientsOpen)}
+                        className="w-full p-3.5 text-left flex items-center justify-between gap-3 font-serif text-sm font-bold text-[#16120F] hover:bg-[#FAF8F5]/80 transition-colors cursor-pointer"
+                      >
+                        <div className="flex items-center gap-2">
+                          <Sparkles className="w-4 h-4 text-[#8E6D42] shrink-0" />
+                          <span>主な配合成分</span>
+                        </div>
+                        <ChevronDown className={`w-4 h-4 text-[#827467] transition-transform duration-200 shrink-0 ${isIngredientsOpen ? 'rotate-180 text-[#8E6D42]' : ''}`} />
+                      </button>
+
+                      {isIngredientsOpen && (
+                        <div className="p-3.5 pt-3 border-t border-[#E2D7CA] space-y-3">
+                          <div className="grid grid-cols-1 gap-2.5">
+
+                            {/* Card 1: グルタチオン */}
+                            <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
+                              <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
+                                グルタチオン
+                              </h4>
+                              <p className="text-xs text-[#53483E] leading-relaxed">
+                                抗酸化作用を持ち、肝機能や身体のコンディション維持をサポートします。
+                              </p>
+                            </div>
+
+                            {/* Card 2: ビタミンC */}
+                            <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
+                              <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
+                                ビタミンC
+                              </h4>
+                              <p className="text-xs text-[#53483E] leading-relaxed">
+                                抗酸化作用を持ち、健康維持やコンディション調整をサポートします。
+                              </p>
+                            </div>
+
+                            {/* Card 3: ビタミンB群 */}
+                            <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
+                              <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
+                                ビタミンB群
+                              </h4>
+                              <p className="text-xs text-[#53483E] leading-relaxed">
+                                食事からエネルギーを作るために必要な補酵素で、エネルギー代謝を支えます。
+                              </p>
+                            </div>
+
+                            {/* Card 4: αリポ酸（チオクト酸） */}
+                            <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
+                              <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
+                                αリポ酸（チオクト酸）
+                              </h4>
+                              <p className="text-xs text-[#53483E] leading-relaxed">
+                                水溶性・脂溶性の両面で働き、細胞のエネルギー代謝をサポートします。
+                              </p>
+                            </div>
+
+                            {/* Card 5: グリファーゲン（グリチルリチン酸） */}
+                            <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
+                              <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
+                                グリファーゲン（グリチルリチン酸）
+                              </h4>
+                              <p className="text-xs text-[#53483E] leading-relaxed">
+                                甘草由来成分を含み、過密な業務が続く方の健康維持を支えます。
+                              </p>
+                            </div>
+
+                            {/* Card 6: マグネシウム */}
+                            <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
+                              <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
+                                マグネシウム
+                              </h4>
+                              <p className="text-xs text-[#53483E] leading-relaxed">
+                                筋肉や神経の正常な働きを支え、緊張を和らげるミネラルです。
+                              </p>
+                            </div>
+
+                          </div>
+
+                          <p className="text-[11px] text-[#827467] leading-relaxed pt-1 px-0.5">
+                            ※成分の配合内容や投与量は、医師が問診・診察を行った上で個人の体調に合わせて調整いたします。
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -943,97 +1032,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Collapsible Ingredients & Medical Explanation (プレミアムリカバリー点滴の直下に表示) */}
-            <div className="lg:col-span-3 lg:order-last">
-              <div className="max-w-3xl mx-auto mb-2 lg:mb-10">
-                <div className="bg-[#FAF8F5] border border-[#E2D7CA] rounded-[20px] overflow-hidden shadow-sm">
-                  <button
-                    type="button"
-                    onClick={() => setIsIngredientsOpen(!isIngredientsOpen)}
-                    className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-serif text-base sm:text-[17px] font-bold text-[#16120F] hover:bg-[#FAF8F5]/80 transition-colors cursor-pointer"
-                  >
-                    <div className="flex items-center gap-2.5 sm:gap-3">
-                      <Sparkles className="w-5 h-5 text-[#8E6D42] shrink-0" />
-                      <span>主な配合成分と医学的説明を見る</span>
-                    </div>
-                    <ChevronDown className={`w-5 h-5 text-[#827467] transition-transform duration-200 shrink-0 ${isIngredientsOpen ? 'rotate-180 text-[#8E6D42]' : ''}`} />
-                  </button>
-
-                  {isIngredientsOpen && (
-                    <div className="p-5 sm:p-7 pt-5 border-t border-[#E2D7CA] space-y-4">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-                        {/* Card 1: グルタチオン */}
-                        <div className="bg-white border border-[#E2D7CA] rounded-[12px] p-4.5 sm:p-5 shadow-2xs">
-                          <h4 className="font-serif font-bold text-sm sm:text-base text-[#16120F] mb-1.5">
-                            グルタチオン
-                          </h4>
-                          <p className="text-xs sm:text-[13px] text-[#53483E] leading-relaxed">
-                            抗酸化作用を持ち、肝機能や身体のコンディション維持をサポートします。
-                          </p>
-                        </div>
-
-                        {/* Card 2: ビタミンC */}
-                        <div className="bg-white border border-[#E2D7CA] rounded-[12px] p-4.5 sm:p-5 shadow-2xs">
-                          <h4 className="font-serif font-bold text-sm sm:text-base text-[#16120F] mb-1.5">
-                            ビタミンC
-                          </h4>
-                          <p className="text-xs sm:text-[13px] text-[#53483E] leading-relaxed">
-                            抗酸化作用を持ち、健康維持やコンディション調整をサポートします。
-                          </p>
-                        </div>
-
-                        {/* Card 3: ビタミンB群 */}
-                        <div className="bg-white border border-[#E2D7CA] rounded-[12px] p-4.5 sm:p-5 shadow-2xs">
-                          <h4 className="font-serif font-bold text-sm sm:text-base text-[#16120F] mb-1.5">
-                            ビタミンB群
-                          </h4>
-                          <p className="text-xs sm:text-[13px] text-[#53483E] leading-relaxed">
-                            食事からエネルギーを作るために必要な補酵素で、エネルギー代謝を支えます。
-                          </p>
-                        </div>
-
-                        {/* Card 4: αリポ酸（チオクト酸） */}
-                        <div className="bg-white border border-[#E2D7CA] rounded-[12px] p-4.5 sm:p-5 shadow-2xs">
-                          <h4 className="font-serif font-bold text-sm sm:text-base text-[#16120F] mb-1.5">
-                            αリポ酸（チオクト酸）
-                          </h4>
-                          <p className="text-xs sm:text-[13px] text-[#53483E] leading-relaxed">
-                            水溶性・脂溶性の両面で働き、細胞のエネルギー代謝をサポートします。
-                          </p>
-                        </div>
-
-                        {/* Card 5: グリファーゲン（グリチルリチン酸） */}
-                        <div className="bg-white border border-[#E2D7CA] rounded-[12px] p-4.5 sm:p-5 shadow-2xs">
-                          <h4 className="font-serif font-bold text-sm sm:text-base text-[#16120F] mb-1.5">
-                            グリファーゲン（グリチルリチン酸）
-                          </h4>
-                          <p className="text-xs sm:text-[13px] text-[#53483E] leading-relaxed">
-                            甘草由来成分を含み、過密な業務が続く方の健康維持を支えます。
-                          </p>
-                        </div>
-
-                        {/* Card 6: マグネシウム */}
-                        <div className="bg-white border border-[#E2D7CA] rounded-[12px] p-4.5 sm:p-5 shadow-2xs">
-                          <h4 className="font-serif font-bold text-sm sm:text-base text-[#16120F] mb-1.5">
-                            マグネシウム
-                          </h4>
-                          <p className="text-xs sm:text-[13px] text-[#53483E] leading-relaxed">
-                            筋肉や神経の正常な働きを支え、緊張を和らげるミネラルです。
-                          </p>
-                        </div>
-
-                      </div>
-
-                      <p className="text-[11.5px] text-[#827467] leading-relaxed pt-2 px-0.5">
-                        ※成分の配合内容や投与量は、医師が問診・診察を行った上で個人の体調に合わせて調整いたします。
-                      </p>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-
             {/* Menu 2: NMNリバース点滴 */}
             <div className="bg-white border-2 border-[#B98A2E]/50 rounded-[18px] p-6 sm:p-7 shadow-sm flex flex-col justify-between relative overflow-hidden">
               <div className="space-y-4">
@@ -1041,7 +1039,7 @@ export default function App() {
                   <span className="text-xs font-bold text-[#B98A2E] tracking-wider uppercase block font-serif mb-1">
                     長寿遺伝子活性・エイジングケア
                   </span>
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#16120F]">
+                  <h3 className="font-serif text-[21px] font-bold text-[#16120F]">
                     NMNリバース点滴
                   </h3>
                   <p className="text-xs text-[#827467] mt-0.5">細胞レベルで若々しさとエネルギーを呼び覚ます</p>
@@ -1060,7 +1058,7 @@ export default function App() {
 
                 <div className="space-y-2 text-xs text-[#53483E]">
                   <p className="font-bold text-[#16120F]">【特徴と目的】</p>
-                  <p className="leading-relaxed text-[#6B5E52]">
+                  <p className="text-[13px] leading-relaxed text-[#6B5E52]">
                     年齢とともに減少する補酵素NAD+を効率よく補い、サーチュイン遺伝子（長寿遺伝子）を活性化。思考力や集中力、全身の代謝向上を目指す方に。
                   </p>
                   <p className="pt-1 text-[#827467]">所要時間：約30分（静脈点滴投与）</p>
@@ -1085,7 +1083,7 @@ export default function App() {
                   <span className="text-xs font-bold text-[#B98A2E] tracking-wider uppercase block font-serif mb-1">
                     最高峰再生医療由来ケア
                   </span>
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#16120F]">
+                  <h3 className="font-serif text-[21px] font-bold text-[#16120F]">
                     幹細胞上清液点滴
                   </h3>
                   <p className="text-xs text-[#827467] mt-0.5">老化した組織を修復し活性化する根本アプローチ</p>
@@ -1310,7 +1308,7 @@ export default function App() {
                 <h3 className="font-serif text-base font-bold text-[#16120F]">
                   医師による対面問診と適応判断
                 </h3>
-                <p className="text-xs text-[#53483E] leading-relaxed">
+                <p className="text-[13px] text-[#53483E] leading-relaxed">
                   点滴前に体調、既往歴、内服薬、アレルギー歴を詳細に確認し、施術の安全性を医学的に確認します。
                 </p>
               </div>
@@ -1326,7 +1324,7 @@ export default function App() {
                 <h3 className="font-serif text-base font-bold text-[#16120F]">
                   点滴中の全身状態確認
                 </h3>
-                <p className="text-xs text-[#53483E] leading-relaxed">
+                <p className="text-[13px] text-[#53483E] leading-relaxed">
                   麻酔科医の知見に基づき、点滴中も体調や循環状態の変化をこまめに確認しながら施術を進めます。
                 </p>
               </div>
@@ -1342,7 +1340,7 @@ export default function App() {
                 <h3 className="font-serif text-base font-bold text-[#16120F]">
                   緊急時の迅速な対応体制
                 </h3>
-                <p className="text-xs text-[#53483E] leading-relaxed">
+                <p className="text-[13px] text-[#53483E] leading-relaxed">
                   アレルギー反応や血管痛、急な気分不良が生じた場合にも、医師がその場で迅速に初期医療処置を行います。
                 </p>
               </div>
@@ -1358,7 +1356,7 @@ export default function App() {
                 <h3 className="font-serif text-base font-bold text-[#16120F]">
                   滅菌器材と衛生管理の徹底
                 </h3>
-                <p className="text-xs text-[#53483E] leading-relaxed">
+                <p className="text-[13px] text-[#53483E] leading-relaxed">
                   使用する針やチューブなどの器材はすべて完全使い捨て（ディスポーザブル）を使用し、衛生面を徹底管理します。
                 </p>
               </div>
@@ -1401,7 +1399,7 @@ export default function App() {
             {/* Pricing & CTAs */}
             <div className="p-7 sm:p-10 flex flex-col items-center justify-center text-center">
 
-              <h4 className="font-serif text-xl sm:text-2xl font-black text-[#143836] mb-3 pb-1 border-b-2 border-[#8E6D42] tracking-wide inline-block">
+              <h4 className="font-serif text-[21px] font-black text-[#143836] mb-3 pb-1 border-b-2 border-[#8E6D42] tracking-wide inline-block">
                 プレミアムリカバリー点滴
               </h4>
 
@@ -1534,7 +1532,7 @@ export default function App() {
                   <h3 className="font-serif text-base font-bold text-[#16120F]">
                     ご予約・お問い合わせ
                   </h3>
-                  <p className="text-xs text-[#53483E] leading-relaxed">
+                  <p className="text-[13px] text-[#53483E] leading-relaxed">
                     LINEまたはWEBフォームより、ご希望の日時と訪問場所をご連絡ください。
                   </p>
                 </div>
@@ -1551,7 +1549,7 @@ export default function App() {
                   <h3 className="font-serif text-base font-bold text-[#16120F]">
                     事前確認・日程確定
                   </h3>
-                  <p className="text-xs text-[#53483E] leading-relaxed">
+                  <p className="text-[13px] text-[#53483E] leading-relaxed">
                     体調や既往歴を事前に簡単に確認し、医師の訪問スケジュールを確定します。
                   </p>
                 </div>
@@ -1568,7 +1566,7 @@ export default function App() {
                   <h3 className="font-serif text-base font-bold text-[#16120F]">
                     ご自宅へ訪問・点滴
                   </h3>
-                  <p className="text-xs text-[#53483E] leading-relaxed">
+                  <p className="text-[13px] text-[#53483E] leading-relaxed">
                     医師が訪問して対面問診を行い、リラックスした空間で点滴を投与します。
                   </p>
                 </div>
@@ -1585,7 +1583,7 @@ export default function App() {
                   <h3 className="font-serif text-base font-bold text-[#16120F]">
                     アフターケア
                   </h3>
-                  <p className="text-xs text-[#53483E] leading-relaxed">
+                  <p className="text-[13px] text-[#53483E] leading-relaxed">
                     施術後の注意事項をお伝えします。終了後も気になることがあればLINEで相談可能です。
                   </p>
                 </div>
@@ -1678,11 +1676,11 @@ export default function App() {
           </h2>
           <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-[#E2D7CA] rounded-2xl sm:rounded-full shadow-sm text-sm sm:text-base font-serif font-bold text-[#16120F]">
             <MapPin className="w-4 h-4 text-[#8E6D42] shrink-0" />
-            <span className="leading-snug text-center">
+            <span className="leading-snug text-center text-base">
               東京都中央区・港区<br className="sm:hidden" />（往診料無料・完全予約制）
             </span>
           </div>
-          <p className="text-xs text-[#53483E] max-w-lg mx-auto leading-relaxed pt-1">
+          <p className="text-[13px] text-[#53483E] max-w-lg mx-auto leading-relaxed pt-1">
             その他東京23区内（往診料 +¥11,000）もお伺い可能です。23区外への往診もスケジュール次第で対応いたしますので、お気軽にお問い合わせください。
           </p>
         </div>
@@ -1703,7 +1701,7 @@ export default function App() {
                 初回体験の予約・ご相談
               </h2>
             </div>
-            <p className="text-xs text-[#827467] mt-3 leading-relaxed text-left sm:text-center max-w-xl pl-4 sm:pl-0">
+            <p className="text-[13px] text-[#827467] mt-3 leading-relaxed text-left sm:text-center max-w-xl pl-4 sm:pl-0">
               タップすると質問内容が自動でフォームにセットされます
             </p>
           </div>
@@ -1808,7 +1806,7 @@ export default function App() {
                 </button>
               </div>
 
-              <p className="text-[11px] text-center text-[#827467] leading-relaxed">
+              <p className="text-xs text-center text-[#827467] leading-relaxed">
                 ※ご入力いただいた個人情報は、訪問診療のご連絡のみに使用し、第三者に提供することはございません。
               </p>
             </form>
