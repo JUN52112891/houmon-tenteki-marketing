@@ -554,8 +554,8 @@ export default function App() {
                 04 A NEW STANDARD
               </span>
               <h2 className="font-serif text-xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
-                そんなあなたに、<br className="hidden sm:inline" />
-                <span className="text-[#16120F]">ご自宅へ伺う訪問点滴という形。</span>
+                そんなあなたに、ご自宅へ伺う<br />
+                訪問点滴という形。
               </h2>
             </div>
             <p className="text-[#53483E] text-xs sm:text-base mt-2.5 sm:mt-4 leading-relaxed text-left sm:text-center max-w-xl pl-3.5 sm:pl-0">
@@ -1220,8 +1220,8 @@ export default function App() {
                 <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1.5 font-serif">
                   06 DOCTOR PROFILE
                 </span>
-                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#16120F] leading-tight">
-                  医師が、直接ご自宅へ伺います。
+                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#16120F] leading-tight whitespace-nowrap">
+                  医師が直接ご自宅へ伺います
                 </h2>
               </div>
               
@@ -1289,7 +1289,8 @@ export default function App() {
                 07 SAFETY & QUALITY
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
-                安心して点滴を受けていただくための体制
+                安心して点滴を<br />
+                受けていただくための体制
               </h2>
             </div>
             <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left sm:text-center max-w-xl pl-4 sm:pl-0">
@@ -1385,7 +1386,8 @@ export default function App() {
                 08 TRIAL OFFER
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
-                まずは一度、ご自宅で体験してみてください。
+                まずは一度、ご自宅で<br />
+                体験してみてください。
               </h2>
             </div>
           </div>
