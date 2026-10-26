@@ -218,13 +218,13 @@ export default function AppMansion() {
         {/* 下段: ナビゲーションメニューバー (1行・改行なし) */}
         <div className="border-t border-[#EAE2D6] bg-[#F6F2EB]/60">
           <nav className="max-w-[1140px] mx-auto px-6 h-[40px] flex items-center justify-center gap-4 xl:gap-6 flex-nowrap whitespace-nowrap">
-            <a href="#resident-benefit" className="header-link text-[12.5px] xl:text-[13px] tracking-wide hover:text-[#143836] whitespace-nowrap">住民限定特典</a>
-            <span className="text-[#D3C7B8] text-[10px] select-none">/</span>
             <a href="#about-intro" className="header-link text-[12.5px] xl:text-[13px] tracking-wide hover:text-[#143836] whitespace-nowrap">点滴という選択</a>
             <span className="text-[#D3C7B8] text-[10px] select-none">/</span>
             <a href="#service-time" className="header-link text-[12.5px] xl:text-[13px] tracking-wide hover:text-[#143836] whitespace-nowrap">使う時間の違い</a>
             <span className="text-[#D3C7B8] text-[10px] select-none">/</span>
             <a href="#menu-detail" className="header-link text-[12.5px] xl:text-[13px] tracking-wide hover:text-[#143836] whitespace-nowrap">目的別メニュー・料金</a>
+            <span className="text-[#D3C7B8] text-[10px] select-none">/</span>
+            <a href="#resident-benefit" className="header-link text-[12.5px] xl:text-[13px] tracking-wide hover:text-[#143836] whitespace-nowrap">住民限定特典</a>
             <span className="text-[#D3C7B8] text-[10px] select-none">/</span>
             <a href="#doctor" className="header-link text-[12.5px] xl:text-[13px] tracking-wide hover:text-[#143836] whitespace-nowrap">担当医師紹介</a>
             <span className="text-[#D3C7B8] text-[10px] select-none">/</span>
@@ -251,10 +251,10 @@ export default function AppMansion() {
 
         {isMobileMenuOpen && (
           <div className="fixed top-16 right-4 left-4 z-[94] bg-[#FAF8F5] border border-[#E2D7CA] rounded-[16px] p-6 space-y-4 shadow-xl">
-            <a href="#resident-benefit" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">住民限定特典</a>
             <a href="#about-intro" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">点滴という選択</a>
             <a href="#service-time" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">使う時間の違い</a>
             <a href="#menu-detail" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">目的別メニュー・料金</a>
+            <a href="#resident-benefit" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">住民限定特典</a>
             <a href="#hair-treatment" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">訪問での薄毛治療</a>
             <a href="#doctor" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">担当医師紹介</a>
             <a href="#trial" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">初回体験案内</a>
@@ -293,12 +293,12 @@ export default function AppMansion() {
         <div className="relative z-10 max-w-[1160px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
           <div className="lg:col-span-7 space-y-5 sm:space-y-6">
-            {/* マンション住民限定LP: 住民向けの特別なご案内(テキストのみ。FV画像は別途住民向けに差し替え予定) */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8E6D42]/10 border border-[#8E6D42]/40">
+            {/* マンション住民限定LP: 住民向けの薄いバッジ(詳細は後方の住民限定特典セクションへ。FV画像は別途住民向けに差し替え予定) */}
+            <a href="#resident-benefit" className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8E6D42]/10 border border-[#8E6D42]/40 hover:bg-[#8E6D42]/15 transition-colors">
               <span className="text-[10px] sm:text-xs font-bold tracking-[0.15em] text-[#8E6D42] uppercase font-serif">For Residents</span>
               <span className="w-px h-3 bg-[#8E6D42]/40" />
-              <span className="text-[11px] sm:text-xs font-semibold text-[#143836] tracking-wide">マンション住民の皆さまへ、特別なご案内</span>
-            </div>
+              <span className="text-[11px] sm:text-xs font-semibold text-[#143836] tracking-wide">TTT住民の皆さまへ</span>
+            </a>
 
             {/* Mobile: single all-in-one hero graphic (logo/badge/headline/features/photo/price) */}
             <div className="lg:hidden relative -mt-4 sm:-mt-7 -mx-6">
@@ -309,14 +309,6 @@ export default function AppMansion() {
               />
               {/* 価格カード周りの金装飾のギラつきを抑える白ベール（カード本体は避ける） */}
               {/* <div className="absolute inset-x-0 top-[56%] bottom-[27%] bg-gradient-to-b from-white/0 via-white/45 to-white/45 pointer-events-none" /> */}
-            </div>
-
-            {/* Exclusive Area Capsule Badge */}
-            <div className="hidden lg:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#143836] text-[#FAF8F5] shadow-sm border border-[#143836]/30">
-              <MapPin className="w-3.5 h-3.5 text-[#DFCBA9] shrink-0" />
-              <span className="text-xs sm:text-[13px] font-medium tracking-[0.08em] text-[#FAF8F5]">
-                <span className="inline-block">東京都中央区・港区限定</span>
-              </span>
             </div>
 
             <h1 className="hidden lg:block font-serif text-3xl sm:text-5xl lg:text-[44px] text-[#16120F] leading-[1.35] tracking-[0.02em]">
@@ -398,106 +390,6 @@ export default function AppMansion() {
               </div>
             </div>
           </div>
-
-        </div>
-      </section>
-
-      {/* ===================================================
-          マンション住民限定LP専用セクション | 住民限定特典
-          ※募集人数・適用条件は未確定のため具体的な数値・期限は記載しない
-          =================================================== */}
-      <section id="resident-benefit" className="py-8 sm:py-11 bg-white border-b border-[#E2D7CA]">
-        <div className="max-w-[860px] mx-auto px-6">
-
-          <div className="max-w-2xl sm:mx-auto mb-8 text-left sm:text-center flex flex-col sm:items-center">
-            <div className="border-l-2 border-[#8E6D42]/70 pl-4 py-0.5 text-left w-full sm:w-auto">
-              <span className="text-xs font-bold tracking-[0.2em] text-[#8E6D42] uppercase block mb-1.5 font-serif">
-                For Residents ── マンション住民限定特典
-              </span>
-              <h2 className="font-serif text-2xl sm:text-3xl text-[#16120F] font-bold leading-tight">
-                住民の皆さまだけの、特別なご案内
-              </h2>
-            </div>
-            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left sm:text-center max-w-xl pl-4 sm:pl-0">
-              このたび、同じ建物にお住まいの皆さまに向けて、<br className="hidden sm:block" />
-              定期会員プラン「ドクターコンシェルジュプラン」を<br className="sm:hidden" />
-              特別価格でご案内できることになりました。
-            </p>
-          </div>
-
-          {/* 特典カード(ここぞの情報としてカード化) */}
-          <div className="bg-[#FBF8F3] border-2 border-[#8E6D42]/50 rounded-[18px] p-6 sm:p-8 shadow-sm max-w-xl mx-auto">
-            <div className="flex flex-wrap items-center gap-2 mb-4">
-              <span className="inline-block text-[11px] font-bold text-white bg-[#8E6D42] px-3 py-1 rounded tracking-wider">
-                マンション住民限定
-              </span>
-              <span className="inline-block text-[11px] font-bold text-[#8E6D42] border border-[#8E6D42]/50 px-3 py-1 rounded tracking-wider">
-                人数限定
-              </span>
-            </div>
-
-            <p className="font-serif text-xl sm:text-2xl font-bold text-[#143836] leading-snug mb-1">
-              定期会員プラン<br className="sm:hidden" />
-              通常価格より<span className="text-[#8E6D42]">10%OFF</span>
-            </p>
-            <p className="text-xs text-[#827467] leading-relaxed mb-5">
-              ※募集人数・適用条件は現在調整中です。詳細はLINEまたはお問い合わせフォームよりご確認ください。
-            </p>
-
-            <button
-              onClick={() => setIsResidentPlanOpen(!isResidentPlanOpen)}
-              className="w-full flex items-center justify-between text-xs sm:text-sm font-bold text-[#16120F] py-3 border-t border-[#8E6D42]/30"
-            >
-              <span>定期会員プランの料金を見る(住民限定価格)</span>
-              <ChevronDown className={`w-4 h-4 text-[#8E6D42] transition-transform duration-200 shrink-0 ${isResidentPlanOpen ? 'rotate-180' : ''}`} />
-            </button>
-
-            {isResidentPlanOpen && (
-              <div className="pt-1 pb-1 space-y-3 text-xs sm:text-[13px] text-[#53483E]">
-                <div className="flex items-center justify-between border-b border-[#E2D7CA] pb-2">
-                  <span className="font-bold text-[#16120F]">ライトプラン(月2回訪問)</span>
-                  <span className="text-right">
-                    <span className="line-through text-[#A8988A] mr-1.5">¥99,000</span>
-                    <span className="font-serif font-bold text-[#8E6D42]">¥89,100</span>
-                    <span className="text-[10px] text-[#827467]">/月</span>
-                  </span>
-                </div>
-                <div className="flex items-center justify-between border-b border-[#E2D7CA] pb-2">
-                  <span className="font-bold text-[#16120F]">スタンダードプラン(月4回訪問)</span>
-                  <span className="text-right">
-                    <span className="line-through text-[#A8988A] mr-1.5">¥165,000</span>
-                    <span className="font-serif font-bold text-[#8E6D42]">¥148,500</span>
-                    <span className="text-[10px] text-[#827467]">/月</span>
-                  </span>
-                </div>
-                <div className="flex items-center justify-between pb-1">
-                  <span className="font-bold text-[#16120F]">プレミアムプラン(月4回訪問)</span>
-                  <span className="text-right">
-                    <span className="line-through text-[#A8988A] mr-1.5">¥264,000</span>
-                    <span className="font-serif font-bold text-[#8E6D42]">¥237,600</span>
-                    <span className="text-[10px] text-[#827467]">/月</span>
-                  </span>
-                </div>
-                <p className="text-[11px] text-[#827467] pt-2 leading-relaxed">
-                  各プランの訪問回数・点滴内容・医師への美容健康相談などの詳細は、LINEまたはお問い合わせフォームにてご案内します。
-                </p>
-              </div>
-            )}
-          </div>
-
-          <p className="text-center text-xs text-[#53483E] mt-6 leading-relaxed">
-            まずは<a href="#trial" className="underline font-bold text-[#143836] hover:text-[#8E6D42]">初回体験(¥22,000)</a>からお試しいただけます。定期会員プランは、ご希望の方にのみ初回体験後にご案内しています。
-          </p>
-          <p className="text-center text-xs text-[#53483E] mt-2">
-            <a
-              href={LINE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline hover:text-[#8E6D42]"
-            >
-              特典について医師に質問する
-            </a>
-          </p>
 
         </div>
       </section>
@@ -1328,6 +1220,107 @@ export default function AppMansion() {
               </a>
             </div>
           </div>
+
+        </div>
+      </section>
+
+      {/* ===================================================
+          マンション住民限定LP専用セクション | 住民限定特典
+          ※ここまでで目的別点滴メニュー・料金を読んだ後なので「定期会員プラン」の内容が伝わった状態で提示する
+          ※募集人数・適用条件は未確定のため具体的な数値・期限は記載しない
+          =================================================== */}
+      <section id="resident-benefit" className="py-8 sm:py-11 bg-white border-b border-[#E2D7CA]">
+        <div className="max-w-[860px] mx-auto px-6">
+
+          <div className="max-w-2xl sm:mx-auto mb-8 text-left sm:text-center flex flex-col sm:items-center">
+            <div className="border-l-2 border-[#8E6D42]/70 pl-4 py-0.5 text-left w-full sm:w-auto">
+              <span className="text-xs font-bold tracking-[0.2em] text-[#8E6D42] uppercase block mb-1.5 font-serif">
+                For Residents ── マンション住民限定特典
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl text-[#16120F] font-bold leading-tight">
+                住民の皆さまだけの、特別なご案内
+              </h2>
+            </div>
+            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left sm:text-center max-w-xl pl-4 sm:pl-0">
+              このたび、同じ建物にお住まいの皆さまに向けて、<br className="hidden sm:block" />
+              上記の点滴を含む定期会員プラン「ドクターコンシェルジュプラン」を<br className="sm:hidden" />
+              特別価格でご案内できることになりました。
+            </p>
+          </div>
+
+          {/* 特典カード(ここぞの情報としてカード化) */}
+          <div className="bg-[#FBF8F3] border-2 border-[#8E6D42]/50 rounded-[18px] p-6 sm:p-8 shadow-sm max-w-xl mx-auto">
+            <div className="flex flex-wrap items-center gap-2 mb-4">
+              <span className="inline-block text-[11px] font-bold text-white bg-[#8E6D42] px-3 py-1 rounded tracking-wider">
+                マンション住民限定
+              </span>
+              <span className="inline-block text-[11px] font-bold text-[#8E6D42] border border-[#8E6D42]/50 px-3 py-1 rounded tracking-wider">
+                人数限定
+              </span>
+            </div>
+
+            <p className="font-serif text-xl sm:text-2xl font-bold text-[#143836] leading-snug mb-1">
+              定期会員プラン<br className="sm:hidden" />
+              通常価格より<span className="text-[#8E6D42]">10%OFF</span>
+            </p>
+            <p className="text-xs text-[#827467] leading-relaxed mb-5">
+              ※募集人数・適用条件は現在調整中です。詳細はLINEまたはお問い合わせフォームよりご確認ください。
+            </p>
+
+            <button
+              onClick={() => setIsResidentPlanOpen(!isResidentPlanOpen)}
+              className="w-full flex items-center justify-between text-xs sm:text-sm font-bold text-[#16120F] py-3 border-t border-[#8E6D42]/30"
+            >
+              <span>定期会員プランの料金を見る(住民限定価格)</span>
+              <ChevronDown className={`w-4 h-4 text-[#8E6D42] transition-transform duration-200 shrink-0 ${isResidentPlanOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            {isResidentPlanOpen && (
+              <div className="pt-1 pb-1 space-y-3 text-xs sm:text-[13px] text-[#53483E]">
+                <div className="flex items-center justify-between border-b border-[#E2D7CA] pb-2">
+                  <span className="font-bold text-[#16120F]">ライトプラン(月2回訪問)</span>
+                  <span className="text-right">
+                    <span className="line-through text-[#A8988A] mr-1.5">¥99,000</span>
+                    <span className="font-serif font-bold text-[#8E6D42]">¥89,100</span>
+                    <span className="text-[10px] text-[#827467]">/月</span>
+                  </span>
+                </div>
+                <div className="flex items-center justify-between border-b border-[#E2D7CA] pb-2">
+                  <span className="font-bold text-[#16120F]">スタンダードプラン(月4回訪問)</span>
+                  <span className="text-right">
+                    <span className="line-through text-[#A8988A] mr-1.5">¥165,000</span>
+                    <span className="font-serif font-bold text-[#8E6D42]">¥148,500</span>
+                    <span className="text-[10px] text-[#827467]">/月</span>
+                  </span>
+                </div>
+                <div className="flex items-center justify-between pb-1">
+                  <span className="font-bold text-[#16120F]">プレミアムプラン(月4回訪問)</span>
+                  <span className="text-right">
+                    <span className="line-through text-[#A8988A] mr-1.5">¥264,000</span>
+                    <span className="font-serif font-bold text-[#8E6D42]">¥237,600</span>
+                    <span className="text-[10px] text-[#827467]">/月</span>
+                  </span>
+                </div>
+                <p className="text-[11px] text-[#827467] pt-2 leading-relaxed">
+                  各プランの訪問回数・点滴内容・医師への美容健康相談などの詳細は、LINEまたはお問い合わせフォームにてご案内します。
+                </p>
+              </div>
+            )}
+          </div>
+
+          <p className="text-center text-xs text-[#53483E] mt-6 leading-relaxed">
+            まずは<a href="#trial" className="underline font-bold text-[#143836] hover:text-[#8E6D42]">初回体験(¥22,000)</a>からお試しいただけます。定期会員プランは、ご希望の方にのみ初回体験後にご案内しています。
+          </p>
+          <p className="text-center text-xs text-[#53483E] mt-2">
+            <a
+              href={LINE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-[#8E6D42]"
+            >
+              特典について医師に質問する
+            </a>
+          </p>
 
         </div>
       </section>
