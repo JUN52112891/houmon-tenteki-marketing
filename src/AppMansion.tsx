@@ -60,6 +60,17 @@ export default function AppMansion() {
   const [contactSubmitted, setContactSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
+  // マンション住民限定特典セクション: サブスク詳細アコーディオン開閉
+  const [isResidentPlanOpen, setIsResidentPlanOpen] = useState(false)
+
+  // 公式LINE遷移リンク
+  // TODO: エルメ(Lステップ的なLINEタグ管理ツール)側で本LP専用の「友だち追加URL」を発行したら、
+  // このURLに差し替える(住民専用LP経由の流入をタグで識別するため)。現時点では一般LPと同じURL。
+  const LINE_URL = "https://lin.ee/ybpyfYR"
+
+  // 訪問薄毛治療: 将来的に専用LPを公開した際はここにURLを設定するとリンクが有効になる
+  const HAIR_TREATMENT_LP_URL = ""
+
   const regionFees = [
     { name: '中央区 (Chuo-ku)', fee: 0, desc: '基本エリア・往診料無料' },
     { name: '港区 (Minato-ku)', fee: 0, desc: '基本エリア・往診料無料' },
@@ -105,6 +116,26 @@ export default function AppMansion() {
     {
       question: "中央区・港区以外でも訪問してもらえますか？",
       answer: "はい。その他東京23区内であれば、往診料 ¥11,000にて往診対応しております。23区外のエリアもお気軽にご相談ください。"
+    },
+    {
+      question: "マンション住民限定特典とは何ですか？",
+      answer: "ご住民の皆さまには、定期会員プラン「ドクターコンシェルジュプラン」を通常価格より10%OFFでご案内しています。募集人数には限りがあり、適用条件は現在調整中です。詳細はLINEまたはお問い合わせフォームよりご確認ください。"
+    },
+    {
+      question: "住民限定特典を受けるには、まず何をすればいいですか？",
+      answer: "まずは初回体験（¥22,000）をご利用いただくことをお勧めしています。定期会員プランの特典だけを単独でお申し込みいただくことはできません。初回体験後、ご希望の方に特典内容を詳しくご案内します。"
+    },
+    {
+      question: "家族の分も住民限定特典を利用できますか？",
+      answer: "ご家族の人数分のご利用方法については、現在運用方法を調整中です。恐れ入りますが、まずはLINEまたはお問い合わせフォームよりご相談ください。"
+    },
+    {
+      question: "訪問するのは医師ですか、それとも看護師ですか？",
+      answer: "初回は必ず医師が訪問し、問診・診察のうえで施術の可否・内容を判断します。2回目以降は、医師の指示のもと看護師が訪問する場合があります。"
+    },
+    {
+      question: "定期会員プランの契約期間や解約条件を教えてください。",
+      answer: "最低契約期間や解約・繰越などの条件については、現在最終調整中です。ご契約前に、医師またはLINEにて最新の内容を必ずご確認ください。"
     }
   ]
 
@@ -166,7 +197,7 @@ export default function AppMansion() {
           {/* Header CTAs */}
           <div className="flex items-center gap-3 shrink-0 whitespace-nowrap">
             <a
-              href="https://lin.ee/ybpyfYR"
+              href={LINE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-header-line whitespace-nowrap"
@@ -187,6 +218,8 @@ export default function AppMansion() {
         {/* 下段: ナビゲーションメニューバー (1行・改行なし) */}
         <div className="border-t border-[#EAE2D6] bg-[#F6F2EB]/60">
           <nav className="max-w-[1140px] mx-auto px-6 h-[40px] flex items-center justify-center gap-4 xl:gap-6 flex-nowrap whitespace-nowrap">
+            <a href="#resident-benefit" className="header-link text-[12.5px] xl:text-[13px] tracking-wide hover:text-[#143836] whitespace-nowrap">住民限定特典</a>
+            <span className="text-[#D3C7B8] text-[10px] select-none">/</span>
             <a href="#about-intro" className="header-link text-[12.5px] xl:text-[13px] tracking-wide hover:text-[#143836] whitespace-nowrap">点滴という選択</a>
             <span className="text-[#D3C7B8] text-[10px] select-none">/</span>
             <a href="#service-time" className="header-link text-[12.5px] xl:text-[13px] tracking-wide hover:text-[#143836] whitespace-nowrap">使う時間の違い</a>
@@ -218,16 +251,18 @@ export default function AppMansion() {
 
         {isMobileMenuOpen && (
           <div className="fixed top-16 right-4 left-4 z-[94] bg-[#FAF8F5] border border-[#E2D7CA] rounded-[16px] p-6 space-y-4 shadow-xl">
+            <a href="#resident-benefit" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">住民限定特典</a>
             <a href="#about-intro" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">点滴という選択</a>
             <a href="#service-time" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">使う時間の違い</a>
             <a href="#menu-detail" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">目的別メニュー・料金</a>
+            <a href="#hair-treatment" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">訪問での薄毛治療</a>
             <a href="#doctor" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">担当医師紹介</a>
             <a href="#trial" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">初回体験案内</a>
             <a href="#safety" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">安全管理体制</a>
             <a href="#flow" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">ご利用の流れ</a>
             <a href="#faq" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">よくある質問</a>
             <div className="pt-3 flex gap-3">
-              <a href="https://lin.ee/ybpyfYR" target="_blank" rel="noopener noreferrer" className="btn-header-line flex-1 text-center justify-center">
+              <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="btn-header-line flex-1 text-center justify-center">
                 LINE相談
               </a>
               <a href="#contact-form" onClick={() => setIsMobileMenuOpen(false)} className="btn-header-reserve flex-1 text-center justify-center">
@@ -258,6 +293,13 @@ export default function AppMansion() {
         <div className="relative z-10 max-w-[1160px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
           <div className="lg:col-span-7 space-y-5 sm:space-y-6">
+            {/* マンション住民限定LP: 住民向けの特別なご案内(テキストのみ。FV画像は別途住民向けに差し替え予定) */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#8E6D42]/10 border border-[#8E6D42]/40">
+              <span className="text-[10px] sm:text-xs font-bold tracking-[0.15em] text-[#8E6D42] uppercase font-serif">For Residents</span>
+              <span className="w-px h-3 bg-[#8E6D42]/40" />
+              <span className="text-[11px] sm:text-xs font-semibold text-[#143836] tracking-wide">マンション住民の皆さまへ、特別なご案内</span>
+            </div>
+
             {/* Mobile: single all-in-one hero graphic (logo/badge/headline/features/photo/price) */}
             <div className="lg:hidden relative -mt-4 sm:-mt-7 -mx-6">
               <img
@@ -313,7 +355,7 @@ export default function AppMansion() {
               {/* Mobile: exact match to the fixed bottom bar buttons */}
               <div className="flex sm:hidden gap-2.5">
                 <a
-                  href="https://lin.ee/ybpyfYR"
+                  href={LINE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="frost-btn frost-btn--line"
@@ -337,13 +379,13 @@ export default function AppMansion() {
               {/* Desktop: original full-size buttons */}
               <div className="hidden sm:flex flex-row gap-3.5">
                 <a
-                  href="https://lin.ee/ybpyfYR"
+                  href={LINE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn--line btn--shimmer text-base px-7 py-4 whitespace-nowrap gap-2.5"
                 >
                   <MessageCircle className="w-5 h-5 text-[#06C755] shrink-0" />
-                  <span className="inline-block">初回体験をLINEで予約する</span>
+                  <span className="inline-block">初回体験を予約・相談する</span>
                   <ArrowRight className="w-4 h-4 ml-0.5 shrink-0" />
                 </a>
                 <a
@@ -356,6 +398,106 @@ export default function AppMansion() {
               </div>
             </div>
           </div>
+
+        </div>
+      </section>
+
+      {/* ===================================================
+          マンション住民限定LP専用セクション | 住民限定特典
+          ※募集人数・適用条件は未確定のため具体的な数値・期限は記載しない
+          =================================================== */}
+      <section id="resident-benefit" className="py-8 sm:py-11 bg-white border-b border-[#E2D7CA]">
+        <div className="max-w-[860px] mx-auto px-6">
+
+          <div className="max-w-2xl sm:mx-auto mb-8 text-left sm:text-center flex flex-col sm:items-center">
+            <div className="border-l-2 border-[#8E6D42]/70 pl-4 py-0.5 text-left w-full sm:w-auto">
+              <span className="text-xs font-bold tracking-[0.2em] text-[#8E6D42] uppercase block mb-1.5 font-serif">
+                For Residents ── マンション住民限定特典
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl text-[#16120F] font-bold leading-tight">
+                住民の皆さまだけの、特別なご案内
+              </h2>
+            </div>
+            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left sm:text-center max-w-xl pl-4 sm:pl-0">
+              このたび、同じ建物にお住まいの皆さまに向けて、<br className="hidden sm:block" />
+              定期会員プラン「ドクターコンシェルジュプラン」を<br className="sm:hidden" />
+              特別価格でご案内できることになりました。
+            </p>
+          </div>
+
+          {/* 特典カード(ここぞの情報としてカード化) */}
+          <div className="bg-[#FBF8F3] border-2 border-[#8E6D42]/50 rounded-[18px] p-6 sm:p-8 shadow-sm max-w-xl mx-auto">
+            <div className="flex flex-wrap items-center gap-2 mb-4">
+              <span className="inline-block text-[11px] font-bold text-white bg-[#8E6D42] px-3 py-1 rounded tracking-wider">
+                マンション住民限定
+              </span>
+              <span className="inline-block text-[11px] font-bold text-[#8E6D42] border border-[#8E6D42]/50 px-3 py-1 rounded tracking-wider">
+                人数限定
+              </span>
+            </div>
+
+            <p className="font-serif text-xl sm:text-2xl font-bold text-[#143836] leading-snug mb-1">
+              定期会員プラン<br className="sm:hidden" />
+              通常価格より<span className="text-[#8E6D42]">10%OFF</span>
+            </p>
+            <p className="text-xs text-[#827467] leading-relaxed mb-5">
+              ※募集人数・適用条件は現在調整中です。詳細はLINEまたはお問い合わせフォームよりご確認ください。
+            </p>
+
+            <button
+              onClick={() => setIsResidentPlanOpen(!isResidentPlanOpen)}
+              className="w-full flex items-center justify-between text-xs sm:text-sm font-bold text-[#16120F] py-3 border-t border-[#8E6D42]/30"
+            >
+              <span>定期会員プランの料金を見る(住民限定価格)</span>
+              <ChevronDown className={`w-4 h-4 text-[#8E6D42] transition-transform duration-200 shrink-0 ${isResidentPlanOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            {isResidentPlanOpen && (
+              <div className="pt-1 pb-1 space-y-3 text-xs sm:text-[13px] text-[#53483E]">
+                <div className="flex items-center justify-between border-b border-[#E2D7CA] pb-2">
+                  <span className="font-bold text-[#16120F]">ライトプラン(月2回訪問)</span>
+                  <span className="text-right">
+                    <span className="line-through text-[#A8988A] mr-1.5">¥99,000</span>
+                    <span className="font-serif font-bold text-[#8E6D42]">¥89,100</span>
+                    <span className="text-[10px] text-[#827467]">/月</span>
+                  </span>
+                </div>
+                <div className="flex items-center justify-between border-b border-[#E2D7CA] pb-2">
+                  <span className="font-bold text-[#16120F]">スタンダードプラン(月4回訪問)</span>
+                  <span className="text-right">
+                    <span className="line-through text-[#A8988A] mr-1.5">¥165,000</span>
+                    <span className="font-serif font-bold text-[#8E6D42]">¥148,500</span>
+                    <span className="text-[10px] text-[#827467]">/月</span>
+                  </span>
+                </div>
+                <div className="flex items-center justify-between pb-1">
+                  <span className="font-bold text-[#16120F]">プレミアムプラン(月4回訪問)</span>
+                  <span className="text-right">
+                    <span className="line-through text-[#A8988A] mr-1.5">¥264,000</span>
+                    <span className="font-serif font-bold text-[#8E6D42]">¥237,600</span>
+                    <span className="text-[10px] text-[#827467]">/月</span>
+                  </span>
+                </div>
+                <p className="text-[11px] text-[#827467] pt-2 leading-relaxed">
+                  各プランの訪問回数・点滴内容・医師への美容健康相談などの詳細は、LINEまたはお問い合わせフォームにてご案内します。
+                </p>
+              </div>
+            )}
+          </div>
+
+          <p className="text-center text-xs text-[#53483E] mt-6 leading-relaxed">
+            まずは<a href="#trial" className="underline font-bold text-[#143836] hover:text-[#8E6D42]">初回体験(¥22,000)</a>からお試しいただけます。定期会員プランは、ご希望の方にのみ初回体験後にご案内しています。
+          </p>
+          <p className="text-center text-xs text-[#53483E] mt-2">
+            <a
+              href={LINE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-[#8E6D42]"
+            >
+              特典について医師に質問する
+            </a>
+          </p>
 
         </div>
       </section>
@@ -850,13 +992,13 @@ export default function AppMansion() {
 
           <div className="mt-8 text-center">
             <a 
-              href="https://lin.ee/ybpyfYR" 
+              href={LINE_URL} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="btn btn--line btn--shimmer text-sm"
             >
               <MessageCircle className="w-4 h-4 text-[#06C755] shrink-0" />
-              <span>初回体験をLINEで予約する</span>
+              <span>初回体験を予約・相談する</span>
               <ArrowRight className="w-4 h-4 ml-1 shrink-0" />
             </a>
           </div>
@@ -1190,6 +1332,55 @@ export default function AppMansion() {
         </div>
       </section>
 
+      {/* ===================================================
+          マンション住民限定LP専用セクション | 訪問での薄毛治療(コンパクト紹介)
+          =================================================== */}
+      <section id="hair-treatment" className="py-7 sm:py-9 bg-[#F3ECE4]/70 border-b border-[#E2D7CA]/60">
+        <div className="max-w-[860px] mx-auto px-6">
+          <div className="bg-white border border-[#E2D7CA] rounded-[16px] p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8">
+            <div className="flex-1">
+              <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1.5 font-serif">
+                Additional Care ── その他の訪問メニュー
+              </span>
+              <h3 className="font-serif text-lg sm:text-xl font-bold text-[#16120F] mb-2">
+                訪問での薄毛治療にも対応
+              </h3>
+              <p className="text-xs sm:text-sm text-[#53483E] leading-relaxed">
+                幹細胞培養上清液を用いた頭皮への注入治療です。男性・女性ともにご利用いただけます。
+                点滴メニューと同様、医師による診察のうえで実施可否・内容を判断いたします。
+              </p>
+              <p className="text-[11px] text-[#827467] leading-relaxed mt-2">
+                ※本メニューで使用する幹細胞培養上清液製剤は、国内で医薬品として承認されたものではありません。<a href="#regulatory" className="underline hover:text-[#8E6D42]">詳しくはこちら</a>
+              </p>
+              <p className="text-[11px] text-[#827467] leading-relaxed mt-1">
+                料金・施術内容の詳細は個別にご案内します。まずはお気軽にご相談ください。
+              </p>
+            </div>
+            <div className="shrink-0 flex sm:flex-col gap-2.5">
+              {HAIR_TREATMENT_LP_URL ? (
+                <a
+                  href={HAIR_TREATMENT_LP_URL}
+                  className="btn btn--gold text-xs !py-2.5 !px-5 whitespace-nowrap text-center justify-center"
+                >
+                  薄毛治療の詳細を見る
+                </a>
+              ) : (
+                <span className="text-[11px] text-[#A8988A] whitespace-nowrap">専用ページは準備中です</span>
+              )}
+              <a
+                href={LINE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn--line text-xs !py-2.5 !px-5 whitespace-nowrap text-center justify-center gap-1.5"
+              >
+                <MessageCircle className="w-3.5 h-3.5 text-[#06C755] shrink-0" />
+                <span>薄毛治療について質問する</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 07: 担当医師の紹介 (連続配置 2/3) */}
       <section id="doctor" className="pt-8 pb-10 sm:py-12 bg-white border-b border-[#E2D7CA]">
         <div className="max-w-[1160px] mx-auto px-6">
@@ -1236,6 +1427,10 @@ export default function AppMansion() {
                   「Dr. concierge」という名前には、ただご自宅へ点滴に伺うだけでなく、専属の医師としてその日の体調やご希望をうかがいながら、最適な一本を一緒に考えていきたいという思いを込めました。
                   「通院の時間が取れない」「人目を気にせずリラックスして受けたい」という方へ、病院と同等水準の安全性と、気負わないプライベートな時間をご自宅にお届けします。
                 </p>
+                <p>
+                  実は私自身も、この建物に暮らす住民の一人です。
+                  エレベーターでお会いする機会があるかもしれませんが、同じ建物で暮らす「かかりつけ医」のような存在として、気負わずお声がけいただけたら嬉しく思います。
+                </p>
               </div>
 
               {/* Mobile-only: doctor photo & title, shown after the intro text */}
@@ -1258,13 +1453,13 @@ export default function AppMansion() {
 
               <div className="pt-2 flex flex-wrap gap-3">
                 <a 
-                  href="https://lin.ee/ybpyfYR" 
+                  href={LINE_URL} 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="btn btn--line btn--shimmer text-xs py-3 px-6 inline-flex items-center gap-2"
                 >
                   <MessageCircle className="w-4 h-4 text-[#06C755] shrink-0" />
-                  <span>初回体験をLINEで予約する</span>
+                  <span>初回体験を予約・相談する</span>
                   <ArrowRight className="w-4 h-4 ml-0.5 shrink-0" />
                 </a>
               </div>
@@ -1434,13 +1629,13 @@ export default function AppMansion() {
 
               <div className="mt-6 w-full space-y-2.5">
                 <a
-                  href="https://lin.ee/ybpyfYR"
+                  href={LINE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn--line btn--shimmer w-full text-center justify-center text-[13.5px] sm:text-sm !py-3.5 whitespace-nowrap gap-2"
                 >
                   <MessageCircle className="w-4 h-4 text-[#06C755] shrink-0" />
-                  <span>初回体験をLINEで予約する</span>
+                  <span>初回体験を予約・相談する</span>
                 </a>
                 <a
                   href="#contact-form"
@@ -1450,6 +1645,15 @@ export default function AppMansion() {
                   <span>WEBで初回体験を予約する</span>
                 </a>
               </div>
+
+              <a
+                href={LINE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-[#53483E] underline hover:text-[#8E6D42] mt-4 inline-block"
+              >
+                予約の前に、医師に質問する
+              </a>
             </div>
           </div>
 
@@ -1594,13 +1798,13 @@ export default function AppMansion() {
 
           <div className="mt-12 text-center">
             <a 
-              href="https://lin.ee/ybpyfYR" 
+              href={LINE_URL} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="btn btn--line btn--shimmer inline-flex items-center gap-2 !py-3.5 !px-8 text-sm"
             >
               <MessageCircle className="w-4 h-4 text-[#06C755] shrink-0" />
-              <span>初回体験をLINEで予約する</span>
+              <span>初回体験を予約・相談する</span>
             </a>
           </div>
 
@@ -1717,7 +1921,7 @@ export default function AppMansion() {
               </p>
               <div className="pt-2">
                 <a 
-                  href="https://lin.ee/ybpyfYR" 
+                  href={LINE_URL} 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="btn btn--line btn--shimmer text-xs py-3 px-6 inline-flex"
@@ -1844,6 +2048,32 @@ export default function AppMansion() {
                   </div>
                 </dl>
               </div>
+
+              <div className="pt-5 border-t border-[#E2D7CA]">
+                <h4 className="font-serif text-sm font-bold text-[#143836] mb-3">訪問での薄毛治療（幹細胞培養上清液の頭皮注入）について</h4>
+                <dl className="space-y-3 text-xs text-[#53483E] leading-relaxed">
+                  <div>
+                    <dt className="font-bold text-[#16120F]">医薬品医療機器等法上の位置づけ（未承認医薬品）</dt>
+                    <dd>本メニューで使用する幹細胞培養上清液製剤は、上記の幹細胞上清液点滴と同様、日本国内で医薬品として承認されたものではありません。</dd>
+                  </div>
+                  <div>
+                    <dt className="font-bold text-[#16120F]">入手経路等について</dt>
+                    <dd>国内の製造元より国産の製剤を仕入れて使用しております。</dd>
+                  </div>
+                  <div>
+                    <dt className="font-bold text-[#16120F]">国内の同一性能を有する承認医薬品等の有無</dt>
+                    <dd>本邦において同一の成分・性能を有する承認医薬品は存在しません。</dd>
+                  </div>
+                  <div>
+                    <dt className="font-bold text-[#16120F]">諸外国における安全性等に係る情報</dt>
+                    <dd>米国FDA等においても、幹細胞由来成分（エクソソームを含む）を治療目的で使用することを承認した製品は現時点でありません。</dd>
+                  </div>
+                  <div>
+                    <dt className="font-bold text-[#16120F]">訪問での実施について</dt>
+                    <dd>無診察での施術は行いません。訪問での実施可否や詳細の運用は、医師による診察のうえで判断いたします。</dd>
+                  </div>
+                </dl>
+              </div>
             </div>
           </div>
         </div>
@@ -1894,7 +2124,7 @@ export default function AppMansion() {
           =================================================== */}
       <div className="fixed-cta-bar">
         <a 
-          href="https://lin.ee/ybpyfYR" 
+          href={LINE_URL} 
           target="_blank" 
           rel="noopener noreferrer" 
           className="frost-btn frost-btn--line"
