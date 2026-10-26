@@ -1337,7 +1337,7 @@ export default function AppMansion() {
           =================================================== */}
       <section id="hair-treatment" className="py-7 sm:py-9 bg-[#F3ECE4]/70 border-b border-[#E2D7CA]/60">
         <div className="max-w-[860px] mx-auto px-6">
-          <div className="bg-white border border-[#E2D7CA] rounded-[16px] p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8">
+          <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8">
             <div className="flex-1">
               <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1.5 font-serif">
                 Additional Care ── その他の訪問メニュー
