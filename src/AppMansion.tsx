@@ -79,7 +79,7 @@ export default function AppMansion() {
 
   const dripPrices: Record<string, { name: string, price: number }> = {
     recovery: { name: 'プレミアムリカバリー点滴 (初回体験: ¥22,000 / 通常: ¥33,000)', price: 22000 },
-    nmn: { name: 'NMNリバース点滴 (エイジングケア)', price: 49500 },
+    nmn: { name: 'NMNリバース点滴 (エイジングケア)', price: 44000 },
     stemcell: { name: '幹細胞上清液点滴 (最高峰ケア)', price: 99000 }
   }
 
@@ -1083,11 +1083,11 @@ export default function AppMansion() {
                   <div className="flex items-baseline justify-between">
                     <span className="text-xs text-[#827467]">料金</span>
                     <div className="flex items-baseline gap-1">
-                      <span className="font-serif text-xl font-bold text-[#B98A2E]">¥49,500〜</span>
+                      <span className="font-serif text-xl font-bold text-[#B98A2E]">¥44,000〜</span>
                       <span className="text-[11px] text-[#827467]">（税込・往診料込）</span>
                     </div>
                   </div>
-                  <span className="text-[10px] text-[#827467] block mt-0.5">※投与量（100mg〜）に応じてご案内</span>
+                  <span className="text-[10px] text-[#827467] block mt-0.5">※投与量（150mg〜）に応じてご案内</span>
                 </div>
 
                 <div className="space-y-2 text-xs text-[#53483E]">
@@ -1187,7 +1187,7 @@ export default function AppMansion() {
                   className="w-full bg-[#FAF8F5] border border-[#E2D7CA] rounded-[6px] p-2.5 text-[#16120F] focus:outline-none focus:border-[#9E7D52]"
                 >
                   <option value="recovery">プレミアムリカバリー点滴 (初回体験: ¥22,000)</option>
-                  <option value="nmn">NMNリバース点滴 (¥49,500〜)</option>
+                  <option value="nmn">NMNリバース点滴 (¥44,000〜)</option>
                   <option value="stemcell">幹細胞上清液点滴 (¥99,000〜)</option>
                 </select>
               </div>
@@ -1235,7 +1235,7 @@ export default function AppMansion() {
           <div className="max-w-2xl sm:mx-auto mb-8 text-left sm:text-center flex flex-col sm:items-center">
             <div className="border-l-2 border-[#8E6D42]/70 pl-4 py-0.5 text-left w-full sm:w-auto">
               <span className="text-xs font-bold tracking-[0.2em] text-[#8E6D42] uppercase block mb-1.5 font-serif">
-                For Residents ── マンション住民限定特典
+                For Residents ── TTT住民限定特典
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl text-[#16120F] font-bold leading-tight">
                 住民の皆さまだけの、特別なご案内
@@ -1665,7 +1665,7 @@ export default function AppMansion() {
                 09 CONCEPT MOVIE
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
-                訪問点滴の様子を動画で見る
+                訪問施術の様子を動画で見る
               </h2>
             </div>
             <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left sm:text-center max-w-xl pl-4 sm:pl-0">
