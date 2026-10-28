@@ -64,9 +64,9 @@ export default function AppMansion() {
   const [isResidentPlanOpen, setIsResidentPlanOpen] = useState(false)
 
   // 公式LINE遷移リンク
-  // TODO: エルメ(Lステップ的なLINEタグ管理ツール)側で本LP専用の「友だち追加URL」を発行したら、
-  // このURLに差し替える(住民専用LP経由の流入をタグで識別するため)。現時点では一般LPと同じURL。
-  const LINE_URL = "https://lin.ee/ybpyfYR"
+  // マンション住人専用のQRコードアクション経由URL(エルメ)。このURL経由で友だち追加すると
+  // 自動で「住人専用リッチメニュー」に切り替わる(エルメのQRコードアクション設定による)。
+  const LINE_URL = "https://s.lmes.jp/landing-qr/2011153828-irjwVbkO?uLand=L8Cki4"
 
   // 訪問薄毛治療: 将来的に専用LPを公開した際はここにURLを設定するとリンクが有効になる
   const HAIR_TREATMENT_LP_URL = ""
