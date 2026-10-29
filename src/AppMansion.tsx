@@ -24,6 +24,7 @@ import suppliPhoto from './assets/images/suppli-banner.webp'
 import tentekiPhoto from './assets/images/iv-drip-banner.webp'
 import laptopDripPhoto from './assets/images/scene_laptop_drip_v2.png'
 import homeDripPhoto from './assets/images/scene_sofa_relax_drip.png'
+import recoveryMenuPhoto from './assets/images/scene_reading_drip_1790731821488.jpg'
 import concernStaminaPhoto from './assets/images/concern-stamina-golf.webp'
 import concernWorkPhoto from './assets/images/concern-work-performance.webp'
 import concernGolfTravelPhoto from './assets/images/concern-golf-travel.webp'
@@ -431,50 +432,55 @@ export default function AppMansion() {
           =================================================== */}
       <section id="iv-therapy" className="py-8 sm:py-10 bg-white border-b border-[#E2D7CA]">
         <div className="max-w-[1040px] mx-auto px-6">
-          
-          <div className="max-w-2xl sm:mx-auto mb-8 sm:mb-10 text-left sm:text-center flex flex-col sm:items-center">
-            <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full sm:w-auto">
+
+          <div className="max-w-2xl mb-8 text-left">
+            <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full">
               <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1 font-serif">
                 02 IV THERAPY
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl text-[#16120F] font-bold leading-tight">
+              <h2 className="text-2xl sm:text-3xl text-[#16120F] font-bold leading-tight">
                 そのお悩みに、<br />
                 点滴という選択肢を。
               </h2>
             </div>
-            
-            {/* なぜ、今「点滴ケア」なのか？ (Regular Text) */}
-            <div className="mt-5 sm:mt-6 text-left sm:text-center max-w-xl pl-4 sm:pl-0">
-              <h3 className="font-serif text-base sm:text-lg font-bold text-[#143836] mb-2">
-                なぜ、今「点滴ケア」なのか？
-              </h3>
-              <p className="text-[#53483E] text-sm sm:text-base leading-relaxed">
-                点滴は、必要な成分を静脈から直接体内へ届ける方法です。美容・健康を意識したコンディションケアの選択肢として取り入れられています。
-              </p>
-            </div>
           </div>
 
-          {/* 2 Points of IV Therapy */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-3xl mx-auto">
-            {/* Column 1: サプリメントとの違い */}
-            <div>
-              <div className="bg-white border border-[#E2D7CA] rounded-[16px] sm:rounded-[20px] p-5 sm:p-8 shadow-[0_4px_20px_rgba(22,18,15,0.04)] hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-start">
-                <div className="flex items-center justify-between mb-3 sm:mb-4">
-                  <span className="text-[10.5px] sm:text-[11px] font-bold tracking-widest text-[#8E6D42] font-serif uppercase bg-[#F3ECE4] px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full">
-                    POINT 01
-                  </span>
-                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#143836]/5 text-[#143836] flex items-center justify-center">
-                    <Activity className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#143836]" />
-                  </div>
-                </div>
-                <h3 className="font-serif text-base sm:text-xl font-bold text-[#16120F] mb-1.5 sm:mb-3 leading-snug">
+          {/* Hero Photo */}
+          <div className="max-w-2xl mx-auto mb-8 sm:mb-10 overflow-hidden">
+            <img
+              src={homeDripPhoto}
+              alt="自宅のリビングでソファにくつろぎながら点滴を受ける女性"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+
+          <div className="max-w-2xl mx-auto space-y-8 sm:space-y-10">
+
+            {/* なぜ、今「点滴ケア」なのか？ */}
+            <div className="pl-[18px]">
+              <h3 className="text-lg sm:text-xl font-bold text-[#7E490D] mb-3">
+                なぜ、今「点滴ケア」なのか？
+              </h3>
+              <p className="text-[#53483E] text-sm sm:text-base leading-[2] tracking-[0.03em]">
+                点滴は、必要な成分を静脈から直接体内へ届ける方法です。
+                <br className="hidden sm:block" />
+                疲れが抜けにくいと感じるときや、美容・健康を意識したコンディションケアの選択肢として取り入れられています。
+              </p>
+            </div>
+
+            {/* サプリメントとの違い */}
+            <div className="pl-[18px] flex flex-col sm:flex-row sm:items-start gap-5 sm:gap-8">
+              <div className="flex-1">
+                <h3 className="text-lg sm:text-xl font-bold text-[#7E490D] mb-3">
                   サプリメントとの違い
                 </h3>
-                <p className="text-[13px] sm:text-sm text-[#53483E] leading-relaxed">
-                  サプリメントが消化管から成分を吸収するのに対し、点滴は消化管を介さず、静脈から直接投与します。
+                <p className="text-[#53483E] text-sm sm:text-base leading-[2] tracking-[0.03em]">
+                  口から摂取した成分は、胃や腸で消化・吸収され、肝臓で代謝される過程を経て体内に取り込まれます。
+                  <br className="hidden sm:block" />
+                  一方、点滴は消化管を介さず、成分を静脈から直接体内へ投与できることが特徴です。
                 </p>
               </div>
-              <div className="mt-4 overflow-hidden rounded-[14px]">
+              <div className="sm:w-[300px] shrink-0 overflow-hidden">
                 <img
                   src={suppliPhoto}
                   alt="サプリメントとの違い"
@@ -483,25 +489,19 @@ export default function AppMansion() {
               </div>
             </div>
 
-            {/* Column 2: 点滴だからできること */}
-            <div>
-              <div className="bg-white border border-[#E2D7CA] rounded-[16px] sm:rounded-[20px] p-5 sm:p-8 shadow-[0_4px_20px_rgba(22,18,15,0.04)] hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-start">
-                <div className="flex items-center justify-between mb-3 sm:mb-4">
-                  <span className="text-[10.5px] sm:text-[11px] font-bold tracking-widest text-[#8E6D42] font-serif uppercase bg-[#F3ECE4] px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full">
-                    POINT 02
-                  </span>
-                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#143836]/5 text-[#143836] flex items-center justify-center">
-                    <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8E6D42]" />
-                  </div>
-                </div>
-                <h3 className="font-serif text-base sm:text-xl font-bold text-[#16120F] mb-1.5 sm:mb-3 leading-snug">
+            {/* 点滴だからできること */}
+            <div className="pl-[18px] flex flex-col sm:flex-row sm:items-start gap-5 sm:gap-8">
+              <div className="flex-1">
+                <h3 className="text-lg sm:text-xl font-bold text-[#7E490D] mb-3">
                   点滴だからできること
                 </h3>
-                <p className="text-[13px] sm:text-sm text-[#53483E] leading-relaxed">
-                  ビタミンやミネラルなど、目的に合わせた複数の成分を点滴で補うことができます。疲れや肌の調子などのお悩みに合わせ、医師が適応を判断し、ケアをご提案します。
+                <p className="text-[#53483E] text-sm sm:text-base leading-[2] tracking-[0.03em]">
+                  ビタミンやミネラルなど、目的に合わせた複数の成分を一度に補うことができます。
+                  <br className="hidden sm:block" />
+                  疲れが抜けにくいと感じる方、肌の調子や透明感が気になる方など、医師が適応を判断したうえでケアをご提案します。
                 </p>
               </div>
-              <div className="mt-4 overflow-hidden rounded-[14px]">
+              <div className="sm:w-[300px] shrink-0 overflow-hidden">
                 <img
                   src={tentekiPhoto}
                   alt="点滴だからできること"
@@ -509,6 +509,11 @@ export default function AppMansion() {
                 />
               </div>
             </div>
+
+            <p className="pl-[18px] text-xs text-[#8C8178]">
+              ※点滴による感じ方や経過には個人差があります。すべての症状の改善や効果を保証するものではありません。
+            </p>
+
           </div>
 
         </div>
@@ -897,147 +902,175 @@ export default function AppMansion() {
             </p>
           </div>
 
-          {/* 3 Menu Cards Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
-            
-            {/* Menu 1: プレミアムリカバリー点滴 */}
-            <div className="bg-white border-2 border-[#143836]/40 rounded-[18px] p-6 sm:p-7 shadow-sm flex flex-col justify-between relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-[#143836] text-white text-[10px] font-bold tracking-widest px-3 py-1 rounded-bl-[8px] uppercase">
-                人気No.1 / 初回体験対象
+          {/* Flagship Menu: プレミアムリカバリー点滴(他2メニューと差をつけた専用レイアウト) */}
+          <div className="relative bg-white border-2 border-[#143836]/40 rounded-[22px] shadow-sm overflow-hidden mb-6 lg:mb-8">
+            <div className="grid grid-cols-1 lg:grid-cols-5">
+
+              {/* Photo */}
+              <div className="lg:col-span-2 relative h-64 sm:h-80 lg:h-auto min-h-[280px]">
+                <img
+                  src={recoveryMenuPhoto}
+                  alt="緑のソファでくつろぎながらプレミアムリカバリー点滴を受ける男性"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute top-4 left-4 bg-[#143836] text-white text-[10px] font-bold tracking-widest px-3 py-1.5 rounded-[4px] uppercase shadow-sm">
+                  人気No.1 / 初回体験対象
+                </div>
               </div>
 
-              <div className="space-y-4">
-                <div>
-                  <span className="text-xs font-bold text-[#8E6D42] tracking-wider uppercase block font-serif mb-1">
-                    疲労回復・強抗酸化・美肌
-                  </span>
-                  <h3 className="font-serif text-[21px] font-bold text-[#16120F]">
-                    プレミアムリカバリー点滴
-                  </h3>
-                  <p className="text-xs text-[#827467] mt-0.5">蓄積した疲労を急速リセットし、本来の活力を取り戻す</p>
-                </div>
+              {/* Content */}
+              <div className="lg:col-span-3 relative p-6 sm:p-8 lg:p-9">
+                <span className="hidden sm:block absolute top-3 right-5 font-serif text-[88px] leading-none text-[#143836]/[0.06] select-none pointer-events-none">
+                  01
+                </span>
 
-                <div className="p-3 bg-[#FAF8F5] rounded-[8px] border border-[#E2D7CA]">
-                  <div className="flex items-baseline justify-between">
-                    <span className="text-xs text-[#827467]">通常料金</span>
-                    <div className="flex items-baseline gap-1">
-                      <span className="font-serif text-xl font-bold text-[#16120F]">¥33,000</span>
-                      <span className="text-[11px] text-[#827467]">（税込・往診料込）</span>
+                <div className="relative space-y-5">
+                  <div>
+                    <span className="font-serif italic text-base text-[#8E6D42] block mb-1.5">
+                      The Signature Recovery
+                    </span>
+                    <span className="text-xs font-bold text-[#8E6D42] tracking-wider uppercase block font-serif mb-1">
+                      疲労回復・強抗酸化・美肌
+                    </span>
+                    <h3 className="font-serif text-2xl sm:text-[26px] font-bold text-[#16120F] leading-snug">
+                      プレミアムリカバリー点滴
+                    </h3>
+                  </div>
+
+                  <p className="text-[13.5px] sm:text-sm leading-[1.9] text-[#53483E]">
+                    点滴が体に満ちていくにつれ、こわばっていた身体がゆるみ、<br className="hidden sm:block" />
+                    呼吸が深くなっていく──そんな実感の声をいただくメニューです。<br />
+                    抗酸化成分とビタミン・ミネラルを独自に組み合わせ、<br className="hidden sm:block" />
+                    抜けない疲れ、仕事のパフォーマンス、肌の透明感まで、<br className="hidden sm:block" />
+                    日々のコンディションを底上げしたい方に。
+                  </p>
+
+                  <div className="p-3.5 bg-[#FAF8F5] rounded-[8px] border border-[#E2D7CA]">
+                    <div className="flex items-baseline justify-between">
+                      <span className="text-xs text-[#827467]">通常料金</span>
+                      <div className="flex items-baseline gap-1">
+                        <span className="font-serif text-xl font-bold text-[#16120F]">¥33,000</span>
+                        <span className="text-[11px] text-[#827467]">（税込・往診料込）</span>
+                      </div>
+                    </div>
+                    <div className="flex items-baseline justify-between mt-1 pt-1 border-t border-[#E2D7CA]/60 text-[#143836]">
+                      <span className="text-xs font-bold">初回特別体験価格</span>
+                      <span className="font-serif text-2xl font-bold">¥22,000</span>
                     </div>
                   </div>
-                  <div className="flex items-baseline justify-between mt-1 pt-1 border-t border-[#E2D7CA]/60 text-[#143836]">
-                    <span className="text-xs font-bold">初回特別体験価格</span>
-                    <span className="font-serif text-2xl font-bold">¥22,000</span>
-                  </div>
-                </div>
 
-                <div className="space-y-2 text-xs text-[#53483E]">
-                  <p className="font-bold text-[#16120F]">【特徴と目的】</p>
-                  <p className="text-[13px] leading-relaxed text-[#6B5E52]">
-                    様々なビタミン・ミネラルと抗酸化成分を独自に組み合わせ、美容と健康の両面から日々のコンディションをサポート。疲れが抜けにくい方、仕事のパフォーマンスを維持したい方、健やかで美しい肌を目指す方に。
-                  </p>
-                  <p className="pt-1 text-[#827467]">所要時間：約60分（静脈点滴投与）</p>
+                  <div>
+                    <div className="flex items-center gap-2.5 mb-2">
+                      <span className="w-5 h-px bg-[#8E6D42]"></span>
+                      <p className="font-serif text-sm sm:text-[15px] font-bold text-[#8E6D42] tracking-wide">特徴と目的</p>
+                    </div>
+                    <p className="text-[13px] leading-relaxed text-[#6B5E52] pl-[26px]">
+                      様々なビタミン・ミネラルと抗酸化成分を独自に組み合わせ、美容と健康の両面から日々のコンディションをサポート。疲れが抜けにくい方、仕事のパフォーマンスを維持したい方、健やかで美しい肌を目指す方に。
+                    </p>
+                    <p className="pt-1.5 pl-[26px] text-xs text-[#827467]">所要時間：約60分（静脈点滴投与）</p>
+                  </div>
 
                   {/* Collapsible Ingredients & Medical Explanation */}
-                  <div className="pt-2">
-                    <div className="bg-[#FAF8F5] border border-[#E2D7CA] rounded-[12px] overflow-hidden shadow-2xs">
-                      <button
-                        type="button"
-                        onClick={() => setIsIngredientsOpen(!isIngredientsOpen)}
-                        className="w-full p-3.5 text-left flex items-center justify-between gap-3 font-serif text-sm font-bold text-[#16120F] hover:bg-[#FAF8F5]/80 transition-colors cursor-pointer"
-                      >
-                        <div className="flex items-center gap-2">
-                          <Sparkles className="w-4 h-4 text-[#8E6D42] shrink-0" />
-                          <span>主な配合成分</span>
-                        </div>
-                        <ChevronDown className={`w-4 h-4 text-[#827467] transition-transform duration-200 shrink-0 ${isIngredientsOpen ? 'rotate-180 text-[#8E6D42]' : ''}`} />
-                      </button>
+                  <div className="bg-[#FAF8F5] border border-[#E2D7CA] rounded-[12px] overflow-hidden shadow-2xs">
+                    <button
+                      type="button"
+                      onClick={() => setIsIngredientsOpen(!isIngredientsOpen)}
+                      className="w-full p-3.5 text-left flex items-center justify-between gap-3 font-serif text-sm font-bold text-[#16120F] hover:bg-[#FAF8F5]/80 transition-colors cursor-pointer"
+                    >
+                      <div className="flex items-center gap-2">
+                        <Sparkles className="w-4 h-4 text-[#8E6D42] shrink-0" />
+                        <span>主な配合成分</span>
+                      </div>
+                      <ChevronDown className={`w-4 h-4 text-[#827467] transition-transform duration-200 shrink-0 ${isIngredientsOpen ? 'rotate-180 text-[#8E6D42]' : ''}`} />
+                    </button>
 
-                      {isIngredientsOpen && (
-                        <div className="p-3.5 pt-3 border-t border-[#E2D7CA] space-y-3">
-                          <div className="grid grid-cols-1 gap-2.5">
+                    {isIngredientsOpen && (
+                      <div className="p-3.5 pt-3 border-t border-[#E2D7CA] space-y-3">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
 
-                            {/* Card 1: グルタチオン */}
-                            <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
-                              <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
-                                グルタチオン
-                              </h4>
-                              <p className="text-xs text-[#53483E] leading-relaxed">
-                                抗酸化作用を持ち、肝機能や身体のコンディション維持をサポートします。
-                              </p>
-                            </div>
-
-                            {/* Card 2: ビタミンC */}
-                            <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
-                              <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
-                                ビタミンC
-                              </h4>
-                              <p className="text-xs text-[#53483E] leading-relaxed">
-                                抗酸化作用を持ち、健康維持やコンディション調整をサポートします。
-                              </p>
-                            </div>
-
-                            {/* Card 3: ビタミンB群 */}
-                            <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
-                              <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
-                                ビタミンB群
-                              </h4>
-                              <p className="text-xs text-[#53483E] leading-relaxed">
-                                食事からエネルギーを作るために必要な補酵素で、エネルギー代謝を支えます。
-                              </p>
-                            </div>
-
-                            {/* Card 4: αリポ酸（チオクト酸） */}
-                            <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
-                              <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
-                                αリポ酸（チオクト酸）
-                              </h4>
-                              <p className="text-xs text-[#53483E] leading-relaxed">
-                                水溶性・脂溶性の両面で働き、細胞のエネルギー代謝をサポートします。
-                              </p>
-                            </div>
-
-                            {/* Card 5: グリファーゲン（グリチルリチン酸） */}
-                            <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
-                              <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
-                                グリファーゲン（グリチルリチン酸）
-                              </h4>
-                              <p className="text-xs text-[#53483E] leading-relaxed">
-                                甘草由来成分を含み、過密な業務が続く方の健康維持を支えます。
-                              </p>
-                            </div>
-
-                            {/* Card 6: マグネシウム */}
-                            <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
-                              <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
-                                マグネシウム
-                              </h4>
-                              <p className="text-xs text-[#53483E] leading-relaxed">
-                                筋肉や神経の正常な働きを支え、緊張を和らげるミネラルです。
-                              </p>
-                            </div>
-
+                          {/* Card 1: グルタチオン */}
+                          <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
+                            <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
+                              グルタチオン
+                            </h4>
+                            <p className="text-xs text-[#53483E] leading-relaxed">
+                              抗酸化作用を持ち、肝機能や身体のコンディション維持をサポートします。
+                            </p>
                           </div>
 
-                          <p className="text-[11px] text-[#827467] leading-relaxed pt-1 px-0.5">
-                            ※成分の配合内容や投与量は、医師が問診・診察を行った上で個人の体調に合わせて調整いたします。
-                          </p>
+                          {/* Card 2: ビタミンC */}
+                          <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
+                            <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
+                              ビタミンC
+                            </h4>
+                            <p className="text-xs text-[#53483E] leading-relaxed">
+                              抗酸化作用を持ち、健康維持やコンディション調整をサポートします。
+                            </p>
+                          </div>
+
+                          {/* Card 3: ビタミンB群 */}
+                          <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
+                            <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
+                              ビタミンB群
+                            </h4>
+                            <p className="text-xs text-[#53483E] leading-relaxed">
+                              食事からエネルギーを作るために必要な補酵素で、エネルギー代謝を支えます。
+                            </p>
+                          </div>
+
+                          {/* Card 4: αリポ酸（チオクト酸） */}
+                          <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
+                            <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
+                              αリポ酸（チオクト酸）
+                            </h4>
+                            <p className="text-xs text-[#53483E] leading-relaxed">
+                              水溶性・脂溶性の両面で働き、細胞のエネルギー代謝をサポートします。
+                            </p>
+                          </div>
+
+                          {/* Card 5: グリファーゲン（グリチルリチン酸） */}
+                          <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
+                            <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
+                              グリファーゲン（グリチルリチン酸）
+                            </h4>
+                            <p className="text-xs text-[#53483E] leading-relaxed">
+                              甘草由来成分を含み、過密な業務が続く方の健康維持を支えます。
+                            </p>
+                          </div>
+
+                          {/* Card 6: マグネシウム */}
+                          <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
+                            <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
+                              マグネシウム
+                            </h4>
+                            <p className="text-xs text-[#53483E] leading-relaxed">
+                              筋肉や神経の正常な働きを支え、緊張を和らげるミネラルです。
+                            </p>
+                          </div>
+
                         </div>
-                      )}
-                    </div>
+
+                        <p className="text-[11px] text-[#827467] leading-relaxed pt-1 px-0.5">
+                          ※成分の配合内容や投与量は、医師が問診・診察を行った上で個人の体調に合わせて調整いたします。
+                        </p>
+                      </div>
+                    )}
                   </div>
+
+                  <a
+                    href="#trial"
+                    className="btn btn--gold btn--shimmer w-full text-xs !py-3.5 text-center justify-center font-bold"
+                  >
+                    初回体験プランを予約
+                  </a>
                 </div>
               </div>
 
-              <div className="pt-5 mt-5 border-t border-[#E2D7CA]">
-                <a 
-                  href="#trial" 
-                  className="btn btn--gold btn--shimmer w-full text-xs !py-3 text-center justify-center font-bold"
-                >
-                  初回体験プランを予約
-                </a>
-              </div>
             </div>
+          </div>
+
+          {/* Menu 2・3: NMNリバース点滴 / 幹細胞上清液点滴 */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
 
             {/* Menu 2: NMNリバース点滴 */}
             <div className="bg-white border-2 border-[#B98A2E]/50 rounded-[18px] p-6 sm:p-7 shadow-sm flex flex-col justify-between relative overflow-hidden">
