@@ -27,6 +27,12 @@ import concernWorkPhoto from './assets/images/concern-work-performance.webp'
 import concernGolfTravelPhoto from './assets/images/concern-golf-travel.webp'
 import concernSkinPhoto from './assets/images/concern-skin-dullness.webp'
 import clinicComparisonTable from './assets/images/clinic_comparison_table.webp'
+import menuOverviewPhoto from './assets/images/menu-overview-couch-drip.png'
+import menuBannerPremium from './assets/images/menu-banner-premium-recovery.png'
+import menuPhotoPremium from './assets/images/menu-photo-premium-recovery.png'
+import menuBannerNmn from './assets/images/menu-banner-nmn.png'
+import menuPhotoNmn from './assets/images/menu-photo-nmn.png'
+import menuBannerStemcell from './assets/images/menu-banner-stemcell.png'
 
 interface FAQItem {
   question: string
@@ -580,7 +586,7 @@ export default function AppMansion() {
           =================================================== */}
 
       {/* 06: 目的別点滴メニュー・料金 */}
-      <section id="menu-detail" className="pt-8 pb-10 sm:py-12 bg-[#FAF8F5] border-b border-[#E2D7CA]">
+      <section id="menu-detail" className="pt-8 pb-10 sm:py-12 bg-white border-b border-[#E2D7CA]">
         <div className="max-w-[1040px] mx-auto px-6">
 
           <div className="max-w-2xl mx-auto text-left">
@@ -606,26 +612,26 @@ export default function AppMansion() {
             </p>
           </div>
 
-          {/* Overview Photo (placeholder) */}
-          <div className="mt-8 max-w-2xl mx-auto aspect-[16/10] sm:aspect-[16/9] rounded-[20px] border-2 border-dashed border-[#C9B8A0] bg-[#F3ECE4]/60 flex items-center justify-center">
-            <p className="text-xs text-[#8C7A68] text-center px-6">
-              [リビングでくつろぎながら点滴を受ける様子の写真]
-            </p>
+          {/* Overview Photo */}
+          <div className="mt-8 max-w-2xl mx-auto rounded-[20px] overflow-hidden">
+            <img
+              src={menuOverviewPhoto}
+              alt="自宅のリビングでソファにくつろぎながら点滴を受ける男性"
+              className="w-full h-auto object-cover"
+            />
           </div>
 
           <div className="max-w-2xl mx-auto mt-14 sm:mt-16 space-y-14 sm:space-y-16">
 
             {/* Menu 1: プレミアムリカバリー点滴 */}
-            <div>
-              <div className="relative flex items-stretch border-2 border-[#8E6D42]/70 rounded-[6px] overflow-hidden bg-[#FAF8F5]">
-                <div className="flex-1 flex items-center px-5 sm:px-8 py-5 sm:py-7">
-                  <h3 className="font-serif text-xl sm:text-3xl font-bold text-[#16120F] leading-snug">
-                    プレミアムリカバリー点滴
-                  </h3>
-                </div>
-                <div className="w-24 sm:w-40 shrink-0 border-l-2 border-dashed border-[#8E6D42]/50 bg-[#F3ECE4] flex items-center justify-center">
-                  <p className="text-[10px] text-[#8C7A68] text-center px-2">[イメージ写真]</p>
-                </div>
+            <div className="bg-[#F3ECE4] rounded-[20px] sm:rounded-[28px] p-6 sm:p-10">
+              <div className="rounded-[6px] overflow-hidden border border-[#8E6D42]/40">
+                <h3 className="sr-only">プレミアムリカバリー点滴</h3>
+                <img
+                  src={menuBannerPremium}
+                  alt="プレミアムリカバリー点滴"
+                  className="w-full h-auto block"
+                />
               </div>
 
               <p className="mt-4 pl-1 text-sm sm:text-base text-[#8E6D42] font-bold">
@@ -646,7 +652,7 @@ export default function AppMansion() {
                 <strong className="font-bold text-[#16120F]">サプリメントでは到達できない濃度で、<br className="sm:hidden" />ダイレクトに細胞へエネルギーを急速充電</strong>します。
               </p>
 
-              <div className="mt-6 p-4 bg-white rounded-[10px] border border-[#E2D7CA] max-w-sm">
+              <div className="mt-6 p-4 bg-white rounded-[10px] max-w-sm">
                 <div className="flex items-baseline justify-between">
                   <span className="text-xs text-[#827467]">通常料金</span>
                   <div className="flex items-baseline gap-1">
@@ -660,11 +666,11 @@ export default function AppMansion() {
                 </div>
               </div>
 
-              <div className="mt-6 bg-white border border-[#E2D7CA] rounded-[12px] overflow-hidden shadow-2xs">
+              <div className="mt-6 bg-white rounded-[12px] overflow-hidden">
                 <button
                   type="button"
                   onClick={() => setIsIngredientsOpen(!isIngredientsOpen)}
-                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 hover:bg-[#FAF8F5]/60 transition-colors cursor-pointer"
+                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 hover:bg-[#FAF8F5] transition-colors cursor-pointer"
                 >
                   <span className="flex items-center gap-2 font-bold text-[#16120F] text-sm sm:text-base">
                     <Sparkles className="w-4 h-4 text-[#8E6D42] shrink-0" />
@@ -738,7 +744,7 @@ export default function AppMansion() {
                 )}
               </div>
 
-              <div className="mt-6 p-5 bg-white rounded-[12px] border border-[#E2D7CA]">
+              <div className="mt-6 p-5 bg-white rounded-[12px]">
                 <p className="font-bold text-[#8E6D42] text-sm sm:text-base mb-2">このような方に</p>
                 <ul className="space-y-1.5 text-sm text-[#53483E] leading-relaxed">
                   <li>・心身ともに即効性のあるエネルギーチャージを求めている方</li>
@@ -748,8 +754,12 @@ export default function AppMansion() {
                 </ul>
               </div>
 
-              <div className="mt-6 max-w-sm aspect-[4/3] rounded-[16px] border-2 border-dashed border-[#C9B8A0] bg-white flex items-center justify-center">
-                <p className="text-xs text-[#8C7A68] text-center px-6">[伸びをする・爽快感を感じる方の写真]</p>
+              <div className="mt-6 max-w-sm rounded-[16px] overflow-hidden">
+                <img
+                  src={menuPhotoPremium}
+                  alt="伸びをしながら爽快感を感じる女性"
+                  className="w-full h-auto object-cover"
+                />
               </div>
 
               <p className="mt-4 text-xs text-[#827467] leading-relaxed">所要時間：約60分（静脈点滴投与）</p>
@@ -765,16 +775,14 @@ export default function AppMansion() {
             </div>
 
             {/* Menu 2: NMN点滴 */}
-            <div>
-              <div className="relative flex items-stretch border-2 border-[#B98A2E]/70 rounded-[6px] overflow-hidden bg-[#FAF8F5]">
-                <div className="flex-1 flex items-center px-5 sm:px-8 py-5 sm:py-7">
-                  <h3 className="font-serif text-xl sm:text-3xl font-bold text-[#16120F] leading-snug">
-                    NMN点滴
-                  </h3>
-                </div>
-                <div className="w-24 sm:w-40 shrink-0 border-l-2 border-dashed border-[#B98A2E]/50 bg-[#FBF3E3] flex items-center justify-center">
-                  <p className="text-[10px] text-[#8C7A68] text-center px-2">[イメージ写真]</p>
-                </div>
+            <div className="bg-[#F3ECE4] rounded-[20px] sm:rounded-[28px] p-6 sm:p-10">
+              <div className="rounded-[6px] overflow-hidden border border-[#B98A2E]/40">
+                <h3 className="sr-only">NMN点滴</h3>
+                <img
+                  src={menuBannerNmn}
+                  alt="NMN点滴"
+                  className="w-full h-auto block"
+                />
               </div>
 
               <p className="mt-4 pl-1 text-sm sm:text-base text-[#B98A2E] font-bold">
@@ -798,7 +806,7 @@ export default function AppMansion() {
                 <strong className="font-bold text-[#16120F]">点滴によってダイレクトに、<br className="sm:hidden" />かつ高濃度で全身の細胞へ<br className="sm:hidden" />届ける</strong>のが「NMN点滴」です。
               </p>
 
-              <div className="mt-6 p-4 bg-white rounded-[10px] border border-[#E2D7CA] max-w-sm">
+              <div className="mt-6 p-4 bg-white rounded-[10px] max-w-sm">
                 <div className="flex items-baseline justify-between">
                   <span className="text-xs text-[#827467]">料金</span>
                   <div className="flex items-baseline gap-1">
@@ -809,7 +817,7 @@ export default function AppMansion() {
                 <span className="text-[10px] text-[#827467] block mt-1">※投与量（150mg〜）に応じてご案内</span>
               </div>
 
-              <div className="mt-6 p-5 bg-white rounded-[12px] border border-[#E2D7CA]">
+              <div className="mt-6 p-5 bg-white rounded-[12px]">
                 <p className="font-bold text-[#B98A2E] text-sm sm:text-base mb-2">このような方に</p>
                 <ul className="space-y-1.5 text-sm text-[#53483E] leading-relaxed">
                   <li>・脳のエイジングケア<br className="sm:hidden" />（集中力・思考力の向上、睡眠の質の改善）をしたい方</li>
@@ -819,8 +827,12 @@ export default function AppMansion() {
                 </ul>
               </div>
 
-              <div className="mt-6 max-w-sm aspect-[4/3] rounded-[16px] border-2 border-dashed border-[#C9B8A0] bg-white flex items-center justify-center">
-                <p className="text-xs text-[#8C7A68] text-center px-6">[自然な笑顔で歩く様子の写真]</p>
+              <div className="mt-6 max-w-sm rounded-[16px] overflow-hidden">
+                <img
+                  src={menuPhotoNmn}
+                  alt="自然な笑顔で歩く夫婦"
+                  className="w-full h-auto object-cover"
+                />
               </div>
 
               <p className="mt-4 text-xs text-[#827467] leading-relaxed">
@@ -842,16 +854,14 @@ export default function AppMansion() {
             </div>
 
             {/* Menu 3: 幹細胞上清液点滴 */}
-            <div>
-              <div className="relative flex items-stretch border-2 border-[#B98A2E]/70 rounded-[6px] overflow-hidden bg-[#FAF8F5]">
-                <div className="flex-1 flex items-center px-5 sm:px-8 py-5 sm:py-7">
-                  <h3 className="font-serif text-xl sm:text-3xl font-bold text-[#16120F] leading-snug">
-                    幹細胞上清液点滴
-                  </h3>
-                </div>
-                <div className="w-24 sm:w-40 shrink-0 border-l-2 border-dashed border-[#B98A2E]/50 bg-[#FBF3E3] flex items-center justify-center">
-                  <p className="text-[10px] text-[#8C7A68] text-center px-2">[イメージ写真]</p>
-                </div>
+            <div className="bg-[#F3ECE4] rounded-[20px] sm:rounded-[28px] p-6 sm:p-10">
+              <div className="rounded-[6px] overflow-hidden border border-[#B98A2E]/40">
+                <h3 className="sr-only">幹細胞上清液点滴</h3>
+                <img
+                  src={menuBannerStemcell}
+                  alt="幹細胞上清液点滴"
+                  className="w-full h-auto block"
+                />
               </div>
 
               <p className="mt-4 pl-1 text-sm sm:text-base text-[#B98A2E] font-bold">
@@ -876,7 +886,7 @@ export default function AppMansion() {
                 美容・体力・活力の根本的なケアをサポートします。
               </p>
 
-              <div className="mt-6 p-4 bg-white rounded-[10px] border border-[#E2D7CA] max-w-sm">
+              <div className="mt-6 p-4 bg-white rounded-[10px] max-w-sm">
                 <div className="flex items-baseline justify-between">
                   <span className="text-xs text-[#827467]">料金</span>
                   <div className="flex items-baseline gap-1">
@@ -887,7 +897,7 @@ export default function AppMansion() {
                 <span className="text-[10px] text-[#827467] block mt-1">※厳格な基準で管理された国産上清液を使用</span>
               </div>
 
-              <div className="mt-6 p-5 bg-white rounded-[12px] border border-[#E2D7CA]">
+              <div className="mt-6 p-5 bg-white rounded-[12px]">
                 <p className="font-bold text-[#B98A2E] text-sm sm:text-base mb-2">このような方に</p>
                 <ul className="space-y-1.5 text-sm text-[#53483E] leading-relaxed">
                   <li>・美容と健康の両面から、根本的なケアを求めている方</li>
@@ -897,7 +907,7 @@ export default function AppMansion() {
                 </ul>
               </div>
 
-              <div className="mt-6 max-w-sm aspect-[4/3] rounded-[16px] border-2 border-dashed border-[#C9B8A0] bg-white flex items-center justify-center">
+              <div className="mt-6 max-w-sm aspect-[4/3] rounded-[16px] border-2 border-dashed border-[#C9B8A0] bg-white/60 flex items-center justify-center">
                 <p className="text-xs text-[#8C7A68] text-center px-6">[穏やかな表情でくつろぐ方の写真]</p>
               </div>
 
