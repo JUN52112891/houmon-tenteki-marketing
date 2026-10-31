@@ -376,8 +376,8 @@ export default function AppMansion() {
         <div className="max-w-[1040px] mx-auto px-6">
           
           {/* 02: 悩みへの共感 */}
-          <div className="max-w-2xl sm:mx-auto mb-8 text-left sm:text-center flex flex-col sm:items-center">
-            <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full sm:w-auto">
+          <div className="max-w-3xl mx-auto mb-8 text-left">
+            <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full">
               <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1 font-serif">
                 01 CONCERNS
               </span>
@@ -432,8 +432,9 @@ export default function AppMansion() {
           =================================================== */}
       <section id="iv-therapy" className="py-8 sm:py-10 bg-white border-b border-[#E2D7CA]">
         <div className="max-w-[1040px] mx-auto px-6">
+          <div className="max-w-2xl mx-auto">
 
-          <div className="max-w-2xl mb-8 text-left">
+          <div className="mb-8 text-left">
             <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full">
               <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1 font-serif">
                 02 IV THERAPY
@@ -446,7 +447,7 @@ export default function AppMansion() {
           </div>
 
           {/* Hero Photo */}
-          <div className="max-w-2xl mb-8 sm:mb-10 overflow-hidden">
+          <div className="mb-8 sm:mb-10 overflow-hidden">
             <img
               src={homeDripPhoto}
               alt="自宅のリビングでソファにくつろぎながら点滴を受ける女性"
@@ -454,7 +455,7 @@ export default function AppMansion() {
             />
           </div>
 
-          <div className="max-w-2xl space-y-8 sm:space-y-10">
+          <div className="space-y-8 sm:space-y-10">
 
             {/* なぜ、今「点滴ケア」なのか？ */}
             <div className="pl-[18px]">
@@ -516,6 +517,7 @@ export default function AppMansion() {
 
           </div>
 
+          </div>
         </div>
       </section>
 
@@ -525,8 +527,8 @@ export default function AppMansion() {
       <section id="clinic-barrier" className="py-8 sm:py-10 bg-[#F3ECE4]/70 border-b border-[#E2D7CA]/60">
         <div className="max-w-[1040px] mx-auto px-6">
           
-          <div className="max-w-2xl sm:mx-auto text-left sm:text-center flex flex-col sm:items-center">
-            <div className="border-l-2 border-[#8E6D42]/80 pl-4 py-0.5 text-left w-full sm:w-auto">
+          <div className="max-w-2xl mx-auto text-left">
+            <div className="border-l-2 border-[#8E6D42]/80 pl-4 py-0.5 text-left w-full">
               <span className="text-xs font-bold tracking-[0.2em] text-[#8E6D42] uppercase block mb-1 font-serif">
                 03 THE BARRIER
               </span>
@@ -535,7 +537,7 @@ export default function AppMansion() {
                 でも、通院は負担。
               </h2>
             </div>
-            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left sm:text-center max-w-xl pl-4 sm:pl-0">
+            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left max-w-xl pl-4">
               点滴を受けたいと思っても、移動の手間、待合室での待ち時間、身支度……。
               忙しい日常の中でクリニックに足を運ぶこと自体が、大きな負担（タイムロス）になっていませんか？
             </p>
@@ -560,8 +562,8 @@ export default function AppMansion() {
       <section id="service-time" className="py-5 sm:py-12 bg-white border-b border-[#E2D7CA] relative overflow-hidden">
         <div className="relative z-10 max-w-[1160px] mx-auto px-4 sm:px-6">
           
-          <div className="max-w-2xl sm:mx-auto mb-6 sm:mb-12 text-left sm:text-center flex flex-col sm:items-center">
-            <div className="border-l-2 border-[#143836]/60 pl-3.5 sm:pl-4 py-0.5 text-left w-full sm:w-auto">
+          <div className="mb-6 sm:mb-12 text-left">
+            <div className="border-l-2 border-[#143836]/60 pl-3.5 sm:pl-4 py-0.5 text-left w-full">
               <span className="text-[11px] sm:text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1 font-serif">
                 04 A NEW STANDARD
               </span>
@@ -570,11 +572,11 @@ export default function AppMansion() {
                 訪問点滴という形。
               </h2>
             </div>
-            <p className="text-[#53483E] text-[13px] sm:text-base mt-2.5 sm:mt-4 leading-relaxed text-left sm:text-center max-w-xl pl-3.5 sm:pl-0">
+            <p className="text-[#53483E] text-[13px] sm:text-base mt-2.5 sm:mt-4 leading-relaxed text-left max-w-xl pl-3.5">
               クリニックに通って順番を待つのではなく、医療があなたの空間へ出向く。
               移動の手間や待ち時間をなくし、点滴の時間を自分らしい贅沢なひとときに変える。
             </p>
-            <p className="font-serif text-base font-bold text-[#143836] mt-3 sm:mt-5 text-left sm:text-center pl-3.5 sm:pl-0">
+            <p className="font-serif text-base font-bold text-[#143836] mt-3 sm:mt-5 text-left pl-3.5">
               それが本サービス、<br />
               Dr. concierge（ドクターコンシェルジュ）です。
             </p>
@@ -887,8 +889,8 @@ export default function AppMansion() {
       <section id="menu-detail" className="pt-8 pb-10 sm:py-12 bg-[#FAF8F5] border-b border-[#E2D7CA]">
         <div className="max-w-[1160px] mx-auto px-6">
           
-          <div className="max-w-2xl sm:mx-auto mb-12 text-left sm:text-center flex flex-col sm:items-center">
-            <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full sm:w-auto">
+          <div className="mb-12 text-left">
+            <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full">
               <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1.5 font-serif">
                 05 DRIP MENUS & PRICING
               </span>
@@ -896,7 +898,7 @@ export default function AppMansion() {
                 目的別点滴メニュー・料金
               </h2>
             </div>
-            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left sm:text-center max-w-xl pl-4 sm:pl-0">
+            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left max-w-xl pl-4">
               疲労回復、エイジングケア、最高峰の再生医療由来ケアまで。
               お悩みや目的に合わせ、医師の判断のもとで最適に調剤する3つの厳選メニューです。
             </p>
@@ -1238,8 +1240,8 @@ export default function AppMansion() {
       <section id="resident-benefit" className="py-8 sm:py-11 bg-white border-b border-[#E2D7CA]">
         <div className="max-w-[860px] mx-auto px-6">
 
-          <div className="max-w-2xl sm:mx-auto mb-8 text-left sm:text-center flex flex-col sm:items-center">
-            <div className="border-l-2 border-[#8E6D42]/70 pl-4 py-0.5 text-left w-full sm:w-auto">
+          <div className="max-w-xl mx-auto mb-8 text-left">
+            <div className="border-l-2 border-[#8E6D42]/70 pl-4 py-0.5 text-left w-full">
               <span className="text-xs font-bold tracking-[0.2em] text-[#8E6D42] uppercase block mb-1.5 font-serif">
                 For Residents ── TTT住民限定特典
               </span>
@@ -1417,8 +1419,8 @@ export default function AppMansion() {
       <section id="safety" className="pt-8 pb-10 sm:py-12 bg-[#FAF8F5] border-b border-[#E2D7CA]">
         <div className="max-w-[1040px] mx-auto px-6">
 
-          <div className="max-w-2xl sm:mx-auto mb-12 text-left sm:text-center flex flex-col sm:items-center">
-            <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full sm:w-auto">
+          <div className="mb-12 text-left">
+            <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full">
               <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1.5 font-serif">
                 07 SAFETY & QUALITY
               </span>
@@ -1427,7 +1429,7 @@ export default function AppMansion() {
                 受けていただくための体制
               </h2>
             </div>
-            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left sm:text-center max-w-xl pl-4 sm:pl-0">
+            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left max-w-xl pl-4">
               麻酔科専門医が責任をもって、院内と同等水準の安全管理基準を徹底します。
             </p>
           </div>
@@ -1514,8 +1516,8 @@ export default function AppMansion() {
       <section id="trial" className="pt-8 pb-10 sm:py-12 bg-[#F3ECE4] border-b border-[#E2D7CA]">
         <div className="max-w-[880px] mx-auto px-6 text-center">
 
-          <div className="max-w-2xl mx-auto mb-10 text-left sm:text-center flex flex-col sm:items-center">
-            <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full sm:w-auto">
+          <div className="max-w-lg mx-auto mb-10 text-left">
+            <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full">
               <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1.5 font-serif">
                 08 TRIAL OFFER
               </span>
@@ -1607,8 +1609,8 @@ export default function AppMansion() {
       <section className="pt-8 pb-10 sm:py-12 bg-white border-b border-[#E2D7CA]">
         <div className="max-w-[960px] mx-auto px-6">
           
-          <div className="max-w-2xl sm:mx-auto mb-10 text-left sm:text-center flex flex-col sm:items-center">
-            <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full sm:w-auto">
+          <div className="mb-10 text-left">
+            <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full">
               <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1.5 font-serif">
                 09 CONCEPT MOVIE
               </span>
@@ -1616,7 +1618,7 @@ export default function AppMansion() {
                 訪問施術の様子を動画で見る
               </h2>
             </div>
-            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left sm:text-center max-w-xl pl-4 sm:pl-0">
+            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left max-w-xl pl-4">
               ご自宅でのリラックスした施術風景や、医師の丁寧な対応の流れをご確認いただけます。
             </p>
           </div>
@@ -1644,8 +1646,8 @@ export default function AppMansion() {
       <section id="flow" className="pt-8 pb-10 sm:py-12 bg-[#FAF8F5] border-b border-[#E2D7CA]">
         <div className="max-w-[1040px] mx-auto px-6">
           
-          <div className="max-w-2xl sm:mx-auto mb-14 text-left sm:text-center flex flex-col sm:items-center">
-            <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full sm:w-auto">
+          <div className="mb-14 text-left">
+            <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full">
               <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1.5 font-serif">
                 10 HOW TO USE
               </span>
@@ -1653,7 +1655,7 @@ export default function AppMansion() {
                 ご利用の流れ
               </h2>
             </div>
-            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left sm:text-center max-w-xl pl-4 sm:pl-0">
+            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left max-w-xl pl-4">
               ご予約から点滴完了まで、4つのステップでスムーズに完結します。
             </p>
           </div>
@@ -1758,7 +1760,7 @@ export default function AppMansion() {
       <section id="faq" className="pt-8 pb-10 sm:py-12 bg-white border-b border-[#E2D7CA]">
         <div className="max-w-[860px] mx-auto px-6">
           
-          <div className="mb-14 text-left sm:text-center flex sm:justify-center">
+          <div className="mb-14 text-left">
             <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left">
               <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1.5 font-serif">
                 11 FAQ
@@ -1837,8 +1839,8 @@ export default function AppMansion() {
       <section id="contact-form" className="pt-8 pb-10 sm:py-12 bg-[#FAF8F5] border-b border-[#E2D7CA]">
         <div className="max-w-[780px] mx-auto px-6">
           
-          <div className="mb-10 text-left sm:text-center flex flex-col sm:items-center">
-            <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full sm:w-auto">
+          <div className="mb-10 text-left">
+            <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full">
               <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1.5 font-serif">
                 13 CONTACT & RESERVATION
               </span>
