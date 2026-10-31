@@ -33,6 +33,7 @@ import menuPhotoPremium from './assets/images/menu-photo-premium-recovery.png'
 import menuBannerNmn from './assets/images/menu-banner-nmn.png'
 import menuPhotoNmn from './assets/images/menu-photo-nmn.png'
 import menuBannerStemcell from './assets/images/menu-banner-stemcell.png'
+import menuPhotoStemcell from './assets/images/menu-photo-stemcell.png'
 
 interface FAQItem {
   question: string
@@ -613,7 +614,7 @@ export default function AppMansion() {
           </div>
 
           {/* Overview Photo */}
-          <div className="mt-8 max-w-2xl mx-auto rounded-[20px] overflow-hidden">
+          <div className="mt-8 max-w-2xl mx-auto overflow-hidden">
             <img
               src={menuOverviewPhoto}
               alt="自宅のリビングでソファにくつろぎながら点滴を受ける男性"
@@ -624,8 +625,8 @@ export default function AppMansion() {
           <div className="max-w-2xl mx-auto mt-14 sm:mt-16 space-y-14 sm:space-y-16">
 
             {/* Menu 1: プレミアムリカバリー点滴 */}
-            <div className="bg-[#F3ECE4] rounded-[20px] sm:rounded-[28px] p-6 sm:p-10">
-              <div className="rounded-[6px] overflow-hidden border border-[#8E6D42]/40">
+            <div className="bg-[#F3ECE4] p-6 sm:p-10">
+              <div className="overflow-hidden border border-[#8E6D42]/40">
                 <h3 className="sr-only">プレミアムリカバリー点滴</h3>
                 <img
                   src={menuBannerPremium}
@@ -744,7 +745,7 @@ export default function AppMansion() {
                 )}
               </div>
 
-              <div className="mt-6 p-5 bg-white rounded-[12px]">
+              <div className="mt-6 p-5 bg-[#EFEFEF]">
                 <p className="font-bold text-[#8E6D42] text-sm sm:text-base mb-2">このような方に</p>
                 <ul className="space-y-1.5 text-sm text-[#53483E] leading-relaxed">
                   <li>・心身ともに即効性のあるエネルギーチャージを求めている方</li>
@@ -754,7 +755,7 @@ export default function AppMansion() {
                 </ul>
               </div>
 
-              <div className="mt-6 max-w-sm rounded-[16px] overflow-hidden">
+              <div className="mt-6 max-w-sm overflow-hidden">
                 <img
                   src={menuPhotoPremium}
                   alt="伸びをしながら爽快感を感じる女性"
@@ -775,8 +776,8 @@ export default function AppMansion() {
             </div>
 
             {/* Menu 2: NMN点滴 */}
-            <div className="bg-[#F3ECE4] rounded-[20px] sm:rounded-[28px] p-6 sm:p-10">
-              <div className="rounded-[6px] overflow-hidden border border-[#B98A2E]/40">
+            <div className="bg-[#F3ECE4] p-6 sm:p-10">
+              <div className="overflow-hidden border border-[#B98A2E]/40">
                 <h3 className="sr-only">NMN点滴</h3>
                 <img
                   src={menuBannerNmn}
@@ -817,7 +818,7 @@ export default function AppMansion() {
                 <span className="text-[10px] text-[#827467] block mt-1">※投与量（150mg〜）に応じてご案内</span>
               </div>
 
-              <div className="mt-6 p-5 bg-white rounded-[12px]">
+              <div className="mt-6 p-5 bg-[#EFEFEF]">
                 <p className="font-bold text-[#B98A2E] text-sm sm:text-base mb-2">このような方に</p>
                 <ul className="space-y-1.5 text-sm text-[#53483E] leading-relaxed">
                   <li>・脳のエイジングケア<br className="sm:hidden" />（集中力・思考力の向上、睡眠の質の改善）をしたい方</li>
@@ -827,7 +828,7 @@ export default function AppMansion() {
                 </ul>
               </div>
 
-              <div className="mt-6 max-w-sm rounded-[16px] overflow-hidden">
+              <div className="mt-6 max-w-sm overflow-hidden">
                 <img
                   src={menuPhotoNmn}
                   alt="自然な笑顔で歩く夫婦"
@@ -854,8 +855,8 @@ export default function AppMansion() {
             </div>
 
             {/* Menu 3: 幹細胞上清液点滴 */}
-            <div className="bg-[#F3ECE4] rounded-[20px] sm:rounded-[28px] p-6 sm:p-10">
-              <div className="rounded-[6px] overflow-hidden border border-[#B98A2E]/40">
+            <div className="bg-[#F3ECE4] p-6 sm:p-10">
+              <div className="overflow-hidden border border-[#B98A2E]/40">
                 <h3 className="sr-only">幹細胞上清液点滴</h3>
                 <img
                   src={menuBannerStemcell}
@@ -897,7 +898,7 @@ export default function AppMansion() {
                 <span className="text-[10px] text-[#827467] block mt-1">※厳格な基準で管理された国産上清液を使用</span>
               </div>
 
-              <div className="mt-6 p-5 bg-white rounded-[12px]">
+              <div className="mt-6 p-5 bg-[#EFEFEF]">
                 <p className="font-bold text-[#B98A2E] text-sm sm:text-base mb-2">このような方に</p>
                 <ul className="space-y-1.5 text-sm text-[#53483E] leading-relaxed">
                   <li>・美容と健康の両面から、根本的なケアを求めている方</li>
@@ -907,8 +908,12 @@ export default function AppMansion() {
                 </ul>
               </div>
 
-              <div className="mt-6 max-w-sm aspect-[4/3] rounded-[16px] border-2 border-dashed border-[#C9B8A0] bg-white/60 flex items-center justify-center">
-                <p className="text-xs text-[#8C7A68] text-center px-6">[穏やかな表情でくつろぐ方の写真]</p>
+              <div className="mt-6 max-w-sm overflow-hidden">
+                <img
+                  src={menuPhotoStemcell}
+                  alt="窓辺で穏やかな表情を浮かべる女性"
+                  className="w-full h-auto object-cover"
+                />
               </div>
 
               <div className="mt-4 text-xs text-[#53483E] leading-relaxed space-y-1">
