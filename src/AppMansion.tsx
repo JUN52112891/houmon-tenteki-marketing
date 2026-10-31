@@ -463,7 +463,7 @@ export default function AppMansion() {
 
             {/* なぜ、今「点滴ケア」なのか？ */}
             <div className="pl-[18px]">
-              <h3 className="text-lg sm:text-xl font-bold text-[#7E490D] mb-3">
+              <h3 className="text-lg sm:text-xl font-bold text-[#8E6D42] mb-3">
                 なぜ、今「点滴ケア」なのか？
               </h3>
               <p className="text-[#53483E] text-base sm:text-base leading-[2] tracking-[0.03em]">
@@ -476,7 +476,7 @@ export default function AppMansion() {
             {/* サプリメントとの違い */}
             <div className="pl-[18px] flex flex-col sm:flex-row sm:items-start gap-5 sm:gap-8">
               <div className="flex-1">
-                <h3 className="text-lg sm:text-xl font-bold text-[#7E490D] mb-3">
+                <h3 className="text-lg sm:text-xl font-bold text-[#8E6D42] mb-3">
                   サプリメントとの違い
                 </h3>
                 <p className="text-[#53483E] text-base sm:text-base leading-[2] tracking-[0.03em]">
@@ -497,7 +497,7 @@ export default function AppMansion() {
             {/* 点滴だからできること */}
             <div className="pl-[18px] flex flex-col sm:flex-row sm:items-start gap-5 sm:gap-8">
               <div className="flex-1">
-                <h3 className="text-lg sm:text-xl font-bold text-[#7E490D] mb-3">
+                <h3 className="text-lg sm:text-xl font-bold text-[#8E6D42] mb-3">
                   点滴だからできること
                 </h3>
                 <p className="text-[#53483E] text-base sm:text-base leading-[2] tracking-[0.03em]">
@@ -601,14 +601,10 @@ export default function AppMansion() {
               </h2>
             </div>
             <p className="text-[#53483E] text-base sm:text-base mt-4 leading-[2] tracking-[0.02em] text-left pl-4">
-              疲れが抜けにくい。<br className="sm:hidden" />
-              忙しくても、良いコンディションを保ちたい。<br className="sm:hidden" />
-              年齢に応じた美容と健康のケアを取り入れたい。
-              <br className="hidden sm:block" />
-              お悩みや目的は、一人ひとり異なります。<br className="sm:hidden" />
               当サービスでは、日々のコンディション管理から、<br className="sm:hidden" />
               エイジングケアを意識したメンテナンスまで、<br className="sm:hidden" />
-              ご希望に合わせて複数の点滴をご用意しています。<br className="sm:hidden" />
+              ご希望に合わせて複数の点滴をご用意しています。
+              <br />
               当院おすすめの点滴3種をご紹介します。
             </p>
           </div>
@@ -641,16 +637,13 @@ export default function AppMansion() {
               </p>
 
               <p className="mt-4 text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
-                「しっかり休んだはずなのに疲れが抜けない」<br className="sm:hidden" />
-                「頭がすっきりしない」……<br className="sm:hidden" />
-                そんな現代特有の慢性的な疲労に<br className="sm:hidden" />
-                アプローチするために開発された、<br className="sm:hidden" />
+                「しっかり休んだはずなのに疲れが抜けない」「頭がすっきりしない」……<br className="sm:hidden" />
+                そんな現代特有の慢性的な疲労にアプローチするために開発された、<br className="sm:hidden" />
                 当院オリジナルの特別メニューです。
               </p>
               <p className="mt-3 text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
-                厳選された6つの医療用有効成分を<br className="sm:hidden" />
-                バランスよく配合し、<br className="sm:hidden" />
-                <strong className="font-bold text-[#16120F]">サプリメントでは到達できない濃度で、<br className="sm:hidden" />ダイレクトに細胞へエネルギーを急速充電</strong>します。
+                厳選された6つの医療用有効成分をバランスよく配合し、<br className="sm:hidden" />
+                <strong className="font-bold text-[#16120F]">サプリメントでは到達できない濃度で、ダイレクトに細胞へエネルギーを急速充電</strong>します。
               </p>
 
               <div className="mt-6 p-4 bg-white rounded-[10px] max-w-sm">
@@ -792,11 +785,10 @@ export default function AppMansion() {
               </p>
 
               <p className="mt-4 text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
-                NMN（ニコチンアミド・モノヌクレオチド）は、<br className="sm:hidden" />
-                ビタミンB3の中に含まれる成分で、<br className="sm:hidden" />
+                NMN（ニコチンアミド・モノヌクレオチド）は、ビタミンB3の中に含まれる成分で、<br className="sm:hidden" />
                 私たちの身体の「若々しさ」や「元気の源」を司る<br className="sm:hidden" />
-                【長寿遺伝子（サーチュイン遺伝子）】を活性化させる<br className="sm:hidden" />
-                物質として、今、世界中の研究者から注目を集めています。
+                【長寿遺伝子（サーチュイン遺伝子）】を活性化させる物質として、<br className="sm:hidden" />
+                今、世界中の研究者から注目を集めています。
               </p>
               <p className="mt-3 text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
                 人は年齢を重ねると、体内のNMNが減少していき、<br className="sm:hidden" />
@@ -804,7 +796,7 @@ export default function AppMansion() {
               </p>
               <p className="mt-3 text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
                 この減少してしまった若返り成分を、<br className="sm:hidden" />
-                <strong className="font-bold text-[#16120F]">点滴によってダイレクトに、<br className="sm:hidden" />かつ高濃度で全身の細胞へ<br className="sm:hidden" />届ける</strong>のが「NMN点滴」です。
+                <strong className="font-bold text-[#16120F]">点滴によってダイレクトに、かつ高濃度で全身の細胞へ届ける</strong>のが「NMN点滴」です。
               </p>
 
               <div className="mt-6 p-4 bg-white rounded-[10px] max-w-sm">
@@ -871,16 +863,13 @@ export default function AppMansion() {
               </p>
 
               <p className="mt-4 text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
-                幹細胞上清液（培養上清液）とは、<br className="sm:hidden" />
-                幹細胞を培養する過程で分泌される、<br className="sm:hidden" />
-                数百種類もの成長因子（サイトカイン）や<br className="sm:hidden" />
-                エクソソームを含んだ液体成分です。
+                幹細胞上清液（培養上清液）とは、幹細胞を培養する過程で分泌される、<br className="sm:hidden" />
+                数百種類もの成長因子（サイトカイン）やエクソソームを含んだ液体成分です。
               </p>
               <p className="mt-3 text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
                 細胞そのものを移植するのではなく、<br className="sm:hidden" />
-                <strong className="font-bold text-[#16120F]">細胞が持つ「修復を促す情報」だけを<br className="sm:hidden" />濃縮して届ける</strong>ことで、<br className="sm:hidden" />
-                身体がもともと持つ再生力・回復力へ<br className="sm:hidden" />
-                働きかけるアプローチです。
+                <strong className="font-bold text-[#16120F]">細胞が持つ「修復を促す情報」だけを濃縮して届ける</strong>ことで、<br className="sm:hidden" />
+                身体がもともと持つ再生力・回復力へ働きかけるアプローチです。
               </p>
               <p className="mt-3 text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
                 厳格な基準で管理された国産上清液を使用し、<br className="sm:hidden" />
@@ -1051,13 +1040,10 @@ export default function AppMansion() {
         <div className="max-w-[860px] mx-auto px-6">
           <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8">
             <div className="flex-1">
-              <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1.5 font-serif">
-                Additional Care ── その他の訪問メニュー
-              </span>
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#16120F] mb-2">
                 訪問での薄毛治療にも対応
               </h2>
-              <p className="text-xs sm:text-sm text-[#53483E] leading-relaxed">
+              <p className="text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
                 幹細胞培養上清液を用いた頭皮への注入治療です。男性・女性ともにご利用いただけます。
                 点滴メニューと同様、医師による診察のうえで実施可否・内容を判断いたします。
               </p>
