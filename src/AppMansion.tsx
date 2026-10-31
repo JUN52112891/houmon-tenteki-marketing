@@ -302,7 +302,7 @@ export default function AppMansion() {
               <span className="hidden sm:inline-block text-[#143836]">最上級のプライベート点滴医療。</span>
             </h1>
 
-            <p className="hidden lg:block text-[#8E6D42] font-semibold text-sm sm:text-base tracking-[0.06em] font-serif">
+            <p className="hidden lg:block text-[#8E6D42] font-semibold text-base sm:text-base tracking-[0.06em] font-serif">
               <span className="inline-block">移動・待ち時間ゼロ</span> <span className="inline-block">/ 麻酔科専門医が直接ご自宅へ往診</span>
             </p>
 
@@ -466,7 +466,7 @@ export default function AppMansion() {
               <h3 className="text-lg sm:text-xl font-bold text-[#7E490D] mb-3">
                 なぜ、今「点滴ケア」なのか？
               </h3>
-              <p className="text-[#53483E] text-sm sm:text-base leading-[2] tracking-[0.03em]">
+              <p className="text-[#53483E] text-base sm:text-base leading-[2] tracking-[0.03em]">
                 点滴は、必要な成分を静脈から直接体内へ届ける方法です。
                 <br className="hidden sm:block" />
                 疲れが抜けにくいと感じるときや、美容・健康を意識したコンディションケアの選択肢として取り入れられています。
@@ -479,7 +479,7 @@ export default function AppMansion() {
                 <h3 className="text-lg sm:text-xl font-bold text-[#7E490D] mb-3">
                   サプリメントとの違い
                 </h3>
-                <p className="text-[#53483E] text-sm sm:text-base leading-[2] tracking-[0.03em]">
+                <p className="text-[#53483E] text-base sm:text-base leading-[2] tracking-[0.03em]">
                   口から摂取した成分は、胃や腸で消化・吸収され、肝臓で代謝される過程を経て体内に取り込まれます。
                   <br className="hidden sm:block" />
                   一方、点滴は消化管を介さず、成分を静脈から直接体内へ投与できることが特徴です。
@@ -500,7 +500,7 @@ export default function AppMansion() {
                 <h3 className="text-lg sm:text-xl font-bold text-[#7E490D] mb-3">
                   点滴だからできること
                 </h3>
-                <p className="text-[#53483E] text-sm sm:text-base leading-[2] tracking-[0.03em]">
+                <p className="text-[#53483E] text-base sm:text-base leading-[2] tracking-[0.03em]">
                   ビタミンやミネラルなど、目的に合わせた複数の成分を一度に補うことができます。
                   <br className="hidden sm:block" />
                   疲れが抜けにくいと感じる方、肌の調子や透明感が気になる方など、医師が適応を判断したうえでケアをご提案します。
@@ -541,7 +541,7 @@ export default function AppMansion() {
                 自宅でくつろぐ点滴へ。
               </h2>
             </div>
-            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left max-w-xl pl-4">
+            <p className="text-[#53483E] text-base sm:text-base mt-4 leading-relaxed text-left max-w-xl pl-4">
               クリニックに通うのではなく、医師・看護師があなたのご自宅へ。
               <br className="hidden sm:block" />
               移動や外出の準備に追われず、いつもの空間で、いつもの自分のままに。
@@ -600,7 +600,7 @@ export default function AppMansion() {
                 3つの点滴
               </h2>
             </div>
-            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-[2] tracking-[0.02em] text-left pl-4">
+            <p className="text-[#53483E] text-base sm:text-base mt-4 leading-[2] tracking-[0.02em] text-left pl-4">
               疲れが抜けにくい。<br className="sm:hidden" />
               忙しくても、良いコンディションを保ちたい。<br className="sm:hidden" />
               年齢に応じた美容と健康のケアを取り入れたい。
@@ -625,7 +625,7 @@ export default function AppMansion() {
           <div className="max-w-2xl mx-auto mt-14 sm:mt-16 space-y-14 sm:space-y-16">
 
             {/* Menu 1: プレミアムリカバリー点滴 */}
-            <div className="bg-[#F3ECE4] p-6 sm:p-10">
+            <div className="-mx-6 sm:mx-0 bg-[#F3ECE4] p-6 sm:p-10">
               <div className="overflow-hidden border border-[#8E6D42]/40">
                 <h3 className="sr-only">プレミアムリカバリー点滴</h3>
                 <img
@@ -635,19 +635,19 @@ export default function AppMansion() {
                 />
               </div>
 
-              <p className="mt-4 pl-1 text-sm sm:text-base text-[#8E6D42] font-bold">
+              <p className="mt-4 pl-1 text-base sm:text-base text-[#8E6D42] font-bold">
                 ── 蓄積した疲労をリセットし、<br className="sm:hidden" />
                 本来のパフォーマンスを取り戻す
               </p>
 
-              <p className="mt-4 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
+              <p className="mt-4 text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
                 「しっかり休んだはずなのに疲れが抜けない」<br className="sm:hidden" />
                 「頭がすっきりしない」……<br className="sm:hidden" />
                 そんな現代特有の慢性的な疲労に<br className="sm:hidden" />
                 アプローチするために開発された、<br className="sm:hidden" />
                 当院オリジナルの特別メニューです。
               </p>
-              <p className="mt-3 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
+              <p className="mt-3 text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
                 厳選された6つの医療用有効成分を<br className="sm:hidden" />
                 バランスよく配合し、<br className="sm:hidden" />
                 <strong className="font-bold text-[#16120F]">サプリメントでは到達できない濃度で、<br className="sm:hidden" />ダイレクトに細胞へエネルギーを急速充電</strong>します。
@@ -673,7 +673,7 @@ export default function AppMansion() {
                   onClick={() => setIsIngredientsOpen(!isIngredientsOpen)}
                   className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 hover:bg-[#FAF8F5] transition-colors cursor-pointer"
                 >
-                  <span className="flex items-center gap-2 font-bold text-[#16120F] text-sm sm:text-base">
+                  <span className="flex items-center gap-2 font-bold text-[#16120F] text-base sm:text-base">
                     <Sparkles className="w-4 h-4 text-[#8E6D42] shrink-0" />
                     ■ 贅沢に配合された「6つの贅沢成分」とその効果
                   </span>
@@ -684,7 +684,7 @@ export default function AppMansion() {
                   <div className="px-4 sm:px-5 pb-5 pt-1 border-t border-[#E2D7CA]">
                     <ol className="space-y-3.5 mt-4">
                       <li>
-                        <p className="text-sm sm:text-base text-[#16120F]">
+                        <p className="text-base sm:text-base text-[#16120F]">
                           <span className="font-bold">1. グルタチオン</span>
                           <span className="font-bold text-[#8E6D42]">　【強力デトックス・肝機能サポート】</span>
                         </p>
@@ -693,7 +693,7 @@ export default function AppMansion() {
                         </p>
                       </li>
                       <li>
-                        <p className="text-sm sm:text-base text-[#16120F]">
+                        <p className="text-base sm:text-base text-[#16120F]">
                           <span className="font-bold">2. 高濃度ビタミンC</span>
                           <span className="font-bold text-[#8E6D42]">　【細胞の抗酸化・免疫力UP】</span>
                         </p>
@@ -702,7 +702,7 @@ export default function AppMansion() {
                         </p>
                       </li>
                       <li>
-                        <p className="text-sm sm:text-base text-[#16120F]">
+                        <p className="text-base sm:text-base text-[#16120F]">
                           <span className="font-bold">3. ビタミンB群</span>
                           <span className="font-bold text-[#8E6D42]">　【エネルギー産生・代謝促進】</span>
                         </p>
@@ -711,7 +711,7 @@ export default function AppMansion() {
                         </p>
                       </li>
                       <li>
-                        <p className="text-sm sm:text-base text-[#16120F]">
+                        <p className="text-base sm:text-base text-[#16120F]">
                           <span className="font-bold">4. チオクト酸（αリポ酸）</span>
                           <span className="font-bold text-[#8E6D42]">　【抗酸化・コンディションケア】</span>
                         </p>
@@ -720,7 +720,7 @@ export default function AppMansion() {
                         </p>
                       </li>
                       <li>
-                        <p className="text-sm sm:text-base text-[#16120F]">
+                        <p className="text-base sm:text-base text-[#16120F]">
                           <span className="font-bold">5. グリチルリチン酸（強ミノ同等成分）</span>
                           <span className="font-bold text-[#8E6D42]">　【肝機能サポート】</span>
                         </p>
@@ -729,7 +729,7 @@ export default function AppMansion() {
                         </p>
                       </li>
                       <li>
-                        <p className="text-sm sm:text-base text-[#16120F]">
+                        <p className="text-base sm:text-base text-[#16120F]">
                           <span className="font-bold">6. マグネシウム</span>
                           <span className="font-bold text-[#8E6D42]">　【筋肉のコリ・神経の緊張緩和】</span>
                         </p>
@@ -745,8 +745,8 @@ export default function AppMansion() {
                 )}
               </div>
 
-              <div className="mt-6 p-5 bg-[#EFEFEF]">
-                <p className="font-bold text-[#8E6D42] text-sm sm:text-base mb-2">このような方に</p>
+              <div className="mt-6 p-5 bg-white">
+                <p className="font-bold text-[#8E6D42] text-base sm:text-base mb-2">このような方に</p>
                 <ul className="space-y-1.5 text-sm text-[#53483E] leading-relaxed">
                   <li>・心身ともに即効性のあるエネルギーチャージを求めている方</li>
                   <li>・肌のくすみや透明感が気になる方</li>
@@ -776,7 +776,7 @@ export default function AppMansion() {
             </div>
 
             {/* Menu 2: NMN点滴 */}
-            <div className="bg-[#F3ECE4] p-6 sm:p-10">
+            <div className="-mx-6 sm:mx-0 bg-[#F3ECE4] p-6 sm:p-10">
               <div className="overflow-hidden border border-[#B98A2E]/40">
                 <h3 className="sr-only">NMN点滴</h3>
                 <img
@@ -786,23 +786,23 @@ export default function AppMansion() {
                 />
               </div>
 
-              <p className="mt-4 pl-1 text-sm sm:text-base text-[#B98A2E] font-bold">
+              <p className="mt-4 pl-1 text-base sm:text-base text-[#B98A2E] font-bold">
                 ── 細胞レベルで若々しさを呼び覚ます、<br className="sm:hidden" />
                 究極のウェルネスケア
               </p>
 
-              <p className="mt-4 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
+              <p className="mt-4 text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
                 NMN（ニコチンアミド・モノヌクレオチド）は、<br className="sm:hidden" />
                 ビタミンB3の中に含まれる成分で、<br className="sm:hidden" />
                 私たちの身体の「若々しさ」や「元気の源」を司る<br className="sm:hidden" />
                 【長寿遺伝子（サーチュイン遺伝子）】を活性化させる<br className="sm:hidden" />
                 物質として、今、世界中の研究者から注目を集めています。
               </p>
-              <p className="mt-3 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
+              <p className="mt-3 text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
                 人は年齢を重ねると、体内のNMNが減少していき、<br className="sm:hidden" />
                 それが体力低下や肌の衰えなどの「老化現象」につながります。
               </p>
-              <p className="mt-3 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
+              <p className="mt-3 text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
                 この減少してしまった若返り成分を、<br className="sm:hidden" />
                 <strong className="font-bold text-[#16120F]">点滴によってダイレクトに、<br className="sm:hidden" />かつ高濃度で全身の細胞へ<br className="sm:hidden" />届ける</strong>のが「NMN点滴」です。
               </p>
@@ -818,8 +818,8 @@ export default function AppMansion() {
                 <span className="text-[10px] text-[#827467] block mt-1">※投与量（150mg〜）に応じてご案内</span>
               </div>
 
-              <div className="mt-6 p-5 bg-[#EFEFEF]">
-                <p className="font-bold text-[#B98A2E] text-sm sm:text-base mb-2">このような方に</p>
+              <div className="mt-6 p-5 bg-white">
+                <p className="font-bold text-[#B98A2E] text-base sm:text-base mb-2">このような方に</p>
                 <ul className="space-y-1.5 text-sm text-[#53483E] leading-relaxed">
                   <li>・脳のエイジングケア<br className="sm:hidden" />（集中力・思考力の向上、睡眠の質の改善）をしたい方</li>
                   <li>・若い頃に比べて、体力や集中力が落ちたと感じる方</li>
@@ -855,7 +855,7 @@ export default function AppMansion() {
             </div>
 
             {/* Menu 3: 幹細胞上清液点滴 */}
-            <div className="bg-[#F3ECE4] p-6 sm:p-10">
+            <div className="-mx-6 sm:mx-0 bg-[#F3ECE4] p-6 sm:p-10">
               <div className="overflow-hidden border border-[#B98A2E]/40">
                 <h3 className="sr-only">幹細胞上清液点滴</h3>
                 <img
@@ -865,24 +865,24 @@ export default function AppMansion() {
                 />
               </div>
 
-              <p className="mt-4 pl-1 text-sm sm:text-base text-[#B98A2E] font-bold">
+              <p className="mt-4 pl-1 text-base sm:text-base text-[#B98A2E] font-bold">
                 ── 老化した組織に働きかける、<br className="sm:hidden" />
                 再生医療由来の根本アプローチ
               </p>
 
-              <p className="mt-4 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
+              <p className="mt-4 text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
                 幹細胞上清液（培養上清液）とは、<br className="sm:hidden" />
                 幹細胞を培養する過程で分泌される、<br className="sm:hidden" />
                 数百種類もの成長因子（サイトカイン）や<br className="sm:hidden" />
                 エクソソームを含んだ液体成分です。
               </p>
-              <p className="mt-3 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
+              <p className="mt-3 text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
                 細胞そのものを移植するのではなく、<br className="sm:hidden" />
                 <strong className="font-bold text-[#16120F]">細胞が持つ「修復を促す情報」だけを<br className="sm:hidden" />濃縮して届ける</strong>ことで、<br className="sm:hidden" />
                 身体がもともと持つ再生力・回復力へ<br className="sm:hidden" />
                 働きかけるアプローチです。
               </p>
-              <p className="mt-3 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
+              <p className="mt-3 text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
                 厳格な基準で管理された国産上清液を使用し、<br className="sm:hidden" />
                 美容・体力・活力の根本的なケアをサポートします。
               </p>
@@ -898,8 +898,8 @@ export default function AppMansion() {
                 <span className="text-[10px] text-[#827467] block mt-1">※厳格な基準で管理された国産上清液を使用</span>
               </div>
 
-              <div className="mt-6 p-5 bg-[#EFEFEF]">
-                <p className="font-bold text-[#B98A2E] text-sm sm:text-base mb-2">このような方に</p>
+              <div className="mt-6 p-5 bg-white">
+                <p className="font-bold text-[#B98A2E] text-base sm:text-base mb-2">このような方に</p>
                 <ul className="space-y-1.5 text-sm text-[#53483E] leading-relaxed">
                   <li>・美容と健康の両面から、根本的なケアを求めている方</li>
                   <li>・年齢に応じたコンディション低下が<br className="sm:hidden" />気になり始めた方</li>
@@ -1198,7 +1198,7 @@ export default function AppMansion() {
                 受けていただくための体制
               </h2>
             </div>
-            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left max-w-xl pl-4">
+            <p className="text-[#53483E] text-base sm:text-base mt-4 leading-relaxed text-left max-w-xl pl-4">
               麻酔科専門医が責任をもって、院内と同等水準の安全管理基準を徹底します。
             </p>
           </div>
@@ -1387,7 +1387,7 @@ export default function AppMansion() {
                 訪問施術の様子を動画で見る
               </h2>
             </div>
-            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left max-w-xl pl-4">
+            <p className="text-[#53483E] text-base sm:text-base mt-4 leading-relaxed text-left max-w-xl pl-4">
               ご自宅でのリラックスした施術風景や、医師の丁寧な対応の流れをご確認いただけます。
             </p>
           </div>
@@ -1424,7 +1424,7 @@ export default function AppMansion() {
                 ご利用の流れ
               </h2>
             </div>
-            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left max-w-xl pl-4">
+            <p className="text-[#53483E] text-base sm:text-base mt-4 leading-relaxed text-left max-w-xl pl-4">
               ご予約から点滴完了まで、4つのステップでスムーズに完結します。
             </p>
           </div>
@@ -1550,7 +1550,7 @@ export default function AppMansion() {
                 >
                   <button 
                     onClick={() => toggleFaq(index)}
-                    className="w-full p-4.5 sm:p-5 text-left flex items-center justify-between gap-4 font-serif text-sm sm:text-base font-semibold text-[#16120F] focus:outline-none"
+                    className="w-full p-4.5 sm:p-5 text-left flex items-center justify-between gap-4 font-serif text-base sm:text-base font-semibold text-[#16120F] focus:outline-none"
                   >
                     <span className="flex items-center gap-3">
                       <span className="w-6 h-6 rounded-full bg-[#143836] text-white text-xs font-bold flex items-center justify-center shrink-0">
@@ -1590,7 +1590,7 @@ export default function AppMansion() {
           <h2 className="font-serif text-2xl sm:text-3xl text-[#16120F] font-bold">
             往診対応エリア
           </h2>
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-[#E2D7CA] rounded-2xl sm:rounded-full shadow-sm text-sm sm:text-base font-serif font-bold text-[#16120F]">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-[#E2D7CA] rounded-2xl sm:rounded-full shadow-sm text-base sm:text-base font-serif font-bold text-[#16120F]">
             <MapPin className="w-4 h-4 text-[#8E6D42] shrink-0" />
             <span className="leading-snug text-center text-base">
               東京都中央区・港区<br className="sm:hidden" />（往診料無料・完全予約制）
