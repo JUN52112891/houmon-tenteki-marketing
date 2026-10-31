@@ -7,7 +7,6 @@ import {
   X, 
   Send,
   Menu,
-  Sparkles,
   MessageCircle,
   Calendar,
   ArrowRight,
@@ -22,7 +21,6 @@ import logoImage from './assets/images/logo-dr-concierge.png'
 import suppliPhoto from './assets/images/suppli-banner.webp'
 import tentekiPhoto from './assets/images/iv-drip-banner.webp'
 import homeDripPhoto from './assets/images/scene_sofa_relax_drip.png'
-import recoveryMenuPhoto from './assets/images/scene_reading_drip_1790731821488.jpg'
 import concernStaminaPhoto from './assets/images/concern-stamina-golf.webp'
 import concernWorkPhoto from './assets/images/concern-work-performance.webp'
 import concernGolfTravelPhoto from './assets/images/concern-golf-travel.webp'
@@ -45,7 +43,6 @@ export default function AppMansion() {
   // Section 05: Comparison mode ("visit" | "clinic")
 
   // Section 06: Detailed Ingredients Accordion State
-  const [isIngredientsOpen, setIsIngredientsOpen] = useState(false)
 
   // Section 06: Estimator calculator states
   const [estimateRegion, setEstimateRegion] = useState<number>(0)
@@ -75,7 +72,7 @@ export default function AppMansion() {
 
   const dripPrices: Record<string, { name: string, price: number }> = {
     recovery: { name: 'プレミアムリカバリー点滴 (初回体験: ¥22,000 / 通常: ¥33,000)', price: 22000 },
-    nmn: { name: 'NMNリバース点滴 (エイジングケア)', price: 44000 },
+    nmn: { name: 'NMN点滴 (エイジングケア)', price: 44000 },
     stemcell: { name: '幹細胞上清液点滴 (最高峰ケア)', price: 99000 }
   }
 
@@ -582,231 +579,227 @@ export default function AppMansion() {
 
       {/* 06: 目的別点滴メニュー・料金 */}
       <section id="menu-detail" className="pt-8 pb-10 sm:py-12 bg-[#FAF8F5] border-b border-[#E2D7CA]">
-        <div className="max-w-[1160px] mx-auto px-6">
-          
-          <div className="mb-12 text-left">
+        <div className="max-w-[1040px] mx-auto px-6">
+
+          <div className="max-w-2xl mx-auto text-left">
             <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full">
               <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1.5 font-serif">
                 04 DRIP MENUS & PRICING
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
-                目的別点滴メニュー・料金
+                美容と健康を支える<br />
+                3つの点滴
               </h2>
             </div>
-            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left max-w-xl pl-4">
-              疲労回復、エイジングケア、最高峰の再生医療由来ケアまで。
-              お悩みや目的に合わせ、医師の判断のもとで最適に調剤する3つの厳選メニューです。
+            <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-[2] tracking-[0.02em] text-left pl-4">
+              疲れが抜けにくい。忙しくても、良いコンディションを保ちたい。年齢に応じた美容と健康のケアを取り入れたい。
+              <br className="hidden sm:block" />
+              お悩みや目的は、一人ひとり異なります。当サービスでは、日々のコンディション管理から、エイジングケアを意識したメンテナンスまで、ご希望に合わせて複数の点滴をご用意しています。当院おすすめの点滴3種をご紹介します。
             </p>
           </div>
 
-          {/* Flagship Menu: プレミアムリカバリー点滴(他2メニューと差をつけた専用レイアウト) */}
-          <div className="relative bg-white border-2 border-[#143836]/40 rounded-[22px] shadow-sm overflow-hidden mb-6 lg:mb-8">
-            <div className="grid grid-cols-1 lg:grid-cols-5">
-
-              {/* Photo */}
-              <div className="lg:col-span-2 relative h-64 sm:h-80 lg:h-auto min-h-[280px]">
-                <img
-                  src={recoveryMenuPhoto}
-                  alt="緑のソファでくつろぎながらプレミアムリカバリー点滴を受ける男性"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                <div className="absolute top-4 left-4 bg-[#143836] text-white text-[10px] font-bold tracking-widest px-3 py-1.5 rounded-[4px] uppercase shadow-sm">
-                  人気No.1 / 初回体験対象
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="lg:col-span-3 relative p-6 sm:p-8 lg:p-9">
-                <span className="hidden sm:block absolute top-3 right-5 font-serif text-[88px] leading-none text-[#143836]/[0.06] select-none pointer-events-none">
-                  01
-                </span>
-
-                <div className="relative space-y-5">
-                  <div>
-                    <span className="font-serif italic text-base text-[#8E6D42] block mb-1.5">
-                      The Signature Recovery
-                    </span>
-                    <span className="text-xs font-bold text-[#8E6D42] tracking-wider uppercase block font-serif mb-1">
-                      疲労回復・強抗酸化・美肌
-                    </span>
-                    <h3 className="font-serif text-2xl sm:text-[26px] font-bold text-[#16120F] leading-snug">
-                      プレミアムリカバリー点滴
-                    </h3>
-                  </div>
-
-                  <p className="text-[13.5px] sm:text-sm leading-[1.9] text-[#53483E]">
-                    点滴が体に満ちていくにつれ、こわばっていた身体がゆるみ、<br className="hidden sm:block" />
-                    呼吸が深くなっていく──そんな実感の声をいただくメニューです。<br />
-                    抗酸化成分とビタミン・ミネラルを独自に組み合わせ、<br className="hidden sm:block" />
-                    抜けない疲れ、仕事のパフォーマンス、肌の透明感まで、<br className="hidden sm:block" />
-                    日々のコンディションを底上げしたい方に。
-                  </p>
-
-                  <div className="p-3.5 bg-[#FAF8F5] rounded-[8px] border border-[#E2D7CA]">
-                    <div className="flex items-baseline justify-between">
-                      <span className="text-xs text-[#827467]">通常料金</span>
-                      <div className="flex items-baseline gap-1">
-                        <span className="font-serif text-xl font-bold text-[#16120F]">¥33,000</span>
-                        <span className="text-[11px] text-[#827467]">（税込・往診料込）</span>
-                      </div>
-                    </div>
-                    <div className="flex items-baseline justify-between mt-1 pt-1 border-t border-[#E2D7CA]/60 text-[#143836]">
-                      <span className="text-xs font-bold">初回特別体験価格</span>
-                      <span className="font-serif text-2xl font-bold">¥22,000</span>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex items-center gap-2.5 mb-2">
-                      <span className="w-5 h-px bg-[#8E6D42]"></span>
-                      <p className="font-serif text-sm sm:text-[15px] font-bold text-[#8E6D42] tracking-wide">特徴と目的</p>
-                    </div>
-                    <p className="text-[13px] leading-relaxed text-[#6B5E52] pl-[26px]">
-                      様々なビタミン・ミネラルと抗酸化成分を独自に組み合わせ、美容と健康の両面から日々のコンディションをサポート。疲れが抜けにくい方、仕事のパフォーマンスを維持したい方、健やかで美しい肌を目指す方に。
-                    </p>
-                    <p className="pt-1.5 pl-[26px] text-xs text-[#827467]">所要時間：約60分（静脈点滴投与）</p>
-                  </div>
-
-                  {/* Collapsible Ingredients & Medical Explanation */}
-                  <div className="bg-[#FAF8F5] border border-[#E2D7CA] rounded-[12px] overflow-hidden shadow-2xs">
-                    <button
-                      type="button"
-                      onClick={() => setIsIngredientsOpen(!isIngredientsOpen)}
-                      className="w-full p-3.5 text-left flex items-center justify-between gap-3 font-serif text-sm font-bold text-[#16120F] hover:bg-[#FAF8F5]/80 transition-colors cursor-pointer"
-                    >
-                      <div className="flex items-center gap-2">
-                        <Sparkles className="w-4 h-4 text-[#8E6D42] shrink-0" />
-                        <span>主な配合成分</span>
-                      </div>
-                      <ChevronDown className={`w-4 h-4 text-[#827467] transition-transform duration-200 shrink-0 ${isIngredientsOpen ? 'rotate-180 text-[#8E6D42]' : ''}`} />
-                    </button>
-
-                    {isIngredientsOpen && (
-                      <div className="p-3.5 pt-3 border-t border-[#E2D7CA] space-y-3">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-
-                          {/* Card 1: グルタチオン */}
-                          <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
-                            <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
-                              グルタチオン
-                            </h4>
-                            <p className="text-xs text-[#53483E] leading-relaxed">
-                              抗酸化作用を持ち、肝機能や身体のコンディション維持をサポートします。
-                            </p>
-                          </div>
-
-                          {/* Card 2: ビタミンC */}
-                          <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
-                            <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
-                              ビタミンC
-                            </h4>
-                            <p className="text-xs text-[#53483E] leading-relaxed">
-                              抗酸化作用を持ち、健康維持やコンディション調整をサポートします。
-                            </p>
-                          </div>
-
-                          {/* Card 3: ビタミンB群 */}
-                          <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
-                            <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
-                              ビタミンB群
-                            </h4>
-                            <p className="text-xs text-[#53483E] leading-relaxed">
-                              食事からエネルギーを作るために必要な補酵素で、エネルギー代謝を支えます。
-                            </p>
-                          </div>
-
-                          {/* Card 4: αリポ酸（チオクト酸） */}
-                          <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
-                            <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
-                              αリポ酸（チオクト酸）
-                            </h4>
-                            <p className="text-xs text-[#53483E] leading-relaxed">
-                              水溶性・脂溶性の両面で働き、細胞のエネルギー代謝をサポートします。
-                            </p>
-                          </div>
-
-                          {/* Card 5: グリファーゲン（グリチルリチン酸） */}
-                          <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
-                            <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
-                              グリファーゲン（グリチルリチン酸）
-                            </h4>
-                            <p className="text-xs text-[#53483E] leading-relaxed">
-                              甘草由来成分を含み、過密な業務が続く方の健康維持を支えます。
-                            </p>
-                          </div>
-
-                          {/* Card 6: マグネシウム */}
-                          <div className="bg-white border border-[#E2D7CA] rounded-[10px] p-3 shadow-2xs">
-                            <h4 className="font-serif font-bold text-xs sm:text-sm text-[#16120F] mb-1">
-                              マグネシウム
-                            </h4>
-                            <p className="text-xs text-[#53483E] leading-relaxed">
-                              筋肉や神経の正常な働きを支え、緊張を和らげるミネラルです。
-                            </p>
-                          </div>
-
-                        </div>
-
-                        <p className="text-[11px] text-[#827467] leading-relaxed pt-1 px-0.5">
-                          ※成分の配合内容や投与量は、医師が問診・診察を行った上で個人の体調に合わせて調整いたします。
-                        </p>
-                      </div>
-                    )}
-                  </div>
-
-                  <a
-                    href="#trial"
-                    className="btn btn--gold btn--shimmer w-full text-xs !py-3.5 text-center justify-center font-bold"
-                  >
-                    初回体験プランを予約
-                  </a>
-                </div>
-              </div>
-
-            </div>
+          {/* Overview Photo (placeholder) */}
+          <div className="mt-8 max-w-2xl mx-auto aspect-[16/10] sm:aspect-[16/9] rounded-[20px] border-2 border-dashed border-[#C9B8A0] bg-[#F3ECE4]/60 flex items-center justify-center">
+            <p className="text-xs text-[#8C7A68] text-center px-6">
+              [リビングでくつろぎながら点滴を受ける様子の写真]
+            </p>
           </div>
 
-          {/* Menu 2・3: NMNリバース点滴 / 幹細胞上清液点滴 */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
+          <div className="max-w-2xl mx-auto mt-14 sm:mt-16 space-y-14 sm:space-y-16">
 
-            {/* Menu 2: NMNリバース点滴 */}
-            <div className="bg-white border-2 border-[#B98A2E]/50 rounded-[18px] p-6 sm:p-7 shadow-sm flex flex-col justify-between relative overflow-hidden">
-              <div className="space-y-4">
-                <div>
-                  <span className="text-xs font-bold text-[#B98A2E] tracking-wider uppercase block font-serif mb-1">
-                    長寿遺伝子活性・エイジングケア
-                  </span>
-                  <h3 className="font-serif text-[21px] font-bold text-[#16120F]">
-                    NMNリバース点滴
+            {/* Menu 1: プレミアムリカバリー点滴 */}
+            <div>
+              <div className="relative flex items-stretch border-2 border-[#8E6D42]/70 rounded-[6px] overflow-hidden bg-[#FAF8F5]">
+                <div className="flex-1 flex items-center px-5 sm:px-8 py-5 sm:py-7">
+                  <h3 className="font-serif text-xl sm:text-3xl font-bold text-[#16120F] leading-snug">
+                    プレミアムリカバリー点滴
                   </h3>
-                  <p className="text-xs text-[#827467] mt-0.5">細胞レベルで若々しさとエネルギーを呼び覚ます</p>
                 </div>
-
-                <div className="p-3 bg-[#FBF3E3] rounded-[8px] border border-[#B98A2E]/30">
-                  <div className="flex items-baseline justify-between">
-                    <span className="text-xs text-[#827467]">料金</span>
-                    <div className="flex items-baseline gap-1">
-                      <span className="font-serif text-xl font-bold text-[#B98A2E]">¥44,000〜</span>
-                      <span className="text-[11px] text-[#827467]">（税込・往診料込）</span>
-                    </div>
-                  </div>
-                  <span className="text-[10px] text-[#827467] block mt-0.5">※投与量（150mg〜）に応じてご案内</span>
-                </div>
-
-                <div className="space-y-2 text-xs text-[#53483E]">
-                  <p className="font-bold text-[#16120F]">【特徴と目的】</p>
-                  <p className="text-[13px] leading-relaxed text-[#6B5E52]">
-                    年齢とともに減少する補酵素NAD+を効率よく補い、サーチュイン遺伝子（長寿遺伝子）を活性化。思考力や集中力、全身の代謝向上を目指す方に。
-                  </p>
-                  <p className="pt-1 text-[#827467]">所要時間：約30分（静脈点滴投与）</p>
-                  <p className="pt-1 text-[#827467]">※使用するNMN製剤は国内未承認医薬品です。<a href="#regulatory" className="underline hover:text-[#8E6D42]">詳しくはこちら</a></p>
+                <div className="w-24 sm:w-40 shrink-0 border-l-2 border-dashed border-[#8E6D42]/50 bg-[#F3ECE4] flex items-center justify-center">
+                  <p className="text-[10px] text-[#8C7A68] text-center px-2">[イメージ写真]</p>
                 </div>
               </div>
 
-              <div className="pt-5 mt-5 border-t border-[#E2D7CA]">
+              <p className="mt-4 pl-1 text-sm sm:text-base text-[#8E6D42] font-bold">
+                ── 蓄積した疲労をリセットし、本来のパフォーマンスを取り戻す
+              </p>
+
+              <p className="mt-4 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
+                「しっかり休んだはずなのに疲れが抜けない」「頭がすっきりしない」……そんな現代特有の慢性的な疲労にアプローチするために開発された、当院オリジナルの特別メニューです。
+              </p>
+              <p className="mt-3 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
+                厳選された6つの医療用有効成分をバランスよく配合し、<strong className="font-bold text-[#16120F]">サプリメントでは到達できない濃度で、ダイレクトに細胞へエネルギーを急速充電</strong>します。
+              </p>
+
+              <div className="mt-6 p-4 bg-white rounded-[10px] border border-[#E2D7CA] max-w-sm">
+                <div className="flex items-baseline justify-between">
+                  <span className="text-xs text-[#827467]">通常料金</span>
+                  <div className="flex items-baseline gap-1">
+                    <span className="font-serif text-lg font-bold text-[#16120F]">¥33,000</span>
+                    <span className="text-[11px] text-[#827467]">（税込・往診料込）</span>
+                  </div>
+                </div>
+                <div className="flex items-baseline justify-between mt-1 pt-1 border-t border-[#E2D7CA]/60 text-[#143836]">
+                  <span className="text-xs font-bold">初回特別体験価格</span>
+                  <span className="font-serif text-xl font-bold">¥22,000</span>
+                </div>
+              </div>
+
+              <div className="mt-6">
+                <p className="font-bold text-[#16120F] text-sm sm:text-base mb-3">
+                  ■ 贅沢に配合された「6つの贅沢成分」とその効果
+                </p>
+                <ol className="space-y-3.5">
+                  <li>
+                    <p className="text-sm sm:text-base text-[#16120F]">
+                      <span className="font-bold">1. グルタチオン</span>
+                      <span className="font-bold text-[#8E6D42]">　【強力デトックス・肝機能サポート】</span>
+                    </p>
+                    <p className="mt-1 pl-[1.4em] text-sm text-[#53483E] leading-[1.9]">
+                      疲労やストレスで生じる「活性酸素」を強力に除去。肝臓の働きを助け、身体に溜まった毒素や老廃物の排出（デトックス）を促します。
+                    </p>
+                  </li>
+                  <li>
+                    <p className="text-sm sm:text-base text-[#16120F]">
+                      <span className="font-bold">2. 高濃度ビタミンC</span>
+                      <span className="font-bold text-[#8E6D42]">　【細胞の抗酸化・免疫力UP】</span>
+                    </p>
+                    <p className="mt-1 pl-[1.4em] text-sm text-[#53483E] leading-[1.9]">
+                      免疫力を高め、酸化（サビつき）から身体を守ります。疲労で低下した気力と体力を底上げします。
+                    </p>
+                  </li>
+                  <li>
+                    <p className="text-sm sm:text-base text-[#16120F]">
+                      <span className="font-bold">3. ビタミンB群</span>
+                      <span className="font-bold text-[#8E6D42]">　【エネルギー産生・代謝促進】</span>
+                    </p>
+                    <p className="mt-1 pl-[1.4em] text-sm text-[#53483E] leading-[1.9]">
+                      食事をエネルギーに変えるために不可欠なビタミン。代謝をスムーズにし、身体の内側から「元気」を作り出します。
+                    </p>
+                  </li>
+                  <li>
+                    <p className="text-sm sm:text-base text-[#16120F]">
+                      <span className="font-bold">4. チオクト酸（αリポ酸）</span>
+                      <span className="font-bold text-[#8E6D42]">　【抗酸化・コンディションケア】</span>
+                    </p>
+                    <p className="mt-1 pl-[1.4em] text-sm text-[#53483E] leading-[1.9]">
+                      ビタミンCやEと並ぶ抗酸化力を持ち、疲労回復をサポートします。新陳代謝を促進するため、コンディションづくりにも寄与します。
+                    </p>
+                  </li>
+                  <li>
+                    <p className="text-sm sm:text-base text-[#16120F]">
+                      <span className="font-bold">5. グリチルリチン酸（強ミノ同等成分）</span>
+                      <span className="font-bold text-[#8E6D42]">　【肝機能サポート】</span>
+                    </p>
+                    <p className="mt-1 pl-[1.4em] text-sm text-[#53483E] leading-[1.9]">
+                      生薬の甘草（カンゾウ）由来の成分で、肝機能を保護・サポートします。忙しい日々が続く方の体調維持を支えます。
+                    </p>
+                  </li>
+                  <li>
+                    <p className="text-sm sm:text-base text-[#16120F]">
+                      <span className="font-bold">6. マグネシウム</span>
+                      <span className="font-bold text-[#8E6D42]">　【筋肉のコリ・神経の緊張緩和】</span>
+                    </p>
+                    <p className="mt-1 pl-[1.4em] text-sm text-[#53483E] leading-[1.9]">
+                      肩こりや慢性的な筋肉の疲労、緊張を和らげ、心身をリラックスへと導くミネラルです。
+                    </p>
+                  </li>
+                </ol>
+                <p className="mt-3 text-[11px] text-[#827467] leading-relaxed">
+                  ※成分の配合内容や投与量は、医師が問診・診察を行った上で個人の体調に合わせて調整いたします。
+                </p>
+              </div>
+
+              <div className="mt-6 p-5 bg-white rounded-[12px] border border-[#E2D7CA]">
+                <p className="font-bold text-[#8E6D42] text-sm sm:text-base mb-2">このような方に</p>
+                <ul className="space-y-1.5 text-sm text-[#53483E] leading-relaxed">
+                  <li>・心身ともに即効性のあるエネルギーチャージを求めている方</li>
+                  <li>・肌のくすみや透明感が気になる方</li>
+                  <li>・睡眠をとっても翌朝に疲れが残っている方</li>
+                  <li>・お酒を飲む機会が多く、翌日スッキリ起きられない方</li>
+                </ul>
+              </div>
+
+              <div className="mt-6 max-w-sm aspect-[4/3] rounded-[16px] border-2 border-dashed border-[#C9B8A0] bg-white flex items-center justify-center">
+                <p className="text-xs text-[#8C7A68] text-center px-6">[伸びをする・爽快感を感じる方の写真]</p>
+              </div>
+
+              <p className="mt-4 text-xs text-[#827467] leading-relaxed">所要時間：約60分（静脈点滴投与）</p>
+
+              <div className="mt-6">
+                <a
+                  href="#trial"
+                  className="btn btn--gold btn--shimmer w-full sm:w-auto text-xs !py-3.5 !px-8 text-center justify-center font-bold"
+                >
+                  初回体験プランを予約
+                </a>
+              </div>
+            </div>
+
+            {/* Menu 2: NMN点滴 */}
+            <div>
+              <div className="relative flex items-stretch border-2 border-[#B98A2E]/70 rounded-[6px] overflow-hidden bg-[#FAF8F5]">
+                <div className="flex-1 flex items-center px-5 sm:px-8 py-5 sm:py-7">
+                  <h3 className="font-serif text-xl sm:text-3xl font-bold text-[#16120F] leading-snug">
+                    NMN点滴
+                  </h3>
+                </div>
+                <div className="w-24 sm:w-40 shrink-0 border-l-2 border-dashed border-[#B98A2E]/50 bg-[#FBF3E3] flex items-center justify-center">
+                  <p className="text-[10px] text-[#8C7A68] text-center px-2">[イメージ写真]</p>
+                </div>
+              </div>
+
+              <p className="mt-4 pl-1 text-sm sm:text-base text-[#B98A2E] font-bold">
+                ── 細胞レベルで若々しさを呼び覚ます、究極のウェルネスケア
+              </p>
+
+              <p className="mt-4 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
+                NMN（ニコチンアミド・モノヌクレオチド）は、ビタミンB3の中に含まれる成分で、私たちの身体の「若々しさ」や「元気の源」を司る【長寿遺伝子（サーチュイン遺伝子）】を活性化させる物質として、今、世界中の研究者から注目を集めています。
+              </p>
+              <p className="mt-3 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
+                人は年齢を重ねると、体内のNMNが減少していき、それが体力低下や肌の衰えなどの「老化現象」につながります。
+              </p>
+              <p className="mt-3 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
+                この減少してしまった若返り成分を、<strong className="font-bold text-[#16120F]">点滴によってダイレクトに、かつ高濃度で全身の細胞へ届ける</strong>のが「NMN点滴」です。
+              </p>
+
+              <div className="mt-6 p-4 bg-white rounded-[10px] border border-[#E2D7CA] max-w-sm">
+                <div className="flex items-baseline justify-between">
+                  <span className="text-xs text-[#827467]">料金</span>
+                  <div className="flex items-baseline gap-1">
+                    <span className="font-serif text-lg font-bold text-[#B98A2E]">¥44,000〜</span>
+                    <span className="text-[11px] text-[#827467]">（税込・往診料込）</span>
+                  </div>
+                </div>
+                <span className="text-[10px] text-[#827467] block mt-1">※投与量（150mg〜）に応じてご案内</span>
+              </div>
+
+              <div className="mt-6 p-5 bg-white rounded-[12px] border border-[#E2D7CA]">
+                <p className="font-bold text-[#B98A2E] text-sm sm:text-base mb-2">このような方に</p>
+                <ul className="space-y-1.5 text-sm text-[#53483E] leading-relaxed">
+                  <li>・脳のエイジングケア（集中力・思考力の向上、睡眠の質の改善）をしたい方</li>
+                  <li>・若い頃に比べて、体力や集中力が落ちたと感じる方</li>
+                  <li>・忙しい日々が続き、慢性的な疲労感から抜け出せない方</li>
+                  <li>・代謝を上げ、疲れにくい身体を目指したい方</li>
+                </ul>
+              </div>
+
+              <div className="mt-6 max-w-sm aspect-[4/3] rounded-[16px] border-2 border-dashed border-[#C9B8A0] bg-white flex items-center justify-center">
+                <p className="text-xs text-[#8C7A68] text-center px-6">[自然な笑顔で歩く様子の写真]</p>
+              </div>
+
+              <p className="mt-4 text-xs text-[#827467] leading-relaxed">
+                ※NMNに関する研究は進められていますが、期待される働きや感じ方には個人差があります。
+              </p>
+              <div className="mt-2 text-xs text-[#53483E] leading-relaxed space-y-1">
+                <p>所要時間：約30分（静脈点滴投与）</p>
+                <p className="text-[#827467]">※使用するNMN製剤は国内未承認医薬品です。<a href="#regulatory" className="underline hover:text-[#8E6D42]">詳しくはこちら</a></p>
+              </div>
+
+              <div className="mt-6">
                 <button
-                  onClick={() => applyPresetQuestion('NMNリバース点滴')}
-                  className="btn btn--gold btn--shimmer w-full text-xs !py-3 text-center justify-center font-bold"
+                  onClick={() => applyPresetQuestion('NMN点滴')}
+                  className="btn btn--gold btn--shimmer w-full sm:w-auto text-xs !py-3.5 !px-8 text-center justify-center font-bold"
                 >
                   この点滴について問い合わせる
                 </button>
@@ -814,43 +807,66 @@ export default function AppMansion() {
             </div>
 
             {/* Menu 3: 幹細胞上清液点滴 */}
-            <div className="bg-white border-2 border-[#B98A2E]/50 rounded-[18px] p-6 sm:p-7 shadow-sm flex flex-col justify-between relative overflow-hidden">
-              <div className="space-y-4">
-                <div>
-                  <span className="text-xs font-bold text-[#B98A2E] tracking-wider uppercase block font-serif mb-1">
-                    最高峰再生医療由来ケア
-                  </span>
-                  <h3 className="font-serif text-[21px] font-bold text-[#16120F]">
+            <div>
+              <div className="relative flex items-stretch border-2 border-[#B98A2E]/70 rounded-[6px] overflow-hidden bg-[#FAF8F5]">
+                <div className="flex-1 flex items-center px-5 sm:px-8 py-5 sm:py-7">
+                  <h3 className="font-serif text-xl sm:text-3xl font-bold text-[#16120F] leading-snug">
                     幹細胞上清液点滴
                   </h3>
-                  <p className="text-xs text-[#827467] mt-0.5">老化した組織を修復し活性化する根本アプローチ</p>
                 </div>
-
-                <div className="p-3 bg-[#FBF3E3] rounded-[8px] border border-[#B98A2E]/30">
-                  <div className="flex items-baseline justify-between">
-                    <span className="text-xs text-[#827467]">料金</span>
-                    <div className="flex items-baseline gap-1">
-                      <span className="font-serif text-xl font-bold text-[#B98A2E]">¥99,000〜</span>
-                      <span className="text-[11px] text-[#827467]">（税込・往診料込）</span>
-                    </div>
-                  </div>
-                  <span className="text-[10px] text-[#827467] block mt-0.5">※厳格な基準で管理された国産上清液を使用</span>
-                </div>
-
-                <div className="space-y-2 text-xs text-[#53483E]">
-                  <p className="font-bold text-[#16120F]">【特徴と目的】</p>
-                  <p className="leading-relaxed text-[#6B5E52]">
-                    数百種類の成長因子（サイトカイン）やエクソソームを含有。細胞修復を促進し、美容・体力・活力の根本的な若返りをサポートします。
-                  </p>
-                  <p className="pt-1 text-[#827467]">所要時間：約30〜45分（静脈点滴投与）</p>
-                  <p className="pt-1 text-[#827467]">※使用する幹細胞上清液製剤は国内未承認医薬品です。<a href="#regulatory" className="underline hover:text-[#8E6D42]">詳しくはこちら</a></p>
+                <div className="w-24 sm:w-40 shrink-0 border-l-2 border-dashed border-[#B98A2E]/50 bg-[#FBF3E3] flex items-center justify-center">
+                  <p className="text-[10px] text-[#8C7A68] text-center px-2">[イメージ写真]</p>
                 </div>
               </div>
 
-              <div className="pt-5 mt-5 border-t border-[#E2D7CA]">
+              <p className="mt-4 pl-1 text-sm sm:text-base text-[#B98A2E] font-bold">
+                ── 老化した組織に働きかける、再生医療由来の根本アプローチ
+              </p>
+
+              <p className="mt-4 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
+                幹細胞上清液（培養上清液）とは、幹細胞を培養する過程で分泌される、数百種類もの成長因子（サイトカイン）やエクソソームを含んだ液体成分です。
+              </p>
+              <p className="mt-3 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
+                細胞そのものを移植するのではなく、<strong className="font-bold text-[#16120F]">細胞が持つ「修復を促す情報」だけを濃縮して届ける</strong>ことで、身体がもともと持つ再生力・回復力へ働きかけるアプローチです。
+              </p>
+              <p className="mt-3 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
+                厳格な基準で管理された国産上清液を使用し、美容・体力・活力の根本的なケアをサポートします。
+              </p>
+
+              <div className="mt-6 p-4 bg-white rounded-[10px] border border-[#E2D7CA] max-w-sm">
+                <div className="flex items-baseline justify-between">
+                  <span className="text-xs text-[#827467]">料金</span>
+                  <div className="flex items-baseline gap-1">
+                    <span className="font-serif text-lg font-bold text-[#B98A2E]">¥99,000〜</span>
+                    <span className="text-[11px] text-[#827467]">（税込・往診料込）</span>
+                  </div>
+                </div>
+                <span className="text-[10px] text-[#827467] block mt-1">※厳格な基準で管理された国産上清液を使用</span>
+              </div>
+
+              <div className="mt-6 p-5 bg-white rounded-[12px] border border-[#E2D7CA]">
+                <p className="font-bold text-[#B98A2E] text-sm sm:text-base mb-2">このような方に</p>
+                <ul className="space-y-1.5 text-sm text-[#53483E] leading-relaxed">
+                  <li>・美容と健康の両面から、根本的なケアを求めている方</li>
+                  <li>・年齢に応じたコンディション低下が気になり始めた方</li>
+                  <li>・最高峰のウェルネスケアに関心がある方</li>
+                  <li>・これまでの点滴では物足りなさを感じている方</li>
+                </ul>
+              </div>
+
+              <div className="mt-6 max-w-sm aspect-[4/3] rounded-[16px] border-2 border-dashed border-[#C9B8A0] bg-white flex items-center justify-center">
+                <p className="text-xs text-[#8C7A68] text-center px-6">[穏やかな表情でくつろぐ方の写真]</p>
+              </div>
+
+              <div className="mt-4 text-xs text-[#53483E] leading-relaxed space-y-1">
+                <p className="text-[#827467]">所要時間：約30〜45分（静脈点滴投与）</p>
+                <p className="text-[#827467]">※使用する幹細胞上清液製剤は国内未承認医薬品です。<a href="#regulatory" className="underline hover:text-[#8E6D42]">詳しくはこちら</a></p>
+              </div>
+
+              <div className="mt-6">
                 <button
                   onClick={() => applyPresetQuestion('幹細胞上清液点滴')}
-                  className="btn btn--gold btn--shimmer w-full text-xs !py-3 text-center justify-center font-bold"
+                  className="btn btn--gold btn--shimmer w-full sm:w-auto text-xs !py-3.5 !px-8 text-center justify-center font-bold"
                 >
                   この点滴について問い合わせる
                 </button>
@@ -890,7 +906,7 @@ export default function AppMansion() {
                   className="w-full bg-[#FAF8F5] border border-[#E2D7CA] rounded-[6px] p-2.5 text-[#16120F] focus:outline-none focus:border-[#9E7D52]"
                 >
                   <option value="recovery">プレミアムリカバリー点滴 (初回体験: ¥22,000)</option>
-                  <option value="nmn">NMNリバース点滴 (¥44,000〜)</option>
+                  <option value="nmn">NMN点滴 (¥44,000〜)</option>
                   <option value="stemcell">幹細胞上清液点滴 (¥99,000〜)</option>
                 </select>
               </div>
@@ -1644,7 +1660,7 @@ export default function AppMansion() {
 
             <div className="space-y-6">
               <div>
-                <h4 className="font-serif text-sm font-bold text-[#143836] mb-3">NMNリバース点滴について</h4>
+                <h4 className="font-serif text-sm font-bold text-[#143836] mb-3">NMN点滴について</h4>
                 <dl className="space-y-3 text-xs text-[#53483E] leading-relaxed">
                   <div>
                     <dt className="font-bold text-[#16120F]">医薬品医療機器等法上の位置づけ（未承認医薬品）</dt>
