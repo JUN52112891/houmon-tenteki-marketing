@@ -446,7 +446,7 @@ export default function AppMansion() {
           </div>
 
           {/* Hero Photo */}
-          <div className="max-w-2xl mx-auto mb-8 sm:mb-10 overflow-hidden">
+          <div className="max-w-2xl mb-8 sm:mb-10 overflow-hidden">
             <img
               src={homeDripPhoto}
               alt="自宅のリビングでソファにくつろぎながら点滴を受ける女性"
@@ -454,7 +454,7 @@ export default function AppMansion() {
             />
           </div>
 
-          <div className="max-w-2xl mx-auto space-y-8 sm:space-y-10">
+          <div className="max-w-2xl space-y-8 sm:space-y-10">
 
             {/* なぜ、今「点滴ケア」なのか？ */}
             <div className="pl-[18px]">
