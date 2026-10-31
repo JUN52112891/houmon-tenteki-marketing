@@ -19,16 +19,15 @@ import doctorPhoto from './assets/images/白衣のプロフェッショナルポ
 import scenePhoto from './assets/images/hero_scene_v3.webp'
 import heroMobileFull from './assets/images/hero_mobile_full_v4.webp'
 import logoImage from './assets/images/logo-dr-concierge.png'
-import waitingManPhoto from './assets/images/時間待ちの男性.png'
 import suppliPhoto from './assets/images/suppli-banner.webp'
 import tentekiPhoto from './assets/images/iv-drip-banner.webp'
-import laptopDripPhoto from './assets/images/scene_laptop_drip_v2.png'
 import homeDripPhoto from './assets/images/scene_sofa_relax_drip.png'
 import recoveryMenuPhoto from './assets/images/scene_reading_drip_1790731821488.jpg'
 import concernStaminaPhoto from './assets/images/concern-stamina-golf.webp'
 import concernWorkPhoto from './assets/images/concern-work-performance.webp'
 import concernGolfTravelPhoto from './assets/images/concern-golf-travel.webp'
 import concernSkinPhoto from './assets/images/concern-skin-dullness.webp'
+import clinicComparisonTable from './assets/images/clinic_comparison_table.webp'
 
 interface FAQItem {
   question: string
@@ -44,7 +43,6 @@ export default function AppMansion() {
   }
 
   // Section 05: Comparison mode ("visit" | "clinic")
-  const [compareMode, setCompareMode] = useState<'visit' | 'clinic'>('clinic')
 
   // Section 06: Detailed Ingredients Accordion State
   const [isIngredientsOpen, setIsIngredientsOpen] = useState(false)
@@ -194,7 +192,7 @@ export default function AppMansion() {
           <nav className="max-w-[1140px] mx-auto px-6 h-[40px] flex items-center justify-center gap-4 xl:gap-6 flex-nowrap whitespace-nowrap">
             <a href="#about-intro" className="header-link text-[12.5px] xl:text-[13px] tracking-wide hover:text-[#143836] whitespace-nowrap">点滴という選択</a>
             <span className="text-[#D3C7B8] text-[10px] select-none">/</span>
-            <a href="#service-time" className="header-link text-[12.5px] xl:text-[13px] tracking-wide hover:text-[#143836] whitespace-nowrap">使う時間の違い</a>
+            <a href="#service-time" className="header-link text-[12.5px] xl:text-[13px] tracking-wide hover:text-[#143836] whitespace-nowrap">通院との比較</a>
             <span className="text-[#D3C7B8] text-[10px] select-none">/</span>
             <a href="#menu-detail" className="header-link text-[12.5px] xl:text-[13px] tracking-wide hover:text-[#143836] whitespace-nowrap">目的別メニュー・料金</a>
             <span className="text-[#D3C7B8] text-[10px] select-none">/</span>
@@ -226,7 +224,7 @@ export default function AppMansion() {
         {isMobileMenuOpen && (
           <div className="fixed top-16 right-4 left-4 z-[94] bg-[#FAF8F5] border border-[#E2D7CA] rounded-[16px] p-6 space-y-4 shadow-xl">
             <a href="#about-intro" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">点滴という選択</a>
-            <a href="#service-time" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">使う時間の違い</a>
+            <a href="#service-time" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">通院との比較</a>
             <a href="#menu-detail" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">目的別メニュー・料金</a>
             <a href="#resident-benefit" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">住民限定特典</a>
             <a href="#hair-treatment" onClick={() => setIsMobileMenuOpen(false)} className="block text-sm font-semibold text-[#53483E] py-1">訪問での薄毛治療</a>
@@ -522,351 +520,48 @@ export default function AppMansion() {
       </section>
 
       {/* ===================================================
-          03 | 通院のハードル (専用セクション)
+          03-04 | 通う点滴から、自宅でくつろぐ点滴へ
           =================================================== */}
-      <section id="clinic-barrier" className="py-8 sm:py-10 bg-[#F3ECE4]/70 border-b border-[#E2D7CA]/60">
+      <section id="service-time" className="py-8 sm:py-12 bg-white border-b border-[#E2D7CA]">
         <div className="max-w-[1040px] mx-auto px-6">
-          
+
           <div className="max-w-2xl mx-auto text-left">
-            <div className="border-l-2 border-[#8E6D42]/80 pl-4 py-0.5 text-left w-full">
-              <span className="text-xs font-bold tracking-[0.2em] text-[#8E6D42] uppercase block mb-1 font-serif">
-                03 THE BARRIER
+            <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full">
+              <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1 font-serif">
+                03 A NEW STANDARD
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl text-[#16120F] font-bold leading-tight">
-                点滴は受けたい。<br />
-                でも、通院は負担。
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
+                通う点滴から、<br />
+                自宅でくつろぐ点滴へ。
               </h2>
             </div>
             <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-relaxed text-left max-w-xl pl-4">
-              点滴を受けたいと思っても、移動の手間、待合室での待ち時間、身支度……。
-              忙しい日常の中でクリニックに足を運ぶこと自体が、大きな負担（タイムロス）になっていませんか？
+              クリニックに通うのではなく、医師・看護師があなたのご自宅へ。
+              <br className="hidden sm:block" />
+              移動や外出の準備に追われず、いつもの空間で、いつもの自分のままに。
+              <br className="hidden sm:block" />
+              点滴の時間を、自分らしくくつろぐひとときへと変える。
             </p>
-          </div>
-
-          {/* Waiting Man Image */}
-          <div className="mt-8 max-w-md sm:max-w-lg mx-auto overflow-hidden rounded-[20px] shadow-sm border border-[#E2D7CA] bg-white">
-            <img 
-              src={waitingManPhoto} 
-              alt="通院や待ち時間の負担" 
-              className="w-full h-auto object-cover max-h-[380px]"
-            />
-          </div>
-
-        </div>
-      </section>
-
-      {/* ===================================================
-          05 | 訪問点滴の提案・メリット
-          「同じ点滴でも、“使う時間”は大きく変わります。」
-          =================================================== */}
-      <section id="service-time" className="py-5 sm:py-12 bg-white border-b border-[#E2D7CA] relative overflow-hidden">
-        <div className="relative z-10 max-w-[1160px] mx-auto px-4 sm:px-6">
-          
-          <div className="mb-6 sm:mb-12 text-left">
-            <div className="border-l-2 border-[#143836]/60 pl-3.5 sm:pl-4 py-0.5 text-left w-full">
-              <span className="text-[11px] sm:text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1 font-serif">
-                04 A NEW STANDARD
-              </span>
-              <h2 className="font-serif text-xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
-                そんなあなたに、ご自宅へ伺う<br />
-                訪問点滴という形。
-              </h2>
-            </div>
-            <p className="text-[#53483E] text-[13px] sm:text-base mt-2.5 sm:mt-4 leading-relaxed text-left max-w-xl pl-3.5">
-              クリニックに通って順番を待つのではなく、医療があなたの空間へ出向く。
-              移動の手間や待ち時間をなくし、点滴の時間を自分らしい贅沢なひとときに変える。
-            </p>
-            <p className="font-serif text-base font-bold text-[#143836] mt-3 sm:mt-5 text-left pl-3.5">
-              それが本サービス、<br />
+            <p className="font-serif text-base font-bold text-[#143836] mt-5 text-left pl-4">
+              それが、訪問点滴サービス<br />
               Dr. concierge（ドクターコンシェルジュ）です。
             </p>
           </div>
 
-          {/* =========================================================
-              採用セクション:「同じ点滴でも、“使う時間”は大きく変わります。」
-              (インタラクティブ比較切り替え)
-              ========================================================= */}
-          <div className="bg-[#FAF8F5] rounded-[20px] sm:rounded-[24px] p-4 sm:p-8 mb-4 sm:mb-6 relative overflow-hidden">
-            
-            <div className="text-center mb-5 sm:mb-6">
-              <span className="text-[9.5px] sm:text-[10px] font-bold tracking-[0.2em] text-[#143836] uppercase font-serif block mb-1">
-                TIME VALUE COMPARISON
-              </span>
-              <h3 className="font-serif text-lg sm:text-2xl font-bold text-[#16120F]">
-                同じ点滴でも、“使う時間”は<br />大きく変わります。
-              </h3>
-            </div>
-
-            {/* 2-Button Interactive Tab Switcher */}
-            <div className="grid grid-cols-2 gap-2.5 sm:gap-4 max-w-2xl mx-auto mb-4 sm:mb-6">
-              {/* Tab 1: 一般的な通院 */}
-              <button
-                type="button"
-                onClick={() => setCompareMode('clinic')}
-                className={`p-3 sm:p-4 rounded-[16px] text-center border-2 transition-all cursor-pointer flex flex-col items-center justify-center gap-1.5 ${
-                  compareMode === 'clinic'
-                    ? 'bg-[#F7F3EE] border-[#8E6D42] shadow-sm'
-                    : 'bg-white/70 border-[#E2D7CA] hover:bg-white hover:border-[#D0C2B2] opacity-75'
-                }`}
-              >
-                <span className={`font-serif text-sm sm:text-lg font-bold tracking-tight whitespace-nowrap ${
-                  compareMode === 'clinic' ? 'text-[#16120F]' : 'text-[#6B5E52]'
-                }`}>
-                  一般的な通院
-                </span>
-                <span className={`text-[10px] sm:text-xs font-bold px-2.5 sm:px-3.5 py-0.5 sm:py-1 rounded-full whitespace-nowrap ${
-                  compareMode === 'clinic'
-                    ? 'bg-[#E4DCD0] text-[#5C4F42]'
-                    : 'bg-[#ECE5DC] text-[#7D6E60]'
-                }`}>
-                  3〜4時間拘束
-                </span>
-              </button>
-
-              {/* Tab 2: 当院の訪問点滴 */}
-              <button
-                type="button"
-                onClick={() => setCompareMode('visit')}
-                className={`p-3 sm:p-4 rounded-[16px] text-center border-2 transition-all cursor-pointer flex flex-col items-center justify-center gap-1.5 ${
-                  compareMode === 'visit'
-                    ? 'bg-white border-[#143836] shadow-sm'
-                    : 'bg-white/70 border-[#E2D7CA] hover:bg-white hover:border-[#D0C2B2] opacity-75'
-                }`}
-              >
-                <span className={`font-serif text-sm sm:text-lg font-bold tracking-tight whitespace-nowrap flex items-center gap-1 sm:gap-1.5 ${
-                  compareMode === 'visit' ? 'text-[#143836]' : 'text-[#6B5E52]'
-                }`}>
-                  <Sparkles className={`w-3.5 h-3.5 ${compareMode === 'visit' ? 'text-[#8E6D42]' : 'text-[#8E6D42]/60'}`} />
-                  <span>Dr. concierge</span>
-                </span>
-                <span className={`text-[10px] sm:text-xs font-bold px-2.5 sm:px-3.5 py-0.5 sm:py-1 rounded-full whitespace-nowrap ${
-                  compareMode === 'visit'
-                    ? 'bg-[#143836] text-white'
-                    : 'bg-[#ECE5DC] text-[#7D6E60]'
-                }`}>
-                  30分～60分で終了
-                </span>
-              </button>
-            </div>
-
-            {/* Interactive Visual Card Display */}
-            <div className="max-w-2xl mx-auto">
-              {compareMode === 'clinic' ? (
-                /* 従来の通院 */
-                <div className="bg-[#F8EDE3] border-2 border-[#A05A3C]/40 rounded-[18px] sm:rounded-[20px] p-3 sm:p-7 shadow-sm">
-                  {/* 8 Numbered Steps */}
-                  <div className="py-2 sm:py-6 space-y-1 sm:space-y-4">
-                    <div className="flex items-start gap-2.5 sm:gap-4">
-                      <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#A05A3C] text-white font-serif font-bold text-[11px] sm:text-sm flex items-center justify-center shrink-0 mt-0.5">
-                        1
-                      </span>
-                      <div>
-                        <span className="text-[13px] sm:text-base font-medium text-[#221D18] block">
-                          自宅を出る（身支度）
-                        </span>
-                        <span className="text-[11.5px] text-[#8A7B6C] block">
-                          着替えや身支度を済ませ、家を出発します。
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-2.5 sm:gap-4">
-                      <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#A05A3C] text-white font-serif font-bold text-[11px] sm:text-sm flex items-center justify-center shrink-0 mt-0.5">
-                        2
-                      </span>
-                      <div>
-                        <span className="text-[13px] sm:text-base font-medium text-[#221D18] block">
-                          クリニックへの移動
-                        </span>
-                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] block">
-                          電車やタクシーで移動します。
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-2.5 sm:gap-4">
-                      <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#A05A3C] text-white font-serif font-bold text-[11px] sm:text-sm flex items-center justify-center shrink-0 mt-0.5">
-                        3
-                      </span>
-                      <div>
-                        <span className="text-[13px] sm:text-base font-medium text-[#221D18] block">
-                          受付・問診票の記入
-                        </span>
-                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] block">
-                          受付と問診票の記入を行います。
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-2.5 sm:gap-4">
-                      <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#A05A3C] text-white font-serif font-bold text-[11px] sm:text-sm flex items-center justify-center shrink-0 mt-0.5">
-                        4
-                      </span>
-                      <div>
-                        <span className="text-[13px] sm:text-base font-medium text-[#221D18] block">
-                          待合室での待ち時間
-                        </span>
-                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] block">
-                          順番が来るまで待合室で待機。
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-2.5 sm:gap-4">
-                      <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#A05A3C] text-white font-serif font-bold text-[11px] sm:text-sm flex items-center justify-center shrink-0 mt-0.5">
-                        5
-                      </span>
-                      <div>
-                        <span className="text-[13px] sm:text-base font-medium text-[#221D18] block">
-                          医師の診察
-                        </span>
-                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] block">
-                          診察を受け、内容を確認します。
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-2.5 sm:gap-4">
-                      <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#A05A3C] text-white font-serif font-bold text-[11px] sm:text-sm flex items-center justify-center shrink-0 mt-0.5">
-                        6
-                      </span>
-                      <div>
-                        <span className="text-[13px] sm:text-base font-medium text-[#221D18] block">
-                          点滴の施術（約30〜60分）
-                        </span>
-                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] block">
-                          点滴台で点滴を受けます。
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-2.5 sm:gap-4">
-                      <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#A05A3C] text-white font-serif font-bold text-[11px] sm:text-sm flex items-center justify-center shrink-0 mt-0.5">
-                        7
-                      </span>
-                      <div>
-                        <span className="text-[13px] sm:text-base font-medium text-[#221D18] block">
-                          会計・次回の予約待ち
-                        </span>
-                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] block">
-                          会計と次回予約を行います。
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-2.5 sm:gap-4">
-                      <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#A05A3C] text-white font-serif font-bold text-[11px] sm:text-sm flex items-center justify-center shrink-0 mt-0.5">
-                        8
-                      </span>
-                      <div>
-                        <span className="text-[13px] sm:text-base font-medium text-[#221D18] block">
-                          自宅への帰宅
-                        </span>
-                        <span className="text-[11.5px] sm:text-[13px] text-[#8A7B6C] block">
-                          再び移動し、自宅へ戻ります。
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Takeaway Message */}
-                  <p className="font-serif font-bold text-2xl sm:text-3xl text-[#A05A3C] tracking-wide text-center mt-2 sm:mt-4">
-                    ⇒時間と労力のロス
-                  </p>
-                </div>
-              ) : (
-                /* 訪問点滴 */
-                <div className="bg-[#FAF8F5] border-2 border-[#143836] rounded-[18px] sm:rounded-[20px] p-3 sm:p-7 shadow-sm">
-                  {/* 4 Numbered Steps */}
-                  <div className="py-2 sm:py-5 space-y-1 sm:space-y-5">
-                    {/* Step 1 */}
-                    <div className="flex items-start gap-2.5 sm:gap-4">
-                      <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#143836] text-white font-serif font-bold text-[11px] sm:text-sm flex items-center justify-center shrink-0 mt-0.5">
-                        1
-                      </span>
-                      <div>
-                        <h5 className="font-serif font-bold text-[14px] sm:text-lg text-[#16120F]">
-                          医師がご自宅へ到着
-                        </h5>
-                        <p className="text-[11.5px] sm:text-[13px] text-[#6B5E52] leading-relaxed">
-                          外出の準備も、往復の移動も一切不要です。
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Step 2 */}
-                    <div className="flex items-start gap-2.5 sm:gap-4">
-                      <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#143836] text-white font-serif font-bold text-[11px] sm:text-sm flex items-center justify-center shrink-0 mt-0.5">
-                        2
-                      </span>
-                      <div>
-                        <h5 className="font-serif font-bold text-[14px] sm:text-lg text-[#16120F]">
-                          医師による対面診察
-                        </h5>
-                        <p className="text-[11.5px] sm:text-[13px] text-[#6B5E52] leading-relaxed">
-                          体調やご要望を確認し、最適な点滴をご提案します。
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Step 3 */}
-                    <div className="flex items-start gap-2.5 sm:gap-4">
-                      <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#143836] text-white font-serif font-bold text-[11px] sm:text-sm flex items-center justify-center shrink-0 mt-0.5">
-                        3
-                      </span>
-                      <div>
-                        <h5 className="font-serif font-bold text-[14px] sm:text-lg text-[#16120F]">
-                          いつもの空間で点滴
-                        </h5>
-                        <p className="text-[11.5px] sm:text-[13px] text-[#6B5E52] leading-relaxed">
-                          PC作業、読書、歓談など自由にお過ごしいただけます。
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Step 4 */}
-                    <div className="flex items-start gap-2.5 sm:gap-4">
-                      <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#143836] text-white font-serif font-bold text-[11px] sm:text-sm flex items-center justify-center shrink-0 mt-0.5">
-                        4
-                      </span>
-                      <div>
-                        <h5 className="font-serif font-bold text-[14px] sm:text-lg text-[#16120F]">
-                          終了・そのまま休息
-                        </h5>
-                        <p className="text-[11.5px] sm:text-[13px] text-[#6B5E52] leading-relaxed">
-                          点滴終了後は、そのまま自宅でリラックスできます。
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Lifestyle Photo */}
-                  <div className="mt-2 sm:mt-4 overflow-hidden rounded-[12px] sm:rounded-[14px] shadow-sm">
-                    <img
-                      src={laptopDripPhoto}
-                      alt="自宅のリビングでPC作業をしながら点滴を受ける様子"
-                      className="w-full h-auto object-cover max-h-[195px] sm:max-h-[260px]"
-                    />
-                  </div>
-
-                  {/* Note box */}
-                  <p className="text-[11px] sm:text-sm text-[#221D18] font-medium text-center mt-2 sm:mt-3">
-                    ✓ ノーメイクや部屋着のまま、リラックスした空間でお過ごしいただけます。
-                  </p>
-                </div>
-              )}
-            </div>
-
-            <p className="text-[10.5px] sm:text-[11px] text-[#827467] text-center mt-3 sm:mt-5">
-              ※点滴自体の投与時間は約30〜60分程度必要です。訪問点滴は施術時間を短縮するものではなく、移動や待機のストレスを省き、時間を有意義に過ごすための医療サービスです。
-            </p>
+          {/* Comparison Table */}
+          <div className="mt-8 max-w-2xl mx-auto overflow-hidden rounded-[20px] shadow-sm border border-[#E2D7CA]">
+            <img
+              src={clinicComparisonTable}
+              alt="通院との比較：待ち時間・移動・身支度・プライバシーの各項目でDr. conciergeが優れていることを示す比較表"
+              className="w-full h-auto object-cover"
+            />
           </div>
 
           <div className="mt-8 text-center">
-            <a 
-              href={LINE_URL} 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href={LINE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn--line btn--shimmer text-sm"
             >
               <MessageCircle className="w-4 h-4 text-[#06C755] shrink-0" />
@@ -879,9 +574,9 @@ export default function AppMansion() {
       </section>
 
       {/* ===================================================
-          06 | 目的別点滴メニュー・料金
-          07 | 担当医師の紹介
-          08 | 初回体験の案内
+          04 | 目的別点滴メニュー・料金
+          05 | 担当医師の紹介
+          07 | 初回体験の案内
           ※この3セクションを間に挟まず連続配置
           =================================================== */}
 
@@ -892,7 +587,7 @@ export default function AppMansion() {
           <div className="mb-12 text-left">
             <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full">
               <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1.5 font-serif">
-                05 DRIP MENUS & PRICING
+                04 DRIP MENUS & PRICING
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
                 目的別点滴メニュー・料金
@@ -1350,7 +1045,7 @@ export default function AppMansion() {
             <div className="lg:col-span-7 space-y-5">
               <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left">
                 <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1.5 font-serif">
-                  06 DOCTOR PROFILE
+                  05 DOCTOR PROFILE
                 </span>
                 <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#16120F] leading-tight whitespace-nowrap">
                   医師が直接ご自宅へ伺います
@@ -1414,7 +1109,7 @@ export default function AppMansion() {
       </section>
 
       {/* ===================================================
-          07 | 安全管理・安心して受けるための体制(価格オファーより先に安心材料を提示)
+          06 | 安全管理・安心して受けるための体制(価格オファーより先に安心材料を提示)
           =================================================== */}
       <section id="safety" className="pt-8 pb-10 sm:py-12 bg-[#FAF8F5] border-b border-[#E2D7CA]">
         <div className="max-w-[1040px] mx-auto px-6">
@@ -1422,7 +1117,7 @@ export default function AppMansion() {
           <div className="mb-12 text-left">
             <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full">
               <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1.5 font-serif">
-                07 SAFETY & QUALITY
+                06 SAFETY & QUALITY
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
                 安心して点滴を<br />
@@ -1519,7 +1214,7 @@ export default function AppMansion() {
           <div className="max-w-lg mx-auto mb-10 text-left">
             <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full">
               <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1.5 font-serif">
-                08 TRIAL OFFER
+                07 TRIAL OFFER
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
                 まずは一度、ご自宅で<br />
@@ -1604,7 +1299,7 @@ export default function AppMansion() {
       </section>
 
       {/* ===================================================
-          09 | 訪問の様子を紹介する動画
+          08 | 訪問の様子を紹介する動画
           =================================================== */}
       <section className="pt-8 pb-10 sm:py-12 bg-white border-b border-[#E2D7CA]">
         <div className="max-w-[960px] mx-auto px-6">
@@ -1612,7 +1307,7 @@ export default function AppMansion() {
           <div className="mb-10 text-left">
             <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full">
               <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1.5 font-serif">
-                09 CONCEPT MOVIE
+                08 CONCEPT MOVIE
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
                 訪問施術の様子を動画で見る
@@ -1641,7 +1336,7 @@ export default function AppMansion() {
       </section>
 
       {/* ===================================================
-          11 | ご利用の流れ (動画の直後に配置)
+          10 | ご利用の流れ (動画の直後に配置)
           =================================================== */}
       <section id="flow" className="pt-8 pb-10 sm:py-12 bg-[#FAF8F5] border-b border-[#E2D7CA]">
         <div className="max-w-[1040px] mx-auto px-6">
@@ -1649,7 +1344,7 @@ export default function AppMansion() {
           <div className="mb-14 text-left">
             <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full">
               <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1.5 font-serif">
-                10 HOW TO USE
+                09 HOW TO USE
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
                 ご利用の流れ
@@ -1755,7 +1450,7 @@ export default function AppMansion() {
       </section>
 
       {/* ===================================================
-          12 | よくある質問 (FAQ)
+          11 | よくある質問 (FAQ)
           =================================================== */}
       <section id="faq" className="pt-8 pb-10 sm:py-12 bg-white border-b border-[#E2D7CA]">
         <div className="max-w-[860px] mx-auto px-6">
@@ -1763,7 +1458,7 @@ export default function AppMansion() {
           <div className="mb-14 text-left">
             <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left">
               <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1.5 font-serif">
-                11 FAQ
+                10 FAQ
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
                 よくあるご質問
@@ -1816,7 +1511,7 @@ export default function AppMansion() {
       <section className="py-7 sm:py-9 bg-[#F3ECE4] border-b border-[#E2D7CA]">
         <div className="max-w-[860px] mx-auto px-6 text-center space-y-4">
           <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block font-serif">
-            12 SERVICE AREA
+            11 SERVICE AREA
           </span>
           <h2 className="font-serif text-2xl sm:text-3xl text-[#16120F] font-bold">
             往診対応エリア
@@ -1842,7 +1537,7 @@ export default function AppMansion() {
           <div className="mb-10 text-left">
             <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 text-left w-full">
               <span className="text-xs font-bold tracking-[0.2em] text-[#143836] uppercase block mb-1.5 font-serif">
-                13 CONTACT & RESERVATION
+                12 CONTACT & RESERVATION
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#16120F] font-bold leading-tight">
                 初回体験の予約・ご相談
