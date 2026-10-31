@@ -7,6 +7,7 @@ import {
   X, 
   Send,
   Menu,
+  Sparkles,
   MessageCircle,
   Calendar,
   ArrowRight,
@@ -43,6 +44,7 @@ export default function AppMansion() {
   // Section 05: Comparison mode ("visit" | "clinic")
 
   // Section 06: Detailed Ingredients Accordion State
+  const [isIngredientsOpen, setIsIngredientsOpen] = useState(false)
 
   // Section 06: Estimator calculator states
   const [estimateRegion, setEstimateRegion] = useState<number>(0)
@@ -592,9 +594,15 @@ export default function AppMansion() {
               </h2>
             </div>
             <p className="text-[#53483E] text-sm sm:text-base mt-4 leading-[2] tracking-[0.02em] text-left pl-4">
-              疲れが抜けにくい。忙しくても、良いコンディションを保ちたい。年齢に応じた美容と健康のケアを取り入れたい。
+              疲れが抜けにくい。<br className="sm:hidden" />
+              忙しくても、良いコンディションを保ちたい。<br className="sm:hidden" />
+              年齢に応じた美容と健康のケアを取り入れたい。
               <br className="hidden sm:block" />
-              お悩みや目的は、一人ひとり異なります。当サービスでは、日々のコンディション管理から、エイジングケアを意識したメンテナンスまで、ご希望に合わせて複数の点滴をご用意しています。当院おすすめの点滴3種をご紹介します。
+              お悩みや目的は、一人ひとり異なります。<br className="sm:hidden" />
+              当サービスでは、日々のコンディション管理から、<br className="sm:hidden" />
+              エイジングケアを意識したメンテナンスまで、<br className="sm:hidden" />
+              ご希望に合わせて複数の点滴をご用意しています。<br className="sm:hidden" />
+              当院おすすめの点滴3種をご紹介します。
             </p>
           </div>
 
@@ -621,14 +629,21 @@ export default function AppMansion() {
               </div>
 
               <p className="mt-4 pl-1 text-sm sm:text-base text-[#8E6D42] font-bold">
-                ── 蓄積した疲労をリセットし、本来のパフォーマンスを取り戻す
+                ── 蓄積した疲労をリセットし、<br className="sm:hidden" />
+                本来のパフォーマンスを取り戻す
               </p>
 
               <p className="mt-4 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
-                「しっかり休んだはずなのに疲れが抜けない」「頭がすっきりしない」……そんな現代特有の慢性的な疲労にアプローチするために開発された、当院オリジナルの特別メニューです。
+                「しっかり休んだはずなのに疲れが抜けない」<br className="sm:hidden" />
+                「頭がすっきりしない」……<br className="sm:hidden" />
+                そんな現代特有の慢性的な疲労に<br className="sm:hidden" />
+                アプローチするために開発された、<br className="sm:hidden" />
+                当院オリジナルの特別メニューです。
               </p>
               <p className="mt-3 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
-                厳選された6つの医療用有効成分をバランスよく配合し、<strong className="font-bold text-[#16120F]">サプリメントでは到達できない濃度で、ダイレクトに細胞へエネルギーを急速充電</strong>します。
+                厳選された6つの医療用有効成分を<br className="sm:hidden" />
+                バランスよく配合し、<br className="sm:hidden" />
+                <strong className="font-bold text-[#16120F]">サプリメントでは到達できない濃度で、<br className="sm:hidden" />ダイレクトに細胞へエネルギーを急速充電</strong>します。
               </p>
 
               <div className="mt-6 p-4 bg-white rounded-[10px] border border-[#E2D7CA] max-w-sm">
@@ -645,69 +660,82 @@ export default function AppMansion() {
                 </div>
               </div>
 
-              <div className="mt-6">
-                <p className="font-bold text-[#16120F] text-sm sm:text-base mb-3">
-                  ■ 贅沢に配合された「6つの贅沢成分」とその効果
-                </p>
-                <ol className="space-y-3.5">
-                  <li>
-                    <p className="text-sm sm:text-base text-[#16120F]">
-                      <span className="font-bold">1. グルタチオン</span>
-                      <span className="font-bold text-[#8E6D42]">　【強力デトックス・肝機能サポート】</span>
+              <div className="mt-6 bg-white border border-[#E2D7CA] rounded-[12px] overflow-hidden shadow-2xs">
+                <button
+                  type="button"
+                  onClick={() => setIsIngredientsOpen(!isIngredientsOpen)}
+                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 hover:bg-[#FAF8F5]/60 transition-colors cursor-pointer"
+                >
+                  <span className="flex items-center gap-2 font-bold text-[#16120F] text-sm sm:text-base">
+                    <Sparkles className="w-4 h-4 text-[#8E6D42] shrink-0" />
+                    ■ 贅沢に配合された「6つの贅沢成分」とその効果
+                  </span>
+                  <ChevronDown className={`w-4 h-4 text-[#827467] transition-transform duration-200 shrink-0 ${isIngredientsOpen ? 'rotate-180 text-[#8E6D42]' : ''}`} />
+                </button>
+
+                {isIngredientsOpen && (
+                  <div className="px-4 sm:px-5 pb-5 pt-1 border-t border-[#E2D7CA]">
+                    <ol className="space-y-3.5 mt-4">
+                      <li>
+                        <p className="text-sm sm:text-base text-[#16120F]">
+                          <span className="font-bold">1. グルタチオン</span>
+                          <span className="font-bold text-[#8E6D42]">　【強力デトックス・肝機能サポート】</span>
+                        </p>
+                        <p className="mt-1 pl-[1.4em] text-sm text-[#53483E] leading-[1.9]">
+                          疲労やストレスで生じる「活性酸素」を強力に除去。肝臓の働きを助け、身体に溜まった毒素や老廃物の排出（デトックス）を促します。
+                        </p>
+                      </li>
+                      <li>
+                        <p className="text-sm sm:text-base text-[#16120F]">
+                          <span className="font-bold">2. 高濃度ビタミンC</span>
+                          <span className="font-bold text-[#8E6D42]">　【細胞の抗酸化・免疫力UP】</span>
+                        </p>
+                        <p className="mt-1 pl-[1.4em] text-sm text-[#53483E] leading-[1.9]">
+                          免疫力を高め、酸化（サビつき）から身体を守ります。疲労で低下した気力と体力を底上げします。
+                        </p>
+                      </li>
+                      <li>
+                        <p className="text-sm sm:text-base text-[#16120F]">
+                          <span className="font-bold">3. ビタミンB群</span>
+                          <span className="font-bold text-[#8E6D42]">　【エネルギー産生・代謝促進】</span>
+                        </p>
+                        <p className="mt-1 pl-[1.4em] text-sm text-[#53483E] leading-[1.9]">
+                          食事をエネルギーに変えるために不可欠なビタミン。代謝をスムーズにし、身体の内側から「元気」を作り出します。
+                        </p>
+                      </li>
+                      <li>
+                        <p className="text-sm sm:text-base text-[#16120F]">
+                          <span className="font-bold">4. チオクト酸（αリポ酸）</span>
+                          <span className="font-bold text-[#8E6D42]">　【抗酸化・コンディションケア】</span>
+                        </p>
+                        <p className="mt-1 pl-[1.4em] text-sm text-[#53483E] leading-[1.9]">
+                          ビタミンCやEと並ぶ抗酸化力を持ち、疲労回復をサポートします。新陳代謝を促進するため、コンディションづくりにも寄与します。
+                        </p>
+                      </li>
+                      <li>
+                        <p className="text-sm sm:text-base text-[#16120F]">
+                          <span className="font-bold">5. グリチルリチン酸（強ミノ同等成分）</span>
+                          <span className="font-bold text-[#8E6D42]">　【肝機能サポート】</span>
+                        </p>
+                        <p className="mt-1 pl-[1.4em] text-sm text-[#53483E] leading-[1.9]">
+                          生薬の甘草（カンゾウ）由来の成分で、肝機能を保護・サポートします。忙しい日々が続く方の体調維持を支えます。
+                        </p>
+                      </li>
+                      <li>
+                        <p className="text-sm sm:text-base text-[#16120F]">
+                          <span className="font-bold">6. マグネシウム</span>
+                          <span className="font-bold text-[#8E6D42]">　【筋肉のコリ・神経の緊張緩和】</span>
+                        </p>
+                        <p className="mt-1 pl-[1.4em] text-sm text-[#53483E] leading-[1.9]">
+                          肩こりや慢性的な筋肉の疲労、緊張を和らげ、心身をリラックスへと導くミネラルです。
+                        </p>
+                      </li>
+                    </ol>
+                    <p className="mt-3 text-[11px] text-[#827467] leading-relaxed">
+                      ※成分の配合内容や投与量は、医師が問診・診察を行った上で個人の体調に合わせて調整いたします。
                     </p>
-                    <p className="mt-1 pl-[1.4em] text-sm text-[#53483E] leading-[1.9]">
-                      疲労やストレスで生じる「活性酸素」を強力に除去。肝臓の働きを助け、身体に溜まった毒素や老廃物の排出（デトックス）を促します。
-                    </p>
-                  </li>
-                  <li>
-                    <p className="text-sm sm:text-base text-[#16120F]">
-                      <span className="font-bold">2. 高濃度ビタミンC</span>
-                      <span className="font-bold text-[#8E6D42]">　【細胞の抗酸化・免疫力UP】</span>
-                    </p>
-                    <p className="mt-1 pl-[1.4em] text-sm text-[#53483E] leading-[1.9]">
-                      免疫力を高め、酸化（サビつき）から身体を守ります。疲労で低下した気力と体力を底上げします。
-                    </p>
-                  </li>
-                  <li>
-                    <p className="text-sm sm:text-base text-[#16120F]">
-                      <span className="font-bold">3. ビタミンB群</span>
-                      <span className="font-bold text-[#8E6D42]">　【エネルギー産生・代謝促進】</span>
-                    </p>
-                    <p className="mt-1 pl-[1.4em] text-sm text-[#53483E] leading-[1.9]">
-                      食事をエネルギーに変えるために不可欠なビタミン。代謝をスムーズにし、身体の内側から「元気」を作り出します。
-                    </p>
-                  </li>
-                  <li>
-                    <p className="text-sm sm:text-base text-[#16120F]">
-                      <span className="font-bold">4. チオクト酸（αリポ酸）</span>
-                      <span className="font-bold text-[#8E6D42]">　【抗酸化・コンディションケア】</span>
-                    </p>
-                    <p className="mt-1 pl-[1.4em] text-sm text-[#53483E] leading-[1.9]">
-                      ビタミンCやEと並ぶ抗酸化力を持ち、疲労回復をサポートします。新陳代謝を促進するため、コンディションづくりにも寄与します。
-                    </p>
-                  </li>
-                  <li>
-                    <p className="text-sm sm:text-base text-[#16120F]">
-                      <span className="font-bold">5. グリチルリチン酸（強ミノ同等成分）</span>
-                      <span className="font-bold text-[#8E6D42]">　【肝機能サポート】</span>
-                    </p>
-                    <p className="mt-1 pl-[1.4em] text-sm text-[#53483E] leading-[1.9]">
-                      生薬の甘草（カンゾウ）由来の成分で、肝機能を保護・サポートします。忙しい日々が続く方の体調維持を支えます。
-                    </p>
-                  </li>
-                  <li>
-                    <p className="text-sm sm:text-base text-[#16120F]">
-                      <span className="font-bold">6. マグネシウム</span>
-                      <span className="font-bold text-[#8E6D42]">　【筋肉のコリ・神経の緊張緩和】</span>
-                    </p>
-                    <p className="mt-1 pl-[1.4em] text-sm text-[#53483E] leading-[1.9]">
-                      肩こりや慢性的な筋肉の疲労、緊張を和らげ、心身をリラックスへと導くミネラルです。
-                    </p>
-                  </li>
-                </ol>
-                <p className="mt-3 text-[11px] text-[#827467] leading-relaxed">
-                  ※成分の配合内容や投与量は、医師が問診・診察を行った上で個人の体調に合わせて調整いたします。
-                </p>
+                  </div>
+                )}
               </div>
 
               <div className="mt-6 p-5 bg-white rounded-[12px] border border-[#E2D7CA]">
@@ -750,17 +778,24 @@ export default function AppMansion() {
               </div>
 
               <p className="mt-4 pl-1 text-sm sm:text-base text-[#B98A2E] font-bold">
-                ── 細胞レベルで若々しさを呼び覚ます、究極のウェルネスケア
+                ── 細胞レベルで若々しさを呼び覚ます、<br className="sm:hidden" />
+                究極のウェルネスケア
               </p>
 
               <p className="mt-4 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
-                NMN（ニコチンアミド・モノヌクレオチド）は、ビタミンB3の中に含まれる成分で、私たちの身体の「若々しさ」や「元気の源」を司る【長寿遺伝子（サーチュイン遺伝子）】を活性化させる物質として、今、世界中の研究者から注目を集めています。
+                NMN（ニコチンアミド・モノヌクレオチド）は、<br className="sm:hidden" />
+                ビタミンB3の中に含まれる成分で、<br className="sm:hidden" />
+                私たちの身体の「若々しさ」や「元気の源」を司る<br className="sm:hidden" />
+                【長寿遺伝子（サーチュイン遺伝子）】を活性化させる<br className="sm:hidden" />
+                物質として、今、世界中の研究者から注目を集めています。
               </p>
               <p className="mt-3 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
-                人は年齢を重ねると、体内のNMNが減少していき、それが体力低下や肌の衰えなどの「老化現象」につながります。
+                人は年齢を重ねると、体内のNMNが減少していき、<br className="sm:hidden" />
+                それが体力低下や肌の衰えなどの「老化現象」につながります。
               </p>
               <p className="mt-3 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
-                この減少してしまった若返り成分を、<strong className="font-bold text-[#16120F]">点滴によってダイレクトに、かつ高濃度で全身の細胞へ届ける</strong>のが「NMN点滴」です。
+                この減少してしまった若返り成分を、<br className="sm:hidden" />
+                <strong className="font-bold text-[#16120F]">点滴によってダイレクトに、<br className="sm:hidden" />かつ高濃度で全身の細胞へ<br className="sm:hidden" />届ける</strong>のが「NMN点滴」です。
               </p>
 
               <div className="mt-6 p-4 bg-white rounded-[10px] border border-[#E2D7CA] max-w-sm">
@@ -777,7 +812,7 @@ export default function AppMansion() {
               <div className="mt-6 p-5 bg-white rounded-[12px] border border-[#E2D7CA]">
                 <p className="font-bold text-[#B98A2E] text-sm sm:text-base mb-2">このような方に</p>
                 <ul className="space-y-1.5 text-sm text-[#53483E] leading-relaxed">
-                  <li>・脳のエイジングケア（集中力・思考力の向上、睡眠の質の改善）をしたい方</li>
+                  <li>・脳のエイジングケア<br className="sm:hidden" />（集中力・思考力の向上、睡眠の質の改善）をしたい方</li>
                   <li>・若い頃に比べて、体力や集中力が落ちたと感じる方</li>
                   <li>・忙しい日々が続き、慢性的な疲労感から抜け出せない方</li>
                   <li>・代謝を上げ、疲れにくい身体を目指したい方</li>
@@ -820,17 +855,25 @@ export default function AppMansion() {
               </div>
 
               <p className="mt-4 pl-1 text-sm sm:text-base text-[#B98A2E] font-bold">
-                ── 老化した組織に働きかける、再生医療由来の根本アプローチ
+                ── 老化した組織に働きかける、<br className="sm:hidden" />
+                再生医療由来の根本アプローチ
               </p>
 
               <p className="mt-4 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
-                幹細胞上清液（培養上清液）とは、幹細胞を培養する過程で分泌される、数百種類もの成長因子（サイトカイン）やエクソソームを含んだ液体成分です。
+                幹細胞上清液（培養上清液）とは、<br className="sm:hidden" />
+                幹細胞を培養する過程で分泌される、<br className="sm:hidden" />
+                数百種類もの成長因子（サイトカイン）や<br className="sm:hidden" />
+                エクソソームを含んだ液体成分です。
               </p>
               <p className="mt-3 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
-                細胞そのものを移植するのではなく、<strong className="font-bold text-[#16120F]">細胞が持つ「修復を促す情報」だけを濃縮して届ける</strong>ことで、身体がもともと持つ再生力・回復力へ働きかけるアプローチです。
+                細胞そのものを移植するのではなく、<br className="sm:hidden" />
+                <strong className="font-bold text-[#16120F]">細胞が持つ「修復を促す情報」だけを<br className="sm:hidden" />濃縮して届ける</strong>ことで、<br className="sm:hidden" />
+                身体がもともと持つ再生力・回復力へ<br className="sm:hidden" />
+                働きかけるアプローチです。
               </p>
               <p className="mt-3 text-sm sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
-                厳格な基準で管理された国産上清液を使用し、美容・体力・活力の根本的なケアをサポートします。
+                厳格な基準で管理された国産上清液を使用し、<br className="sm:hidden" />
+                美容・体力・活力の根本的なケアをサポートします。
               </p>
 
               <div className="mt-6 p-4 bg-white rounded-[10px] border border-[#E2D7CA] max-w-sm">
@@ -848,7 +891,7 @@ export default function AppMansion() {
                 <p className="font-bold text-[#B98A2E] text-sm sm:text-base mb-2">このような方に</p>
                 <ul className="space-y-1.5 text-sm text-[#53483E] leading-relaxed">
                   <li>・美容と健康の両面から、根本的なケアを求めている方</li>
-                  <li>・年齢に応じたコンディション低下が気になり始めた方</li>
+                  <li>・年齢に応じたコンディション低下が<br className="sm:hidden" />気になり始めた方</li>
                   <li>・最高峰のウェルネスケアに関心がある方</li>
                   <li>・これまでの点滴では物足りなさを感じている方</li>
                 </ul>
