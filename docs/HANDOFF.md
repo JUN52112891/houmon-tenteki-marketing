@@ -6,7 +6,10 @@ Dr. concierge(訪問点滴)LPの作業状況まとめ(2026-10-12時点)。新し
 
 - リポジトリ: `JUN52112891/houmon-tenteki-marketing`、作業ブランチは`main`(院長がAI Studioで公開・確認している)
 - LP本体: `src/App.tsx`(React/Vite/Tailwind v4構成)、スタイルは`src/index.css`
+- マンション住人専用LP: `src/AppMansion.tsx`(`mansion.html`)
+- **訪問AGA LP(新規・2026-11-02〜)**: `public/lp/houmon-aga/`(プレーンなHTML/CSS/JS、Reactではない。詳細は8章参照)
 - ローカル確認: `npm run dev`(ポート3000が埋まっていることが多いので`-- --host 127.0.0.1 --port 3100`を使うことが多かった)。**`--host 0.0.0.0`は使わない**(サンドボックスでブロックされる)
+- **このPC(院長のWindows機)には2026-11-02時点でGit・Node.js/npm・Claude Code CLI(ターミナル版)をwinget経由でインストール済み**。それ以前は`git`・`npm`コマンドがPATHに無く、push・ローカルビルドができなかった(4章の注意点も参照)
 - ブランド名は「Dr. concierge」「ドクターコンシェルジュ」に統一済み。正式名称「Dr. concierge by LIF SKIN CLINIC」はロゴ画像・フッターのみ
 - ヘッダー: PC版は`position: sticky`で上部固定。スマホ版はヘッダーバー自体を非表示にし、右上に浮かせたハンバーガーメニューのみ表示
 - ヒーロー(ファーストビュー): スマホ版は1枚絵の統合デザイン画像(`hero_mobile_full_v3.webp`、ロゴ・バッジ・見出し・価格カードまで全部入り)。PC版はテキスト+背景写真(`hero_scene_v3.webp`)の従来構成で別物
@@ -34,6 +37,9 @@ Dr. concierge(訪問点滴)LPの作業状況まとめ(2026-10-12時点)。新し
 - **フルブリード画像の二重ラップに注意**。`-mx-6`を持つラッパーdivの中の`<img>`に重ねて`calc(100%+3rem)`を指定すると、画面幅を超えて右にずれるバグになる(実際に発生・修正済み)。ラップ構造を変えたら`getBoundingClientRect()`で左右端を確認する。
 - **Windows PowerShellでnpmが実行できないことがある**(スクリプト実行ポリシー)。コマンドプロンプト(cmd)を使うか、`Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned`を案内する。
 - **git運用**: 院長から「マージしよう」と明示されるまでmainに直接マージしない。作業は`feature/*`ブランチを切ってコミット→push、指示があったらmainにマージ→push。マージ前に`git fetch origin`で`origin/main`が進んでいないか必ず確認する(Web版セッションや院長自身が直接mainにコミットしていることがある)。
+- **OneDrive配下でのgit commitが`fatal: cannot update the ref 'HEAD': unable to append to '.git/logs/HEAD'`で失敗することがある**(このプロジェクト自体がOneDrive同期フォルダ内にあるため)。`git config windows.appendAtomically false`を実行すれば解消する。
+- **git pushが`fatal: Cannot prompt because user interactivity has been disabled.`で失敗することがある**(この開発環境が`GIT_TERMINAL_PROMPT=0`・`GIT_ASKPASS`を設定しているため)。push直前に`Remove-Item Env:GIT_TERMINAL_PROMPT -ErrorAction SilentlyContinue; Remove-Item Env:GIT_ASKPASS -ErrorAction SilentlyContinue; $env:GCM_INTERACTIVE = "always"`を実行してからpushする。
+- **Vercelへのデプロイ方式がプロジェクトによって違う**。本プロジェクト(`dr-concierge-mansion`)はGitHub連携の自動デプロイ(pushすれば反映)。一方、姉妹リポジトリ`clinic-marketing`配下の`lp/hairloss-onyx`はGit連携が無く、**Vercel CLI(`npx vercel --prod --token=...`)での手動デプロイが必要**(`vercel git connect`で自動デプロイ化も可能だが未設定)。Vercelのアクセストークンは都度院長に発行してもらい、作業後は失効を案内すること。
 
 ## 5. LINE公式アカウント・エルメ運用状況(2026-10-28〜29)
 
@@ -74,3 +80,18 @@ LINE公式アカウント(Dr. コンシェルジュ)の実際の配信・リッ�
 - デザイン・検証の作法: `lp-mobile-craft` スキル(プロジェクト横断の汎用スキル。LP作業のたびに読み込む)
 - ブランド情報・遵守事項・未確定事項: `CLAUDE.md`
 - 料金体系: `docs/service-plans.md`
+
+## 8. 訪問AGA LP(`public/lp/houmon-aga/`)の新規作成(2026-11-02)
+
+クリニック本体(`clinic-marketing`リポジトリ)の既存AGA LP「hairloss-onyx」(https://hairloss-onyx.vercel.app/ 、ソースは`C:\Users\宇佐美潤\OneDrive\ドキュメント\clinic-marketing\lp\hairloss-onyx\`)をコピーし、Dr. concierge・訪問診療向けに改修したもの。公開URLは https://dr-concierge-mansion.vercel.app/lp/houmon-aga/ (`mansion.html`と同じVercelプロジェクトで、`public/`配下に置くことでVite経由で静的配信している)。
+
+- **技術構成がReactではない**: `src/App.tsx`等とは別物で、プレーンなHTML(`index.html`)+CSS(`css/style.css`)+JS(`js/main.js`)。画像・動画も`public/lp/houmon-aga/images|videos/`配下。CSSのクラス設計・配色変数(`--onyx`濃紺、`--champ`シャンパンゴールド等)はクリニック側オリジナルのままで、`src/index.css`のDr. concierge配色(`#143836`等)とは別系統。
+- **フレーム変更(クリニック版との違い)**: 訪問では施術前の頭皮洗浄(ハイドロスプラッシュ)・CO2ヘッドマッサージ・瞬間麻酔オプションを一切実施しないため、該当セクション(POINT01の動画、POINT03「瞬間麻酔」セクション丸ごと、施術スタイル比較表`#serum-style`)を全廃。「このような方に」等そのまま使える内容(症例写真・幹細胞培養上清液の製剤説明・料金)は文言のブランド差し替えのみで維持。詳細な経緯は本セッションの会話ログ参照。
+- **予約導線**: 外部予約システム(kireipass)は使わず、全CTAをDr. concierge公式LINE(`https://lin.ee/ybpyfYR`)に統一済み。
+- **PCレイアウトの調整**: 画面幅1000px以上で「左に固定の見出しパネル(`.aside`)、右に実コンテンツが流れる480px列(`.main`)」という左右分割デザイン(クリニック版オリジナルのまま踏襲)。院長の指摘で、右側コンテンツ列が画面右端に密着しすぎていたため`.stage`に`padding-right:64px`、左の見出しパネルも`.aside`の左paddingを32px追加(`56px 64px 56px 96px`)して右へ寄せた。`.sticky-bar`の位置式も連動して調整済み。クリニック本体の`hairloss-onyx`側にも同じ調整を先行して適用済み(`.scroll`バッジの位置復元含む)。
+- **要フォロー(院長確認が必要)**:
+  - POINT01に写真プレースホルダー設置([自宅で医師が訪問診療している様子の写真])。実写真が必要
+  - `images/interior.jpg`・`consult.png`・`anes.webp`等、クリニック施術室が写っている可能性のある写真がそのまま残っている。訪問版での使用可否を要確認
+  - POLICY欄の院長メッセージは新規の下書き(本人確認待ち、ファイル内に注記あり)
+  - GA4計測ID・構造化データ(JSON-LD)は未設定(クリニック本体のものを削除したのみ)
+  - `docs/service-plans.md`にはまだ訪問AGA(幹細胞培養上清液 頭皮注射)の料金が載っていない。現状はクリニック版の価格(初回3cc 83,160円等)をそのまま流用しているので、正式にサービス化する場合は`service-plans.md`側の追記を検討
