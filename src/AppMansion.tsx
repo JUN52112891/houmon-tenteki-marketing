@@ -786,17 +786,12 @@ export default function AppMansion() {
 
               <p className="mt-4 text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
                 NMN（ニコチンアミド・モノヌクレオチド）は、ビタミンB3の中に含まれる成分で、<br className="sm:hidden" />
-                私たちの身体の「若々しさ」や「元気の源」を司る<br className="sm:hidden" />
-                【長寿遺伝子（サーチュイン遺伝子）】を活性化させる物質として、<br className="sm:hidden" />
+                私たちの身体の「若々しさ」や「元気の源」を司る【長寿遺伝子（サーチュイン遺伝子）】を活性化させる物質として、<br className="sm:hidden" />
                 今、世界中の研究者から注目を集めています。
               </p>
               <p className="mt-3 text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
-                人は年齢を重ねると、体内のNMNが減少していき、<br className="sm:hidden" />
-                それが体力低下や肌の衰えなどの「老化現象」につながります。
-              </p>
-              <p className="mt-3 text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
-                この減少してしまった若返り成分を、<br className="sm:hidden" />
-                <strong className="font-bold text-[#16120F]">点滴によってダイレクトに、かつ高濃度で全身の細胞へ届ける</strong>のが「NMN点滴」です。
+                人は年齢を重ねると体内のNMNが減少していき、それが体力低下や肌の衰えなどの「老化現象」につながります。<br className="sm:hidden" />
+                この減少してしまった若返り成分を<strong className="font-bold text-[#16120F]">点滴によってダイレクトに、かつ高濃度で全身の細胞へ届ける</strong>のが「NMN点滴」です。
               </p>
 
               <div className="mt-6 p-4 bg-white rounded-[10px] max-w-sm">
@@ -1038,11 +1033,13 @@ export default function AppMansion() {
           =================================================== */}
       <section id="hair-treatment" className="py-7 sm:py-9 bg-[#F3ECE4]/70 border-b border-[#E2D7CA]/60">
         <div className="max-w-[860px] mx-auto px-6">
-          <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8">
             <div className="flex-1">
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#16120F] mb-2">
-                訪問での薄毛治療にも対応
-              </h2>
+              <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 mb-2">
+                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#16120F]">
+                  訪問での薄毛治療にも対応
+                </h2>
+              </div>
               <p className="text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
                 幹細胞培養上清液を用いた頭皮への注入治療です。男性・女性ともにご利用いただけます。
                 点滴メニューと同様、医師による診察のうえで実施可否・内容を判断いたします。
