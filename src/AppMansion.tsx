@@ -999,7 +999,7 @@ export default function AppMansion() {
                 For Residents ── TTT住民限定特典
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl text-[#16120F] font-bold leading-tight">
-                住民の皆さまだけの、特別なご案内
+                住民の皆さまだけの、<br className="sm:hidden" />特別なご案内
               </h2>
             </div>
           </div>
@@ -1018,10 +1018,10 @@ export default function AppMansion() {
               href={LINE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn--line btn--shimmer w-full text-center justify-center text-sm !py-3.5 gap-2"
+              className="btn btn--line btn--shimmer w-full text-center justify-center text-sm !py-3.5 gap-2 whitespace-nowrap"
             >
               <MessageCircle className="w-4 h-4 text-[#06C755] shrink-0" />
-              <span>公式LINEで会員プランを見る</span>
+              <span>LINEで会員プランを見る</span>
             </a>
           </div>
 
@@ -1042,7 +1042,8 @@ export default function AppMansion() {
               </div>
               <p className="text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
                 幹細胞培養上清液を用いた頭皮への注入治療です。男性・女性ともにご利用いただけます。
-                点滴メニューと同様、医師による診察のうえで実施可否・内容を判断いたします。
+                <br />
+                詳しくは以下のボタンから。
               </p>
               <p className="text-[11px] text-[#827467] leading-relaxed mt-2">
                 ※本メニューで使用する幹細胞培養上清液製剤は、国内で医薬品として承認されたものではありません。<a href="#regulatory" className="underline hover:text-[#8E6D42]">詳しくはこちら</a>
@@ -1069,7 +1070,7 @@ export default function AppMansion() {
                 className="btn btn--line text-xs !py-2.5 !px-5 whitespace-nowrap text-center justify-center gap-1.5"
               >
                 <MessageCircle className="w-3.5 h-3.5 text-[#06C755] shrink-0" />
-                <span>薄毛治療について質問する</span>
+                <span>薄毛治療について</span>
               </a>
             </div>
           </div>
