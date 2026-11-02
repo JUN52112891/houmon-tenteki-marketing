@@ -42,10 +42,10 @@ a{color:inherit}
 .aside{display:none}
 .main{background:var(--pearl);width:100%;max-width:520px;margin:0 auto;position:relative;overflow:hidden;padding-bottom:80px}
 @media (min-width:1000px){
-  .stage{grid-template-columns:1fr 480px;max-width:1360px;margin:0 auto}
-  .aside{display:flex;flex-direction:column;justify-content:space-between;position:sticky;top:0;height:100vh;padding:56px 64px;color:var(--pearl);overflow:hidden;border-right:1px solid var(--gline)}
+  .stage{grid-template-columns:1fr 480px;max-width:1360px;margin:0 auto;padding-right:64px}
+  .aside{display:flex;flex-direction:column;justify-content:space-between;position:sticky;top:0;height:100vh;padding:56px 64px 56px 96px;color:var(--pearl);overflow:hidden;border-right:1px solid var(--gline)}
   .main{max-width:none}
-  .sticky-bar{max-width:480px;left:auto!important;right:max(0px,calc((100vw - 1360px)/2))!important}
+  .sticky-bar{max-width:480px;left:auto!important;right:max(64px,calc((100vw - 1360px)/2 + 64px))!important}
 }
 .aside .orb{width:min(40vw,500px);right:-8%;top:16%}
 .aside h2{font-family:var(--jp-serif);font-weight:500;font-size:clamp(32px,3.2vw,48px);line-height:1.7;letter-spacing:.14em;position:relative;z-index:2}
@@ -386,7 +386,7 @@ footer{background:var(--onyx);color:var(--pearl);padding:36px 24px 44px;border-t
 .hero h1{margin:16px 0 0;font-size:33px;text-shadow:0 2px 30px rgba(0,0,0,.5)}
 .tate{position:absolute;right:20px;top:24px;writing-mode:vertical-rl;font-family:var(--jp-serif);font-size:12px;letter-spacing:.5em;color:rgba(236,233,228,.85);padding-top:44px}
 .tate::before{content:"";position:absolute;top:0;left:50%;width:1px;height:32px;background:var(--champ)}
-.scroll{position:absolute;right:16px;bottom:34px;font-family:var(--lat);font-style:italic;font-size:12px;letter-spacing:.2em;color:var(--champ-l);writing-mode:vertical-rl;padding:10px 9px 50px;border-radius:999px;background:rgba(15,14,13,.45);backdrop-filter:blur(3px)}
+.scroll{position:absolute;right:22px;bottom:40px;font-family:var(--lat);font-style:italic;font-size:12px;letter-spacing:.2em;color:var(--champ-l);writing-mode:vertical-rl;padding:10px 9px 50px;border-radius:999px;background:rgba(15,14,13,.45);backdrop-filter:blur(3px)}
 .scroll::after{content:"";position:absolute;bottom:10px;left:50%;width:1px;height:40px;background:linear-gradient(var(--champ),transparent);animation:drip 2.4s ease-in-out infinite}
 @keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 .hero-body{padding:6px 24px 52px}
