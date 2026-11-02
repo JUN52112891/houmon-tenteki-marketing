@@ -622,7 +622,7 @@ export default function AppMansion() {
 
             {/* Menu 1: プレミアムリカバリー点滴 */}
             <div className="-mx-6 sm:mx-0 bg-[#F3ECE4] p-6 sm:p-10">
-              <div className="overflow-hidden border border-[#8E6D42]/40">
+              <div className="-mx-6 sm:mx-0 overflow-hidden border border-[#8E6D42]/40">
                 <h3 className="sr-only">プレミアムリカバリー点滴</h3>
                 <img
                   src={menuBannerPremium}
@@ -770,7 +770,7 @@ export default function AppMansion() {
 
             {/* Menu 2: NMN点滴 */}
             <div className="-mx-6 sm:mx-0 bg-[#F3ECE4] p-6 sm:p-10">
-              <div className="overflow-hidden border border-[#B98A2E]/40">
+              <div className="-mx-6 sm:mx-0 overflow-hidden border border-[#B98A2E]/40">
                 <h3 className="sr-only">NMN点滴</h3>
                 <img
                   src={menuBannerNmn}
@@ -843,7 +843,7 @@ export default function AppMansion() {
 
             {/* Menu 3: 幹細胞上清液点滴 */}
             <div className="-mx-6 sm:mx-0 bg-[#F3ECE4] p-6 sm:p-10">
-              <div className="overflow-hidden border border-[#B98A2E]/40">
+              <div className="-mx-6 sm:mx-0 overflow-hidden border border-[#B98A2E]/40">
                 <h3 className="sr-only">幹細胞上清液点滴</h3>
                 <img
                   src={menuBannerStemcell}
