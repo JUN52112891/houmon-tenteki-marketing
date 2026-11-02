@@ -601,8 +601,8 @@ export default function AppMansion() {
               </h2>
             </div>
             <p className="text-[#53483E] text-base sm:text-base mt-4 leading-[2] tracking-[0.02em] text-left pl-4">
-              当サービスでは、日々のコンディション管理から、<br className="sm:hidden" />
-              エイジングケアを意識したメンテナンスまで、<br className="sm:hidden" />
+              当サービスでは、日々のコンディション管理から、
+              エイジングケアを意識したメンテナンスまで、
               ご希望に合わせて複数の点滴をご用意しています。
               <br />
               当院おすすめの点滴3種をご紹介します。
