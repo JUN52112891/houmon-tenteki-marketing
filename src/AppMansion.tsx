@@ -1053,15 +1053,6 @@ export default function AppMansion() {
               >
                 薄毛治療の詳細を見る
               </a>
-              <a
-                href={LINE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn--line text-xs !py-2.5 !px-5 whitespace-nowrap text-center justify-center gap-1.5"
-              >
-                <MessageCircle className="w-3.5 h-3.5 text-[#06C755] shrink-0" />
-                <span>薄毛治療について</span>
-              </a>
             </div>
           </div>
         </div>
