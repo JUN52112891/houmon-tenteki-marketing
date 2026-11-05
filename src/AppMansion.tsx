@@ -621,7 +621,7 @@ export default function AppMansion() {
           <div className="max-w-2xl mx-auto mt-14 sm:mt-16 space-y-14 sm:space-y-16">
 
             {/* Menu 1: プレミアムリカバリー点滴 */}
-            <div className="-mx-6 sm:mx-0 bg-[#F3ECE4] p-6 sm:p-10">
+            <div className="-mx-6 sm:mx-0 bg-[#F3ECE4]/50 p-6 sm:p-10">
               <div className="-mx-6 sm:mx-0 overflow-hidden border border-[#8E6D42]/40">
                 <h3 className="sr-only">プレミアムリカバリー点滴</h3>
                 <img
@@ -769,7 +769,7 @@ export default function AppMansion() {
             </div>
 
             {/* Menu 2: NMN点滴 */}
-            <div className="-mx-6 sm:mx-0 bg-[#F3ECE4] p-6 sm:p-10">
+            <div className="-mx-6 sm:mx-0 bg-[#F3ECE4]/50 p-6 sm:p-10">
               <div className="-mx-6 sm:mx-0 overflow-hidden border border-[#B98A2E]/40">
                 <h3 className="sr-only">NMN点滴</h3>
                 <img
@@ -842,7 +842,7 @@ export default function AppMansion() {
             </div>
 
             {/* Menu 3: 幹細胞上清液点滴 */}
-            <div className="-mx-6 sm:mx-0 bg-[#F3ECE4] p-6 sm:p-10">
+            <div className="-mx-6 sm:mx-0 bg-[#F3ECE4]/50 p-6 sm:p-10">
               <div className="-mx-6 sm:mx-0 overflow-hidden border border-[#B98A2E]/40">
                 <h3 className="sr-only">幹細胞上清液点滴</h3>
                 <img
@@ -1044,12 +1044,6 @@ export default function AppMansion() {
                 幹細胞培養上清液を用いた頭皮への注入治療です。男性・女性ともにご利用いただけます。
                 <br />
                 詳しくは以下のボタンから。
-              </p>
-              <p className="text-[11px] text-[#827467] leading-relaxed mt-2">
-                ※本メニューで使用する幹細胞培養上清液製剤は、国内で医薬品として承認されたものではありません。<a href="#regulatory" className="underline hover:text-[#8E6D42]">詳しくはこちら</a>
-              </p>
-              <p className="text-[11px] text-[#827467] leading-relaxed mt-1">
-                料金・施術内容の詳細は個別にご案内します。まずはお気軽にご相談ください。
               </p>
             </div>
             <div className="shrink-0 flex sm:flex-col gap-2.5">
