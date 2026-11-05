@@ -1035,19 +1035,24 @@ export default function AppMansion() {
       <section id="hair-treatment" className="py-7 sm:py-9 bg-[#F3ECE4]/70 border-b border-[#E2D7CA]/60">
         <div className="max-w-[860px] mx-auto px-6">
           <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8">
-            <div className="flex flex-row-reverse items-start gap-4 sm:contents">
-              <img
-                src={hairTreatmentDoctorPhoto}
-                alt="頭皮に施術を行う医師"
-                className="w-32 sm:w-28 aspect-[3/4] object-cover rounded-xl border border-[#8E6D42]/30 shrink-0 mx-auto sm:mx-0"
-              />
-              <div className="flex-1">
-                <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 mb-2">
-                  <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#16120F]">
-                    訪問での薄毛治療にも対応
-                  </h2>
-                </div>
-                <p className="text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
+            <img
+              src={hairTreatmentDoctorPhoto}
+              alt="頭皮に施術を行う医師"
+              className="hidden sm:block w-28 aspect-[3/4] object-cover rounded-xl border border-[#8E6D42]/30 shrink-0"
+            />
+            <div className="flex-1">
+              <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 mb-2">
+                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#16120F]">
+                  訪問での薄毛治療にも対応
+                </h2>
+              </div>
+              <div className="flex flex-row-reverse items-start gap-4 sm:block">
+                <img
+                  src={hairTreatmentDoctorPhoto}
+                  alt="頭皮に施術を行う医師"
+                  className="sm:hidden w-32 aspect-[3/4] object-cover rounded-xl border border-[#8E6D42]/30 shrink-0"
+                />
+                <p className="flex-1 text-base sm:text-base text-[#53483E] leading-[2] tracking-[0.02em]">
                   幹細胞培養上清液を用いた頭皮への注入治療です。男性・女性ともにご利用いただけます。
                   <br />
                   詳しくは以下のボタンから。
