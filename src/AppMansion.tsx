@@ -70,8 +70,8 @@ export default function AppMansion() {
   // 自動で「住人専用リッチメニュー」に切り替わる(エルメのQRコードアクション設定による)。
   const LINE_URL = "https://s.lmes.jp/landing-qr/2011153828-irjwVbkO?uLand=L8Cki4"
 
-  // 訪問薄毛治療: 将来的に専用LPを公開した際はここにURLを設定するとリンクが有効になる
-  const HAIR_TREATMENT_LP_URL = ""
+  // 訪問薄毛治療: マンション住人専用LP向けの訪問AGA LP(クリニック本体のhairloss-onyxを改修したもの)
+  const HAIR_TREATMENT_LP_URL = "https://dr-concierge-mansion.vercel.app/lp/houmon-aga/"
 
   const regionFees = [
     { name: '中央区 (Chuo-ku)', fee: 0, desc: '基本エリア・往診料無料' },
@@ -1047,16 +1047,12 @@ export default function AppMansion() {
               </p>
             </div>
             <div className="shrink-0 flex sm:flex-col gap-2.5">
-              {HAIR_TREATMENT_LP_URL ? (
-                <a
-                  href={HAIR_TREATMENT_LP_URL}
-                  className="btn btn--gold text-xs !py-2.5 !px-5 whitespace-nowrap text-center justify-center"
-                >
-                  薄毛治療の詳細を見る
-                </a>
-              ) : (
-                <span className="text-[11px] text-[#A8988A] whitespace-nowrap">専用ページは準備中です</span>
-              )}
+              <a
+                href={HAIR_TREATMENT_LP_URL}
+                className="btn btn--gold text-xs !py-2.5 !px-5 whitespace-nowrap text-center justify-center"
+              >
+                薄毛治療の詳細を見る
+              </a>
               <a
                 href={LINE_URL}
                 target="_blank"
