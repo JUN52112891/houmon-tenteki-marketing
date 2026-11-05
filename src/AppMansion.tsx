@@ -798,7 +798,7 @@ export default function AppMansion() {
                 <div className="flex items-baseline justify-between">
                   <span className="text-xs text-[#827467]">料金</span>
                   <div className="flex items-baseline gap-1">
-                    <span className="font-serif text-lg font-bold text-[#B98A2E]">¥44,000〜</span>
+                    <span className="font-serif text-lg font-bold text-[#143836]">¥44,000〜</span>
                     <span className="text-[11px] text-[#827467]">（税込・往診料込）</span>
                   </div>
                 </div>
@@ -875,7 +875,7 @@ export default function AppMansion() {
                 <div className="flex items-baseline justify-between">
                   <span className="text-xs text-[#827467]">料金</span>
                   <div className="flex items-baseline gap-1">
-                    <span className="font-serif text-lg font-bold text-[#B98A2E]">¥99,000〜</span>
+                    <span className="font-serif text-lg font-bold text-[#143836]">¥99,000〜</span>
                     <span className="text-[11px] text-[#827467]">（税込・往診料込）</span>
                   </div>
                 </div>
