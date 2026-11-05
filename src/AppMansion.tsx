@@ -34,6 +34,7 @@ import menuBannerNmn from './assets/images/menu-banner-nmn.png'
 import menuPhotoNmn from './assets/images/menu-photo-nmn.png'
 import menuBannerStemcell from './assets/images/menu-banner-stemcell.png'
 import menuPhotoStemcell from './assets/images/menu-photo-stemcell.png'
+import hairTreatmentDoctorPhoto from './assets/images/hair-treatment-doctor.png'
 
 interface FAQItem {
   question: string
@@ -1034,6 +1035,11 @@ export default function AppMansion() {
       <section id="hair-treatment" className="py-7 sm:py-9 bg-[#F3ECE4]/70 border-b border-[#E2D7CA]/60">
         <div className="max-w-[860px] mx-auto px-6">
           <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8">
+            <img
+              src={hairTreatmentDoctorPhoto}
+              alt="頭皮に施術を行う医師"
+              className="w-24 sm:w-28 aspect-[3/4] object-cover rounded-xl border border-[#8E6D42]/30 shrink-0 mx-auto sm:mx-0"
+            />
             <div className="flex-1">
               <div className="border-l-2 border-[#143836]/60 pl-4 py-0.5 mb-2">
                 <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#16120F]">
