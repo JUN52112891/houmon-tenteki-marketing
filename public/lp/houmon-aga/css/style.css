@@ -394,7 +394,7 @@ footer{background:var(--onyx);color:var(--pearl);padding:36px 24px 44px;border-t
 .hero .price-card{margin-top:34px}
 
 .aside{isolation:isolate}
-.aside-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:.55}
+.aside-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:80% center;z-index:-2;opacity:.55}
 .aside::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(15,14,13,.92) 0%,rgba(15,14,13,.55) 60%,rgba(15,14,13,.8) 100%)}
 
 .serum-still{position:relative;margin:4px -24px 34px}
