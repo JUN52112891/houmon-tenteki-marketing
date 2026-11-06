@@ -67,9 +67,12 @@ export default function AppMansion() {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   // 公式LINE遷移リンク
-  // マンション住人専用のQRコードアクション経由URL(エルメ)。このURL経由で友だち追加すると
-  // 自動で「住人専用リッチメニュー」に切り替わる(エルメのQRコードアクション設定による)。
-  const LINE_URL = "https://s.lmes.jp/landing-qr/2011153828-irjwVbkO?uLand=L8Cki4"
+  // 本来はマンション住人専用のQRコードアクション経由URL(エルメ)を使う予定だが、
+  // LIFF認証チャンネルが未公開のため「400 Bad Request」エラーになる(エルメに問い合わせ中)。
+  // 直るまでの暫定措置として通常の友だち追加リンクに戻す。現在は「住人専用リッチメニュー」を
+  // 全員向けデフォルトに設定しているため、このリンクで友だち追加しても住人専用メニューが表示される。
+  // エルメ側の公開対応が完了したら、QRコードアクションURL(https://s.lmes.jp/landing-qr/2011153828-irjwVbkO?uLand=L8Cki4)に戻す。
+  const LINE_URL = "https://lin.ee/ybpyfYR"
 
   // 訪問薄毛治療: マンション住人専用LP向けの訪問AGA LP(クリニック本体のhairloss-onyxを改修したもの)
   const HAIR_TREATMENT_LP_URL = "https://dr-concierge-mansion.vercel.app/lp/houmon-aga/"
