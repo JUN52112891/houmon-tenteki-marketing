@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>住民限定・定期会員プラン｜Dr. concierge</title>
+<meta name="description" content="マンション住民の皆さま限定、訪問点滴の定期会員プラン(ライト・スタンダード・プレミアム)のご案内。通常価格より10%OFFでご利用いただけます。" />
+<meta name="robots" content="noindex, nofollow" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="住民限定・定期会員プラン｜Dr. concierge" />
+<meta property="og:description" content="マンション住民の皆さま限定、訪問点滴の定期会員プラン(ライト・スタンダード・プレミアム)のご案内。" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;600;700&family=Zen+Old+Mincho:wght@400;500;600;700;900&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --teal:#143836;
+    --gold:#8E6D42;
+    --gold-light:#C5A880;
+    --ivory:#FAF8F5;
+    --linen:#F3ECE4;
+    --ink-deep:#16120F;
+    --ink-soft:#53483E;
+    --ink-muted:#827467;
+    --line:#E2D7CA;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--ink-deep);
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    line-height:1.95;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Zen Old Mincho', serif;
+    color:var(--ink-deep);
+    line-height:1.6;
+    margin:0;
+    font-weight:600;
+  }
+  .em{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+  }
+  .wrap{max-width:640px;margin:0 auto;padding:0 24px}
+
+  /* Header */
+  .header{
+    text-align:center;
+    padding:40px 24px 28px;
+    border-bottom:1px solid var(--line);
+  }
+  .header .brand{
+    font-family:'Zen Old Mincho', serif;
+    font-size:20px;
+    letter-spacing:.08em;
+    color:var(--teal);
+  }
+  .header .brand-jp{
+    display:block;
+    margin-top:4px;
+    font-size:11px;
+    letter-spacing:.3em;
+    color:var(--gold);
+  }
+
+  /* Intro */
+  .intro{
+    padding:48px 24px 8px;
+    text-align:left;
+  }
+  .tagline{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:14px;
+  }
+  .tagline .en{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:14px;
+    letter-spacing:.06em;
+    color:var(--gold);
+    white-space:nowrap;
+  }
+  .tagline .rule{
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+  .intro h1{
+    font-size:26px;
+    letter-spacing:.04em;
+  }
+  .intro p{
+    margin:16px 0 0;
+    font-size:15px;
+    color:var(--ink-soft);
+    letter-spacing:.03em;
+  }
+  .intro .badge{
+    display:inline-block;
+    margin-top:18px;
+    padding:6px 14px;
+    border:1px solid var(--gold-light);
+    border-radius:999px;
+    font-size:12px;
+    letter-spacing:.1em;
+    color:var(--gold);
+  }
+
+  /* Plan cards */
+  .plans{
+    padding:32px 24px 8px;
+    display:flex;
+    flex-direction:column;
+    gap:40px;
+  }
+  .plan-card img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:14px;
+    border:1px solid var(--line);
+  }
+  .plan-card .cta{
+    display:block;
+    margin:16px auto 0;
+    max-width:360px;
+    text-align:center;
+    padding:14px 20px;
+    background:var(--teal);
+    color:var(--ivory);
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:.06em;
+    border-radius:4px;
+    transition:opacity .2s;
+  }
+  .plan-card .cta:active{opacity:.8}
+
+  /* Final CTA */
+  .final-cta{
+    margin:56px 24px 0;
+    padding:32px 24px;
+    background:var(--linen);
+    border-radius:4px;
+    text-align:center;
+  }
+  .final-cta p{
+    margin:0 0 18px;
+    font-size:14px;
+    color:var(--ink-soft);
+    letter-spacing:.03em;
+  }
+  .final-cta .line-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 32px;
+    background:#06C755;
+    color:#fff;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:700;
+    border-radius:999px;
+  }
+
+  /* Disclosure */
+  .disclosure{
+    margin-top:56px;
+    padding:28px 24px 40px;
+    border-top:1px solid var(--line);
+  }
+  .disclosure h3{
+    font-size:14px;
+    color:var(--teal);
+    margin-bottom:16px;
+  }
+  .disclosure .block{
+    margin-bottom:18px;
+  }
+  .disclosure .block:last-child{margin-bottom:0}
+  .disclosure .block h4{
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    font-size:12px;
+    font-weight:700;
+    color:var(--ink-deep);
+    margin-bottom:6px;
+  }
+  .disclosure dl{
+    margin:0;
+    font-size:11px;
+    color:var(--ink-muted);
+    line-height:1.8;
+  }
+  .disclosure dt{
+    font-weight:700;
+    color:var(--ink-soft);
+  }
+  .disclosure dd{
+    margin:0 0 8px;
+  }
+  .disclosure .note{
+    font-size:11px;
+    color:var(--ink-muted);
+    margin-top:16px;
+  }
+
+  footer{
+    padding:24px;
+    text-align:center;
+    font-size:11px;
+    color:var(--ink-muted);
+  }
+
+  @media (min-width:640px){
+    .intro h1{font-size:30px}
+    .plans{gap:48px}
+  }
+</style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="brand">Dr. concierge<span class="brand-jp">RESIDENTS EXCLUSIVE PLAN</span></div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="intro">
+      <div class="tagline">
+        <span class="en">Residents Plan</span>
+        <span class="rule"></span>
+      </div>
+      <h1>住民限定<br>・定期会員プラン</h1>
+      <p>
+        当マンションにお住まいの皆さまには、訪問点滴の定期会員プランを<br>
+        通常価格より<span class="em">10%OFF</span>でご案内しております。<br>
+        ライフスタイルに合わせて、3つのプランをご用意しました。
+      </p>
+      <span class="badge">RESIDENTS EXCLUSIVE · 10% OFF</span>
+    </section>
+
+    <section class="plans">
+
+      <div class="plan-card">
+        <img src="images/plan-light.png" alt="ライトプラン 月2回訪問 住民限定価格89,100円/月 プレミアムリカバリー点滴2回・NMN点滴150mg 1回を含む" loading="lazy">
+        <a class="cta" href="https://lin.ee/ybpyfYR" target="_blank" rel="noopener noreferrer">ライトプランについて相談する</a>
+      </div>
+
+      <div class="plan-card">
+        <img src="images/plan-standard.png" alt="スタンダードプラン 月4回訪問 住民限定価格148,500円/月 プレミアムリカバリー点滴4回・NMN点滴150mg 2回を含む" loading="lazy">
+        <a class="cta" href="https://lin.ee/ybpyfYR" target="_blank" rel="noopener noreferrer">スタンダードプランについて相談する</a>
+      </div>
+
+      <div class="plan-card">
+        <img src="images/plan-premium.png" alt="プレミアムプラン 月4回訪問 住民限定価格237,600円/月 プレミアムリカバリー点滴4回・幹細胞培養上清液点滴3cc 2回を含む" loading="lazy">
+        <a class="cta" href="https://lin.ee/ybpyfYR" target="_blank" rel="noopener noreferrer">プレミアムプランについて相談する</a>
+      </div>
+
+    </section>
+
+    <div class="final-cta">
+      <p>ご不明点やご質問は、公式LINEよりお気軽にお問い合わせください。<br>内容を確認のうえ、個別にご案内いたします。</p>
+      <a class="line-btn" href="https://lin.ee/ybpyfYR" target="_blank" rel="noopener noreferrer">LINEで相談する</a>
+    </div>
+
+    <section class="disclosure">
+      <h3>医療広告ガイドラインおよび安全性に関する公的開示事項</h3>
+
+      <div class="block">
+        <h4>NMN点滴について(ライト・スタンダードプランに含まれます)</h4>
+        <dl>
+          <dt>医薬品医療機器等法上の位置づけ(未承認医薬品)</dt>
+          <dd>本メニューで使用するNMN製剤は、日本国内で医薬品として承認されたものではありません。</dd>
+          <dt>入手経路等について</dt>
+          <dd>国内の製造元より国産の製剤を仕入れて使用しております。</dd>
+          <dt>国内の同一性能を有する承認医薬品等の有無</dt>
+          <dd>ビタミンC・ビタミンB群など個別の成分には国内承認医薬品がありますが、NMN製剤そのもの、または同一配合での承認医薬品はありません。</dd>
+          <dt>諸外国における安全性等に係る情報</dt>
+          <dd>海外においてもNMNを注射剤として承認した医薬品はなく、ヒトでの静脈内投与に関する研究は限られています。国内の臨床研究では、300mgの静脈内投与で主要な臓器に明らかな影響は認められなかったと報告されています。</dd>
+        </dl>
+      </div>
+
+      <div class="block">
+        <h4>幹細胞培養上清液点滴について(プレミアムプランに含まれます)</h4>
+        <dl>
+          <dt>医薬品医療機器等法上の位置づけ(未承認医薬品)</dt>
+          <dd>本メニューで使用する幹細胞培養上清液製剤は、日本国内で医薬品として承認されたものではありません。</dd>
+          <dt>入手経路等について</dt>
+          <dd>国内の製造元より国産の製剤を仕入れて使用しております。</dd>
+          <dt>国内の同一性能を有する承認医薬品等の有無</dt>
+          <dd>本邦において同一の成分・性能を有する承認医薬品は存在しません。</dd>
+          <dt>諸外国における安全性等に係る情報</dt>
+          <dd>米国FDA等においても、幹細胞由来成分(エクソソームを含む)を治療目的で使用することを承認した製品は現時点でありません。</dd>
+        </dl>
+      </div>
+
+      <p class="note">
+        ※本プランは自由診療です。効果・実感には個人差があります。<br>
+        ※点滴の実施可否・内容は、医師の問診・診察のうえで判断します。初回は医師が訪問し、2回目以降は医師の指示のもと看護師が訪問・実施する場合があります。<br>
+        ※規定回数を超える追加のご利用については、別途単発メニューの料金がかかります。
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    Dr. concierge by LIF SKIN CLINIC ／ 院長 宇佐美 潤(麻酔科専門医 / 心臓血管麻酔専門医)
+  </footer>
+
+</body>
+</html>
